@@ -206,10 +206,16 @@
       <div class="image-container">
         <img
           *ngIf="simpi.thumbnailUrl"
-          [src]="simpi.thumbnailUrl"
+          [src]="simpi.thumbnailUrl" 
           alt="SIMPI thumbnail"
           class="simpi-thumbnail"
         />
+        <div
+          *ngIf="!simpi.thumbnailUrl"
+          class="simpi-thumbnail default-thumbnail"
+          [style.background-color]="simpi.iconColor || '#cecece'"
+        >
+        </div>
         <div
           class="circle-icon-button change-image-button"
           (click)="changeSimpiThumbnailClicked()"

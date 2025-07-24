@@ -45,17 +45,31 @@ h2 {
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 24px;
+
+  .main-col {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
 
   div.simpi-thumbnail {
     div.image-container {
       margin-bottom: 15px;
     }
 
-    img.simpi-thumbnail {
+    img.simpi-thumbnail,
+    div.simpi-thumbnail.default-thumbnail {
       height: 269px;
       width: 168px;
+    }
+
+    div.simpi-thumbnail.default-thumbnail {
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .simpiThumbnailChangeResult {
@@ -77,6 +91,9 @@ h2 {
 .forms {
   margin-left: auto;
   margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Match the height of the thumbnail column */
 
   .simpi-title-form {
     margin-bottom: 32px;
@@ -98,6 +115,21 @@ h2 {
 
   .simpi-description-form {
     margin-bottom: 16px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    sim-text-input {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
 
     .simpi-description-change-result {
       margin-left: 16px;
