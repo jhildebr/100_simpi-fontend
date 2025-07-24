@@ -12,6 +12,17 @@ export class ProductListComponent implements OnInit {
   @Input()
   public products: ProductResponse[];
 
+  public get sortedProducts(): ProductResponse[] {
+    if (!this.products) {
+      return [];
+    }
+    return [...this.products].sort((a, b) => {
+      const nameA = a.productName?.toLowerCase() || '';
+      const nameB = b.productName?.toLowerCase() || '';
+      return nameA.localeCompare(nameB);
+    });
+  }
+
   @Output()
   public onSelectProduct: EventEmitter<string> = new EventEmitter<string>();
 
@@ -20,6 +31,10 @@ export class ProductListComponent implements OnInit {
   constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
+  }
+
+  selectProduct(productId: string): void {
+    this.selectedProductId = productId;
   }
 
   onConfirmSelection(): void {

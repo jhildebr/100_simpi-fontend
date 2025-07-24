@@ -24,6 +24,7 @@
       [stepForm]="stepForm"
       [selectedStep]="selectedStep$ | async"
       [errorLoadingData]="errorLoadingData$ | async"
+      [brandAlias]="brandAlias"
       (reloadData)="onReloadData()"
       (stepMediaChanged)="uploadAndApplyNewStepMedia($event)"
       (stepMediaUploaded)="persistUploadedStepMedia($event)"

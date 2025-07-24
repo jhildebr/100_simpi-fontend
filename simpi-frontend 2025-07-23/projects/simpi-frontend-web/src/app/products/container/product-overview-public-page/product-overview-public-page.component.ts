@@ -29,9 +29,9 @@ import {SimpiGroup} from '../../../../../../simpi-frontend-common/src/lib/models
       <footer class="footer">
         <div class="d-flex flex-column flex-md-row h-100 align-items-center-sm">
           <div>
-            <a href="https://www.simpi.me/imprint">Impressum</a>
+            <a href="https://www.simpi.com/imprint">Impressum</a>
             |
-            <a href="https://www.simpi.me/data-privacy">Datenschutzbestimmungen</a>
+            <a href="https://www.simpi.com/data-privacy">Datenschutzbestimmungen</a>
           </div>
           <div class="ml-auto"></div>
           <div>

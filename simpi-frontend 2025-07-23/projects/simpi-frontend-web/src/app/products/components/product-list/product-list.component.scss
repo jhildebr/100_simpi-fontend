@@ -18,3 +18,87 @@
         }
     }
 }
+
+.product-selection-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .selection-label {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--simpi-color-dark-blue-7, #1c1a3b);
+        margin: 0;
+    }
+
+    .product-list-box {
+        background-color: var(--simpi-white, #ffffff);
+        border: 1px solid var(--simpi-color-dark-blue-8, #020205);
+        border-radius: 8px;
+        padding: 7px 11px;
+        min-height: 45px;
+        max-height: 200px;
+        overflow-y: auto;
+        position: relative;
+        
+        &:focus-within {
+            border-color: var(--simpi-color-blue, #2ac2d6);
+            outline: none;
+        }
+
+        .placeholder {
+            color: var(--simpi-color-dark-blue-4, #9c9ca8);
+            font-size: 16px;
+            font-style: italic;
+            display: flex;
+            align-items: center;
+            min-height: 31px;
+        }
+
+        .product-options {
+            .product-option {
+                padding: 8px 12px;
+                margin: -7px -11px 0 -11px;
+                cursor: pointer;
+                font-size: 16px;
+                color: var(--simpi-color-dark-blue-7, #1c1a3b);
+                transition: background-color 0.2s ease;
+                border-radius: 4px;
+                
+                &:hover {
+                    background-color: var(--simpi-color-light-blue, #9699f4);
+                    color: white;
+                }
+
+                &.selected {
+                    background-color: var(--simpi-color-blue, #2ac2d6);
+                    color: white;
+                    font-weight: 500;
+                }
+
+                &:first-child {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+
+    // Custom scrollbar styling
+    .product-list-box::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .product-list-box::-webkit-scrollbar-track {
+        background: var(--simpi-color-dark-blue-1, #f8f8fa);
+        border-radius: 3px;
+    }
+
+    .product-list-box::-webkit-scrollbar-thumb {
+        background: var(--simpi-color-dark-blue-3, #d3d2d9);
+        border-radius: 3px;
+        
+        &:hover {
+            background: var(--simpi-color-dark-blue-4, #9c9ca8);
+        }
+    }
+}

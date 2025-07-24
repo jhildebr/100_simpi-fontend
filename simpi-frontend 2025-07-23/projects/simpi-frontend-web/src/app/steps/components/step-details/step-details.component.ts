@@ -70,6 +70,9 @@ export class StepDetailsComponent
   @Input()
   public stepForm: FormGroup;
 
+  @Input()
+  public brandAlias: string;
+
   @Output()
   public reloadData: EventEmitter<any> = new EventEmitter<any>();
 

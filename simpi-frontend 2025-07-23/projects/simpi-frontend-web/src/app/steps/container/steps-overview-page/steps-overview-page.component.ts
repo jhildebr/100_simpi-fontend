@@ -56,6 +56,7 @@ export class StepsOverviewPageComponent implements OnInit, OnDestroy, AfterViewI
   private _componentActive: boolean = false;
   private _simpiId: string;
   private _simpiAlias: string;
+  private _brandAlias: string;
   private _selectedStep: StepResponse;
   private _overlayRef: OverlayRef;
   private _componentRef: ComponentRef<WebplayerComponent>;
@@ -74,6 +75,10 @@ export class StepsOverviewPageComponent implements OnInit, OnDestroy, AfterViewI
 
   @ViewChild(StepDetailsComponent)
   public stepDetails: StepDetailsComponent;
+
+  public get brandAlias(): string {
+    return this._brandAlias;
+  }
 
   constructor(
     private router: Router,
@@ -106,6 +111,7 @@ export class StepsOverviewPageComponent implements OnInit, OnDestroy, AfterViewI
       .pipe(takeWhile(() => this._componentActive))
       .subscribe((params) => {
         this._simpiAlias = params.simpiAlias;
+        this._brandAlias = params.brandAlias;
         if (params.simpiAlias === 'new-simpi') {
           this.isActionInProgress = true;
           this.createNewSimpi(params.brandAlias, params.productAlias)

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
-import { StepResponse } from '../../../../../../simpi-frontend-common/src/lib/models';
+import { StepResponse, BrandResponse } from '../../../../../../simpi-frontend-common/src/lib/models';
 import { FormGroup } from '@angular/forms';
+import { BrandService } from '../../../../../../simpi-frontend-common/src/lib/services/brand/brand.service';
 
 @Component({
   selector: 'sim-step-text-sidebar',
@@ -11,7 +12,8 @@ export class StepTextSidebarComponent implements OnInit, OnDestroy {
 
   private componentActive: boolean = false;
 
-  public swatchColors: string[] = ['#ABF28A', '#8CD6FF', '#F3D361', '#F478A3', '#9488FF', '#000000', '#ffffff'];
+  public swatchColors: string[] = [];
+  private _defaultSwatchColors: string[] = ['#ABF28A', '#8CD6FF', '#F3D361', '#F478A3', '#9488FF', '#000000', '#FFFFFF'];
 
   @Input()
   public selectedStep: StepResponse;
@@ -19,14 +21,87 @@ export class StepTextSidebarComponent implements OnInit, OnDestroy {
   @Input()
   public stepForm: FormGroup;
 
+  @Input()
+  public brandAlias: string;
+
   @Output()
   public textBackgroundColorChanged: EventEmitter<void> = new EventEmitter<void>();
 
   @Output()
   public titleChanged: EventEmitter<string> = new EventEmitter<string>();
 
+  constructor(private brandService: BrandService) {}
+
   public ngOnInit(): void {
     this.componentActive = true;
+    this.initializeSwatchColors();
+  }
+
+  private initializeSwatchColors(): void {
+    if (this.brandAlias) {
+      this.brandService.getBrandByAlias(this.brandAlias).subscribe({
+        next: (brand: BrandResponse) => {
+          this.setSwatchColorsFromBrand(brand);
+        },
+        error: () => {
+          this.swatchColors = this._defaultSwatchColors;
+        }
+      });
+    } else {
+      this.swatchColors = this._defaultSwatchColors;
+    }
+  }
+
+  private setSwatchColorsFromBrand(brand: BrandResponse): void {
+    const rawColors = [
+      brand?.primaryBrandColor,
+      brand?.secondaryBrandColor,
+      brand?.highlightColorOne,
+      brand?.highlightColorTwo,
+      brand?.highlightColorThree
+    ];
+    
+    console.log('Raw brand colors from API:', rawColors);
+    
+    const brandColors = rawColors
+      .filter(color => this.isValidHexColor(color))
+      .map(color => this.normalizeHexColor(color));
+    
+    console.log('Valid brand colors after filtering:', brandColors);
+
+    // Always include black and white, and fallback to default colors if no brand colors available
+    if (brandColors.length === 0) {
+      this.swatchColors = this._defaultSwatchColors;
+    } else {
+      this.swatchColors = [
+        ...brandColors,
+        '#000000',
+        '#FFFFFF'
+      ];
+    }
+    
+    console.log('Final swatch colors:', this.swatchColors);
+  }
+
+  private isValidHexColor(color: string): boolean {
+    if (!color || typeof color !== 'string') {
+      return false;
+    }
+    
+    const trimmedColor = color.trim();
+    if (!trimmedColor) {
+      return false;
+    }
+    
+    // Check if it's a valid hex color (3 or 6 digits, with or without #)
+    const hexColorRegex = /^#?([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
+    return hexColorRegex.test(trimmedColor);
+  }
+
+  private normalizeHexColor(color: string): string {
+    const trimmedColor = color.trim();
+    const withHash = trimmedColor.startsWith('#') ? trimmedColor : `#${trimmedColor}`;
+    return withHash.toUpperCase();
   }
 
   public ngOnDestroy(): void {

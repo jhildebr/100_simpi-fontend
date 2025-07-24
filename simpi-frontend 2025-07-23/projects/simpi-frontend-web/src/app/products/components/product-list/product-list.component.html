@@ -5,24 +5,24 @@
     </button>
 </div>
 <div class="modal-body">
-    <div class="dropdown-container">
-        <label>Target Product</label>
-        <select
-          class="form-control"
-          id="resourceType"
-          [(ngModel)]="selectedProductId"
-        >
-            <option value="" disabled selected>
+    <div class="product-selection-container">
+        <label class="selection-label">Target Product</label>
+        <div class="product-list-box">
+            <div class="placeholder" *ngIf="!selectedProductId">
                 Select the project to clone
-            </option>
-            <option
-                *ngFor="let product of products"
-                [ngValue]="product.productId"
-            >
-                {{ product.productName }}
-            </option>
-        </select>
-      </div>
+            </div>
+            <div class="product-options">
+                <div
+                    *ngFor="let product of sortedProducts"
+                    class="product-option"
+                    [class.selected]="selectedProductId === product.productId"
+                    (click)="selectProduct(product.productId)"
+                >
+                    {{ product.productName }}
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="modal-footer">
     <button
