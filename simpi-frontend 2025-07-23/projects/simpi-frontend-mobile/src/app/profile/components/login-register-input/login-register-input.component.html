@@ -1,0 +1,26 @@
+<div class="login-register-input">
+  <img class="simpi-logo" alt="SIMPI Logo" src="assets/logos/simpi.svg" width="60" height="65">
+  <p class="instruction">Please enter your phone number or email address:</p>
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <div class="input-area">
+      <sim-text-input [label]="inputLabel" formControlName="phoneNumberOrEmailAddress"
+                      [inputmode]="inputMode" [autocomplete]="autocomplete" displayValidIndicator="true"
+                      [type]="inputType" placeholder="Phone number or email address"
+                      (blur)="onInputBlur()" (change)="onInputChange()"></sim-text-input>
+      <div
+        *ngIf="formGroup.controls.phoneNumberOrEmailAddress.errors?.pattern && formGroup.touched"
+        class="input-error">
+        {{errorText}}
+      </div>
+      <div
+        *ngIf="formGroup.controls.phoneNumberOrEmailAddress.errors?.required && formGroup.touched"
+        class="input-error">
+        Please enter your email or phone number.
+      </div>
+    </div>
+    <button class="button-blue-default next-button" type="submit"
+            [disabled]="formGroup.controls.phoneNumberOrEmailAddress.errors">
+      Confirm
+    </button>
+  </form>
+</div>

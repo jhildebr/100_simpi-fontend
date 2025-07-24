@@ -1,0 +1,381 @@
+{
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "version": 1,
+    "newProjectRoot": "projects",
+    "projects": {
+        "simpi-frontend-web": {
+            "projectType": "application",
+            "schematics": {
+                "@schematics/angular:component": {
+                    "style": "scss"
+                }
+            },
+            "root": "projects/simpi-frontend-web",
+            "sourceRoot": "projects/simpi-frontend-web/src",
+            "prefix": "sim",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "outputPath": "dist/simpi-frontend-web",
+                        "index": "projects/simpi-frontend-web/src/index.html",
+                        "main": "projects/simpi-frontend-web/src/main.ts",
+                        "polyfills": "projects/simpi-frontend-web/src/polyfills.ts",
+                        "tsConfig": "projects/simpi-frontend-web/tsconfig.app.json",
+                        "aot": true,
+                        "assets": [
+                            "projects/simpi-frontend-web/src/favicon.ico",
+                            "projects/simpi-frontend-web/src/assets",
+                            "projects/simpi-frontend-web/src/web.config",
+                            "projects/simpi-frontend-web/src/.well-known",
+                            "projects/simpi-frontend-web/src/browserconfig.xml",
+                            {
+                                "glob": "**/*",
+                                "input": "projects/simpi-frontend-common/src/assets/",
+                                "output": "/assets/"
+                            }
+                        ],
+                        "styles": [
+                            "projects/simpi-frontend-web/src/styles.scss"
+                        ],
+                        "scripts": [],
+                        "allowedCommonJsDependencies": [
+                            "hammerjs",
+                            "qrcode",
+                            "uuid",
+                            "jwt-decode",
+                            "dragula"
+                        ],
+                        "baseHref": "/app/"
+                    },
+                    "configurations": {
+                        "production": {
+                            "fileReplacements": [
+                                {
+                                    "replace": "projects/simpi-frontend-web/src/environments/environment.ts",
+                                    "with": "projects/simpi-frontend-web/src/environments/environment.prod.ts"
+                                }
+                            ],
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "extractCss": true,
+                            "namedChunks": false,
+                            "aot": true,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "2mb",
+                                    "maximumError": "5mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "6kb",
+                                    "maximumError": "10kb"
+                                }
+                            ],
+                            "baseHref": "/app/"
+                        }
+                    }
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "options": {
+                        "browserTarget": "simpi-frontend-web:build"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "simpi-frontend-web:build:production"
+                        }
+                    }
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "simpi-frontend-web:build"
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "projects/simpi-frontend-web/src/test.ts",
+                        "polyfills": "projects/simpi-frontend-web/src/polyfills.ts",
+                        "tsConfig": "projects/simpi-frontend-web/tsconfig.spec.json",
+                        "karmaConfig": "projects/simpi-frontend-web/karma.conf.js",
+                        "assets": [
+                            "projects/simpi-frontend-web/src/favicon.ico",
+                            "projects/simpi-frontend-web/src/assets",
+                            {
+                                "glob": "**/*",
+                                "input": "projects/simpi-frontend-common/src/assets/",
+                                "output": "/assets/"
+                            }
+                        ],
+                        "styles": [
+                            "projects/simpi-frontend-web/src/styles.scss"
+                        ],
+                        "scripts": []
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "projects/simpi-frontend-web/tsconfig.app.json",
+                            "projects/simpi-frontend-web/tsconfig.spec.json",
+                            "projects/simpi-frontend-web/e2e/tsconfig.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**"
+                        ]
+                    }
+                },
+                "e2e": {
+                    "builder": "@angular-devkit/build-angular:protractor",
+                    "options": {
+                        "protractorConfig": "projects/simpi-frontend-web/e2e/protractor.conf.js",
+                        "devServerTarget": "simpi-frontend-web:serve"
+                    },
+                    "configurations": {
+                        "production": {
+                            "devServerTarget": "simpi-frontend-web:serve:production"
+                        }
+                    }
+                }
+            }
+        },
+        "simpi-frontend-mobile": {
+            "projectType": "application",
+            "schematics": {
+                "@schematics/angular:component": {
+                    "style": "scss"
+                }
+            },
+            "root": "projects/simpi-frontend-mobile",
+            "sourceRoot": "projects/simpi-frontend-mobile/src",
+            "prefix": "app",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "outputPath": "www",
+                        "index": "projects/simpi-frontend-mobile/src/index.html",
+                        "main": "projects/simpi-frontend-mobile/src/main.ts",
+                        "polyfills": "projects/simpi-frontend-mobile/src/polyfills.ts",
+                        "tsConfig": "projects/simpi-frontend-mobile/tsconfig.app.json",
+                        "aot": true,
+                        "assets": [
+                            "projects/simpi-frontend-mobile/src/favicon.ico",
+                            "projects/simpi-frontend-mobile/src/assets",
+                            {
+                                "glob": "**/*",
+                                "input": "projects/simpi-frontend-common/src/assets/",
+                                "output": "/assets/"
+                            },
+                            {
+                                "glob": "**/*.svg",
+                                "input": "node_modules/ionicons/dist/ionicons/svg",
+                                "output": "./svg"
+                            }
+                        ],
+                        "styles": [
+                            "projects/simpi-frontend-mobile/src/styles.scss",
+                            {
+                                "input": "node_modules/@ionic/angular/css/normalize.css"
+                            },
+                            {
+                                "input": "node_modules/@ionic/angular/css/structure.css"
+                            },
+                            {
+                                "input": "node_modules/@ionic/angular/css/typography.css"
+                            },
+                            {
+                                "input": "node_modules/@ionic/angular/css/core.css"
+                            },
+                            {
+                                "input": "node_modules/@ionic/angular/css/padding.css"
+                            },
+                            {
+                                "input": "node_modules/@ionic/angular/css/float-elements.css"
+                            },
+                            {
+                                "input": "node_modules/@ionic/angular/css/text-alignment.css"
+                            },
+                            {
+                                "input": "node_modules/@ionic/angular/css/text-transformation.css"
+                            },
+                            {
+                                "input": "node_modules/@ionic/angular/css/flex-utils.css"
+                            },
+                            {
+                                "input": "projects/simpi-frontend-mobile/src/theme/variables.scss"
+                            }
+                        ],
+                        "scripts": [],
+                        "allowedCommonJsDependencies": [
+                            "hammerjs"
+                        ]
+                    },
+                    "configurations": {
+                        "production": {
+                            "fileReplacements": [
+                                {
+                                    "replace": "projects/simpi-frontend-mobile/src/environments/environment.ts",
+                                    "with": "projects/simpi-frontend-mobile/src/environments/environment.prod.ts"
+                                }
+                            ],
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "extractCss": true,
+                            "namedChunks": false,
+                            "aot": true,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "2mb",
+                                    "maximumError": "5mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "6kb",
+                                    "maximumError": "10kb"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "options": {
+                        "browserTarget": "simpi-frontend-mobile:build"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "simpi-frontend-mobile:build:production"
+                        }
+                    }
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "simpi-frontend-mobile:build"
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "projects/simpi-frontend-mobile/src/test.ts",
+                        "polyfills": "projects/simpi-frontend-mobile/src/polyfills.ts",
+                        "tsConfig": "projects/simpi-frontend-mobile/tsconfig.spec.json",
+                        "karmaConfig": "projects/simpi-frontend-mobile/karma.conf.js",
+                        "assets": [
+                            "projects/simpi-frontend-mobile/src/favicon.ico",
+                            "projects/simpi-frontend-mobile/src/assets",
+                            {
+                                "glob": "**/*",
+                                "input": "projects/simpi-frontend-common/src/assets/",
+                                "output": "/assets/"
+                            }
+                        ],
+                        "styles": [
+                            "projects/simpi-frontend-mobile/src/styles.scss"
+                        ],
+                        "scripts": []
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "projects/simpi-frontend-mobile/tsconfig.app.json",
+                            "projects/simpi-frontend-mobile/tsconfig.spec.json",
+                            "projects/simpi-frontend-mobile/e2e/tsconfig.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**"
+                        ]
+                    }
+                },
+                "e2e": {
+                    "builder": "@angular-devkit/build-angular:protractor",
+                    "options": {
+                        "protractorConfig": "projects/simpi-frontend-mobile/e2e/protractor.conf.js",
+                        "devServerTarget": "simpi-frontend-mobile:serve"
+                    },
+                    "configurations": {
+                        "production": {
+                            "devServerTarget": "simpi-frontend-mobile:serve:production"
+                        }
+                    }
+                },
+                "ionic-cordova-serve": {
+                    "builder": "@ionic/angular-toolkit:cordova-serve",
+                    "options": {
+                        "cordovaBuildTarget": "simpi-frontend-mobile:ionic-cordova-build",
+                        "devServerTarget": "simpi-frontend-mobile:serve"
+                    },
+                    "configurations": {
+                        "production": {
+                            "cordovaBuildTarget": "simpi-frontend-mobile:ionic-cordova-build:production",
+                            "devServerTarget": "simpi-frontend-mobile:serve:production"
+                        }
+                    }
+                },
+                "ionic-cordova-build": {
+                    "builder": "@ionic/angular-toolkit:cordova-build",
+                    "options": {
+                        "browserTarget": "simpi-frontend-mobile:build"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "simpi-frontend-mobile:build:production"
+                        }
+                    }
+                }
+            }
+        },
+        "simpi-frontend-common": {
+            "projectType": "library",
+            "root": "projects/simpi-frontend-common",
+            "sourceRoot": "projects/simpi-frontend-common/src",
+            "prefix": "lib",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-ng-packagr:build",
+                    "options": {
+                        "tsConfig": "projects/simpi-frontend-common/tsconfig.lib.json",
+                        "project": "projects/simpi-frontend-common/ng-package.json"
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "projects/simpi-frontend-common/src/test.ts",
+                        "tsConfig": "projects/simpi-frontend-common/tsconfig.spec.json",
+                        "karmaConfig": "projects/simpi-frontend-common/karma.conf.js"
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "projects/simpi-frontend-common/tsconfig.lib.json",
+                            "projects/simpi-frontend-common/tsconfig.spec.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "defaultProject": "simpi-frontend-mobile"
+}

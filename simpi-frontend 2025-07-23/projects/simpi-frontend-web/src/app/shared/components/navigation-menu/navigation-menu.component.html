@@ -1,0 +1,41 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Collapsible wrapper -->
+    <div
+      class="collapse navbar-collapse"
+      id="navbarSupportedContent"
+      mdbCollapse
+    >
+      <!-- Left links -->
+      <ul class="navbar-nav">
+        <a 
+          class="nav-item home"
+          routerLink="products"> </a>
+        <a
+          class="nav-item products"
+          routerLink="products"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: false }"
+        >
+        </a>
+        <a
+          class="nav-item assets"
+          routerLink="assets"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: false }"
+        >
+        </a>
+        <a
+          class="nav-item analytics"
+          routerLink="analytics"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: false }"
+        >
+        </a>
+        <a class="nav-item search" style="display: none"> </a>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,36 @@
+<button *ngIf="autoTranslated == false || autoTranslatedMetadata == false" class="control" title="Reset" (click)="reset.emit()"><img src="assets/svg/reset.svg"/></button>
+<sim-type-ahead [readonly]="!editable" class="ml-1" [selected]="language" (selectedChange)="onSelectedChange($event)" [options]="choices"></sim-type-ahead>
+
+<div class="translation-container">
+    <span *ngIf="autoTranslated == true" class="status mr-2">Auto translated</span>
+    <span *ngIf="autoTranslatedMetadata == true" class="status mr-2">Auto translated</span>
+</div>
+<div class="translation-container">
+    <span *ngIf="autoTranslated == false && !outdated" class="status mr-2">Overwritten</span>
+    <span *ngIf="autoTranslatedMetadata == false && !outdatedMetadata" class="status mr-2">Overwritten</span>
+</div>
+<div class="translation-container">
+    <span *ngIf="autoTranslated == false && outdated" class="critical status mr-2">Outdated</span>
+    <span *ngIf="autoTranslatedMetadata == false && outdatedMetadata" class="critical status mr-2">Outdated</span>
+</div>
+
+
+
+<!-- Voice selection UI -->
+<div *ngIf="showVoice && language && brandId" class="voice-container">
+    <span class="voice-link" (click)="toggleVoiceSelector()">
+        {{ languageVoice || 'Default Voice' }}
+    </span>
+    
+    <div *ngIf="showVoiceSelector" class="voice-selector">
+        <div *ngFor="let voice of availableVoices" 
+             class="voice-option"
+             [class.selected]="voice === languageVoice"
+             (click)="selectVoice(voice)">
+            {{ voice }}
+        </div>
+    </div>
+</div>
+
+<button *ngIf="allowDelete" class="control" title="Delete" (click)="delete.emit()"><img src="assets/svg/delete.svg"/></button>
+<fa-icon *ngIf="loading" [icon]='["fas", "circle-notch"]' [spin]='true'></fa-icon>

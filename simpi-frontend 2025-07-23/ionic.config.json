@@ -1,0 +1,14 @@
+{
+  "defaultProject": "simpi-frontend-mobile",
+  "projects": {
+    "simpi-frontend-mobile": {
+      "name": "simpi-frontend-mobile",
+      "integrations": {
+        "cordova": {},
+        "capacitor": {}
+      },
+      "type": "angular",
+      "root": "./"
+    }
+  }
+}

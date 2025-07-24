@@ -1,0 +1,43 @@
+div.tabs {
+  padding-bottom: 10px;
+  background-color: #ffffff;
+
+  ul {
+    margin-top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    li {
+      margin-top: 0;
+      list-style: none;
+
+      a {
+        font-family: Roboto, sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: 0.5px;
+        text-align: center;
+        color: var(--simpi-color-dark-blue-4);
+        padding-bottom: 4px;
+        display: block;
+        width: 120px;
+
+        &.active:not(&.collapsed) {
+          color: var(--simpi-color-dark-blue-7);
+          border-bottom: 2px solid var(--simpi-color-dark-blue-7);
+        }
+
+        &.collapsed {
+          color: var(--simpi-color-dark-blue-7);
+        }
+      }
+    }
+  }
+}

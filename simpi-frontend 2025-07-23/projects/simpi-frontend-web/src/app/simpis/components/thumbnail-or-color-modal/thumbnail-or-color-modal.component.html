@@ -1,0 +1,48 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Upload Thumbnail or Choose Color</h4>
+    <button type="button" class="close" aria-label="Close" (click)="dismissModal()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="btn-group btn-group-toggle d-flex mb-2" ngbRadioGroup name="imageOrColorRadio" [ngModel]="imageOrColor"
+        (ngModelChange)='onChangeImageOrColor($event)'>
+        <label ngbButtonLabel class="btn-primary">
+            <input ngbButton type="radio" value="image"> Image
+        </label>
+        <label ngbButtonLabel class="btn-primary">
+            <input ngbButton type="radio" value="color"> Color picker
+        </label>
+    </div>
+    <div *ngIf='imageOrColor === "image"' class='picture-editor d-inline-block w-100'>
+        <div class='picture-zone' *ngIf='!pictureUrl && !processing'>
+            <sim-drag-drop-file-upload [showUploadBox]='showUploadBox'
+                (filesToUpload)='onFilesToUploadReceived($event)'
+                allowedMimeTypes="image/*,video/*">
+            </sim-drag-drop-file-upload>
+        </div>
+        <div class="text-center">
+            <sim-loading-spinner size='3x' [show]='processing'></sim-loading-spinner>
+        </div>
+        <div *ngIf='pictureUrl && !processing' class="photo-preview mb-2">
+            <div class='d-flex'>
+                <img [src]='pictureUrl' class='img-fluid' />
+                <div *ngIf='pictureUrl' (click)='removeAddedPicture()'>
+                    <div class='remove-btn'>
+                        <fa-icon [icon]="['fas', 'times']"></fa-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf='imageOrColor === "color"' class='d-inline-block w-100'>
+        <sim-color-picker heading='Color' [color]='null' (selectColor)='onSelectColor($event)'></sim-color-picker>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="closeModal()">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="activeModal.close({
+        uploadedImageId: uploadedImageId, iconColor: selectedColor
+        })" [disabled]='(imageOrColor === "color" && !selectedColor) ||
+        (imageOrColor === "image" && !uploadedImageId)'>Save</button>
+</div>

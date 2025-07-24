@@ -1,0 +1,12 @@
+<lib-ionic-pullup [state]="footerState" (stateChange)="footerStateChanged($event)"
+                  (expanded)="footerExpanded()" (collapsed)="footerCollapsed()" (dragged)="dragged()"
+                  [toolbarTopMargin]="topMarginPx" [minBottomVisible]="minBottomVisiblePx">
+  <ion-toolbar class="toolbar" #ionDragFooter>
+    <div class="handle">
+      <div class="bar" (click)="toggleFooter()"></div>
+    </div>
+  </ion-toolbar>
+
+  <ng-content></ng-content>
+
+</lib-ionic-pullup>

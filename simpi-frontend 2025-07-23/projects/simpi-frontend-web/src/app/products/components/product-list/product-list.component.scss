@@ -1,0 +1,20 @@
+.dropdown-container {
+    display: flex;
+    column-gap: 35px;
+    align-items: center;
+
+    label {
+        white-space: nowrap;
+        margin-bottom: 0;
+    }
+
+    select {
+        border-radius: 8px;
+        height: 40px;
+        &:focus {
+        box-shadow: none;
+        border: 1px solid var(--simpi-color-blue);
+        outline: none;
+        }
+    }
+}

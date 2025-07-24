@@ -1,0 +1,35 @@
+<ion-grid>
+  <ion-row>
+    <ng-container *ngIf="!loading">
+      <ion-col *ngFor="let simpi of simpis"
+        (click)="navigateToSimpi.emit(simpi.simpiId)" size="6" sizeMd="3">
+        <div class="simpi-card-wrapper">
+          <div class="simpi-card">
+            <div class="simpi-card-img">
+              <ion-img class="h-100" [src]="simpi.thumbnailUrl"></ion-img>
+            </div>
+            <div class="simpi-card-text">
+              <div class="title">
+                {{simpi.title}}
+              </div>
+              <div class="brand">
+                SIMPI
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ng-container>
+    <ng-container *ngIf="loading">
+      <ion-col *ngFor="let item of fourItems">
+        <div class="simpi-card-wrapper">
+          <div class="simpi-card">
+            <div class="simpi-card-img">
+              <ion-skeleton-text animated></ion-skeleton-text>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ng-container>
+  </ion-row>
+</ion-grid>

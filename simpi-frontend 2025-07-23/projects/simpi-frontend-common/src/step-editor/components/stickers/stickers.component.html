@@ -1,0 +1,41 @@
+<div class="stickers-container" cdkDropList>
+  <a
+    *ngFor="let sticker of stickers"
+    cdkDrag
+    (cdkDragStarted)="onDragStarted($event)"
+    (cdkDragReleased)="onDragReleased()"
+    [cdkDragData]="{ stickerId: sticker.id }"
+  >
+    <img *ngIf="!sticker.isVideo"
+      class="sticker"
+      [src]="sticker.filepath"
+      alt="Sticker"
+      [ngClass]="{
+        'background-color': sticker.hasBubble,
+        'mobile-app': mobileApp,
+        'real-hand': sticker.realHand,
+        'flip-horizontally': sticker.defaultTransformations?.includes(
+          TRANSFORMATION_FLIP_HORIZONTALLY
+        )
+      }"
+      [ngStyle]="{ opacity: sticker.opacity }"
+    />
+    <video *ngIf="sticker.isVideo"
+      class="sticker"
+      [src]="sticker.filepath"
+      alt="Sticker"
+      [ngClass]="{
+        'background-color': sticker.hasBubble,
+        'mobile-app': mobileApp,
+        'real-hand': sticker.realHand,
+        'flip-horizontally': sticker.defaultTransformations?.includes(
+          TRANSFORMATION_FLIP_HORIZONTALLY
+        )
+      }"
+      [ngStyle]="{ opacity: sticker.opacity }"
+      autoplay="true"
+      muted="true"
+      loop="true"
+    ></video>
+  </a>
+</div>

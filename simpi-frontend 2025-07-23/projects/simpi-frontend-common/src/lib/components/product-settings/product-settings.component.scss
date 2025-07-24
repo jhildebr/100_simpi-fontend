@@ -1,0 +1,156 @@
+h1 {
+  font-family: "Circular Std", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 23px;
+  color: var(--simpi-color-dark-blue-8);
+}
+
+h2 {
+  font-family: "Circular Std", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 23px;
+  color: var(--simpi-color-dark-blue-8);
+}
+
+.product-settings-title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  column-gap: 15px;
+  margin-bottom: 40px;
+
+  .circle-icon-button {
+    width: 30px;
+    height: 30px;
+  }
+
+  .close-button {
+    background-color: var(--simpi-color-dark-blue-3);
+  }
+}
+
+.save-button {
+  float: right;
+}
+
+.product-settings {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+
+  div.product-page-image {
+    margin-bottom: 65px;
+
+
+    .productPageImageChangeResult {
+      margin-top: 20px;
+    }
+  }
+
+  div.product-image {
+    div.image-container {
+      margin-bottom: 15px;
+    }
+
+    .productImageChangeResult {
+      margin-top: 10px;
+    }
+  }
+
+  .image-container {
+    position: relative;
+
+    img.product-page-image {
+      height: 160px;
+      max-height: 160px;
+      border-radius: 8px;
+    }
+  }
+
+  .change-image-button {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+  }
+}
+
+.forms {
+  margin-left: auto;
+  margin-right: auto;
+
+  .product-name-form {
+    margin-bottom: 32px;
+
+    .product-name-change-result {
+      margin-left: 16px;
+      margin-top: 1px;
+    }
+  }
+
+  .product-title-form {
+    margin-bottom: 32px;
+
+    .product-title-change-result {
+      margin-left: 16px;
+      margin-top: 1px;
+    }
+  }
+
+  .privacy-form {
+    margin-bottom: 45px;
+
+    .privacy-change-result {
+      margin-left: 16px;
+      margin-top: 1px;
+    }
+  }
+
+  .delete-product {
+    button {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0px;
+  
+  input[type="checkbox"] {
+    margin-bottom: 8px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .checkbox-label {
+    cursor: pointer;
+    font-family: "Circular Std", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--simpi-color-dark-blue-8);
+  }
+}
+
+.product-title-form {
+  margin-bottom: 32px;
+  
+  h2 {
+    margin-bottom: 15px;
+  }
+
+  .product-title-change-result {
+    margin-left: 16px;
+    margin-top: 5px;
+    font-size: 14px;
+  }
+}

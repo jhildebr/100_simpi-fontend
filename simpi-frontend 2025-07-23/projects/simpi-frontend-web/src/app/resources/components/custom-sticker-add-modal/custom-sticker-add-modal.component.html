@@ -1,0 +1,41 @@
+<div class="modal-header">
+    <h4 class="modal-title">Add new Custom Sticker</h4>
+    <button 
+        type="button"
+        class="close"
+        aria-label="close"
+        (click)="activeModal.dismiss('X click')"
+    >
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="createCustomStickerForm">
+        <div class="asset-thumbnail">
+            <div class="image-container" [ngClass]="{ 'no-image': !thumbnailUrl }">
+              <img
+                *ngIf="thumbnailUrl"
+                [src]="thumbnailUrl"
+                alt="Asset thumbnail"
+                class="asset-thumbnail"
+              />
+              <div
+                class="circle-icon-button change-image-button"
+                (click)="changeAssetThumbnail()"
+                role="button"
+              >
+                <img src="assets/svg/camera.svg" alt="Edit image icon" />
+              </div>
+            </div>
+          </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button
+    (click)="activeModal.close({ success: true, value: createCustomStickerForm.value })"
+    class="simpi-button-dark"
+    [disabled]="!createCustomStickerForm.valid"
+  >
+    Save
+  </button>
+</div>

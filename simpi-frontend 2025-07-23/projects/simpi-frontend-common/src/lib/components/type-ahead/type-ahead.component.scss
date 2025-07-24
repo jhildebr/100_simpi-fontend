@@ -1,0 +1,32 @@
+.options {
+  position: absolute;
+  z-index: 99;
+  top: unset;
+  background-color: var(--simpi-white);
+  border-radius: 5px;
+  border: 1px solid var(--simpi-color-dark-blue-8);
+  padding: 10px;
+  list-style: none;
+
+  li {
+    padding: 0 5px;
+    cursor: pointer;
+  }
+
+  li:hover {
+    background-color: var(--simpi-color-light-blue);
+  }
+}
+
+input {
+  appearance: none;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  min-width: 32px;
+  width: 100%;
+}
+
+input:disabled {
+  color: inherit;
+}

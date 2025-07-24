@@ -1,0 +1,29 @@
+<div class="sim-card-wrapper mb-3">
+  <form [formGroup]='stepForm'>
+    <div class="sim-card-title d-flex align-items-center">
+      <span class='font-weight-bold text-secondary'>Properties</span>
+    </div>
+    <div class="sim-card-content">
+      <div class="d-flex flex-column">
+        <div class="type-input mt-2">
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="voiceOverEnabledCheckbox"
+                   formControlName="voiceOverEnabled" [readOnly]='!editModeEnabled'>
+            <label class="form-check-label" for="voiceOverEnabledCheckbox">Enable voice over</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sim-card-content">
+      <div class="d-flex flex-column">
+        <div class="type-input mt-2">
+          <span>Explanations</span>
+          <p>Add further explanations if needed. The text will appear on the overlay panel of each step and will be read by the SIMPI voice.</p>
+          <textarea class='form-control form-control-sm' type='text' formControlName='description'
+                    [readOnly]='!editModeEnabled'>
+          </textarea>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,27 @@
+<sim-step-editor
+  #editor
+  [readonly]="true"
+  [id]="step?.stepId"
+  [stepId]="step?.stepId"
+  [simpiId]="simpiId"
+  [stepMedia]="stepMedia$ | async"
+  [width]="width"
+  [height]="height"
+  [active]="active"
+  [scaleStrategy]="scaleStrategy"
+  [description]="step?.title"
+  (videoPlayError)="onVideoPlayError($event)">
+</sim-step-editor>
+<div
+  class="previewImage"
+  [style.width.px]="width"
+  [style.height.px]="height"
+  [style.background-image]="'url(' + step?.thumbnail + ')'"
+  *ngIf="step?.thumbnail && !loaded">
+</div>
+<div
+  #loadingBar
+  *ngIf="showLoadingBar"
+  class="loadingBar"
+  [style.width.%]="(downloadProgress$ | async) * 100">
+</div>

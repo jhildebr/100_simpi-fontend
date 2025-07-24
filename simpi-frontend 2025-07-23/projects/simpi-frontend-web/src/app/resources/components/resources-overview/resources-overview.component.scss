@@ -1,0 +1,34 @@
+.w-71 {
+    width: 71% !important;
+}
+
+.table-wrapper {
+    height: calc(100vh - var(--simpi-table-top-offset));
+    width: 100%;
+}
+
+.resource-table-wrapper {
+    height: 100%;
+    overflow: auto;
+    width: 100%;
+}
+
+.sidebar {
+    transition: all 0.3s ease-in-out;
+    &-hidden {
+        transform: scale(0) translateX(150%);
+    }
+    &-shown {
+        transform: scale(1) translateX(0);
+    }
+}
+
+.resource-detail-sidebar {
+    position: absolute;
+    right: 0.8rem;
+}
+
+.resource-table-wrapper,
+.resource-detail-sidebar {
+    transition: all 0.3s ease-in-out;
+}

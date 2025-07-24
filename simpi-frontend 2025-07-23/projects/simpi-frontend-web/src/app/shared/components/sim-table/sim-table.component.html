@@ -1,0 +1,299 @@
+<ng-container *ngIf="data && !errorLoadingData">
+  <div class="scroller">
+    <cdk-table
+      #table
+      class="sim-table"
+      [dataSource]="data"
+      cdkDropList
+      (cdkDropListDropped)="onDrop($event)"
+      [cdkDropListData]="data"
+      [trackBy]="trackByFn"
+    >
+      <ng-container
+        *ngFor="let column of dynamicColumns; let i = index"
+        [cdkColumnDef]="column.prop"
+      >
+        <cdk-header-cell
+          *cdkHeaderCellDef
+          [ngClass]="{ 'icon-or-thumbnail': column.prop === 'iconOrThumbnail' }"
+        >
+          <ng-container *ngIf="column.text === 'icon'"
+            >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</ng-container
+          >
+          {{ column.text }}
+        </cdk-header-cell>
+        <cdk-cell
+          class="sim-item"
+          *cdkCellDef="let row"
+          [ngClass]="{ 'icon-or-thumbnail': column.prop === 'iconOrThumbnail' }"
+          cancelCdkDrag
+        >
+          <ng-container [ngSwitch]="column.prop">
+            <ng-template ngSwitchCase="iconOrThumbnail">
+              <ng-container
+                *ngIf="
+                  column.cell(row) === 'undefined' ||
+                  column.cell(row) === 'null'
+                "
+              >
+                <div class="no-image-box position-relative">
+                  <div class="no-image-icon">
+                    <fa-icon [icon]="['fas', 'image']" size="2x"></fa-icon>
+                  </div>
+                </div>
+              </ng-container>
+              <ng-container
+                *ngIf="
+                  column.cell(row) !== 'null' &&
+                  column.cell(row) !== 'undefined'
+                "
+              >
+                <div
+                  class="img-cell img-cell-width d-flex align-items-center w-100 h-100"
+                >
+                  <div
+                    *ngIf="column.imageOrIcon(row) === 'color'"
+                    class="w-100 h-100"
+                    [style.backgroundColor]="column.cell(row)"
+                  ></div>
+                  <img
+                    *ngIf="column.imageOrIcon(row) === 'image'"
+                    class="product-image img-fluid"
+                    [src]="column.cell(row)"
+                  />
+                </div>
+              </ng-container>
+            </ng-template>
+            <ng-template ngSwitchCase="status">
+              <sim-status-badges
+                class="w-100"
+                [status]="column.cell(row)"
+                [statusFor]="column.type"
+              >
+              </sim-status-badges>
+            </ng-template>
+            <ng-template ngSwitchCase="resourceType">
+              <div class="resource-type">
+                {{ column.cell(row) | resourceTypeText }}
+              </div>
+            </ng-template>
+            <ng-template ngSwitchCase="count">
+              <a
+                class="simpi-link"
+                (click)="
+                  routeToData.emit({ event: $event, id: row[idName] });
+                  $event.preventDefault();
+                  $event.stopPropagation()
+                "
+              >
+                <ng-container *ngIf="column.cell(row) === 0">
+                  NO {{ column.type | uppercase }} YET
+                </ng-container>
+                <ng-container *ngIf="column.cell(row) !== 0">
+                  {{ column.cell(row) }}
+                  {{
+                    column.cell(row) > 1
+                      ? (column.plural | uppercase)
+                      : (column.singular | uppercase)
+                  }}
+                </ng-container>
+              </a>
+            </ng-template>
+            <ng-template ngSwitchDefault>
+              <div [className]="column.extraCss">
+                {{ column.cell(row) }}
+              </div>
+            </ng-template>
+          </ng-container>
+        </cdk-cell>
+      </ng-container>
+      <ng-container cdkColumnDef="menu">
+        <cdk-header-cell *cdkHeaderCellDef class="menu"></cdk-header-cell>
+        <cdk-cell
+          class="sim-item"
+          *cdkCellDef="let row; let i = index"
+          class="menu"
+          cancelCdkDrag
+        >
+          <div class="menu-cell d-flex">
+            <button class="icon-button transparent" (click)="edit.emit(row)">
+              <img src="assets/svg/Edit2.svg" alt="Edit Item" />
+            </button>
+          </div>
+          <!-- <div ngbDropdown #menu='ngbDropdown' container='body' id='showMoreMenu'
+                        (click)='($event.stopPropagation())' (openChange)='onDropdownChange($event, i)'>
+                        <fa-icon class='menu-padding' ngbDropdownToggle [icon]='["fas", "ellipsis-v"]'>
+                        </fa-icon>
+                        <div ngbDropdownMenu aria-labelledby="showMoreMenu">
+                            <button *ngIf='type === "simpi" || type === "product"' ngbDropdownItem
+                                (click)='clickedOnShareBtn.emit(type === "simpi" ? row.simpiId : row.productId)'>
+                                <div class="d-flex menu-item-share">
+                                    <div class="mr-3">
+                                        <fa-icon [icon]='["fas", "share"]'></fa-icon>
+                                    </div>
+                                    Share
+                                </div>
+                            </button>
+                            <button *ngIf="showAddRow" ngbDropdownItem>
+                                <div class="d-flex menu-item-delete" (click)="delete.emit(row)">
+                                    <div class="mr-3">
+                                        <fa-icon [icon]='["fas", "trash"]'></fa-icon>
+                                    </div>
+                                    Delete
+                                </div>
+                            </button>
+                            <button *ngIf="!showAddRow" ngbDropdownItem>
+                                <div class="d-flex menu-item-delete" (click)="restore.emit(row)">
+                                    <div class="mr-3">
+                                        <fa-icon [icon]='["fas", "trash-restore"]'></fa-icon>
+                                    </div>
+                                    Restore
+                                </div>
+                            </button>
+                        </div>
+                    </div> -->
+        </cdk-cell>
+      </ng-container>
+      <ng-container cdkColumnDef="dragHandle">
+        <cdk-header-cell
+          [hidden]="data?.length === 1"
+          *cdkHeaderCellDef
+          class="drag-handle"
+        >
+        </cdk-header-cell>
+        <cdk-cell
+          [hidden]="data?.length === 1"
+          *cdkCellDef="let row"
+          class="sim-item drag-handle"
+        >
+          <div id="reorder-handle" class="reorder-row-handle" cdkDragHandle>
+            <fa-icon [icon]="['fas', 'bars']"></fa-icon>
+          </div>
+        </cdk-cell>
+      </ng-container>
+      <ng-container cdkColumnDef="add-item-row" *ngIf="showAddRow">
+        <cdk-header-cell *cdkHeaderCellDef class="text-primary">
+          <ng-container *ngIf="!addModeEnabled">
+            <div class="d-flex">
+              <div class="plus-cell justify-content-around">
+                <div class="icon-cell text-center add-icon-padding">
+                  <fa-icon [icon]="['fas', 'plus-circle']" size="2x"></fa-icon>
+                </div>
+              </div>
+              <div class="align-self-center">Add a {{ type }}</div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="addModeEnabled && type === 'product'">
+            <div [formGroup]="formGroup" class="d-flex w-100">
+              <div class="icon-or-thumbnail flex-auto"></div>
+              <div class="move-right align-self-center">
+                <input
+                  formControlName="brandName"
+                  readonly
+                  class="form-control w-90"
+                  [value]="'BOSCH'"
+                />
+              </div>
+              <div class="flex-auto align-self-center ml-2">
+                <input
+                  formControlName="productName"
+                  [value]="formGroup.controls['productName'].value"
+                  class="form-control w-75"
+                  placeholder="Product"
+                />
+              </div>
+              <ng-container *ngTemplateOutlet="saveAddButtons"></ng-container>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="addModeEnabled && type === 'resource'">
+            <div [formGroup]="formGroup" class="d-flex w-100">
+              <div class="icon-or-thumbnail flex-auto"></div>
+              <div class="move-right align-self-center">
+                <input
+                  formControlName="title"
+                  [value]="formGroup.controls['title'].value"
+                  class="form-control w-90"
+                />
+              </div>
+              <ng-container *ngTemplateOutlet="saveAddButtons"></ng-container>
+            </div>
+          </ng-container>
+        </cdk-header-cell>
+      </ng-container>
+      <ng-container cdkColumnDef="no-item-row">
+        <div
+          class="no-item-row d-flex w-100"
+          [hidden]="data?.length > 0"
+          *cdkFooterCellDef
+        >
+          <div class="align-self-center text-center w-100 font-weight-bold">
+            No {{ type }} has been added
+          </div>
+        </div>
+      </ng-container>
+      <cdk-header-row
+        *cdkHeaderRowDef="displayedColumns; sticky: true"
+        class="font-weight-bold"
+      >
+      </cdk-header-row>
+      <ng-container *ngIf="showAddRow">
+        <cdk-header-row
+          *cdkHeaderRowDef="['add-item-row']; sticky: true"
+          class="add-item-row"
+          (click)="clickedAddRow()"
+        >
+        </cdk-header-row>
+      </ng-container>
+      <cdk-row
+        [ngClass]="{ active: selectedItemId === row[idName] }"
+        (click)="onClickedRow(row)"
+        *cdkRowDef="let row; columns: displayedColumns"
+        class="dragging"
+        cdkDrag
+        scrolldiv="div.scroller"
+        [cdkDragData]="row"
+        (cdkDragStarted)="onDragStart()"
+        cdkScrollable
+        (cdkDragEnded)="onDragEnd()"
+        (cdkDragReleased)="onDragRelease()"
+      >
+      </cdk-row>
+      <cdk-footer-row
+        [hidden]="data?.length > 0"
+        *cdkFooterRowDef="['no-item-row']"
+      ></cdk-footer-row>
+    </cdk-table>
+  </div>
+</ng-container>
+<ng-template #saveAddButtons>
+  <div class="ml-auto mr-5">
+    <button
+      class="align btn btn-link"
+      type="button"
+      (click)="clickedCancel($event)"
+    >
+      Cancel
+    </button>
+    <button
+      class="btn btn-sm btn-primary btn-primary-pill text-white ml-1"
+      [disabled]="!formGroup.valid"
+      (click)="submitForm.emit()"
+    >
+      Add
+    </button>
+  </div>
+</ng-template>
+<ng-container *ngIf="!data && !errorLoadingData">
+  <sim-loading-spinner [show]="true"></sim-loading-spinner>
+</ng-container>
+<ng-container *ngIf="!data && errorLoadingData">
+  <div class="alert alert-danger" role="alert">
+    There was a problem loading the data!
+    <a
+      class="text-error font-weight-bold"
+      (click)="reloadData.emit()"
+      [routerLink]=""
+      >Try Again</a
+    >
+  </div>
+</ng-container>

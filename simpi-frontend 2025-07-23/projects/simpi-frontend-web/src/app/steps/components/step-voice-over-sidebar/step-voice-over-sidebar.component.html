@@ -1,0 +1,12 @@
+<div class="step-sidebar h-100 d-flex flex-column" [formGroup]="stepForm">
+  <h3 class="header">Voice Over</h3>
+  <div class="explanation-container">
+    <sim-switch formControlName="voiceOverEnabled" [labelLeft]="null" labelRight="Enable Voice Over"></sim-switch>
+    <h4>Language of Simpi</h4>
+    <sim-language-input [loading]="changingOriginalLanguage" [language]="originalLanguage$ | async"
+      [choices]="availableLanguages$ | async" (languageChange)="changeOriginalLanguage($event)">
+    </sim-language-input>
+    <h4 class="header">Voice Over Text</h4>
+    <sim-text-input formControlName="description" [textbox]="true" class="w-100" rows="6"></sim-text-input>
+  </div>
+</div>

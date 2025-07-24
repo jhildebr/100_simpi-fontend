@@ -1,0 +1,15 @@
+<div class="assets-grid">
+  <div class="assets-grid-item d-flex flex-column" *ngFor="let asset of assets">
+    <div class="assets-grid-item-image mb-2 position-relative">
+      <img [src]="asset.thumbnailUrl" alt="Asset thumbnail" />
+      <sim-context-menu
+        [menuEntries]="contextMenuEntries"
+        [menuEntryClickHandlerParameter]="asset"
+      >
+      </sim-context-menu>
+    </div>
+    <div class="assets-grid-item-title">
+      {{ asset.title }}
+    </div>
+  </div>
+</div>

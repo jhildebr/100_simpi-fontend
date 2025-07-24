@@ -1,0 +1,36 @@
+<div class="step-sidebar">
+  <h3>Text</h3>
+  <form [formGroup]="stepForm">
+    <h4 class="mt-3">Content</h4>
+    <sim-text-input 
+      formControlName="title" 
+      [textbox]="true" 
+      class="w-100" 
+      rows="5"
+      (change)="onTitleChange($event)"
+    ></sim-text-input>
+    <h4 class="mt-3">Background Color</h4>
+    <sim-text-input 
+      formControlName="textBackgroundColor" 
+      [textbox]="false" 
+      [showColorPreview]="true"
+      [label]="'hex'"
+      class="w-100 d-block my-3"
+      [value]="textBackgroundColor"
+      (change)="onTextBackgroundColorChange($event)"
+    ></sim-text-input>
+    <color-hue-picker
+      [color]="textBackgroundColor"
+      [width]="'100%'"
+      (onChange)="onTextBackgroundColorChange($event)">
+    </color-hue-picker>
+    <div class="d-flex justify-content-between mt-3">
+      <div *ngFor="let color of swatchColors"
+        class="color-swatch"
+        [style]="{'background-color': color}"
+        (click)="onSwatchClicked(color)"
+      ></div>
+    </div>
+    <button class="simpi-button-dark mt-4" type="reset" (click)="onTitleClear()">X&nbsp;&nbsp;Clear Text</button>
+  </form>
+</div>

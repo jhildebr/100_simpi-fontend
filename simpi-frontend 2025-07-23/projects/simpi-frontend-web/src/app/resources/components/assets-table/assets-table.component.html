@@ -1,0 +1,13 @@
+<sim-table
+  [dynamicColumns]="dynamicColumns"
+  [data]="items"
+  (clickedRow)="onSelectAsset($event)"
+  [addModeEnabled]="false"
+  idName="resourceId"
+  type="asset"
+  [errorLoadingData]="false"
+  [staticColumns]="staticColumns"
+  [showAddRow]="false"
+  (edit)="onEditAsset($event)"
+>
+</sim-table>

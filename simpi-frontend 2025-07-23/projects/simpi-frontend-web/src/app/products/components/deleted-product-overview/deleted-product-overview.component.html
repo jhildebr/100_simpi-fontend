@@ -1,0 +1,32 @@
+<div class="product-container">
+  <div
+    class="product-item"
+    *ngFor="let product of products"
+    (click)="showSimpis(product.productId)"
+  >
+    <div class="product-image-container">
+      <img
+        *ngIf="product.productImageUrl"
+        class="product-image"
+        [src]="product.productImageUrl"
+        [alt]="'Product image of ' + product.productName"
+      />
+      <div *ngIf="!product.productImageUrl" class="no-image-box">
+        <div class="no-image-icon">
+          <fa-icon [icon]="['fas', 'image']" size="2x"></fa-icon>
+        </div>
+      </div>
+      <sim-context-menu
+        [menuEntries]="contextMenuEntries"
+        [menuEntryClickHandlerParameter]="product"
+      >
+      </sim-context-menu>
+    </div>
+    <div class="product-name">{{ product.productName }}</div>
+    <div class="simpis-count">
+      {{
+        product.simpiCount + (product.simpiCount === 1 ? " Simpi" : " Simpies")
+      }}
+    </div>
+  </div>
+</div>

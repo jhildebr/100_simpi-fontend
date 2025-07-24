@@ -1,0 +1,29 @@
+:host {
+    position: absolute;
+    display: flex;
+    bottom: 8px;
+    // 32px button width
+    left: calc(100% - 32px - 8px);
+}
+
+.dropdown-toggle::after {
+  content: none;
+}
+
+img {
+    pointer-events: none;
+}
+
+button {
+
+  .icon {
+    pointer-events: none;
+    width: 12px;
+    height: 12px;
+    margin-right: 15px;
+
+    &-placeholder {
+        display: inline-block;
+    }
+  }
+}

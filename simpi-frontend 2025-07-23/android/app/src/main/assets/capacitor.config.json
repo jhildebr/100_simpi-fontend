@@ -1,0 +1,20 @@
+{
+  "appId": "com.simpi.mobile",
+  "appName": "SIMPI",
+  "webDir": "www",
+  "npmClient": "npm",
+  "cordova": {
+    "preferences": {
+      "ScrollEnabled": "false",
+      "StatusBarOverlaysWebView": "false",
+      "android-minSdkVersion": "19",
+      "AndroidPersistentFileLocation": "Compatibility",
+      "BackupWebStorage": "none",
+      "SplashMaintainAspectRatio": "true",
+      "FadeSplashScreenDuration": "300",
+      "SplashShowOnlyFirstTime": "false",
+      "SplashScreen": "screen",
+      "SplashScreenDelay": "3000"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+<ul class="tab-nav nav">
+    <li class="nav-item" *ngFor='let r of routes'>
+        <a class="nav-link title-18" [routerLink]='r.url' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}">
+            {{r.text === '' || r.text === undefined ? (r.url | titlecase) : r.text}}
+        </a>
+    </li>
+</ul>

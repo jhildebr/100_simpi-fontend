@@ -1,0 +1,61 @@
+<ion-content fullscreen='true' [ngClass]="{'custom-ion-content': isToBack, 'dark-bg': showGallery}" #content>
+    <div *ngIf="!showGallery" #ripple [hidden]="!showFocus" class="ripple"></div>
+    <div class="d-flex flex-column h-100">
+        <ion-fab class='back-btn'>
+            <ion-fab-button (click)='showGallery ? closeGallery() : exitCreator()' class='fab-translucent'>
+                <ion-icon name="close"></ion-icon>
+            </ion-fab-button>
+        </ion-fab>
+      <ion-fab horizontal="end" >
+        <ion-fab-button (click)='onCreateSimpi()' class='fab-translucent'>
+          NEXT
+        </ion-fab-button>
+      </ion-fab>
+      <div cdkDropList cdkDropListOrientation="horizontal" class="picture-grid" (cdkDropListDropped)="drop($event)">
+        <cdk-virtual-scroll-viewport #thumbnailContainer style="height: 65px; width:'100vw'" itemSize="65" orientation="horizontal">
+            <ng-container *ngFor="let file of simpiFiles; let i = index;">
+                <div class="picture-grid-item" cdkDrag [cdkDragData]="{index: i}" [cdkDragStartDelay]="350">
+                    <img *ngIf="file.type === galleryItemType.IMAGE" class="object-fit-cover h-100" [src]="file.src | sanitizeImg" />
+                    <video class="step-video"
+                    *ngIf="file.type === galleryItemType.VIDEO"
+                    [src]="(file.src + '#t=1' | sanitizeImg: 'video')" 
+                    preload="auto" 
+                    controls></video>
+                    <img class="preview-img" *cdkDragPreview [src]="file.src | sanitizeImg" />
+                </div>
+            </ng-container>
+            </cdk-virtual-scroll-viewport>
+        </div>
+        <span *ngIf="recording" class="record-indicator">
+            <span class="icon"></span>
+            <span class="counter">{{recordingTime$ | async}}</span>
+        </span>
+        <ng-container *ngIf='!showGallery'>
+            <div class="w-100"
+                [ngClass]="{'h-70': simpiFiles.length > 0, 'h-100': simpiFiles.length === 0}"></div>
+            <div>
+                <ion-grid>
+                    <ion-row class="mb-1 ion-align-items-center">
+                        <ion-col class="d-flex ion-justify-content-center">
+                            <ion-fab-button (click)="flipCamera()" class='fab-translucent'>
+                                <ion-icon name="camera-reverse-outline"></ion-icon>
+                            </ion-fab-button>
+                          </ion-col>
+                          <ion-col class="text-center">
+                            <ion-fab-button class="action-button ml-auto mr-auto" [ngClass]="{'recording': recording}"
+                            ion-long-press [delay]="300"
+                            (click)="captureImage()" (pressStart)="startRecordVideo()" (pressEnd)="stopRecordVideo()">
+                            </ion-fab-button>
+                          </ion-col>
+                          <ion-col class="text-center">
+                            <span (click)="openGallery()" class="text-white">GALLERY</span>
+                          </ion-col>
+                    </ion-row>
+                    <ion-row class="mt-3 ion-justify-content-center position-relative ion-align-items-center">
+                        <div class="text-white action-text">Tap for photo, Hold for video</div>
+                    </ion-row>
+                </ion-grid>
+            </div>
+        </ng-container>
+    </div>
+</ion-content>

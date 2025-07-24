@@ -1,0 +1,35 @@
+
+    <ng-container *ngIf="selectedSegment === segmentType.MySimpis">
+        <ion-grid *ngIf="(simpis$ | async) as simpis" class="ion-no-padding user-simpis">
+            <ion-row>
+                <ion-col class="ion-no-padding" size="4" sizeMd="3" (click)="navigateToSimpi(simpi.simpiId)"
+                *ngFor="let simpi of simpis">
+                <div class="simpi-card-wrapper">
+                    <div class="simpi-card">
+                      <div *ngIf="simpi.deploymentInfo.deploymentState === deploymentState.Private" class="simpi-state">
+                        <ion-icon src="assets/svg/private-white.svg"></ion-icon>
+                      </div>
+                      <div *ngIf="simpi.deploymentInfo.deploymentState === deploymentState.PrivateGroup" class="simpi-state">
+                        <ion-icon src="assets/svg/private-group.svg"></ion-icon>
+                      </div>
+                      <div class="simpi-card-img">
+                        <ion-img *ngIf="simpi.thumbnailId" class="h-100" [src]="simpi.thumbnailUrl"></ion-img>
+                        <div *ngIf="!simpi.thumbnailId" class="h-100 icon" [style.backgroundColor]="simpi.iconColor"></div>
+                      </div>
+                      <div class="simpi-card-text">
+                        <div class="title">
+                          {{simpi.title}}
+                        </div>
+                        <div class="brand">
+                          {{simpi.brandName}}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ng-container>
+    <ng-container *ngIf="selectedSegment === segmentType.Saved">
+        saved
+    </ng-container>

@@ -1,0 +1,31 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{modalTitle}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div *ngIf="!uploadCompleted" class='d-inline-block w-100'>
+        <sim-drag-drop-file-upload [showUploadBox]="!processing"
+            (filesToUpload)="onFilesToUploadReceived($event)"
+            allowedMimeTypes="text/csv,application/vnd.ms-excel"
+            title="Upload CSV"
+            description="Drag & Drop your CSV file here or browse using plus icon.">
+        </sim-drag-drop-file-upload>
+    </div>
+    <div *ngIf="processing">
+        <sim-loading-spinner [show]="processing" size="3x"></sim-loading-spinner>
+        Processing....
+    </div>
+    <div *ngIf="uploadCompleted">
+        Upload completed successfuly.
+    </div>
+    <div *ngIf="error">
+        Could not parse the following field (char {{ error.invalidCharIndex }}, line {{ error.invalidRowIndex }}):
+        <i>{{ error.invalidField }}</i>
+    </div>
+</div>
+<div class="modal-footer">
+    <button *ngIf="!uploadCompleted" type="button" class="simpi-button-dark" (click)="activeModal.dismiss()">Cancel</button>
+    <button *ngIf="uploadCompleted" type="button" class="simpi-button-dark" (click)="activeModal.close()">Ok</button>
+</div>

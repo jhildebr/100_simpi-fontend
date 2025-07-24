@@ -1,0 +1,24 @@
+<div class="resources" cdkDropList>
+  <div *ngFor="let resource of resources$ | async">
+    <div
+      class="resource"
+      *ngIf="!resource?.deleted"
+      [title]="resource.title + ' (' + resource.manufacturer + ')'"
+      cdkDrag
+      (cdkDragStarted)="onDragStarted($event)"
+      (cdkDragReleased)="onDragReleased()"
+      [cdkDragData]="{ stickerId: resource.resourceId, thumbnailId: resource.thumbnailId }"
+    >
+      <img
+        *ngIf="resource.thumbnailUrl"
+        [src]="resource.thumbnailUrl"
+        [alt]="resource.title"
+      />
+      <div *ngIf="!resource.thumbnailUrl" class="no-image-box position-relative">
+        <div class="no-image-icon">
+          <fa-icon [icon]="['fas', 'image']" size="2x"></fa-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

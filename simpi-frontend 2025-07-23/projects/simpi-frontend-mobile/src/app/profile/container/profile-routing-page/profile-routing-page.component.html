@@ -1,0 +1,44 @@
+    <ng-container *ngIf="(userAccount$ | async) as userAccount">
+        <div class="d-flex flex-column w-100 position-relative" slot="fixed">
+            <div class="d-flex w-100 h-100 user-settings align-items-center" [ngClass]="{
+                'justify-content-end': !editMode,
+                'justify-content-between': editMode
+            }">
+            <div>
+                <ion-icon *ngIf="editMode" class="back-button" name="arrow-back-outline" (click)="navigateToOverview()"></ion-icon>
+                <ion-icon *ngIf="!editMode" class="settings-icon" (click)="navigateToSettings()" src="/assets/svg/settings.svg"></ion-icon>
+            </div>
+            <ng-container *ngIf="editMode">
+                <div class="text-edit">Edit</div>
+                <div class="text-save" (click)="saveUserInfo()">Save</div>
+            </ng-container>
+            </div>
+            <div class="d-flex w-100 h-100 user-info justify-content-center text-center">
+                <div class="d-flex flex-column align-items-center">
+                    <div class="avatar" [class.edit]="editMode">
+                        <ion-avatar [class.edit]="editMode">
+                            <ion-icon class="h-100" name="person-outline"></ion-icon>
+                        </ion-avatar>
+                        <div *ngIf="editMode" class="profile-image-btn">
+                            <ion-icon name="add-circle"></ion-icon>
+                        </div>
+                    </div>
+                    <ng-container *ngIf="!editMode">
+                        <div class="user-name mt-3">
+                            {{ userAccount.forename }} {{ userAccount.surname }}
+                        </div>
+                        <div class="user-about mt-2">
+                            {{ userAccount.about }}
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <div *ngIf="!editMode" class="d-flex segment-container w-100 justify-content-around">
+        <div class="segment-item" (click)="selectedSegment = segmentType.MySimpis" [class.active]="selectedSegment === segmentType.MySimpis">Simpis</div>
+        <div class="segment-item" [class.active]="selectedSegment === segmentType.Saved"></div>
+    </div>
+<ion-content>
+    <router-outlet></router-outlet>
+</ion-content>

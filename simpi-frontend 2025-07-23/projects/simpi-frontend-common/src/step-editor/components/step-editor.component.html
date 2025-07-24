@@ -1,0 +1,28 @@
+<div>
+  <canvas #cv [width]="width" [height]="height" [style.cursor]="cursor" (mousedown)="onMouseDown($event)"
+          (mousemove)="onMouseMove($event)" (click)="onClick($event)">
+    <h1>{{simpiTitle}}</h1>
+    <p>{{simpiDescription}}</p>
+    <h2>{{stepTitleInputValue}}</h2>
+    <p>{{longStepDescription}}</p>
+  </canvas>
+  <input #inputElement class="step-title-input" *ngIf="!readonly && active" [value]="stepTitleInputValue"
+         (input)="stepTitleInputValueChanged($event)" (keypress)="stepTitleInputKeyPress($event)">
+  <color-hue-picker *ngIf="textEditMode && editModeEnabled && active && mobileApp" [width]="colorPickerWidth"
+                    [color]="textBackgroundColor" (onChange)="onColorChange($event)"
+                    [style.bottom]="colorPickerPositionBottom">
+  </color-hue-picker>
+  <video *ngIf="mediaType === 'video'" #video (ended)="onVideoEnded()" style="display: none"
+         preload="auto" playsinline muted></video>
+  <sim-resource-preview *ngIf="stickerActionPopup?.open" [stickerAction]="stickerActionPopup"
+                        [mobileApp]="mobileApp"
+                        [simpiId]="simpiId" (onClose)="onCloseResourcePreview()"
+                        (openShoppingLink)="openShoppingLink.emit($event)"></sim-resource-preview>
+  <sim-sticker-settings class="sticker-settings-popup"
+                        [ngStyle]="{'top.px': stickerSettingsPopupProperties?.popupPositionTopLeft.y, 'left.px': stickerSettingsPopupProperties?.popupPositionTopLeft.x, 'height.px': stickerSettingsPopupProperties?.popupSize.y, 'width.px': stickerSettingsPopupProperties?.popupSize.x}"
+                        *ngIf="stickerSettingsPopupProperties?.stickerSettingsPopupVisible"
+                        [stickerInfo]="stickerSettingsPopupProperties?.stickerInfo"
+                        (onSaveSettings)="onStickerSettingsChanged($event)"
+                        (onDismiss)="closeStickerSettingsPopup()">
+  </sim-sticker-settings>
+</div>

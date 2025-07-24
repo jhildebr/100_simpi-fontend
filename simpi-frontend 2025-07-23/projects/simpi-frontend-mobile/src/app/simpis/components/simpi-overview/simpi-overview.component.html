@@ -1,0 +1,13 @@
+<div class="product-page-image">
+    <ng-container *ngIf="productPageImageUrl">
+        <div class="img" [style.backgroundImage]="'url(' +  productPageImageUrl + ')'"></div>
+        <div class="brand-circle"></div>
+    </ng-container>
+    <ng-container *ngIf="loading">
+        <ion-skeleton-text animated></ion-skeleton-text>
+    </ng-container>
+</div>
+<sim-simpi-list
+  [simpis]="simpis" [loading]="loading"
+  (navigateToSimpi)="navigateToSimpi.emit($event)">
+</sim-simpi-list>

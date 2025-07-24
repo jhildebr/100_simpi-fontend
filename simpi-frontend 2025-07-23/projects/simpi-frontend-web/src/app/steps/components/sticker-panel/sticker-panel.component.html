@@ -1,0 +1,31 @@
+<div class="sticker-nav-wrapper">
+  <div class="sticker-nav-container">
+    <ul ngbNav #nav="ngbNav" class="sticker-nav-tabs">
+      <li ngbNavItem *ngFor="let stickerPalette of stickerPalettes">
+        <a ngbNavLink>{{ stickerPalette.displayName }}</a>
+        <ng-template ngbNavContent>
+          <sim-stickers [stickerPalette]="stickerPalette"></sim-stickers>
+        </ng-template>
+      </li>
+      <li ngbNavItem>
+        <a ngbNavLink>Custom</a>
+        <ng-template ngbNavContent>
+          <button class="simpi-button-dark mb-4" (click)="addCustomAsset()">
+            + &nbsp; Add Custom Sticker
+          </button>
+          <sim-custom-stickers [simpi]="simpi"></sim-custom-stickers>
+        </ng-template>
+      </li>
+      <li ngbNavItem>
+        <a ngbNavLink>Assets</a>
+        <ng-template ngbNavContent>
+          <button class="simpi-button-dark mb-4" (click)="addAsset()">
+            + &nbsp; Add Asset
+          </button>
+          <sim-resource-stickers [simpi]="simpi"></sim-resource-stickers>
+        </ng-template>
+      </li>
+    </ul>
+  </div>
+</div>
+<div [ngbNavOutlet]="nav"></div>

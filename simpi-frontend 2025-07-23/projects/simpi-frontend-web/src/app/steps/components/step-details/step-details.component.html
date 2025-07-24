@@ -1,0 +1,149 @@
+<div class="step-details">
+  <div
+    class="main"
+    [ngClass]="{
+      'main-full-width': !isSidebarVisible,
+      'main-reduced-width': isSidebarVisible
+    }"
+  >
+    <div class="toolbar">
+      <div class="tool" title="Change Media">
+        <div
+          class="icon"
+          role="button"
+          (click)="showMediaSidebar()"
+          [ngClass]="{ active: visiblePanel === visiblePanelTypes.MEDIA }"
+        >
+          <img src="assets/svg/image-editor.svg" alt="Media Icon" />
+        </div>
+      </div>
+      <div class="tool" title="Add Text">
+        <div
+          class="icon"
+          role="button"
+          (click)="showTextSidebar()"
+          [ngClass]="{ active: visiblePanel === visiblePanelTypes.TEXT }"
+        >
+          <img src="assets/svg/text.svg" alt="Text Icon" />
+        </div>
+      </div>
+      <div class="tool" title="Add Sticker">
+        <div
+          class="icon"
+          role="button"
+          (click)="showStickerSidebar()"
+          [ngClass]="{ active: visiblePanel === visiblePanelTypes.STICKERS }"
+        >
+          <img src="assets/svg/stickers.svg" alt="Sticker Icon" />
+        </div>
+      </div>
+      <div class="tool" title="Voice Over">
+        <div
+          class="icon"
+          role="button"
+          (click)="showVoiceOverSidebar()"
+          [ngClass]="{ active: visiblePanel === visiblePanelTypes.VOICE_OVER }"
+        >
+          <img src="assets/svg/sound.svg" alt="Sound Icon" />
+        </div>
+        <div class="state">
+          {{
+            stepForm.controls["voiceOverEnabled"].value === true ? "ON" : "OFF"
+          }}
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="tool" title="Portrait View">
+        <div
+          class="icon"
+          role="button"
+          (click)="showPortraitViewSidebar()"
+          [ngClass]="{
+            active: visiblePanel === visiblePanelTypes.PORTRAIT_INDICATOR
+          }"
+        >
+          <img src="assets/svg/portrait-view.svg" alt="Portrait Phone Icon" />
+        </div>
+      </div>
+      <!--<div class="tool" title="Add Translation">
+        <div class="icon" role="button" (click)="showTranslationViewSidebar()" [ngClass]="{ active: visiblePanel === visiblePanelTypes.TRANSLATION }">
+          <img src="assets/svg/translation.svg" alt="Translation Icon" />
+        </div>
+      </div>-->
+    </div>
+    <div #stepEditorContainer class="step-editor">
+      <div
+        *ngIf="selectedStep && !selectedStep?.mediaType"
+        class="file-upload"
+      >
+        <sim-drag-drop-file-upload
+          [showUploadBox]="true"
+          (filesToUpload)="uploadStepMedia($event)"
+          allowedMimeTypes="image/*,video/*"
+        >
+        </sim-drag-drop-file-upload>
+      </div>
+      <sim-step-editor
+        #editor
+        *ngIf="selectedStep?.mediaType"
+        [forceVideoMuted]="true"
+        [stepMedia]="{
+          imageUrl: selectedStep.thumbnailUrl,
+          videoUrl: selectedStep.videoUrl,
+          mediaType: selectedStep.mediaType
+        }"
+        [width]="simpiImgWidth"
+        [height]="simpiImgHeight"
+        [readonly]="false"
+        [active]="true"
+        [description]="selectedStep?.title"
+        [editModeEnabled]="isSidebarVisible"
+        [simpiId]="selectedStep?.simpiId"
+        [stepId]="selectedStep?.stepId"
+        [textEditMode]="visiblePanel === visiblePanelTypes.TEXT"
+        (componentLoaded)="stepEditorLoaded()"
+        [visiblePanel]="visiblePanel"
+      >
+      </sim-step-editor>
+    </div>
+  </div>
+  <div *ngIf="isSidebarVisible" class="sidebar position-relative">
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="closeAllSidebars()"
+    ></button>
+    <ng-container *ngIf="visiblePanel === visiblePanelTypes.MEDIA">
+      <sim-step-media-sidebar
+        [selectedStep]="selectedStep"
+        (stepMediaUploaded)="onStepMediaUploaded($event)"
+      >
+      </sim-step-media-sidebar>
+    </ng-container>
+    <ng-container *ngIf="visiblePanel === visiblePanelTypes.TEXT">
+      <sim-step-text-sidebar
+        [selectedStep]="selectedStep"
+        [stepForm]="stepForm"
+        (textBackgroundColorChanged)="textBackgroundColorChanged()"
+        (titleChanged)="onTitleChanged($event)"
+      >
+      </sim-step-text-sidebar>
+    </ng-container>
+    <ng-container *ngIf="visiblePanel === visiblePanelTypes.STICKERS">
+      <sim-step-sticker-sidebar [simpi]="simpi"></sim-step-sticker-sidebar>
+    </ng-container>
+    <ng-container *ngIf="visiblePanel === visiblePanelTypes.VOICE_OVER">
+      <sim-step-voice-over-sidebar
+        [stepForm]="stepForm"
+        [simpi]="simpi"
+      ></sim-step-voice-over-sidebar>
+    </ng-container>
+    <div *ngIf="visiblePanel === visiblePanelTypes.PORTRAIT_INDICATOR">
+      Portrait View
+    </div>
+    <div *ngIf="visiblePanel === visiblePanelTypes.TRANSLATION">
+      <sim-step-translation-sidebar [simpi]="simpi"></sim-step-translation-sidebar>
+    </div>
+  </div>
+</div>

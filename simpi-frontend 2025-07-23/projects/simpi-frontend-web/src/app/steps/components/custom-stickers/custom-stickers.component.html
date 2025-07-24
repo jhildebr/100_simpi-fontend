@@ -1,0 +1,17 @@
+<div class="customStickers" cdkDropList>
+    <div
+        class="customSticker"
+        *ngFor="let sticker of customStickers$ | async"
+        cdkDrag
+        (cdkDragStarted)="onDragStarted($event)"
+        (cdkDragReleased)="onDragReleased()"
+        [cdkDragData]="{ stickerId: sticker.id, thumbnailId: sticker.thumbnailId }"
+    >
+        <img
+            *ngIf="sticker.thumbnailUrl"
+            [src]="sticker.thumbnailUrl"
+        />
+        <sim-context-menu [menuEntries]="contextMenuEntries" [menuEntryClickHandlerParameter]="sticker">
+        </sim-context-menu>
+    </div>
+</div>

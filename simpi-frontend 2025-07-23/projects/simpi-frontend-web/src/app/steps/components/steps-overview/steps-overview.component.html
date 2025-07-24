@@ -1,0 +1,38 @@
+<div class="steps-overview">
+  <div class="steps-controls">
+    <div class="controls-group">
+      <div class="circle-icon-button dark delete-icon" role="button" (click)="deleteStep.emit(selectedStep.stepId)">
+        <img src="assets/svg/delete.svg" alt="Paper bin icon">
+      </div>
+      <div role="button" class="add-step-button" (click)="addStep.emit()">
+        <div class="circle-icon-button dark add-step-icon">
+          <img src="assets/svg/plus.svg" alt="Back icon">
+        </div>
+        Add step
+      </div>
+      <div role="button" class="add-step-button" (click)="copyStep.emit()">
+        <div class="circle-icon-button copy-step-icon">
+          <img class="copy-paste-icon" src="assets/svg/copy.svg" alt="Back icon">
+        </div>
+      </div>
+      <div *ngIf="isCopied" role="button" class="add-step-button"  size="200px" (click)="pasteStep.emit()">
+        <div class="circle-icon-button copy-step-icon">
+          <img class="copy-paste-icon" src="assets/svg/paste.svg" alt="Back icon">
+        </div>
+      </div>
+    </div>
+    <div class="controls-group">
+      <div role="button" class="simpi-button-dark" (click)="next.emit()">Next&nbsp;&nbsp;&gt;</div>
+    </div>
+  </div>
+  <div #stepList class="step-list" cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="drop($event)">
+    <div class="step" *ngFor="let step of steps; trackBy: stepTrackBy" cdkDrag
+         [ngClass]="{'active': selectedStep?.stepId === step.stepId}"
+         [delayDrag]="dragging.dragStartDelay"
+         (mousedown)="mousedown(step.stepId)"
+         (mouseup)="mouseup($event)"
+         (click)="selectStepById(step.stepId)">
+      <img *ngIf="step.thumbnailUrl" class="step-image" [src]="step.thumbnailUrl" [alt]="step.title">
+    </div>
+  </div>
+</div>

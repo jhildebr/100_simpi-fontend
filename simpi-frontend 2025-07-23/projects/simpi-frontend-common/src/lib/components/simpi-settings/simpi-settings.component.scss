@@ -1,0 +1,161 @@
+:host {
+
+}
+
+:host:focus-within {
+  border-color: var(--simpi-color-blue);
+}
+
+h1 {
+  font-family: "Circular Std", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 23px;
+  color: var(--simpi-color-dark-blue-8);
+}
+
+h2 {
+  font-family: "Circular Std", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 23px;
+  color: var(--simpi-color-dark-blue-8);
+}
+
+.simpi-settings-title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  column-gap: 15px;
+  margin-bottom: 40px;
+
+  .circle-icon-button {
+    width: 30px;
+    height: 30px;
+  }
+
+  .back-button {
+    background: var(--simpi-color-dark-blue-3);
+  }
+}
+
+.simpi-settings {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+
+  div.simpi-thumbnail {
+    div.image-container {
+      margin-bottom: 15px;
+    }
+
+    img.simpi-thumbnail {
+      height: 269px;
+      width: 168px;
+    }
+
+    .simpiThumbnailChangeResult {
+      margin-top: 10px;
+    }
+  }
+
+  .image-container {
+    position: relative;
+  }
+
+  .change-image-button {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+  }
+}
+
+.forms {
+  margin-left: auto;
+  margin-right: auto;
+
+  .simpi-title-form {
+    margin-bottom: 32px;
+
+    .simpi-title-change-result {
+      margin-left: 16px;
+      margin-top: 1px;
+    }
+  }
+
+  .simpi-group-form {
+    margin-bottom: 32px;
+
+    .simpi-group-change-result {
+      margin-left: 16px;
+      margin-top: 1px;
+    }
+  }
+
+  .simpi-description-form {
+    margin-bottom: 16px;
+
+    .simpi-description-change-result {
+      margin-left: 16px;
+      margin-top: 1px;
+    }
+  }
+
+  .simpi-show-start-panel-form {
+    margin-bottom: 32px;
+
+    label {
+      margin-left: 5px;
+      color: black;
+    }
+
+    .start-panel-change-result {
+      margin-left: 16px;
+      margin-top: 1px;
+    }
+  }
+
+  .privacy-form {
+    margin-bottom: 45px;
+
+    .privacy-change-result {
+      margin-left: 16px;
+      margin-top: 1px;
+    }
+  }
+
+  .delete-simpi {
+    button {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.next-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+sim-type-ahead {
+  flex-grow: 1;
+  display: inherit;
+  font-size: 16px;
+  color: var(--simpi-color-dark-blue-7);
+  padding: 7px 11px;
+  border: 1px solid var(--simpi-color-dark-blue-2);
+  border-radius: 8px;
+  //position: relative;
+  align-items: center;
+  justify-items: left;
+}
+
+.sim-typeahead-container {
+  margin: 10px 0;
+  top: revert;
+}
+

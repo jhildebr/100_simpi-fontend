@@ -1,0 +1,105 @@
+a {
+  background-color: transparent;
+  border: 5px;
+  margin: 25px;
+  cursor: pointer;
+}
+
+img {
+  height: 20px;
+  width: 20px;
+}
+
+.active {
+  color: red;
+}
+
+.nav-item {
+  &:before {
+    width: 18px;
+    height: 18px;
+    display: block;
+    background-size: 18px;
+  }
+}
+
+.home {
+  &:before {
+    // width: 25px;
+    // height: 25px;
+    content: "";
+    background-image: url("^assets/svg/Home-Inactive.svg");
+  }
+  &.active {
+    &:before {
+      // width: 25px;
+      // height: 25px;
+      content: "";
+      background-image: url("^assets/svg/Home-Active.svg");
+    }
+  }
+}
+
+.products {
+  &:before {
+    content: "";
+    background-image: url("^assets/svg/Products-Inactive.svg");
+  }
+  &.active {
+    &:before {
+      content: "";
+      background-image: url("^assets/svg/Products-Active.svg");
+    }
+  }
+}
+
+.simpis {
+  &:before {
+    content: "";
+    background-image: url("^assets/svg/Simpis-Inactive.svg");
+  }
+  &.active {
+    &:before {
+      content: "";
+      background-image: url("^assets/svg/Simpis-Active.svg");
+    }
+  }
+}
+.assets {
+  &:before {
+    content: "";
+    background-image: url("^assets/svg/Assets-Inactive.svg");
+  }
+  &.active {
+    &:before {
+      content: "";
+      background-image: url("^assets/svg/Assets-Active.svg");
+    }
+  }
+}
+
+.analytics {
+  &:before {
+    content: "";
+    background-image: url("^assets/svg/Analytics-Inactive.svg");
+  }
+  &.active {
+    &:before {
+      content: "";
+      background-image: url("^assets/svg/Analytics-Active.svg");
+    }
+  }
+}
+
+.search {
+  &:before {
+    content: "";
+    background-image: url("^assets/svg/Search-Inactive.svg");
+  }
+  &.active {
+    &:before {
+      content: "";
+      background-image: url("^assets/svg/Search-Active.svg");
+    }
+  }
+}

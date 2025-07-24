@@ -1,0 +1,91 @@
+.fab-row,
+.tabs-row {
+    height: 60px;
+}
+.overview-segment {
+    margin-bottom: 0;
+}
+
+.segment-button-checked {
+    color: var(--ion-color-dark);
+    font-weight: bold;
+}
+
+ion-segment-button {
+    --indicator-color: var(--ion-color-medium);
+    --indicator-color-checked: var(--ion-color-dark);
+    --color-activated: none;
+    --color: var(--ion-color-medium);
+    --color-activated: none;
+    --color-checked: none;
+    --ripple-color: transparent;
+    --border-width: 15px !important;
+    --margin-top: 20px;
+    --background-activated: none;
+    --background-checked: none;
+    --background-hover: none;
+}
+
+.favs-segment {
+    margin-bottom: 0;
+    margin-left: 10px;
+}
+
+.heart-icon {
+    position: absolute;
+    top: 13px;
+    left: 5px;
+    font-size: 1.25rem;
+}
+
+.mt-15 {
+    margin-top: 15px;
+}
+.mt-20 {
+    margin-top: 20px;
+}
+
+.heart-ico {
+    font-size: 22px;
+}
+
+.text-center-vertical {
+    align-self: center;
+}
+
+.text-center {
+    text-align: right;
+    text-align: -webkit-right;
+}
+
+.avatar {
+    width: 26px;
+    height: 26px;
+}
+
+ion-ripple-effect {
+    color: none !important;
+}
+
+.border-bottom {
+    height: 100%;
+    width: 50vw;
+    border-bottom: 2px solid var(--ion-color-medium);
+}
+
+.change-view-btn {
+    padding: 0 10px;
+}
+
+.view-icons {
+    height: 100%;
+    display: flex;
+}
+
+.switch-icon-col {
+    height: 70px;
+    padding: 0px;
+    &.ios {
+        margin-top: 10px;
+    }
+}

@@ -1,0 +1,12 @@
+<div ngbDropdown container="body">
+  <button class="more-button" (click)="clickContextMenuButton($event)" ngbDropdownToggle>
+    <img src="assets/svg/more.svg" alt="Three dots that indicate context menu.">
+  </button>
+  <div ngbDropdownMenu>
+    <button *ngFor="let item of menuEntries" ngbDropdownItem (click)="item.clickHandler(menuEntryClickHandlerParameter)">
+      <img class="icon" *ngIf="item.iconUrl" [src]="item.iconUrl" [alt]="'Symbol to visualize ' + item.text">
+      <span *ngIf="!item.iconUrl && menuItemsContainIcons" class="icon icon-placeholder"></span>
+      {{item.text}}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="container" [style.width]="width + 'px'">
+  <sim-imprint (onClose)="closeImprint()" *ngIf="imprintVisible"></sim-imprint>
+  <sim-data-protection (onClose)="closeDataProtection()" *ngIf="dataProtectionVisible"></sim-data-protection>
+  <a class="back-arrow" (click)="close()"><fa-icon class="back-arrow" [icon]='["fas", "arrow-left"]'></fa-icon></a>
+  <h1>Properties</h1>
+  <div class="navigation">
+    <ul>
+      <li (click)="openImprint()"><a>Imprint</a> <fa-icon [icon]='["fas", "caret-right"]' size="2x"></fa-icon></li>
+      <li (click)="openDataProtection()"><a>Data Protection</a> <fa-icon [icon]='["fas", "caret-right"]' size="2x"></fa-icon></li>
+    </ul>
+  </div>
+  <div class="footer">All rights reserved - www.SIMPI.com</div>
+</div>

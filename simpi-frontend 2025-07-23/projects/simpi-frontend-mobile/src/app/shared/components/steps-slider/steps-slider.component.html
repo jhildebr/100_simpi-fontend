@@ -1,0 +1,148 @@
+<ion-content slot="fixed" forceOverscroll="false" fullscreen="true" scrollY="false">
+    <div #sliderContainer class="w-100 h-100">
+        <ion-fab class="close-button" vertical="top" horizontal="end"
+            *ngIf="!creatorMode && swiperIndex !== steps.length - 1">
+            <ion-button (click)="goBack.emit()" fill="clear" color="light">
+                <ion-icon name="close"></ion-icon>
+            </ion-button>
+        </ion-fab>
+        <ion-fab class="toolbar-bottom" vertical="bottom" horizontal="start"
+            *ngIf="!infoCardShown && steps.length - 1 > swiperIndex && !creatorMode">
+            <ion-toolbar class="step-navigation-panel-toolbar" color="transparent">
+                <ion-buttons start>
+                    <ion-button slot="start" class="arrow-prev" *ngIf="swiperIndex > 0"
+                        (click)="slideTo(swiperIndex - 1)" fill="clear">
+                        <ion-icon src="/assets/svg/navigation-arrow.svg" name="arrow-prev"></ion-icon>
+                    </ion-button>
+                    <!--Invisible placeholder btn. Required for toolbar layout-->
+                    <ion-button *ngIf="!(swiperIndex > 0)" [class.button-disabled]="true" fill="clear"
+                        color="transparent"></ion-button>
+
+                    <ion-button *ngIf="steps[swiperIndex]?.voiceOverEnabled" class="sound-btn"
+                        (click)="onAudioBtnClicked()" shape="round" fill="solid" color="dark">
+                        <ion-icon *ngIf="!isAudioMuted" src="/assets/svg/sound-on.svg" name="sound-on"></ion-icon>
+                        <ion-icon *ngIf="isAudioMuted" src="/assets/svg/sound-off.svg" name="sound-off"></ion-icon>
+                    </ion-button>
+                    <!--Invisible placeholder btn. Required for toolbar layout-->
+                    <ion-button *ngIf="!steps[swiperIndex]?.voiceOverEnabled" [class.button-disabled]="true"
+                        fill="clear" color="transparent"></ion-button>
+
+                    <ion-chip class="pager" color="dark">
+                        <sup style="font-size:16px;"><b>{{ swiperIndex + 1 }}</b> </sup>&frasl;<sub><small>{{
+                                steps.length - 1
+                                }}</small></sub>
+                    </ion-chip>
+
+                    <ion-button class="video-btn" *ngIf="steps[swiperIndex]?.mediaType === 'video'"
+                        [class.button-disabled]="steps[swiperIndex]?.mediaType !== 'video'" shape="round"
+                        (click)="onVideoBtnClicked()" fill="solid" color="dark">
+                        <ion-icon *ngIf="isVideoPaused" src="/assets/svg/play.svg" name="play-video"></ion-icon>
+                        <ion-icon *ngIf="!isVideoPaused" src="/assets/svg/pause.svg" name="pause-video"></ion-icon>
+                    </ion-button>
+                    <!--Invisible placeholder btn. Required for toolbar layout-->
+                    <ion-button *ngIf="steps[swiperIndex]?.mediaType !== 'video'" [class.button-disabled]="true"
+                        fill="clear" color="transparent"></ion-button>
+
+                    <ion-button slot="end" class="arrow-next" (click)="slideTo(swiperIndex + 1)" fill="clear">
+                        <ion-icon src="/assets/svg/navigation-arrow.svg" name="arrow-next"></ion-icon>
+                    </ion-button>
+                </ion-buttons>
+            </ion-toolbar>
+        </ion-fab>
+        <ion-slides class="simpi-bullets h-100" #swiper [options]="config" loop="false"
+            (ionSlideNextStart)="onNextSlide()" (ionSlidePrevStart)="onPrevSlide()"
+            (ionSlideDidChange)="onSlideChanged()" (ionSlideWillChange)="beforeSlideChange()" (ionSlideTap)="onTap($event)">
+            <ion-slide *ngFor="
+          let step of steps;
+          let i = index;
+          let first = first;
+          let last = last
+        ">
+                <ng-container *ngIf="(!last && !creatorMode) || creatorMode">
+                    <sim-step-editor class="h-100" *ngIf="
+              i === swiperIndex ||
+              i === swiperIndex - 1 ||
+              i === swiperIndex - 2 ||
+              i === swiperIndex + 1 ||
+              i === swiperIndex + 2 ||
+              first ||
+              (creatorMode && last)
+            "
+                                     #simpiViewers
+                                     [stepMedia]="{ mediaType: step.mediaType, imageUrl: step.thumbnailUrl, videoUrl: step.videoUrl }"
+                                     [height]="height"
+                                     [width]="width"
+                                     [editModeEnabled]="creatorMode"
+                                     [active]="i === swiperIndex"
+                                     [readonly]="!creatorMode"
+                                     [description]="step?.title"
+                                     [simpiId]="step?.simpiId"
+                                     [stepId]="step?.stepId"
+                                     [mobileApp]="true"
+                                     [textEditMode]="inAppTextEditMode && i === swiperIndex"
+                                     (onStickerEditModeChanged)="onStickerEditModeChanged($event)"
+                                     (onTextEditModeChanged)="textEditModeChanged($event)"
+                                     (openShoppingLink)="onOpenShoppingLink($event)">
+                    </sim-step-editor>
+                </ng-container>
+                <ng-container *ngIf="last && !creatorMode">
+                    <sim-last-slide (emojiClick)="onEmojiClick()">
+                        <ion-fab class="close-button" vertical="top" horizontal="end">
+                            <ion-fab-button (click)="goBack.emit()">
+                                <ion-icon name="close"></ion-icon>
+                            </ion-fab-button>
+                        </ion-fab>
+                        <div class="last-slide-slider w-100 h-100">
+                            <ng-container *ngIf="simpis$ | async as simpis">
+                                <ion-slides #lastPageSlider pager="false" [options]="myProductsSliderOpts">
+                                    <ion-slide *ngFor="let simpi of simpis">
+                                        <div class="d-flex flex-column" (click)="onLoadSimpi(simpi)">
+                                            <div class="last-slide-item-img">
+                                                <ion-img [src]="simpi.thumbnailUrl"></ion-img>
+                                            </div>
+                                            <div class="last-slide-item-text">
+                                                <div class="title">
+                                                    {{ simpi.title }}
+                                                </div>
+                                                <div class="brand">{{simpi.brandName}}</div>
+                                            </div>
+                                        </div>
+                                    </ion-slide>
+                                </ion-slides>
+                            </ng-container>
+                        </div>
+                        <div class="d-flex justify-content-center feedback-button-slot">
+                            <ion-button class="feedback-button" expand="block" [disabled]="!feedbackButtonEnabled">Send
+                                Feedback</ion-button>
+                        </div>
+                        <div class="
+                d-flex
+                flex-column
+                justify-content-center
+                action-buttons-slot
+              ">
+                            <ion-button class="icon-button" expand="block" fill="outline" (click)="repeatSimpi()">
+                                <ion-icon slot="start" src="/assets/svg/repeat.svg"></ion-icon>
+                                Repeat
+                            </ion-button>
+                            <ion-button class="icon-button" expand="block" fill="outline" (click)="shareSimpi(simpi)">
+                                <ion-icon slot="start" src="/assets/svg/share.svg"></ion-icon>
+                                Share with friends
+                            </ion-button>
+                        </div>
+                    </sim-last-slide>
+                </ng-container>
+            </ion-slide>
+        </ion-slides>
+        <!--div class="d-flex justify-content-between swiper-pagination-toolbar">
+            <div *ngIf="steps && steps[swiperIndex]?.description" class="info-btn" #infoBtn
+                (click)="actionSheet.showOverlay()">
+                <fa-icon [icon]="['fas', 'info-circle']" size="2x" [styles]="{ stroke: 'white', color: 'white' }">
+                </fa-icon>
+            </div>
+        </div-->
+        <sim-action-sheet #actionSheet *ngIf="hostElement && !creatorMode && swiperIndex !== steps.length - 1"
+            [containerEl]="hostElement" [resources]="resources" [simpi]="simpi" (visible)="onActionSheetVisible($event)"
+            (playSimpi)="onPlaySimpi()"></sim-action-sheet>
+    </div>
+</ion-content>

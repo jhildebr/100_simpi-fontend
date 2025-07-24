@@ -1,0 +1,45 @@
+.modal-header {
+  .modal-title {
+    font-family: "Circular Std", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    color: var(--simpi-color-black);
+  }
+  border-bottom: none;
+}
+
+.modal-footer {
+  border-top: none;
+}
+
+.picture-zone {
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-preview {
+  padding: 15px;
+}
+
+.remove-btn {
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  text-align: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #d9d9d9;
+  color: #777;
+  box-shadow: 0 0 2px #ccc;
+}
+
+.remove-icon {
+  position: absolute;
+  left: auto;
+  right: 5.5px;
+  top: 3px;
+}

@@ -1,0 +1,20 @@
+<ng-container *ngIf="userName$ | async as userName">
+  <img
+    class="user-profile"
+    src="./assets/images/profile.png"
+    alt="Profile picture of {{ userName }}"
+    (click)="dropdownExpanded = !dropdownExpanded"
+    cdkOverlayOrigin
+    #trigger="cdkOverlayOrigin"
+  />
+  <ng-template class="overlay"
+    cdkConnectedOverlay
+    [cdkConnectedOverlayOrigin]="trigger"
+    [cdkConnectedOverlayOpen]="dropdownExpanded"
+  >
+    <ul class="settings-dropdown">
+      <li (click)="openSettingsModal()"><img src="assets/svg/Settings.svg"/>Settings</li>
+      <li (click)="logoutUser()"> <img src="assets/svg/Logout.svg"/>Logout</li>
+    </ul>
+  </ng-template>
+</ng-container>

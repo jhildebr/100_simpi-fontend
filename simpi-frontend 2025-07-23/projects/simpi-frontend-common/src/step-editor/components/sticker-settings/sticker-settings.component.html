@@ -1,0 +1,44 @@
+<div class="modal-header">
+  <h2 *ngIf="!showResourceProperties">Sticker Properties</h2>
+  <h2 *ngIf="showResourceProperties">Resource Properties</h2>
+  <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form
+    role="form"
+    [formGroup]="stickerSettingsFormGroup"
+    (ngSubmit)="saveSettings()"
+  >
+    <sim-text-input label="Appearance delay (seconds)"
+                    formControlName="appearanceDelayInSeconds"
+                    inputmode="decimal"
+                    type="number"
+                    (change)="validateForm()">
+    </sim-text-input>
+    <div *ngIf="showResourceProperties" class="resource-properties">
+      <sim-text-input label="Link"
+                      formControlName="actionTargetUrl"
+                      inputmode="url"
+                      type="url"
+                      (change)="validateForm()">
+
+      </sim-text-input>
+    </div>
+    <sim-switch formControlName="showPopUpEffect" labelLeft="Pop-up effect" [labelRight]="null" class="checkbox"
+                (change)="validateForm()"
+    >
+    </sim-switch>
+    <div class="submit-validation-row">
+      <button
+        type="submit"
+        [disabled]="showValidationErrors"
+        class="btn btn-primary simpi-button-dark"
+        role="button"
+      >OK
+      </button>
+      <p class="validation-error" [hidden]="!showValidationErrors">Invalid settings.</p>
+    </div>
+  </form>
+</div>

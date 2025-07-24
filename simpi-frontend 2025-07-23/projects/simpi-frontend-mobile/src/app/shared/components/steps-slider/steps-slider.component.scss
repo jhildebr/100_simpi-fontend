@@ -1,0 +1,116 @@
+:host {
+    display: block;
+}
+ion-toolbar.step-navigation-panel-toolbar{
+    display:flex;
+    width: 100%;
+    ion-buttons{
+        display: flex;
+        justify-content: space-evenly;
+
+        ion-chip.pager{
+            align-self: center;
+            display: flex;
+            justify-content: center;
+            text-align: justify;
+            font-size: 14px;
+
+            padding-top: 12px;
+
+            color:white;
+            height: 30px;
+            width: 60px;
+            border-radius: 50px;
+            
+            background: transparentize($color: BLACK, $amount: 0.3);
+        }
+        ion-button{
+            --opacity:0.70;
+            height: 35px;
+            width: 35px;
+        }
+        ion-button.arrow-prev{
+            --opacity:1;
+            transform: scaleX(-1);
+        }
+    
+        ion-button.arrow-next{
+            --opacity:1;
+        }
+    }
+}
+
+.progress {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    z-index: -1;
+    background-color: var(--simpi-white);
+    width: 20%;
+    opacity: 0.2;
+    transition: width 0.2s ease;
+}
+ion-fab.toolbar-bottom{
+    width: 100%;
+    left: 0;
+    right: 0;
+    height: 48px;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+video {
+    object-fit: cover;
+}
+
+.action-buttons-slot {
+    padding: 0 40px;
+    & > ion-button:not(:last-child) {
+        margin-bottom: 25px;
+    }
+}
+
+.webplayer {
+    &-wrapper {
+        height: 100vh;
+        background: var(--simpi-grey);
+    }
+    &-table {
+        &-wrapper {
+            height: calc(100vh - 53px);
+        }
+    }
+}
+
+.transparency {
+    filter: contrast(0.5);
+}
+
+.close-btn {
+    --background: #707070;
+}
+
+.menu-btn {
+    &-icon {
+        color: black;
+    }
+}
+
+.start-btn {
+    --border-radius: 0;
+    --background: #1d193c;
+}
+
+.detail-btn {
+    width: 70px;
+    height: 35px;
+    --border-radius: 0;
+    --background: #1d193c;
+}
+
+
+ion-icon.close-icon {
+    color: black;
+}

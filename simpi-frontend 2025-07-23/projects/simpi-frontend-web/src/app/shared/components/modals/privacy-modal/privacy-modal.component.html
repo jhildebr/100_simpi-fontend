@@ -1,0 +1,43 @@
+<div class="modal-header">
+  <h2>Privacy</h2>
+  <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="form">
+    <div class="deployment-states">
+      <div class="deployment-state">
+        <input type="radio" formControlName="deploymentState" [value]="deploymentState.Private"
+                id="product-ds1">
+        <img src="assets/svg/Locked.svg" alt="Locked">
+        <label for="product-ds1">
+          <span class="title">Private</span> <br>
+          {{ targetType }} is only available to you.
+        </label>
+      </div>
+      <div class="deployment-state">
+        <input type="radio" formControlName="deploymentState" [value]="deploymentState.PrivateGroup"
+                id="product-ds2">
+        <img src="assets/svg/Team.svg" alt="People">
+        <label for="product-ds2">
+          <span class="title">Private group</span> <br>
+          {{ targetType }} is only available to people with this link.
+        </label>
+      </div>
+      <div class="deployment-state">
+        <input type="radio" formControlName="deploymentState" [value]="deploymentState.Public" id="product-ds3">
+        <img src="assets/svg/Unlocked.svg" alt="Unlocked">
+        <label for="product-ds3">
+          <span class="title">Public</span> <br>
+          {{ targetType }} is indexed by search machines and is openly available on the internet.
+        </label>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary simpi-button-dark" (click)="save()">
+    Save
+  </button>
+</div>

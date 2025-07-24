@@ -1,0 +1,22 @@
+<sim-bottom-sheet [footerState]="bottomSheetState" (footerStateChange)="onFooterStateChange($event)"
+                  [minBottomVisiblePx]="0" [topMarginPx]="300">
+  <div class="tabs">
+    <ul>
+      <li *ngFor="let stickerPalette of stickerPalettes; index as i">
+        <a [ngClass]="{'active': selectedStickerPaletteIndex === i, 'collapsed': bottomSheetState !== 1}"
+           (click)="onTapTab(i)">
+          {{stickerPalette.displayName}}
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <ion-content>
+    <div class="stickers" *ngIf="stickerPalettes?.length">
+      <sim-stickers [stickerPalette]="stickerPalettes[selectedStickerPaletteIndex]"
+                    [mobileApp]="true"
+                    (onStickerClicked)="onStickerClicked($event)">
+      </sim-stickers>
+    </div>
+  </ion-content>
+</sim-bottom-sheet>

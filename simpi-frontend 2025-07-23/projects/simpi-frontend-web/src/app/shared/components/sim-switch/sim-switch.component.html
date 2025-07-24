@@ -1,0 +1,14 @@
+<div class="toggle-switch-container align-items-center">
+    <div *ngIf="labelLeft" class="toggle-switch left-label" (click)="leftLabelClick()">
+        {{labelLeft}}
+    </div>
+    <div class="toggle-switch-wrapper d-flex" [class.ml-0]="!labelLeft" [class.mr-0]="!labelRight">
+        <input [disabled]='control.value.disabled' #checkbox type="checkbox" class="checkbox" id="simpiCheckbox"
+            (change)="onInputChange($event)" (blur)="onBlur()"
+            [checked]="control.value">
+        <label for="simpiCheckbox" class="switch" [class.disabled]="control.disabled"></label>
+    </div>
+    <div *ngIf="labelRight" class="toggle-switch right-label" (click)="rightLabelClick()">
+        {{labelRight}}
+    </div>
+</div>

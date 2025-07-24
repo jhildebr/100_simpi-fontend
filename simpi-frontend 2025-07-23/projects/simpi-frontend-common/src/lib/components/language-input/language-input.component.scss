@@ -1,0 +1,103 @@
+:host {
+  display: flex;
+  font-size: 16px;
+  color: var(--simpi-color-dark-blue-7);
+  padding: 7px 11px;
+  border: 1px solid var(--simpi-color-dark-blue-2);
+  border-radius: 8px;
+  position: relative;
+  align-items: center;
+  justify-items: right;
+}
+
+:host:focus-within {
+    border-color: var(--simpi-color-blue);
+}
+
+.status {
+    color: var(--simpi-color-black);
+    background-color: var(--simpi-color-primary-20);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-family: 'Roboto';
+    font-weight: 700;
+    padding: 2px 6px;
+}
+
+.status.critical {
+    color: var(--simpi-color-black);
+    background-color: var(--simpi-color-warning-20);
+}
+
+.control {
+    background-color: transparent;
+    border: none;
+    margin: 4px;
+    padding: 0px;
+    line-height: 100%;
+}
+
+.control img {
+    display: inline;
+    min-width: 16px;
+    min-height: 16px;
+}
+
+.translation-container{
+    display: flex;
+    gap: 50px;
+}
+
+sim-type-ahead {
+    flex-grow: 1;
+}
+
+
+
+
+
+.voice-container {
+    position: relative;
+    margin-left: auto;
+    margin-right: 8px;
+  }
+  
+  .voice-link {
+    color: var(--simpi-color-blue, #4285F4);
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .voice-link:hover {
+    text-decoration: underline;
+  }
+  
+  .voice-selector {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+  }
+  
+  .voice-option {
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .voice-option:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .voice-option.selected {
+    background-color: #e3f2fd;
+  }

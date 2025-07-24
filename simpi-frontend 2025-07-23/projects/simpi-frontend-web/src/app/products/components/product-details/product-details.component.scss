@@ -1,0 +1,132 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.product-page {
+  &-container {
+    width: 100%;
+    position: relative;
+
+    @include media-breakpoint-down(sm) {
+      position: relative;
+      left: -15px;
+      right: -15px;
+      width: calc(100% + 30px);
+    }
+
+    div.circle-icon-button {
+      position: absolute;
+      right: 15px;
+      bottom: 15px;
+    }
+
+    .deploymentState-icon {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+    }
+
+  }
+}
+
+.product-title {
+  padding-top: 30px;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  position: sticky;
+  top: -10px;
+  background-color: #ffffff;
+  z-index: 10;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  h1 {
+    font-family: Circular Std, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 26px;
+    line-height: 33px;
+    color: #000000;
+    padding: 1px 2px;
+
+    @include media-breakpoint-down(md) {
+      & {
+        font-size: 18px;
+        line-height: 23px;
+        color: var(--simpi-color-dark-blue-7)
+      }
+    }
+  }
+
+  input.product-name-input {
+    width: 400px;
+    font-family: Circular Std, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 26px;
+    line-height: 33px;
+    color: #000000;
+    margin-bottom: 0.5rem;
+    border: none;
+    padding: 1px 2px;
+
+    &:focus {
+      border: none;
+    }
+
+    @include media-breakpoint-down(md) {
+      & {
+        font-size: 18px;
+        line-height: 23px;
+        color: var(--simpi-color-dark-blue-7)
+      }
+    }
+  }
+
+  .product-controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+}
+
+.simpi-element {
+  position: relative;
+
+  .deploymentState-icon {
+    top: 8px;
+    right: 8px;
+
+    @include media-breakpoint-down(md) {
+      & {
+        right: 40px;
+      }
+    }
+  }
+}
+
+.simpi-group-container {
+  margin-bottom: 3rem;
+}
+
+h3 {
+  color: #000000;
+}
+
+h4 {
+  margin-bottom: 2rem;
+  color: #000000;
+  @include media-breakpoint-down(md) {
+    & {
+      font-size: 18px;
+      line-height: 23px;
+      color: var(--simpi-color-dark-blue-7)
+    }
+  }
+}

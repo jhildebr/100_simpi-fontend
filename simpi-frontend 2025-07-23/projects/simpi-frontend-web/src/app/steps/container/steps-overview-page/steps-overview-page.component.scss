@@ -1,0 +1,48 @@
+.steps-overview-page {
+  position: fixed;
+  left: 0;
+  right: 0;
+}
+
+.page-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 35px;
+  align-items: baseline;
+  margin-left: 24px;
+  margin-right: 24px;
+
+  .page-title-with-back-button {
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    column-gap: 15px;
+
+    .circle-icon-button {
+      width: 30px;
+      height: 30px;
+    }
+
+    .back-button {
+      background: var(--simpi-color-dark-blue-3);
+    }
+
+    h1 {
+      font-family: "Manrope", "Circular Std", sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 25px;
+      color: var(--simpi-color-dark-blue-8)
+    }
+  }
+}
+
+.loading-overlay {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background-color: transparentize($color: #000000, $amount: 0.5);
+}

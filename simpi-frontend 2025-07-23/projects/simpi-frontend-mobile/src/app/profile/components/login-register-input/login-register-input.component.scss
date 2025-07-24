@@ -1,0 +1,28 @@
+.login-register-input {
+  font-family: 'Circular Std', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 28px;
+  padding: 10px 40px;
+  text-align: center;
+
+  .instruction {
+    margin-top: 50px;
+    font-size: 22px;
+  }
+
+  .input-area {
+    margin-top: 80px;
+
+    .input-error {
+      margin-top: 10px;
+      color: red;
+      font-size: 14px;
+    }
+  }
+
+  .next-button {
+    margin-top: 24px;
+  }
+}

@@ -1,0 +1,11 @@
+<div class="sim-checkbox-input">
+    <div class="input-container">
+        <input 
+            type="checkbox" 
+            [formControl]="control"
+            id="checkbox_input"
+            (change)="onInputChange()"
+        >
+    </div>
+    <label for="checkbox_input">{{label}}</label>
+</div>

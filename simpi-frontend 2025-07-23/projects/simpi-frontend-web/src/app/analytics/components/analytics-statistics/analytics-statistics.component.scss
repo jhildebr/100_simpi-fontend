@@ -1,0 +1,27 @@
+.analytics {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: space-around;
+    background: #f0f4f8;
+    padding: 20px;
+  }
+  
+  .views, .products {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .views .views-number, .products .product-number, .products .simple-number {
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+    display: block;
+  }
+  
+  .views .views-text, .products .product-text, .products .simple-text {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+  }

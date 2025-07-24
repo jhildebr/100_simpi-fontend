@@ -1,0 +1,70 @@
+<div>
+  <div class="heading">
+    <h4>Original Language</h4>
+  </div>
+  <sim-language-input
+    [loading]="changingOriginalLanguage"
+    [language]="originalLanguage$ | async"
+    [choices]="availableLanguages$ | async"
+    (languageChange)="changeOriginalLanguage($event)"
+  ></sim-language-input>
+</div>
+<div>
+  <div class="heading">
+    <h4>Translations</h4>
+    <div class="help-icon" title="Help">
+      <span class="dark extra-small circle-icon">?</span>
+    </div>
+    <div class="metadata-and-steps-container">
+      <div class="metadata-container">
+        <a href="#" (click)="onImportMetadata($event)">
+          <img src="assets/svg/upload.svg" class="icon" />
+        </a>
+        <a href="#" (click)="onExportMetadata($event)">
+          <img src="assets/svg/download.svg" class="icon" />
+        </a>
+        <p>Metadata</p>
+      </div>
+      <div class="steps-container">
+        <a href="#" (click)="onImport($event)">
+          <img src="assets/svg/upload.svg" class="icon" />
+        </a>
+        <a href="#" (click)="onExport($event)">
+          <img src="assets/svg/download.svg" class="icon" />
+        </a>
+        <p>Steps</p>
+      </div>
+    </div>
+  </div>
+  <div *ngFor="let target of translationTargets$ | async">
+    <sim-language-input
+      [language]="target.language"
+      [autoTranslated]="!target.userProvided"
+      [autoTranslatedMetadata]="!target.userProvidedMetadata"
+      [outdated]="target.outdated"
+      [outdatedMetadata]="target.outdatedMetadata"
+      [allowDelete]="!target.isChanging"
+      [loading]="target.isChanging"
+      (delete)="deleteTranslationTarget(target)"
+      (reset)="resetTranslationTarget(target)"
+    >
+    </sim-language-input>
+  </div>
+  <div *ngIf="showInput">
+    <sim-language-input
+      [choices]="availableLanguages$ | async"
+      [loading]="addingTranslationTarget"
+      (languageChange)="addTranslationTarget($event)"
+    ></sim-language-input>
+  </div>
+  <div class="simpi-settings-buttons">
+    <button class="simpi-button-white" (click)="applyTemplate()">
+      Apply Template
+      <fa-icon *ngIf="applyingInProgress" [icon]='["fas", "circle-notch"]' [spin]='true'></fa-icon>
+    </button>
+    <button class="simpi-button-light" (click)="enableTranslationAdding()">
+      <img src="assets/svg/plus.svg" class="icon" />
+      Add Translation
+    </button>
+  </div>
+</div>

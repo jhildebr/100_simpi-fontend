@@ -1,0 +1,16 @@
+<div *ngIf="visible" [@slideInOut] class="info-card-container" [class.has-resources]="resourcesToDisplay && resourcesToDisplay.length > 0">
+    <div class="info-card-text-wrapper">
+        <div class="info-card-headline" *ngIf="simpi?.title">
+            {{ simpi.title }}
+        </div>
+        <div class="info-card-text" *ngIf="simpi?.description">
+            {{ simpi.description }}
+        </div>
+        <div class="info-card-resources" *ngIf="resourcesToDisplay && resourcesToDisplay.length > 0">
+            <sim-resource [resources]="resourcesToDisplay" [resourceButtonTemplate]="resourceButtonTemplate"></sim-resource>
+        </div>
+    </div>
+    <div class="info-card-action-button">
+        <ng-content select=".start-btn"></ng-content>
+    </div>
+</div>

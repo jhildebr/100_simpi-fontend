@@ -1,0 +1,6 @@
+<form (submit)="submit()">
+    <input type="text" name="search_term" [(ngModel)]="search_term" (input)="typeAhead()" (keypress)="autoComplete($event)" autocomplete="off" [readonly]="readonly" />
+</form>
+<ul class="options" *ngIf="dropdownOpen">
+    <li *ngFor="let suggestion of suggestions" (click)="selectOption(suggestion)">{{ nameOf(suggestion) }}</li>
+</ul>

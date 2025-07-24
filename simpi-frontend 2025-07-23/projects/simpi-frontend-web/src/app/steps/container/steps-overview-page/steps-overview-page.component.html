@@ -1,0 +1,50 @@
+<div class="steps-overview-page">
+  <div class="page-header">
+    <div class="page-title-with-back-button">
+      <div
+        class="circle-icon-button back-button"
+        (click)="onNavigateBackClick()"
+        role="button"
+      >
+        <img src="assets/svg/arrow-back-white.svg" alt="Back icon" />
+      </div>
+      <h1>Step 2, Edit Simpi "{{simpi?.title}}"</h1>
+    </div>
+    <div>
+      <button class="simpi-button-dark" role="button" (click)="onPreviewClick()">Preview</button>
+    </div>
+  </div>
+  <div class="loading-overlay" *ngIf="isActionInProgress">
+    <sim-loading-spinner [show]="true"></sim-loading-spinner>
+  </div>
+  <ng-container *ngIf="steps$ | async as steps; else loading">
+    <sim-step-details
+      #stepDetails
+      [simpi]="simpi"
+      [stepForm]="stepForm"
+      [selectedStep]="selectedStep$ | async"
+      [errorLoadingData]="errorLoadingData$ | async"
+      (reloadData)="onReloadData()"
+      (stepMediaChanged)="uploadAndApplyNewStepMedia($event)"
+      (stepMediaUploaded)="persistUploadedStepMedia($event)"
+      (saveSelectedStep)="onSaveStep($event)"
+    >
+    </sim-step-details>
+    <sim-steps-overview
+      [steps]="steps"
+      [selectedStep]="selectedStep$ | async"
+      [isCopied]="isCopied"
+      (selectStep)="onSelectStep($event)"
+      (addStep)="onAddStep()"
+      (copyStep)="onCopyStep()"
+      (pasteStep)="onPasteStep()"
+      (changeStepOrder)="onChangeStepOrder($event)"
+      (deleteStep)="onDeleteStep($event)"
+      (next)="onNextClicked()"
+    >
+    </sim-steps-overview>
+  </ng-container>
+  <ng-template #loading>
+    <sim-loading-spinner [show]="true"></sim-loading-spinner>
+  </ng-template>
+</div>

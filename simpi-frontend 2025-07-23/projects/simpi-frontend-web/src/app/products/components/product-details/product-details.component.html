@@ -1,0 +1,73 @@
+<ng-container *ngIf="product">
+  <div class="d-flex justify-content-center product-page-container">
+    <img *ngIf="product.productPageImageUrl" [src]="product.productPageImageUrl" class="img-fluid product-page-image"
+         alt="product cover image">
+    <sim-deployment-state-icon *ngIf="!readonly" class="deploymentState-icon"
+                               [deploymentState]="product.deploymentState">
+    </sim-deployment-state-icon>
+    <div *ngIf="!readonly" class="circle-icon-button" (click)="changeProductPageImageClicked()" role="button">
+      <img src="assets/svg/camera.svg" alt="Edit image icon">
+    </div>
+  </div>
+  <div class="product-title">
+    <h1 *ngIf="!editProductName && !product.hideTitle" (click)="onProductNameClick()">{{ product.productName }}</h1>
+    <input *ngIf="editProductName" type="text" class="product-name-input" #productNameInput autofocus
+           [formControl]="productNameFormControl"
+           (keyup.enter)="updateProductName()" (blur)="updateProductName()">
+    <div *ngIf="!readonly" class="product-controls">
+      <div class="icon-button" role="button" (click)="onChangeProductSettingsClick()" title="Product Settings">
+        <img src="assets/svg/edit.svg" alt="Edit icon">
+      </div>
+      <button class="simpi-button-dark" (click)="addSimpi()">+ &nbsp; Add SIMPI</button>
+    </div>
+  </div>
+  <div *ngIf="isLoaded && (!simpiGroups || simpiGroups.length === 0)">
+    <img class="mx-auto d-block w-25 my-5" src="./assets/images/how_to.png" alt="how to">
+    <h3 class="text-center">There's nothing here but potential</h3>
+    <p class="text-center">Add your first SIMPI by clicking the + Add SIMPI button.</p>
+  </div>
+  <div class="simpi-container container-fluid">
+    <ng-container *ngIf="!readonly; else public">
+      <div  [dragula]="draggableGroupName"
+           [(dragulaModel)]="simpis">
+        <ng-container *ngTemplateOutlet="simpiList"></ng-container>
+      </div>
+    </ng-container>
+
+    <ng-template #public>
+      <div>
+        <ng-container *ngTemplateOutlet="simpiList"></ng-container>
+      </div>
+    </ng-template>
+  </div>
+</ng-container>
+<ng-template #simpiList>
+  <div class="simpi-group-container" *ngFor="let simpiGroup of simpiGroups; trackBy: trackBy" [delayDrag]="dragStartDelay">
+    <h4>{{ simpiGroup.groupName }}</h4>
+    <div class="row row-cols-lg-5 row-cols-md-4 row-cols-sm-3 row-cols-2">
+      <sim-card class="col simpi-group-form" *ngFor="let simpi of simpiGroup.simpis"
+                [text]="simpi.title"
+                [imageUrl]="simpi.thumbnailUrl"
+                [placeholderBackgroundColor]="simpi.iconColor"
+                [LabelColor]="product.brandPrimaryColor"
+                [brand]="product.brandName" [numberOfSteps]="simpi.stepCount" [id]="simpi.simpiId"
+                [stepsLabelClickHandler]="stepsLabelClickHandler"
+                [clickHandlerParameter]="simpi"
+                (mousedown)="mousedown(simpi.simpiId)"
+                (mouseup)="mouseup($event)"
+      >
+        <div *ngIf="!readonly" class="simpi-controls">
+          <sim-deployment-state-icon [deploymentState]="simpi.deploymentInfo?.deploymentState"
+                                     [clickHandler]="deploymentIconClickHandler"
+                                     [clickHandlerParameter]="simpi"
+                                     class="deploymentState-icon small">
+          </sim-deployment-state-icon>
+          <sim-context-menu *ngIf="!simpi.deleted" [menuEntries]="contextMenuEntries"
+                            [menuEntryClickHandlerParameter]="simpi"></sim-context-menu>
+          <sim-context-menu *ngIf="simpi.deleted" [menuEntries]="deletedSimpiContextMenuEntries"
+                            [menuEntryClickHandlerParameter]="simpi"></sim-context-menu>
+        </div>
+      </sim-card>
+    </div>
+  </div>
+</ng-template>

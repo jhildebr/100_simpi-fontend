@@ -1,0 +1,68 @@
+.row {
+  padding: 10px 25px 0 25px;
+}
+
+.heading-row {
+  margin-top: 20px;
+  border-bottom: 1px solid grey;
+  padding-bottom: 10px;
+
+  .col {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .close-button {
+      font-size: 30px;
+      cursor: pointer;
+    }
+  }
+}
+
+h1 {
+  font-family: "Circular Std", sans-serif;
+  font-size: 34px;
+  font-weight: normal;
+}
+
+.setting-title {
+  margin-left: 20px;
+  align-self: center;
+}
+
+.row.setting:hover {
+  background-color: rgb(193, 224, 233);
+}
+
+.row.setting.active {
+  background-color: #25BAD0;
+  color: white;
+}
+
+.logo-image {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  color: white;
+}
+
+.row.setting {
+  background-color: white;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+.sidebar {
+  &-hidden {
+    transform: scale(0) translateX(150%);
+  }
+
+  &-shown {
+    transform: scale(1) translateX(0);
+  }
+}
+
+.settings-list {
+  max-width: 250px;
+}

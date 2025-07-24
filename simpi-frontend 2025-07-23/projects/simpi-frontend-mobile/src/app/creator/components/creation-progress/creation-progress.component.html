@@ -1,0 +1,21 @@
+<ion-header translucent>
+    <ion-toolbar>
+      <ion-title>Create SIMPI Assets</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="dismiss()">Close</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+    <div class="d-flex flex-column h-100 w-100 ion-justify-content-center ion-align-items-center">
+        <div class="progress-bar-container w-75">
+            Uploading File {{ currentFile$ | async }} / {{ totalFiles }}
+            <ion-progress-bar [value]="progress"></ion-progress-bar>
+        </div>
+        <div class="h-25 w-75">
+            <h5 class="text-center">
+                Please wait while we're creating the assets for your <b>SIMPI</b>
+            </h5>
+        </div>
+    </div>
+</ion-content>

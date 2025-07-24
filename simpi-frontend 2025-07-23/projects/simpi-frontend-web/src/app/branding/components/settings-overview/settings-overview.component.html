@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="row heading-row">
+    <div class="col">
+      <h1>
+        Settings<ng-container *ngIf="brandForm?.get('brandName')?.value">
+          ({{ brandForm.get("brandName").value }})</ng-container
+        >
+      </h1>
+      <div class="close-button" (click)="closeModal()">&times;</div>
+    </div>
+  </div>
+  <div class="row">
+    <sim-corporate-logo
+      *ngIf="corporateIdentitySelected"
+      [brandForm]="brandForm"
+      (logoUploaded)="onBrandLogoChanged()"
+    ></sim-corporate-logo>
+    <sim-corporate-languages
+      [brandId]="brandId"
+      *ngIf="corporateIdentitySelected"
+      class="w-100"
+      (languageChanged)="onLanguageChanged()"
+      (languageDeleted)="onLanguageDeleted()"
+    ></sim-corporate-languages>
+    <sim-corporate-colors
+      *ngIf="corporateIdentitySelected"
+      class="w-100"
+      [brandForm]="brandForm"
+      (colorChanged)="onColorChanged()"
+    ></sim-corporate-colors>
+  </div>
+</div>

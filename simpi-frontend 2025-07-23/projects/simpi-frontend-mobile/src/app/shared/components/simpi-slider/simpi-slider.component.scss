@@ -1,0 +1,70 @@
+.item-img {
+    height: 207px;
+    width: 100%;
+    padding-bottom: 10px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+ion-img {
+    object-fit: cover;
+}
+
+.no-img {
+    & > div {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    @extend .item-img;
+    background-color: #cecece;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+
+ion-card {
+    border-radius: 0;
+    background-color: transparent;
+}
+
+img {
+    display: none;
+}
+
+.fav-icon {
+    position: absolute;
+    top: 5px;
+    left: 20px;
+    font-size: 20pt;
+    z-index: 99;
+}
+
+.item-text {
+    margin-left: 25px;
+    color: white;
+    font-size: 13;
+    &-manufacturer {
+        font-weight: 800;
+        margin-bottom: 3px;
+    }
+    &-wrapper {
+        padding: 15px 0;
+    }
+}
+
+.slide-zoom,
+.swiper-slide {
+    text-align: left;
+}
+
+.swiper-wrapper {
+    width: min-content !important;
+}
+
+ion-slide > :first-child {
+    width: 100% !important;
+}

@@ -1,0 +1,14 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.simpi.mobile",
+            "sha256_cert_fingerprints": [
+                "EE:BB:18:D3:E4:4A:AB:B8:6F:AA:40:F2:06:65:A9:2C:1D:45:82:93:14:AA:D0:4E:67:2C:4B:85:05:ED:D2:DE"
+            ]
+        }
+    }
+]

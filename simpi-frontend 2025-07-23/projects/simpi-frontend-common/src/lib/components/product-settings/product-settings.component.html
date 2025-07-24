@@ -1,0 +1,189 @@
+<div class="product-settings-title">
+  <div
+    class="circle-icon-button close-button"
+    (click)="onCloseClick()"
+    role="button"
+  >
+    <img src="assets/svg/arrow-back-white.svg" alt="Back icon" />
+  </div>
+  <h1>Product Settings</h1>
+</div>
+<div *ngIf="product">
+  <div class="product-settings">
+    <div class="main-col">
+      <div class="product-page-image">
+        <h2>Cover</h2>
+        <div class="image-container">
+          <img
+            *ngIf="product.productPageImageUrl"
+            [src]="product.productPageImageUrl"
+            alt="product cover image"
+            class="product-page-image"
+          />
+          <div
+            class="circle-icon-button change-image-button"
+            (click)="changeProductPageImageClicked()"
+            role="button"
+          >
+            <img src="assets/svg/camera.svg" alt="Edit image icon" />
+          </div>
+        </div>
+        <div class="productPageImageChangeResult">
+          {{ productPageImageChangeResult }}
+        </div>
+      </div>
+      <div class="forms">
+        <div class="product-name-form">
+          <form
+            role="form"
+            [formGroup]="productFormGroup"
+            (ngSubmit)="renameProduct()"
+          >
+            <sim-text-input
+              label="Name"
+              formControlName="productName"
+              (blur)="renameProduct()"
+              (change)="productNameInputChanged()"
+            >
+            </sim-text-input>
+            <div
+              *ngIf="productNameChangeResult"
+              class="product-name-change-result"
+            >
+              {{ productNameChangeResult }}
+            </div>
+          </form>
+        </div>
+        <div class="product-title-form">
+          <form role="form" [formGroup]="productFormGroup" (ngSubmit)="hideProductName()">
+            <div class="checkbox-container">
+              <input
+                id="hideProductTitleCheckbox"
+                type="checkbox"
+                formControlName="hideProductTitle"
+                (change)="hideProductName()"
+              />
+              <label for="hideProductTitleCheckbox" class="checkbox-label">
+               Hide Product Name on Product Page
+              </label>
+            </div>
+            <div *ngIf="productHideTitleResult" class="product-title-change-result">{{productHideTitleResult}}</div>
+          </form>
+        </div>
+        <div class="privacy-form">
+          <h2>Privacy</h2>
+          <form
+            role="form"
+            [formGroup]="productFormGroup"
+            (ngSubmit)="changeProductDeploymentState()"
+            (change)="changeProductDeploymentState()"
+          >
+            <div class="deployment-states">
+              <div class="deployment-state">
+                <input
+                  type="radio"
+                  formControlName="deploymentState"
+                  [value]="deploymentState.Private"
+                  id="product-ds1"
+                />
+                <img src="assets/svg/Locked.svg" alt="lock" />
+                <label for="product-ds1">
+                  <span class="title">Private</span> <br />
+                  Product is only available to you.
+                </label>
+              </div>
+              <div class="deployment-state">
+                <input
+                  type="radio"
+                  formControlName="deploymentState"
+                  [value]="deploymentState.PrivateGroup"
+                  id="product-ds2"
+                />
+                <img src="assets/svg/Team.svg" alt="lock" />
+                <label for="product-ds2">
+                  <span class="title">Private group</span> <br />
+                  Product is only available to people with this link.
+                </label>
+              </div>
+              <div class="deployment-state">
+                <input
+                  type="radio"
+                  formControlName="deploymentState"
+                  [value]="deploymentState.Public"
+                  id="product-ds3"
+                />
+                <img src="assets/svg/Unlocked.svg" alt="lock" />
+                <label for="product-ds3">
+                  <span class="title">Public</span> <br />
+                  Product is indexed by search machines and is openly available
+                  on the internet.
+                </label>
+              </div>
+            </div>
+            <div
+              *ngIf="deploymentStateChangeResult"
+              class="privacy-change-result"
+            >
+              {{ deploymentStateChangeResult }}
+            </div>
+          </form>
+        </div>
+        <div class="delete-product">
+          <div *ngIf="product.deleted">This product is deleted.</div>
+          <button
+            *ngIf="!product.deleted"
+            class="simpi-button-red-no-outline"
+            role="button"
+            (click)="deleteProduct()"
+          >
+            Delete Product
+          </button>
+          <button
+            *ngIf="product.deleted"
+            class="simpi-button-dark"
+            role="button"
+            (click)="restoreProduct()"
+          >
+            Restore Product
+          </button>
+          <button
+            class="simpi-button-dark save-button"
+            role="button"
+            (click)="onSaveClick()"
+          >
+            Save & Exit
+          </button>
+          <div>{{ productDeletedResult }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="product-image">
+      <h2>Thumbnail</h2>
+      <div class="image-container">
+        <img
+          *ngIf="product.productImageUrl"
+          [src]="product.productImageUrl"
+          alt="product thumbnail"
+          class="product-image"
+        />
+        <div
+          class="circle-icon-button change-image-button"
+          (click)="changeProductImageClicked()"
+          role="button"
+        >
+          <img src="assets/svg/camera.svg" alt="Edit image icon" />
+        </div>
+      </div>
+      <button
+        class="simpi-button-dark"
+        role="button"
+        (click)="generateThumbnailFromCoverImage()"
+      >
+        Generate from cover
+      </button>
+      <div class="productImageChangeResult">
+        {{ productImageChangeResult }}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{modalTitle}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="dismissModal()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="picture-editor d-inline-block w-100">
+        <div class="picture-zone" *ngIf="!pictureUrl && !processing">
+            <sim-drag-drop-file-upload [showUploadBox]="showUploadBox"
+                                       [title]="modalTitle"
+                (filesToUpload)="onFilesToUploadReceived($event)"
+                allowedMimeTypes="image/*,video/*">
+            </sim-drag-drop-file-upload>
+        </div>
+        <div class="text-center">
+            <sim-loading-spinner size="3x" [show]="processing"></sim-loading-spinner>
+        </div>
+        <div *ngIf="pictureUrl && !processing" class="photo-preview mb-2">
+            <div class="d-flex">
+                <img [src]="pictureUrl" class="img-fluid" />
+                <div *ngIf="pictureUrl" (click)="removeAddedPicture()">
+                    <div class="remove-btn">
+                        <fa-icon [icon]='["fas", "times"]'></fa-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="simpi-button-dark" (click)="closeModal()">Cancel</button>
+    <button type="button" class="simpi-button-dark" (click)="activeModal.close({
+        uploadedImageId: uploadedImageId,
+        uploadedImageUrl: pictureUrl
+        })" [disabled]='uploadedImageId === ""'>Save</button>
+</div>

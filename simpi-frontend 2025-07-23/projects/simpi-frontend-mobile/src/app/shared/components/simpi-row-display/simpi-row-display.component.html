@@ -1,0 +1,17 @@
+<ion-grid class='ion-no-padding'>
+    <ion-row>
+        <ion-col [ngClass]="{'dark-color': !transparentRow}">
+            <div class="flex simpi-toolbar">
+                <span class='element-text'><b>{{rowTitle}}</b></span>
+                <span class='element-text mr'>
+                    <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+                </span>
+            </div>
+        </ion-col>
+    </ion-row>
+    <ion-row class='simpi-row'>
+        <ion-col size="12" class='no-m-p'>
+            <sim-simpi-slider [data]='data' [noItemsText]='noItemsText'></sim-simpi-slider>
+        </ion-col>
+    </ion-row>
+</ion-grid>

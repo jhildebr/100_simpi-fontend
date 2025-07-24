@@ -1,0 +1,11 @@
+input {
+    &.dropdown-input {
+        cursor: pointer;
+        background-color: white;
+
+        &.disabled {
+            pointer-events: none;
+            background-color: #e9ecef;
+        }
+    }
+}

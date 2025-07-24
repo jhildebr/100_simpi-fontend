@@ -1,0 +1,77 @@
+<div class="product-filter">
+  <select
+    [(ngModel)]="selectedTimeRangeOption"
+    (change)="onSelectChanged($event)"
+  >
+    <option value="LastDay">Last day</option>
+    <option value="LastWeek">Last week</option>
+    <option value="LastMonth">Last month</option>
+    <option value="Total">Total</option>
+  </select>
+</div>
+
+<div *ngIf="userInteractionStats">
+  <table class="product-table">
+    <thead>
+      <tr>
+        <th>Product/Simpi</th>
+        <th>Privacy</th>
+        <th>Views</th>
+        <th>Last access</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let product of userInteractionStats.productStats">
+      <tr>
+        <td *ngIf="product.productName">{{ product.productName }}</td>
+        <td *ngIf="!product.productName">-</td>
+        <td *ngIf="product.privacySettings == 1">
+          <img id="privacy" src="assets/svg/LockClosed.svg" alt="Lock" />
+        </td>
+        <td *ngIf="product.privacySettings == 2">
+          &nbsp;<img id="privacy" src="assets/svg/Team.svg" alt="Lock" />
+        </td>
+        <td *ngIf="product.privacySettings == 3">
+          <img id="privacy" src="assets/svg/LockOpen.svg" alt="Lock" />
+        </td>
+        <td *ngIf="product.privacySettings == 4">&nbsp;&nbsp;-</td>
+        <td>&nbsp;&nbsp;{{ product.views }}</td>
+        <td *ngIf="product.views !== 0">
+          {{product.lastAccess|date:"dd.MM.yyyy"}}
+        </td>
+        <td
+          *ngIf="product.views === 0"
+          class="no-views"
+        >
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-
+        </td>
+      </tr>
+      <tr *ngFor="let simpi of product.simpiStats">
+        <td *ngIf="simpi.simpiTitle">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
+            simpi.simpiTitle
+          }}
+        </td>
+        <td *ngIf="!simpi.simpiTitle">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-
+        </td>
+        <td *ngIf="simpi.privacySettings == 1">
+          <img id="privacy" src="assets/svg/LockClosed.svg" alt="Lock" />
+        </td>
+        <td *ngIf="simpi.privacySettings == 2">
+          &nbsp;<img id="privacy" src="assets/svg/Team.svg" alt="Lock" />
+        </td>
+        <td *ngIf="simpi.privacySettings == 3">
+          <img id="privacy" src="assets/svg/LockOpen.svg" alt="Lock" />
+        </td>
+        <td>&nbsp;&nbsp;{{ simpi.views }}</td>
+        <td *ngIf="simpi.views !== 0">
+          {{simpi.lastAccess|date:"dd.MM.yyyy"}}
+        </td>
+        <td *ngIf="simpi.views === 0" class="no-views">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

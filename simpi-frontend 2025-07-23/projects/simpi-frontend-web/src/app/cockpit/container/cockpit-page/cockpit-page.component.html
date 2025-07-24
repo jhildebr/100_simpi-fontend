@@ -1,0 +1,20 @@
+<div class="top-bar-wrapper">
+    <div class="top-bar-logo">
+        <img src="assets/svg/simpi-logo.svg"  alt="SIMPI Logo" width="85" height="25"/>
+    </div>
+    <sim-nav-menu></sim-nav-menu>
+    <div>
+        <sim-settings-dropdown class="top-bar-profile"></sim-settings-dropdown>
+    </div>
+</div>
+<div class="wrapper h-100">
+    <div id="content">
+        <div class="nav-bar mb-3 d-flex align-items-center">
+            <div class="navigation-routing"></div>
+        </div>
+        <div class="container-fluid">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+

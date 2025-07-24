@@ -1,0 +1,119 @@
+div.asset-thumbnail {
+  margin-bottom: 32px;
+  div.image-container {
+    width: 155px;
+    height: 155px;
+    margin-bottom: 15px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  img.asset-thumbnail {
+    height: 269px;
+    width: 168px;
+    object-fit: cover;
+  }
+}
+
+.no-image {
+  background-color: var(--simpi-color-dark-blue-2);
+  border-radius: 8px;
+}
+
+.change-image-button {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.forms {
+  margin-left: auto;
+  margin-right: auto;
+
+  div[class$="-form"] {
+    margin-bottom: 32px;
+  }
+
+  .asset-title-form {
+    .asset-title-change-result {
+      margin-left: 16px;
+      margin-top: 1px;
+    }
+  }
+
+  .asset-description-form {
+    .asset-description-change-result {
+      margin-left: 16px;
+      margin-top: 1px;
+    }
+  }
+
+  .asset-type-form {
+    .dropdown-container {
+      display: flex;
+      column-gap: 35px;
+      align-items: center;
+
+      label {
+        white-space: nowrap;
+        margin-bottom: 0;
+      }
+
+      select {
+        border-radius: 8px;
+        height: 40px;
+        &:focus {
+          box-shadow: none;
+          border: 1px solid var(--simpi-color-blue);
+          outline: none;
+        }
+      }
+    }
+  }
+
+  .asset-link-form {
+    .form-group {
+      margin-bottom: 0;
+    }
+    .link-form-container {
+      display: flex;
+      flex-wrap: nowrap;
+      column-gap: 35px;
+      align-items: center;
+      width: 100%;
+
+      span {
+        white-space: nowrap;
+      }
+
+      .input-group {
+        width: 100%;
+
+        &-text {
+          border-top-left-radius: 8px;
+          border-bottom-left-radius: 8px;
+        }
+        &-prepend {
+          height: 40px;
+        }
+      }
+
+      input {
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        height: 40px;
+        &:focus {
+          box-shadow: none;
+          border: 1px solid var(--simpi-color-blue);
+          outline: none;
+        }
+      }
+
+      label {
+        margin-right: 49px;
+        margin-bottom: 0;
+      }
+    }
+  }
+}

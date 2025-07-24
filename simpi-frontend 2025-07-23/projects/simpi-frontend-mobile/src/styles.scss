@@ -1,0 +1,370 @@
+@import "~@ionic/angular/css/core.css";
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+@import "~@ionic/angular/css/display.css";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
+@import "fonts";
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+:root {
+    --simpi-primary: #2ac2d6;
+    --simpi-orange: #ff9933;
+    --simpi-white: #ffffff;
+    --simpi-teal: #67cbac;
+    --simpi-slider-pagination-bottom: 17px;
+    --simpi-info-overlay-text-container-max-height: 70.5vh;
+    --simpi-color-blue-old: #1c1a3b;
+    --simpi-color-blue: #303bf0;
+    --simpi-color-gray-5: #f2f2f2;
+    --simpi-color-light-blue: #9699f4;
+    --simpi-color-dark-blue-2: #d3d2d9;
+    --simpi-color-dark-blue-3: #acabb7;
+    --simpi-color-dark-blue-4: #878697;
+    --simpi-color-dark-blue-5: #646279;
+    // also needs tint and shade color for other states (activated/focused)
+    // easily generate those here: https://ionicframework.com/docs/theming/colors#new-color-creator
+    --simpi-color-dark-blue-7: #1c1a3b;
+    --simpi-color-dark-blue-7-shade: #191734;
+    --simpi-color-dark-blue-7-tint: #33314f;
+    --simpi-color-dark-blue-8: #020205;
+    --simpi-color-red: #b92821;
+    --simpi-color-red-bright: #F54D5E;
+}
+
+.picture-grid {
+    .cdk-virtual-scroll-content-wrapper {
+        display: flex;
+    }
+}
+
+html,
+body,
+.ion-app,
+.ion-content {
+    background-color: transparent;
+}
+
+.custom-ion-content {
+    --background: transparent;
+}
+
+sim-home {
+    .campaign-slider {
+        ion-slides {
+            .swiper-pagination.swiper-pagination-bullets {
+                text-align: left;
+                left: 22px;
+
+                .swiper-pagination-bullet {
+                    background: #cecece;
+
+                    &-active {
+                        background: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.simpi-btn {
+    &-primary {
+        --background: var(--simpi-primary);
+        --border-radius: 23px;
+        width: 125px;
+        height: 45px;
+    }
+}
+
+ion-header {
+    &.no-border {
+        ion-toolbar {
+            --border-width: 0 !important;
+        }
+
+        &::after {
+            background-image: none !important;
+        }
+    }
+}
+
+ion-fab-button.fab-translucent {
+    --background: transparent;
+    --border-color: transparent;
+    --border-style: none;
+    --box-shadow: none;
+}
+
+ion-fab {
+    &.close-button {
+        padding-top: env(safe-area-inset-top);
+    }
+}
+
+.swiper-pagination {
+    &-bullet {
+        z-index: 1;
+        height: 10px;
+        width: 10px;
+        margin-top: -15px;
+        background: #e5e5ea;
+        opacity: 1;
+
+        &-active {
+            background: black;
+        }
+    }
+
+    &-toolbar {
+        z-index: 2;
+        width: 95%;
+        left: 50%;
+        right: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        bottom: -28px;
+
+        .info-btn {
+            z-index: 12;
+            padding: 25px 30px 10px 10px;
+            margin-left: -10px;
+        }
+
+        .share-btn {
+            z-index: 12;
+            padding: 25px 10px 10px 25px;
+            margin-right: -10px;
+        }
+    }
+}
+
+.sim-ion-alert {
+    .alert-message {
+        font-size: 16px;
+    }
+
+    .alert-button-group {
+        button {
+            margin: 16px 16px 0;
+            color: white;
+            background-color: var(--simpi-color-blue-old);
+            border-radius: 6px;
+            font-size: 14px;
+
+            &:first-child {
+                background-color: var(--simpi-color-blue-old);
+            }
+
+            &:nth-child(2) {
+                background-color: var(--simpi-color-light-blue);
+            }
+
+            &:last-child {
+                background-color: #f54d5e;
+                margin-bottom: 16px;
+                font-weight: normal;
+            }
+        }
+    }
+}
+
+ion-back-button {
+    --ripple-color: transparent !important;
+    --background: transparent !important;
+    --background-activated: transparent !important;
+    --background-focused: transparent !important;
+    --background-hover: transparent !important;
+}
+
+.button-blue-default {
+    background: var(--simpi-color-dark-blue-7);
+    border-radius: 8px;
+    height: 40px;
+    font-family: "Circular Std", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    color: #ffffff;
+    width: 100%;
+    border: none;
+
+    &:disabled {
+        opacity: 10%;
+    }
+}
+
+ion-fab {
+    &.close-button {
+        ion-fab-button {
+            --background: var(--simpi-white);
+            --background-activated: var(--simpi-white);
+            --background-hover: var(--simpi-white);
+            --ripple-color: transparent;
+            --color: #000000;
+            width: 32px;
+            height: 32px;
+        }
+    }
+}
+
+ion-button {
+    &.icon-button {
+        @extend .button-blue-default;
+        text-transform: none;
+        width: 100%;
+        height: 32px;
+        background: transparent;
+        --border-color: var(--simpi-white);
+        --color: var(--simpi-white);
+        --background: transparent;
+        --background-hover: transparent;
+        --background-activated: transparent;
+        --ripple-color: transparent;
+        & > ion-icon {
+            position: absolute;
+            left: 0;
+            height: 14px;
+            width: 14px;
+        }
+
+        &.default {
+            background-color: var(--simpi-color-dark-blue-7);
+            --background-color: var(--simpi-color-dark-blue-7);
+            height: 40px;
+            --border-radius: 8px;
+            --box-shadow: none;
+        }
+
+        &.progress-bar {
+            --padding-start: 0;
+            --padding-end: 0;
+            & > ion-icon {
+                left: 15px;
+            }
+        }
+    }
+    &.button-outline-blue-default {
+        width: 100%;
+        height: 40px;
+        --border-radius: 8px;
+        --border-color: var(--simpi-color-dark-blue-3);
+        --color: var(--simpi-color-dark-blue-3);
+        --background-activated: transparent;
+        --color-activated: var(--simpi-color-dark-blue-3);
+        box-sizing: border-box;
+        font-family: "Circular Std", sans-serif;
+        --ripple-color: transparent;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+        text-transform: initial;
+    }
+    &.feedback-button {
+        @extend .button-blue-default;
+        text-transform: none;
+        width: 100%;
+        max-width: 255px;
+        height: 40px;
+        --background: var(--simpi-white);
+        --background-hover: transparent;
+        --ripple-color: transparent;
+        --color: var(--simpi-color-dark-blue-8);
+
+        &:disabled {
+            opacity: 0.2;
+        }
+    }
+    &.button-blue-default:not(.icon-button) {
+        @extend .button-blue-default;
+        --color: var(--simpi-white);
+        --background: var(--simpi-color-dark-blue-7);
+        --background-activated: var(--simpi-color-dark-blue-7-tint);
+    }
+}
+
+.last-slide {
+    &-slider {
+        ion-slide {
+            width: 109px !important;
+            ion-img {
+                height: 100%;
+                width: 100%;
+                max-height: 174px;
+                object-fit: cover;
+                border-radius: 4px;
+                &::part(image) {
+                    max-height: 174px;
+                    border-radius: 4px;
+                }
+            }
+        }
+    }
+    &-item {
+        display: flex;
+        &-text {
+            width: 100%;
+            font-family: "Circular Std", sans-serif;
+            text-align: left;
+            .title {
+                margin-top: 5px;
+                margin-bottom: 2px;
+                color: var(--simpi-white);
+                font-size: 12px;
+                line-height: 15px;
+            }
+            .brand {
+                color: var(--simpi-color-dark-blue-4);
+                font-size: 11px;
+                line-height: 14px;
+            }
+        }
+    }
+}
+
+.heading-toolbar {
+    padding-top: 24px;
+    padding-bottom: 24px;
+
+    ion-title.headline {
+        font-family: "Circular Std", sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 28px;
+        line-height: 35px;
+        text-align: left;
+    }
+}
+
+ion-button.back-btn {
+    --box-shadow: none;
+    --background: transparent;
+    --background-activated: transparent;
+    --background-focused: transparent;
+    --background-hover: transparent;
+    --ripple-color: transparent;
+}
+
+ion-toolbar .back-btn {
+    margin: 0;
+
+    ion-icon.back-icon {
+        font-size: 24px;
+    }
+}

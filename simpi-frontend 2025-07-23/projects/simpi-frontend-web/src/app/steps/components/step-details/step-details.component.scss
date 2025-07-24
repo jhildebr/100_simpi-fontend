@@ -1,0 +1,93 @@
+.step-details {
+  border-top: 1px solid var(--simpi-color-dark-blue-2);
+  border-bottom: 1px solid var(--simpi-color-dark-blue-2);
+  width: 100%;
+  height: calc(100vh - 364px);
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+
+  .main {
+    background-color: var(--simpi-color-gray-5);
+  }
+
+  .main-full-width {
+    width: 100%;
+  }
+
+  .main-reduced-width {
+    width: calc(100% - 335px);
+  }
+
+  .sidebar {
+    border-left: 1px solid var(--simpi-color-dark-blue-2);
+    background-color: var(--simpi-white);
+    z-index: 2;
+    width: 335px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    overflow-y: auto;
+
+    .btn-close {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+  }
+}
+
+.step-editor {
+  margin: 35px 35px 35px 80px;
+  height: calc(100% - 70px);
+  border-radius: 8px;
+}
+
+.file-upload {
+  max-width: 375px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+
+  sim-drag-drop-file-upload {
+    height: 100%;
+  }
+}
+
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  float: left;
+  height: 100%;
+  margin-left: 16px;
+
+  .tool {
+
+    text-align: center;
+
+    .icon {
+      width: 36px;
+      height: 36px;
+      border: 2px solid var(--simpi-color-dark-blue-2);
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &.active {
+        background-color: var(--simpi-color-dark-blue-2);
+      }
+    }
+
+    .state {
+      text-transform: uppercase;
+    }
+
+  }
+
+  .divider {
+    border-bottom: 2px solid var(--simpi-color-dark-blue-2);
+    width: 36px;
+  }
+}

@@ -1,0 +1,17 @@
+<div *ngIf='showUploadBox' class="uploadfilecontainer mb-2"
+    [ngClass]="{'upload-error': errorMessage !== undefined }" dragDrop [allowMultiple]="allowMultiple"
+    (onFileDropped)="uploadFile($event)" (onError)='onError($event)'>
+    <input hidden type="file" #fileInput (change)="uploadFile($event.target.files)" [accept]="allowedMimeTypes">
+    <div class='picture-drop-zone d-flex align-items-center w-100'>
+        <div class='text-center w-100'>
+          <h3>{{ title }}</h3>
+          <p>{{ description }}</p>
+          <div class="circle-icon-button dark add-media-icon" (click)="fileInput.click()">
+            <img src="assets/svg/plus.svg" alt="Back icon">
+          </div>
+        </div>
+    </div>
+    <div class="info-text">
+        <span class='invalid-feedback d-inline-flex'>{{errorMessage}}</span>
+    </div>
+</div>

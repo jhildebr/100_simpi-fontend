@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "Poppins";
+  src: url("/app/assets/fonts/poppins/Poppins_SemiBold.woff2") format("woff2"),
+    url("/assets/fonts/poppins/Poppins_SemiBold.woff") format("woff"),
+    url("/assets/fonts/poppins/Poppins_SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Circular Std";
+  src: url("/app/assets/fonts/circular/CircularStd-Medium.woff2") format("woff2"),
+    url("/app/assets/fonts/circular/CircularStd-Medium.woff") format("woff"),
+    url("/app/assets/fonts/circular/CircularStd-Medium.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}

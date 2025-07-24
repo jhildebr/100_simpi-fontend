@@ -1,0 +1,44 @@
+<div class="d-flex" id="wrapper">
+    <div class="border-right" id="sidebar-wrapper">
+        <div class="sidebar-heading toolbar">
+            <div class="pt-2 pl-3">
+                <h4>SIMPI</h4>
+            </div>
+        </div>
+        <div class="list-group list-group-flush">
+            <div class="list-group-item">
+                <div class="mt-3 d-flex flex-column">
+                    <h4>LogIn</h4>
+                </div>
+                <div *ngIf="message != null" class="error-message mt-4">
+                    {{message}}
+                </div>
+                <form [formGroup]="loginForm">
+                    <div class="d-flex mt-4 flex-column">
+                        <label for='username-field'>Username</label>
+                        <input id='username-field' formControlName='eMail' class='form-control' />
+                        <label for='password-field' class='d-flex mt-4'>
+                            <span>Password</span>
+                        </label>
+                        <input type="password" id='password-field' formControlName='password' class='form-control' />
+                        <button type="submit" class="btn btn-primary text-white mt-4" [disabled]="loggingIn"
+                            (click)="login()">
+                            <ng-container *ngIf="!loggingIn">
+                                Login
+                            </ng-container>
+                            <ng-container *ngIf='loggingIn'>
+                                <fa-icon [icon]="['fas', 'spinner']" [spin]="true"></fa-icon>
+                            </ng-container>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="page-content-wrapper">
+        <div class="toolbar"></div>
+        <div class="container-fluid grey-bg init-padding full-height p-0">
+            <img class='bg-img' src='./assets/images/login-img.png' />
+        </div>
+    </div>
+</div>

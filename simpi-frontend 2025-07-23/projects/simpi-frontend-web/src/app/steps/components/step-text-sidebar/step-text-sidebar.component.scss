@@ -1,0 +1,28 @@
+.step-sidebar {
+  margin: 24px;
+
+  font-family: Manrope, "Circular Std", sans-serif;
+  color: var(--simpi-color-dark-blue-8);
+
+
+  h3 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  h4 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+  }
+}
+
+.color-swatch{
+  cursor: pointer;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  border: 1px solid var(--simpi-color-dark-blue-3);
+}

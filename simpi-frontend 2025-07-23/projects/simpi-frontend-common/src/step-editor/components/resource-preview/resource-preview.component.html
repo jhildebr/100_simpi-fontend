@@ -1,0 +1,33 @@
+<div *ngIf="resource" class="resource">
+  <div class="headline">
+    <fa-icon
+      [icon]="['fas', 'times']"
+      (click)="close()"
+      class="cursor-pointer"
+    ></fa-icon>
+    <h2>{{ resourceTypeEnum[resource.resourceType] }}</h2>
+  </div>
+  <img
+    *ngIf="resource.thumbnailUrl"
+    [src]="resource.thumbnailUrl"
+    [alt]="resource.title"
+  />
+  <div class="title">{{ resource.title }}</div>
+  <div class="manufacturer">{{ resource.manufacturer }}</div>
+  <div class="description mt-2">{{ resource.description }}</div>
+  <a
+    *ngIf="!mobileApp && clickActionTargetUrl"
+    class="button"
+    [href]="clickActionTargetUrl"
+    rel="noopener"
+    target="_blank"
+    >Details</a
+  >
+  <button
+    *ngIf="mobileApp && clickActionTargetUrl"
+    class="simpi-button-primary"
+    (click)="openShoppingLink.emit(clickActionTargetUrl)"
+  >
+    Details
+  </button>
+</div>

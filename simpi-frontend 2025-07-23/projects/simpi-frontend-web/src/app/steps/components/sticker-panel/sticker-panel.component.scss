@@ -1,0 +1,59 @@
+
+.tab-content {
+    padding: 10px 0;
+    text-align: center;
+}
+
+.sticker-nav {
+    &-wrapper {
+        position: relative;
+        ul {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            overflow-y: hidden;
+            justify-content: space-between;
+            padding-bottom: 15px;
+            &:after {
+                content: "";
+                position: absolute;
+                height: 1px;
+                width: 100%;
+                background-color: var(--simpi-color-dark-blue-4);
+                bottom: 15px;
+                left: 0;
+            }
+        }
+        a {
+            color: var(--simpi-color-dark-blue-4);
+            &:hover {
+                color: var(--simpi-color-dark-blue-5);
+            }
+            &.active {
+                color: var(--simpi-color-dark-blue-8);
+                position: relative;
+                &::after {
+                    content: '';
+                    height: 1px;
+                    background-color: var(--simpi-color-dark-blue-8);;
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 100%;
+                    z-index: 1;
+    
+                }
+            }
+        }
+        li.nav-item {
+            & > a.nav-link {
+                padding: .5rem 0;
+               }
+            &:not(:first-child) {
+                .nav-link {
+                    margin-left: 1.25rem;
+                }
+            }
+        }
+    }
+}

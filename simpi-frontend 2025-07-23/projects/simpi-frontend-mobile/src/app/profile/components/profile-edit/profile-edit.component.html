@@ -1,0 +1,11 @@
+    <div class="user-info-form d-flex flex-column mt-2" [formGroup]="userForm">
+        <sim-text-input formControlName="forename" label="First Name"></sim-text-input>
+        <sim-text-input formControlName="surname" label="Last Name"></sim-text-input>
+        <sim-text-input formControlName="eMail" label="Email"></sim-text-input>
+        <sim-text-input formControlName="phoneNumber" label="Phone"></sim-text-input>
+        <sim-text-input formControlName="about" label="Bio" [textbox]="true"></sim-text-input>
+        <!-- Enable when deleting account works -->
+        <!-- <div class="mt-auto">
+            <div class="delete-account">Delete account</div>
+        </div> -->
+    </div>

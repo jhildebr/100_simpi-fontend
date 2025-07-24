@@ -1,0 +1,27 @@
+h2 {
+  font-size: 18px;
+  color: var(--simpi-color-dark-blue-8);
+}
+
+.modal-header {
+  border-bottom: none;
+}
+
+.checkbox {
+  display: block;
+  margin-top: 10px
+}
+
+.resource-properties {
+  margin-top: 10px
+}
+
+.submit-validation-row {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.validation-error {
+  color: var(--simpi-color-red)
+}

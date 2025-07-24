@@ -1,0 +1,34 @@
+<div class="modal-header">
+    <h4 class="modal-title">Clone: Select target product</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="dropdown-container">
+        <label>Target Product</label>
+        <select
+          class="form-control"
+          id="resourceType"
+          [(ngModel)]="selectedProductId"
+        >
+            <option value="" disabled selected>
+                Select the project to clone
+            </option>
+            <option
+                *ngFor="let product of products"
+                [ngValue]="product.productId"
+            >
+                {{ product.productName }}
+            </option>
+        </select>
+      </div>
+</div>
+<div class="modal-footer">
+    <button
+    class="simpi-button-dark px-4"
+    (click)="onConfirmSelection()"
+    >
+        clone
+    </button>
+</div>

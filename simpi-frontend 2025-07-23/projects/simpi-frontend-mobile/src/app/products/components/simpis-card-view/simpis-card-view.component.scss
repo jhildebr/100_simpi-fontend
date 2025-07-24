@@ -1,0 +1,47 @@
+ion-card {
+    border-radius: 0;
+    box-shadow: none;
+    background-color: transparent;
+    &-content {
+        color: white;
+    }
+}
+
+.simpi-card {
+    min-width: 100%;
+    max-width: 100%;
+    width: 206px;
+    height: 206px;
+    min-height: 100%;
+    max-height: 100%;
+    background-size: cover;
+    border: none;
+}
+
+.card {
+    &-text {
+        position: absolute;
+        bottom: 10%;
+        color: white;
+        left: 10%;
+        font-size: 16pt;
+    }
+    &-icon {
+        position: absolute;
+        top: 10%;
+        left: 10%;
+    }
+    &-avatar {
+        position: absolute;
+        right: 10%;
+        top: 10%;
+    }
+}
+
+.text-dark {
+    color: var(--ion-color-dark);
+}
+
+.text-white {
+    color: var(--ion-color-primary-contrast);
+}

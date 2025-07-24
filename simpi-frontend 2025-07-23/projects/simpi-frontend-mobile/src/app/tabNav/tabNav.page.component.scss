@@ -1,0 +1,17 @@
+ion-content {
+  --overflow: hidden;
+
+  &::part(background) {
+    background-color: transparent;
+  }
+
+  .icon {
+    stroke: var(--simpi-color-dark-blue-4);
+  }
+
+  .tab-selected {
+    .icon {
+      stroke: var(--simpi-color-blue);
+    }
+  }
+}

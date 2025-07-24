@@ -1,0 +1,65 @@
+:host {
+  font-family: Manrope, "Circular Std", sans-serif;
+  color: var(--simpi-color-dark-blue-8);
+
+  .heading {
+    margin-top: 20px;
+
+    h4 {
+      display: inline;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 19px;
+    }
+
+    .help-icon {
+      display: inline-block;
+      margin-left: 8px;
+      vertical-align: text-top;
+    }
+    p {
+      float: right;
+      margin: 0 10px;
+      font-size: 14px;
+    }
+    a {
+      float: right;
+      margin: 0 10px;
+      font-size: 14px;
+    }
+    .metadata-and-steps-container {
+      float: right;
+      display: flex;
+      gap: 50px;
+    }
+    .metadata-container {
+      float: right;
+    }
+    .steps-container {
+      float: right;
+    }
+  }
+
+  sim-language-input {
+    margin: 10px 0;
+  }
+
+  button {
+    margin: 0px 0;
+    font-size: 16px;
+    width: 100%;
+
+    img {
+      vertical-align: text-top;
+      margin: 0 5px;
+      height: 16px;
+    }
+  }
+
+  .simpi-settings-buttons {
+    display: grid;
+    gap: 10px;
+    margin: 22px 0 10px 0;
+  }
+}

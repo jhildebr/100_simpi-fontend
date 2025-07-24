@@ -1,0 +1,101 @@
+huhuhu
+
+<div class="sim-card-wrapper mb-3">
+    <form [formGroup]='resourceForm'>
+        <div class="sim-card-title d-flex align-items-center">
+            <span class='font-weight-bold text-secondary'>
+                Properties
+            </span>
+            <span *ngIf='!addModeEnabled' class='ml-auto d-flex'>
+                <div class="clickable-icon">
+                    <fa-icon class='mr-3' [icon]='["fas", "pen"]' (click)='enableEditMode()'></fa-icon>
+                    <fa-icon [icon]='["fas", "times"]' (click)='onUnselectResource()'></fa-icon>
+                </div>
+            </span>
+        </div>
+        <div class="sim-card-content">
+            <div class="d-flex flex-column">
+                <div *ngIf='editModeEnabled' class="d-flex flex-column">
+                    <div class="d-flex flex-row">
+                        <div class="ml-auto">
+                            <button type="button" class="btn btn-primary btn-sm btn-primary-pill mr-3"
+                                (click)="onSaveResource()" [disabled]='!resourceForm.valid'>Save
+                            </button>
+                            <button type="button" class="btn btn-primary btn-sm btn-primary-pill"
+                                (click)="disableEditMode()">Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="brand-input">
+                    <span>Title</span>
+                    <input class='form-control form-control-sm' type='text' formControlName='title'
+                        [readOnly]='!editModeEnabled && !addModeEnabled'
+                        [value]='resourceForm.controls["title"].value' />
+                </div>
+                <div class="mt-2">
+                    <span>Thumbnail</span>
+                    <div class="upload-thumbnail-wrapper">
+                        <div class="d-flex flex-row">
+                            <div *ngIf='!selectedResource?.thumbnailUrl && !thumbnailUrl' class="upload-thumbnail-box">
+                                <div class="upload-thumbnail-icon">
+                                    <fa-icon [icon]='["fas", "image"]' size='2x'></fa-icon>
+                                </div>
+                            </div>
+                            <div *ngIf='selectedResource?.thumbnailUrl && !addModeEnabled && !thumbnailUrl'>
+                                <img class='product-thumbnail' [src]='selectedResource.thumbnailUrl' />
+                            </div>
+                            <div *ngIf='(addModeEnabled || editModeEnabled) && thumbnailUrl'>
+                                <img class='product-thumbnail' [src]='thumbnailUrl' />
+                            </div>
+                            <div *ngIf="editModeEnabled || addModeEnabled"
+                                class="upload-thumbnail-btn d-flex align-items-end">
+                                <fa-layers class='grey-icon' [fixedWidth]="true" size='2x'
+                                    (click)='openResourceImgModal()'>
+                                    <fa-icon [icon]="['fas', 'circle']"></fa-icon>
+                                    <fa-icon [inverse]="true" [icon]="['fas', 'pen']" transform="shrink-6">
+                                    </fa-icon>
+                                </fa-layers>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="type-input mt-2">
+                    <span>Resource type</span>
+                    <div ngbDropdown #dropdown="ngbDropdown">
+                        <div>
+                            <input type="text" class="form-control form-control-sm dropdown-input"
+                                [ngClass]="{'disabled': !editModeEnabled && !addModeEnabled }" data-toggle="dropdown"
+                                [value]="resourceTypes[resourceForm.controls['resourceType']?.value]" ngbDropdownToggle
+                                placeholder="Select one..." readonly>
+                        </div>
+                        <ul ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                            <li *ngFor="let type of resourceTypesList" ngbDropdownItem
+                                (click)="resourceForm.controls['resourceType'].setValue(type.value)"
+                                class="dropdown-item">
+                                {{type.text}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="type-input mt-2">
+                    <span>Manufacturer</span>
+                    <input class='form-control form-control-sm' type='text' formControlName='manufacturer'
+                        [readOnly]='!editModeEnabled && !addModeEnabled' />
+                </div>
+                <div class="type-input my-2">
+                    <span>Link</span>
+                    <div class="form-inline">
+                        <div class="input-group input-group-sm w-100">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">http://</div>
+                            </div>
+                            <input type="text" class="form-control form-control-sm" id="inlineFormInputGroupUsername2"
+                                formControlName='shoppingLink' [readOnly]='!editModeEnabled && !addModeEnabled'>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

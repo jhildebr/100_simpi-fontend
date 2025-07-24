@@ -1,0 +1,31 @@
+.sim-badge {
+  border-radius: 7px;
+
+  &-private {
+    @extend .sim-badge;
+    color: white;
+    background-color: #FF6633;
+  }
+
+  &-private-group {
+    @extend .sim-badge;
+    color: white;
+    background-color: #209DFF;
+  }
+
+  &-public {
+    @extend .sim-badge;
+    color: white;
+    background-color: #33CC99;
+  }
+
+  &-deleted {
+    @extend .sim-badge;
+    color: white;
+    background-color: var(--danger);
+  }
+}
+
+span {
+  font-size: 90%;
+}

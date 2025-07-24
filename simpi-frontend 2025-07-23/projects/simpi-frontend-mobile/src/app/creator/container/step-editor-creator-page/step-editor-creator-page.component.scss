@@ -1,0 +1,46 @@
+ion-fab {
+    margin-top: calc(env(safe-area-inset-top) - 10px);
+}
+
+.next-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px 15px;
+    color: white;
+    text-transform: uppercase;
+    z-index: 2;
+}
+
+.action-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    flex-direction: column;
+    padding: 10px 5px;
+    border-radius: 3px;
+    z-index: 200;
+
+    ion-icon {
+        width: 24px;
+        height: 24px;
+        margin: 5px;
+        padding: 5px;
+        color: white;
+        border-radius: 50%;
+
+        &.active {
+            background-color: #ff5722;
+        }
+    }
+}
+
+sim-steps-slider {
+    height: 100%;
+    width: 100%;
+}

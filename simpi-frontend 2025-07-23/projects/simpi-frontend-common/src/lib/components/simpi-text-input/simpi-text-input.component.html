@@ -1,0 +1,24 @@
+<div class="sim-text-input">
+  <div *ngIf="!textbox && showColorPreview" 
+    class="color-preview"
+    [style]="{'background-color':control.value}"
+  ></div>
+  <input *ngIf="!textbox && value" id="input" [formControl]="control" [type]="type"
+         [ngClass]="{'displayValidIndicator': displayValidIndicator, 'with-preview': showColorPreview}"
+         [placeholder]="placeholder" [attr.inputmode]="inputmode" [autocomplete]="autocomplete"
+         (blur)="onInputBlur($event)" (input)="onInputChange($event)" [ngModel]="value">
+  <textarea *ngIf="textbox && value" id="input" [formControl]="control" (blur)="onInputBlur($event)" 
+            (input)="onInputChange($event)" [rows]="rows" [ngModel]="value">
+  </textarea>
+
+  <input *ngIf="!textbox && !value" id="input" [formControl]="control" [type]="type"
+         [ngClass]="{'displayValidIndicator': displayValidIndicator, 'with-preview': showColorPreview}"
+         [placeholder]="placeholder" [attr.inputmode]="inputmode" [autocomplete]="autocomplete"
+         (blur)="onInputBlur($event)" (input)="onInputChange($event)">
+  <textarea *ngIf="textbox && !value" id="input" [formControl]="control" (blur)="onInputBlur($event)" 
+            (input)="onInputChange($event)" [rows]="rows">
+  </textarea>
+  <label for="input">{{label}}</label>
+  <img *ngIf="placeholderImageSrc && !control.value" [src]="placeholderImageSrc"
+       alt="input placeholder image" class="placeholder-image">
+</div>

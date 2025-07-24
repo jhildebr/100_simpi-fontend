@@ -1,0 +1,215 @@
+<div class="asset-settings-title">
+  <div
+    class="circle-icon-button back-button"
+    (click)="onNavigateBackClick()"
+    role="button"
+  >
+    <img src="assets/svg/arrow-back-white.svg" alt="Back icon" />
+  </div>
+  <h1>Asset Settings</h1>
+</div>
+<div *ngIf="asset">
+  <div class="asset-settings mx-auto">
+    <div class="asset-thumbnail">
+      <div
+        class="image-container"
+        [ngClass]="{ 'no-image': !asset.thumbnailUrl }"
+      >
+        <img
+          *ngIf="asset.thumbnailUrl"
+          [src]="asset.thumbnailUrl"
+          alt="Asset thumbnail"
+          class="asset-thumbnail"
+        />
+        <div
+          class="circle-icon-button change-image-button"
+          (click)="changeAssetThumbnailClicked()"
+          role="button"
+        >
+          <img src="assets/svg/camera.svg" alt="Edit image icon" />
+        </div>
+      </div>
+      <div class="assetThumbnailChangeResult">
+        {{ assetThumbnailChangeResult }}
+      </div>
+    </div>
+    <div class="main-col">
+      <div class="forms">
+        <div class="asset-title-form">
+          <form
+            role="form"
+            [formGroup]="assetFormGroup"
+            (ngSubmit)="changeTitle()"
+          >
+            <sim-text-input
+              label="Title"
+              formControlName="title"
+              (blur)="changeTitle()"
+              (change)="assetTitleInputChanged()"
+            >
+            </sim-text-input>
+            <div
+              *ngIf="assetTitleChangeResult"
+              class="asset-title-change-result"
+            >
+              {{ assetTitleChangeResult }}
+            </div>
+          </form>
+        </div>
+        <div class="asset-description-form">
+          <form
+            role="form"
+            [formGroup]="assetFormGroup"
+            (ngSubmit)="changeDescription()"
+          >
+            <sim-text-input
+              label="Description"
+              formControlName="description"
+              (blur)="changeDescription()"
+              (change)="descriptionInputChanged()"
+              [textbox]="true"
+            >
+            </sim-text-input>
+            <div
+              *ngIf="assetDescriptionChangeResult"
+              class="simpi-description-change-result"
+            >
+              {{ assetDescriptionChangeResult }}
+            </div>
+          </form>
+        </div>
+        <div class="asset-manufacturer-form">
+          <form
+            role="form"
+            [formGroup]="assetFormGroup"
+            (ngSubmit)="changeManufacturer()"
+          >
+            <sim-text-input
+              label="Manufacturer"
+              formControlName="manufacturer"
+              (blur)="changeManufacturer()"
+              (change)="manufacturerInputChanged()"
+              [textbox]="true"
+              [rows]="2"
+            >
+            </sim-text-input>
+            <div
+              *ngIf="assetManufacturerChangeResult"
+            >
+              {{ assetManufacturerChangeResult }}
+            </div>
+          </form>
+        </div>
+        <div class="asset-type-form">
+          <form
+            role="form"
+            [formGroup]="assetFormGroup"
+            (ngSubmit)="changeAssetType()"
+          >
+            <div class="dropdown-container">
+              <label for="assetType">Asset Type</label>
+              <select
+                class="form-control"
+                id="resourceType"
+                formControlName="resourceType"
+                (change)="assetTypeSelectChanged()"
+                (blur)="changeAssetType()"
+              >
+                <option [ngValue]="null">Select Asset Type</option>
+                <option
+                  *ngFor="let type of assetTypes$ | async"
+                  [ngValue]="type.value"
+                >
+                  {{ type.text }}
+                </option>
+              </select>
+            </div>
+            <div
+              *ngIf="assetTypeChangeResult"
+            >
+              {{ assetTypeChangeResult }}
+            </div>
+          </form>
+        </div>
+        <div class="asset-link-form">
+          <form
+            class="form-inline"
+            role="form"
+            [formGroup]="assetFormGroup"
+            (ngSubmit)="changeShoppingLink()"
+          >
+            <div class="form-group link-form-container">
+              <label for="shoppingLink">Link</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">https://</span>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="shoppingLink"
+                  id="shoppingLink"
+                  (paste)="onPasteShoppingLink($event)"
+                  (blur)="changeShoppingLink()"
+                  (keyup)="shoppingLinkInputChanged()"
+                />
+              </div>
+            </div>
+          </form>
+          <div
+            *ngIf="assetShoppingLinkChangeResult"
+            class="simpi-shopping-link-change-result"
+          >
+            {{ assetShoppingLinkChangeResult }}
+          </div>
+        </div>
+        <div class="asset-manufacturer-form">
+          <form
+            role="form"
+            [formGroup]="assetFormGroup"
+          >
+            <sim-switch 
+              formControlName="showOnStartPanel"
+              labelLeft="show on start panel"
+              (change)="changeShowOnStartPanel()"
+            ></sim-switch>
+            <div
+                *ngIf="assetShowOnStartPanelChangeResult"
+              >
+                {{ assetShowOnStartPanelChangeResult }}
+              </div>
+          </form>
+        </div>
+        <div class="delete-asset">
+          <div *ngIf="asset.deleted">This Asset is deleted.</div>
+          <button
+            *ngIf="!asset.deleted"
+            class="asset-button-red-no-outline"
+            role="button"
+            (click)="deleteAsset()"
+          >
+            Delete Asset
+          </button>
+          <button
+            *ngIf="asset.deleted"
+            class="asset-button-dark"
+            role="button"
+            (click)="restoreAsset()"
+          >
+            Restore Asset
+          </button>
+          <div>{{ assetDeletedResult }}</div>
+        </div>
+      </div>
+      <div class="next-button" *ngIf="showNextButton">
+        <div
+          role="button"
+          class="asset-button-dark"
+          (click)="onNextClick.emit()"
+        >
+          Save & Exit
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

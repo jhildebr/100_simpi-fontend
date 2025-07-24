@@ -1,0 +1,41 @@
+<ng-container *ngIf='data?.length === 0'>
+    <div class="item-text">
+        <h4>{{noItemsText}}</h4>
+    </div>
+</ng-container>
+<ng-container *ngIf='data?.length'>
+    <ion-slides [options]="slideOpts" #slider>
+        <ion-slide *ngFor="let d of data; let i = index; trackBy: trackByFn">
+            <ion-card class="ion-no-padding ion-no-margin" (click)='goToProduct(d.productId)'>
+                <ng-container *ngIf='d.productImageUrl; else noImg'>
+                    <div class='item-img' [style.background-image]="'url(' + d.productImageUrl + ')'"
+                        (load)='d.brandName && d.productName ? onImageLoaded(d.productImageUrl, d.productId) : ""'>
+                    </div>
+                </ng-container>
+                <ng-template #noImg>
+                    <div class='no-img'
+                        (load)='d.brandName && d.productName ? onImageLoaded(d.productImageUrl, d.productId) : ""'>
+                        <div>
+                            <fa-icon [icon]="['fas', 'exclamation-circle']" size='4x'></fa-icon><br /><br />
+                            NO IMAGE FOUND
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-container *ngIf='d.brandName && d.productName'>
+                    <ion-icon *ngIf='iconColorByIndex.length > 0 && d.favorite' class='fav-icon' name='heart'
+                        [color]='getIconColor(d.productId)' (click)='removeFavorite($event, d.productId)'>
+                    </ion-icon>
+                    <div class="item-text-wrapper">
+                        <div class="item-text item-text-manufacturer">{{d.brandName}}</div>
+                        <div class="item-text">{{d.productName}}</div>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf='d.brandName === undefined'>
+                    <div class="item-text-wrapper">
+                        <div class="item-text">{{d.title}}</div>
+                    </div>
+                </ng-container>
+            </ion-card>
+        </ion-slide>
+    </ion-slides>
+</ng-container>

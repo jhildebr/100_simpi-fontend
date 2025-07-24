@@ -1,0 +1,35 @@
+.user-profile {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.settings-dropdown {
+  position: relative;
+  width: 145px;
+  height: 75;
+  left: -95px;
+  top:5px;
+  border: solid 1px var(--simpi-grey);
+  border-radius: 5px;
+  background: var(--simpi-white);
+  text-align: left;
+  padding: 0px !important;
+}
+
+.settings-dropdown > li {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  width: 100%;
+  color: var(--simpi-text-color) !important;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--simpi-grey-hover);
+  }
+}

@@ -1,0 +1,7 @@
+<ion-card (click)="go(simpi.simpiId)" class='simpi-card ion-no-margin ion-no-padding'
+    [style.backgroundColor]='simpi.thumbnailId === "" || simpi.thumbnailId === null ? simpi.iconColor ? simpi.iconColor : defaultColor : "none"'
+    [style.backgroundImage]='getSanitizedImage(simpi.thumbnailId)'>
+    <div class="card-text" [ngClass]='{"text-dark": textColor === "dark", "text-white": textColor === "light"}'>
+        {{simpi.title}}
+    </div>
+</ion-card>

@@ -1,0 +1,14 @@
+<div class="product-overview-container">
+  <div class="product-overview-items">
+    <div class="product-overview-item" *ngFor="let product of products"
+         (click)="navigateToSimpis.emit(product.productId)">
+      <div class="simpi-img">
+        <ion-img class="h-100" [src]="product.productImageUrl"></ion-img>
+      </div>
+      <div class="text">
+        <div class="product-name">{{product.productName}}</div>
+        <div class="brand-name">{{product.brandName}}</div>
+      </div>
+    </div>
+  </div>
+</div>

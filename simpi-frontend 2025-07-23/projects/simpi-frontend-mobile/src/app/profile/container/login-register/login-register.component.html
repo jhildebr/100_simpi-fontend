@@ -1,0 +1,13 @@
+<div class="login-register">
+  <ion-icon *ngIf="showLoginRegisterInputComponent" name="close" (click)="closeLoginDialog()"
+            size="large"></ion-icon>
+  <ion-icon *ngIf="showLoginRegisterVerifyComponent" name="arrow-back-outline"
+            (click)="showLoginRegisterInput()" size="large"></ion-icon>
+  <div class="content">
+    <sim-login-register-input *ngIf="showLoginRegisterInputComponent" [formGroup]="loginRegisterForm"
+                              (nextClicked)="loginRegisterInputSubmitted()"></sim-login-register-input>
+    <sim-login-register-verify *ngIf="showLoginRegisterVerifyComponent" [formGroup]="verifyForm"
+                               (onSubmit)="verifySubmitted()" (onResendCode)="resendVerificationCode()">
+    </sim-login-register-verify>
+  </div>
+</div>

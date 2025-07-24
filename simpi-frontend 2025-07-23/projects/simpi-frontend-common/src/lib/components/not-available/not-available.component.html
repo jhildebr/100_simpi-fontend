@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="icon">
+    <img src="assets/svg/exclamation-mark.svg">
+  </div>
+  <ng-container *ngIf="reason === notAvailableReasonTypes.NOT_FOUND">
+    <h1>Temporarily not available</h1>
+    <p>We’re sorry but you tried to access content that has been set to temporarily not available by the author.</p>
+  </ng-container>
+  <ng-container *ngIf="reason === notAvailableReasonTypes.PRIVATE">
+    <h1>Temporarily not available</h1>
+    <p>The content is temporarily blocked by the content creator.</p>
+  </ng-container>
+</div>

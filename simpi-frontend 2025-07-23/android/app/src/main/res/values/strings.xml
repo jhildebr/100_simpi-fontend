@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">SIMPI</string>
+    <string name="title_activity_main">SIMPI</string>
+    <string name="package_name">com.simpi.mobile</string>
+    <string name="custom_url_scheme">com.simpi.mobile</string>
+</resources>

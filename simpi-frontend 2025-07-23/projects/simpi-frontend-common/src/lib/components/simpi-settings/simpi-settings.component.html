@@ -1,0 +1,233 @@
+<div class="simpi-settings-title">
+  <div
+    class="circle-icon-button back-button"
+    (click)="onNavigateBackClick()"
+    role="button"
+  >
+    <img src="assets/svg/arrow-back-white.svg" alt="Back icon"/>
+  </div>
+  <h1>SIMPI Settings</h1>
+</div>
+<div *ngIf="simpi">
+  <div class="simpi-settings">
+    <div class="main-col">
+      <div class="forms">
+        <div class="simpi-title-form">
+          <form
+            role="form"
+            [formGroup]="simpiFormGroup"
+            (ngSubmit)="changeTitle()"
+          >
+            <sim-text-input
+              label="Title"
+              formControlName="simpiTitle"
+              (blur)="changeTitle()"
+              (change)="simpiTitleInputChanged()"
+            >
+            </sim-text-input>
+            <div
+              *ngIf="simpiTitleChangeResult"
+              class="simpi-title-change-result"
+            >
+              {{ simpiTitleChangeResult }}
+            </div>
+          </form>
+        </div>
+        <div class="simpi-description-form">
+          <form
+            role="form"
+            [formGroup]="simpiFormGroup"
+            (ngSubmit)="changeDescription()"
+          >
+            <sim-text-input
+              label="Description"
+              formControlName="simpiDescription"
+              (blur)="changeDescription()"
+              (change)="simpiDescriptionInputChanged()"
+              [textbox]="true"
+            >
+            </sim-text-input>
+            <div
+              *ngIf="simpiDescriptionChangeResult"
+              class="simpi-description-change-result"
+            >
+              {{ simpiDescriptionChangeResult }}
+            </div>
+          </form>
+        </div>
+        <div class="simpi-show-start-panel-form">
+          <form
+            role="form"
+            [formGroup]="simpiFormGroup"
+            (ngSubmit)="changeStartPanelVisibility()"
+          >
+            <input
+              id="startPanelVisibilityCheckbox"
+              type="checkbox"
+              formControlName="startPanelVisibility"
+              (change)="changeStartPanelVisibility()"
+            />
+            <label for="startPanelVisibilityCheckbox"
+            >Start Panel Visible</label
+            >
+            <div
+              *ngIf="startPanelVisibilityChangeResult"
+              class="start-panel-change-result"
+            >
+              {{ startPanelVisibilityChangeResult }}
+            </div>
+            <div>
+              Warning: The start button is needed if the first step includes a
+              video.
+            </div>
+          </form>
+        </div>
+        <div class="privacy-form">
+          <h2>Privacy</h2>
+          <form
+            role="form"
+            [formGroup]="simpiFormGroup"
+            (ngSubmit)="changeSimpiDeploymentState()"
+            (change)="changeSimpiDeploymentState()"
+          >
+            <div class="deployment-states">
+              <div class="deployment-state">
+                <input
+                  type="radio"
+                  formControlName="deploymentState"
+                  [value]="deploymentState.Private"
+                  id="product-ds1"
+                />
+                <img src="assets/svg/Locked.svg" alt="lock"/>
+                <label for="product-ds1">
+                  <span class="title">Private</span> <br/>
+                  Product is only available to you.
+                </label>
+              </div>
+              <div class="deployment-state">
+                <input
+                  type="radio"
+                  formControlName="deploymentState"
+                  [value]="deploymentState.PrivateGroup"
+                  id="product-ds2"
+                />
+                <img src="assets/svg/Team.svg" alt="lock"/>
+                <label for="product-ds2">
+                  <span class="title">Private group</span> <br/>
+                  Product is only available to people with this link.
+                </label>
+              </div>
+              <div class="deployment-state">
+                <input
+                  type="radio"
+                  formControlName="deploymentState"
+                  [value]="deploymentState.Public"
+                  id="product-ds3"
+                />
+                <img src="assets/svg/Unlocked.svg" alt="lock"/>
+                <label for="product-ds3">
+                  <span class="title">Public</span> <br/>
+                  Product is indexed by search machines and is openly available
+                  on the internet.
+                </label>
+              </div>
+            </div>
+            <div
+              *ngIf="deploymentStateChangeResult"
+              class="privacy-change-result"
+            >
+              {{ deploymentStateChangeResult }}
+            </div>
+          </form>
+        </div>
+        <div class="simpi-group-form">
+          <div class="heading">
+            <h2>Group</h2>
+          </div>
+          <div class="sim-typeahead-container">
+            <sim-type-ahead
+              [readonly]="!editable"
+              [selected]="groupName"
+              [canCreateNewOptions]="true"
+              (selectedChange)="onSelectedChange($event)"
+              [options]="simpiGroupNames"
+              (focusout)="onSelectedChange($event)">
+            </sim-type-ahead>
+          </div>
+          <div
+            *ngIf="simpiGroupNameChangeResult"
+            class="simpi-group-change-result"
+          >
+            {{ simpiGroupNameChangeResult }}
+          </div>
+        </div>
+        <div class="translations-form">
+          <h2>Translations</h2>
+          <sim-translation-panel
+            [simpi]="simpi"
+            (importClick)="importTranslationsClick.emit()"
+            (exportClick)="exportTranslationsClick.emit()"
+            (importMetadataClick)="importMetadataTranslationsClick.emit()"
+            (exportMetadataClick)="exportMetadataTranslationsClick.emit()"
+          ></sim-translation-panel>
+        </div>
+        <div class="delete-simpi">
+          <div *ngIf="simpi.deleted">This SIMPI is deleted.</div>
+          <button
+            *ngIf="!simpi.deleted"
+            class="simpi-button-red-no-outline"
+            role="button"
+            (click)="deleteSimpi()"
+          >
+            Delete SIMPI
+          </button>
+          <button
+            *ngIf="simpi.deleted"
+            class="simpi-button-dark"
+            role="button"
+            (click)="restoreSimpi()"
+          >
+            Restore SIMPI
+          </button>
+          <div>{{ simpiDeletedResult }}</div>
+        </div>
+      </div>
+      <div class="next-button" *ngIf="showNextButton">
+        <div
+          role="button"
+          class="simpi-button-dark"
+          (click)="onNextClick.emit()"
+        >
+          Save & Exit
+        </div>
+      </div>
+    </div>
+    <div class="simpi-thumbnail">
+      <div class="image-container">
+        <img
+          *ngIf="simpi.thumbnailUrl"
+          [src]="simpi.thumbnailUrl"
+          alt="SIMPI thumbnail"
+          class="simpi-thumbnail"
+        />
+        <div
+          class="circle-icon-button change-image-button"
+          (click)="changeSimpiThumbnailClicked()"
+          role="button"
+        >
+          <img src="assets/svg/camera.svg" alt="Edit image icon"/>
+        </div>
+      </div>
+      <button
+        class="simpi-button-dark"
+        role="button"
+        (click)="generateThumbnailFromFirstStep()"
+      >
+        Generate from step
+      </button>
+      <div class="simpiThumbnailChangeResult">
+        {{ simpiThumbnailChangeResult }}
+      </div>
+    </div>
+  </div>
+</div>

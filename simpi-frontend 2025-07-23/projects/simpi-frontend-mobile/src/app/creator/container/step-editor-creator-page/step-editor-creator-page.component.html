@@ -1,0 +1,30 @@
+<ion-content scrollY="false">
+  <div *ngIf="(steps$ | async) as steps" class="d-flex flex-column h-100">
+    <ion-fab class='back-btn' (click)="onCloseClick()">
+      <ion-fab-button class='fab-translucent'>
+        <ion-icon name="close"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    <ion-fab horizontal="end">
+      <ion-fab-button (click)='onNextClick()' class='fab-translucent'>
+        NEXT
+      </ion-fab-button>
+    </ion-fab>
+    <div class="action-buttons">
+      <ion-icon [ngClass]="{'active': editTextMode}" name="text-outline" (click)="enableEditTextMode()"></ion-icon>
+    </div>
+    <sim-steps-slider #stepsSlider
+                      [height]="height"
+                      [screenType]="screenType"
+                      [showInfoOverlay]="false"
+                      [showNavigation]="false"
+                      [steps]="steps"
+                      [width]="width"
+                      [creatorMode]="true"
+                      [inAppTextEditMode]="editTextMode"
+                      (onTextEditModeChanged)="textEditModeChanged($event)"
+    >
+    </sim-steps-slider>
+  </div>
+</ion-content>
+<sim-sticker-tabs [(bottomSheetState)]="stickerBottomSheetState"></sim-sticker-tabs>

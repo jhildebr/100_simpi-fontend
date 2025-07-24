@@ -1,0 +1,53 @@
+<div #overlay class="overlay-container w-100" [ngClass]="{
+    'visible-100': state === 'top',
+    'visible-50': state === 'half' && simpi.description,
+    'visible-30': state === 'half' && !simpi.description
+}">
+    <div class="handle"></div>
+    <div class="position-relative overlay-content-wrapper" [ngClass]="{
+        'visible-50': state === 'half' && simpi.description,
+        'visible-30': state === 'half' && !simpi.description
+    }">
+        <div #content class="d-flex flex-column overlay-content" [ngClass]="{'landscape': orientation === 'landscape'}">
+            <ion-fab slot="fixed" horizontal="end">
+                <ion-fab-button (click)="closeOverlay()">
+                    <ion-icon name="close"></ion-icon>
+                </ion-fab-button>
+                
+              </ion-fab>
+            <div>
+                <h2 class="header">{{ simpi.title }}</h2>
+                <div class="description-container" [class.has-resources]="resources.length" *ngIf="simpi.description">
+                    <p class="description-content">
+                        {{ simpi.description }}
+                    </p>
+                </div>
+                <div class="resource" *ngIf="state === 'top' && resources.length">
+                    <div class="resource-item d-flex" *ngFor="let resource of resources">
+                        <div class="image">
+                            <ion-img [src]="resource.thumbnailUrl"></ion-img>
+                        </div>
+                        <div class="info d-flex flex-column">
+                            <div class="title">
+                                {{ resource.title }}
+                            </div>
+                            <div class="manufacturer" *ngIf="resource.manufacturer">
+                                {{ resource.manufacturer }}
+                            </div>
+                        </div>
+                        <div class="ml-auto action d-flex align-self-end" *ngIf="resource.shoppingLink">
+                            <ion-button class="m-0 button-blue-default" (click)="openShopUrl(resource.shoppingLink)">Shop</ion-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-auto">
+                <ion-button class="button-outline-blue-default" fill="outline" *ngIf="state !== 'top' && resources && resources.length" (click)="expand()">See instructions</ion-button>
+                <ion-button class="icon-button default" expand="block" (click)="onPlaySimpi()">
+                    <ion-icon slot="start" src="/assets/svg/play.svg"></ion-icon>
+                    Play Simpi
+                </ion-button>
+            </div>
+        </div>
+    </div>
+</div>

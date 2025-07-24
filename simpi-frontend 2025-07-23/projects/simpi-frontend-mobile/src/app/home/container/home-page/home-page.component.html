@@ -1,0 +1,120 @@
+<ion-content>
+  <sim-refresher (refreshData)='onRefreshData($event)'></sim-refresher>
+  <div class="simpi-logo-container">
+    <div class="simpi-logo-image"></div>
+  </div>
+  <div class="search">
+    <form role="search" [formGroup]="searchForm">
+      <sim-text-input formControlName="searchTerm" placeholderImageSrc="assets/svg/search.svg" class="dark-background">
+      </sim-text-input>
+    </form>
+  </div>
+  <div class="item-container">
+    <div class="simpi-container">
+      <div class="title-text d-flex w-100">
+        <h2>New</h2>
+        <a class="show-all ml-auto" (click)="showAllNewSimpis()">More</a>
+      </div>
+      <div class="new-slider">
+        <ion-slides class="h-100" [options]="newSliderOpts">
+          <ng-container *ngIf="(mobileCreatedSimpis$ | async) as simpis; else newSimpisLoading">
+            <ng-container *ngIf="simpis.length">
+              <ion-slide class="new-item" *ngFor="let simpi of simpis; trackBy: trackByFn" (click)="showSimpi(simpi.simpiId)">
+                <div class="new-item-img">
+                  <ion-img [src]="simpi.thumbnailUrl"></ion-img>
+                </div>
+                <div class="new-item-text">
+                  <div class="title">
+                    {{simpi.title}}
+                  </div>
+                  <div class="brand">
+                    SIMPI
+                  </div>
+                </div>
+              </ion-slide>
+            </ng-container>
+          </ng-container>
+          <ng-template #newSimpisLoading>
+            <ion-slide class="new-item" *ngFor="let i of tenItems; trackBy: trackByFn">
+              <div class="new-item-img">
+                <ion-skeleton-text animated></ion-skeleton-text>
+              </div>
+              <div class="new-item-text">
+                <div class="title">
+                  <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+                </div>
+                <div class="brand">
+                  <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                </div>
+              </div>
+            </ion-slide>
+          </ng-template>
+        </ion-slides>
+      </div>
+    </div>
+  </div>
+  <div class="item-container">
+    <div class="campaign-container">
+      <ng-container *ngIf="campaignProduct; else campaignProductLoading">
+        <div class="campaign-content" (click)="showSimpisOfProduct(campaignProduct.productId)"
+             [ngStyle]="{ backgroundImage: 'url(' + campaignProduct.productImageUrl + ')' }">
+          {{campaignProduct.productName}}
+        </div>
+      </ng-container>
+      <ng-template #campaignProductLoading>
+        <div class="simpi-img">
+          <ion-skeleton-text class="m-0" animated></ion-skeleton-text>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+  <div class="item-container">
+    <div class="my-products-container">
+      <div class="title-text d-flex w-100">
+        <h2>Products</h2>
+        <a class="show-all ml-auto" (click)="showAllProducts()">More</a>
+      </div>
+      <div class="my-products-items">
+        <ng-container *ngIf="(products$ | async) as products; else myProductsLoading">
+          <div class="my-products-item" *ngFor="let product of products; trackBy: trackByFn"
+               (click)="showSimpisOfProduct(product.productId)">
+            <div class="simpi-img">
+              <ion-img [src]="product.productImageUrl"></ion-img>
+            </div>
+            <div class="product-name">{{product.productName}}</div>
+          </div>
+        </ng-container>
+        <ng-template #myProductsLoading>
+          <ion-slide class="my-products-item" *ngFor="let i of fourItems; trackBy: trackByFn">
+            <div class="simpi-img">
+              <ion-skeleton-text class="m-0" animated></ion-skeleton-text>
+            </div>
+          </ion-slide>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+<!--  <div class="item-container explore">-->
+<!--    <div class="explore-container">-->
+<!--      <div class="explore-text d-flex w-100">-->
+<!--        <div>-->
+<!--          Explore-->
+<!--        </div>-->
+<!--        <div class="show-all ml-auto">-->
+<!--          Show all-->
+<!--          <ion-icon name="caret-forward"></ion-icon>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="explore-slider">-->
+<!--        <ion-slides class="h-100" [options]="exploreSliderOpts">-->
+<!--          <ion-slide class="explore-item" *ngFor="let category of categories">-->
+<!--            <div class="explore-item-card" [style.backgroundColor]="category.backgroundColor">-->
+<!--              <ion-icon class='explore-item-icon' [name]="category.icon"></ion-icon>-->
+<!--            </div>-->
+<!--            <div class="explore-title">{{category.name}}</div>-->
+<!--          </ion-slide>-->
+<!--        </ion-slides>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+</ion-content>

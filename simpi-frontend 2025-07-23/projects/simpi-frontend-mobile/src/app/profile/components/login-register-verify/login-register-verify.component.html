@@ -1,0 +1,29 @@
+<div class="login-register-verify">
+  <div class="title">Verify your email or phone number</div>
+  <p class="instruction">Please enter the code sent to your phone or email.</p>
+  <form [formGroup]="formGroup" (ngSubmit)="submitForm()">
+    <div class="input-area">
+      <label>
+        <div class="digits" (click)="inputEl.focus()">
+          <div class="digit" *ngFor="let i of numbers">
+            {{formGroup.controls.verificationCode.value?.substr(i, 1) || ' '}}
+          </div>
+        </div>
+        <input #inputEl type="text" inputmode="numeric" autocomplete="one-time-code" formControlName="verificationCode"
+               [maxLength]="numberOfDigits" (input)="onInputChange()">
+      </label>
+      <div
+        *ngIf="formGroup.controls.verificationCode.errors?.pattern && formGroup.touched"
+        class="input-error">
+        The code can only contain digits (numbers).
+      </div>
+      <div
+        *ngIf="formGroup.controls.verificationCode.errors?.required && formGroup.touched"
+        class="input-error">
+        Please enter your verification code.
+      </div>
+    </div>
+    <div *ngIf="!linkIsDisabled" [hidden]="textIsHidden" class="hint">No code received? Click <a (click)="resendCode()">here</a> to resend.</div>
+    <div *ngIf="linkIsDisabled" [hidden]="textIsHidden" class="hint">Code has been sent again</div>
+  </form>
+</div>

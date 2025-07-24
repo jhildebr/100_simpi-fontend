@@ -1,0 +1,15 @@
+:host {
+    overflow: auto;
+}
+
+.user-info {
+    &-form {
+        margin: 0 20px;
+    }
+}
+.delete-account {
+    color: #f62626;
+}
+sim-text-input:not(:last-child) {
+    margin-bottom: 25px;
+}

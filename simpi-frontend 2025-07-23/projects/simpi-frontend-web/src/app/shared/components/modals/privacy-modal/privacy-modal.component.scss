@@ -1,0 +1,25 @@
+.modal-body {
+    text-align: left;
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+.modal-footer {
+    border-top: none;
+    text-align: center;
+}
+
+h2 {
+  font-size: 18px;
+  color: var(--simpi-color-dark-blue-8);
+}
+
+.btn-primary {
+    width: 100%;
+}
+
+.modal-dialog {
+    width: 400px;
+}

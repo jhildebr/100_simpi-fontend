@@ -1,0 +1,44 @@
+<div class="d-flex resource-table-wrapper" [ngClass]="{
+    'w-100': !addModeEnabled && selectedResource === null,
+    'w-71': (addModeEnabled && selectedResource === null) || (!addModeEnabled && selectedResource !== null)
+    }">
+    <div class="table-wrapper">
+        <div class="pr-3 h-100">
+            <sim-table [dynamicColumns]='dynamicColumns' [data]='resources' (clickedRow)='onSelectResource($event)'
+                (enableAddMode)='enableAddMode()' (disableAddMode)='disableAddMode()' [addModeEnabled]='addModeEnabled'
+                [selectedItemId]='selectedResource?.resourceId' idName='resourceId' (submitForm)='addResource.emit()'
+                type='resource' [errorLoadingData]='errorLoadingData' (delete)="deleteResource.emit($event)"
+                (reloadData)='reloadData.emit()' [formGroup]="resourceForm" [staticColumns]="staticColumns">
+            </sim-table>
+        </div>
+    </div>
+    <div class="resource-detail-sidebar sidebar-hidden ml-2" [ngClass]="{
+        'sidebar-shown': addModeEnabled || selectedResource
+        }">
+        <sim-resource-detail-sidebar [addModeEnabled]='addModeEnabled' [selectedResource]='selectedResource'
+            [resourceForm]='resourceForm' (unselectResource)="unselectResource.emit()"
+            (saveResource)="saveResource.emit()" [addingAborted]='addingAborted'>
+        </sim-resource-detail-sidebar>
+    </div>
+</div>
+<ng-template #deleteItem let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Delete Product</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="form-group">
+                Do you really want to delete this product?
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <div class="d-flex flex-row">
+            <button class='btn btn-danger' (click)="modal.close('Delete click')">Delete</button>
+            <button class='btn btn-secondary ml-2' (click)="modal.close('Cancel click')">Cancel</button>
+        </div>
+    </div>
+</ng-template>

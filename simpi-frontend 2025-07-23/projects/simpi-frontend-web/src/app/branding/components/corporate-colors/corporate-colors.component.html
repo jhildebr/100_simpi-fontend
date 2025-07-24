@@ -1,0 +1,47 @@
+<h2 class="mt-1">Colors</h2>
+<form [formGroup]="brandForm">
+    <sim-text-input 
+      formControlName="primaryBrandColor" 
+      [textbox]="false" 
+      [showColorPreview]="true"
+      [label]="'Primary brand color - also used for button color'"
+      class="w-50 d-block my-3"
+      (change)="onColorChanged()"
+    ></sim-text-input>
+
+    <sim-text-input 
+      formControlName="secondaryBrandColor" 
+      [textbox]="false" 
+      [showColorPreview]="true"
+      [label]="'Secondary brand color'"
+      class="w-50 d-block my-3"
+      (change)="onColorChanged()"
+    ></sim-text-input>
+    
+    <sim-text-input 
+      formControlName="highlightColorOne" 
+      [textbox]="false" 
+      [showColorPreview]="true"
+      [label]="'Highlight color #1'"
+      class="w-50 d-block my-3"
+      (change)="onColorChanged()"
+    ></sim-text-input>
+    
+    <sim-text-input 
+      formControlName="highlightColorTwo" 
+      [textbox]="false" 
+      [showColorPreview]="true"
+      [label]="'Highlight color #2'"
+      class="w-50 d-block my-3"
+      (change)="onColorChanged()"
+    ></sim-text-input>
+    
+    <sim-text-input 
+      formControlName="highlightColorThree" 
+      [textbox]="false" 
+      [showColorPreview]="true"
+      [label]="'Highlight color #3'"
+      class="w-50 d-block my-3"
+      (change)="onColorChanged()"
+    ></sim-text-input>
+</form>

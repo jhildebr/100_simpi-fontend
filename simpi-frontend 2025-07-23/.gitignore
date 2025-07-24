@@ -1,0 +1,74 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/dist
+/tmp
+/out-tsc
+# Only exists if Bazel was run
+/bazel-out
+/plugins
+/www
+/platforms/android/app
+/platforms/android/platform_www
+/platforms/ios/platform_www
+/platforms/ios/www
+/platforms/ios/SIMPI
+/platforms/ios/SIMPI.xcarchive
+/platforms/ios/SIMPI.xcodeproj
+/platforms/ios/SIMPI.xcworkspace
+/android/build
+/ios/build
+/resources/android/icon
+/resources/android/splash
+/resources/ios/icon
+/resources/ios/splash
+/resources/windows/icon
+/resources/windows/splash
+/resources/blackberry10
+/ios/App/App/Assets.xcassets/AppIcon.appiconset
+/android/app/src/main/res/*
+!/android/app/src/main/res/layout/
+!/android/app/src/main/res/values/
+!/android/app/src/main/res/xml/
+
+# dependencies
+/node_modules
+
+# profiling files
+chrome-profiler-events*.json
+speed-measure-plugin*.json
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# env files
+projects/simpi-frontend-web/src/environments/environment.ts
+environment.ts

@@ -1,0 +1,19 @@
+<div class="simpi-card-wrapper">
+  <div class="simpi-card">
+    <div class="simpi-card-img">
+      <img *ngIf="hasImage" [src]="imageUrl" class="card-img-top" alt="Thumbnail representing the Simpi">
+      <div *ngIf="!hasImage" class="icon-color-top" [style.background-color]="placeholderBackgroundColor"></div>
+      <div class="steps-label" [ngStyle]="{'background-color': LabelColor}" *ngIf="stepsText"
+           (click)="onStepsLabelClick($event)" (mouseup)="onStepsLabelMouseUp($event)">{{stepsText}}</div>
+      <ng-content></ng-content>
+    </div>
+    <div class="simpi-card-text">
+      <div class="title">
+        {{text}}
+      </div>
+      <div class="brand">
+        {{brand}}
+      </div>
+    </div>
+  </div>
+</div>

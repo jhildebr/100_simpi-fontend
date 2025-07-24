@@ -1,0 +1,63 @@
+ion-grid {
+  ion-row {
+    margin-left: 5px;
+    margin-right: 5px;
+
+    ion-col {
+      text-align: center;
+    }
+  }
+}
+
+.simpi {
+  &-card {
+    &-wrapper {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    width: 100%;
+
+    &-img {
+      border-radius: 5px;
+      height: 260px;
+      max-height: 260px;
+      width: 100%;
+
+      ion-img {
+        &::part(image) {
+          object-fit: cover;
+          border-radius: 5px;
+        }
+      }
+    }
+
+    &-text {
+      width: 100%;
+      font-family: "Circular Std", sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 18px;
+      color: var(--simpi-color-dark-blue-8);
+      text-align: left;
+
+      .title {
+        margin-top: 8px;
+        width: 100%;
+      }
+
+      .brand {
+        margin-top: 2px;
+        width: 100%;
+
+        font-size: 12px;
+        line-height: 15px;
+        color: var(--simpi-color-dark-blue-4);
+      }
+    }
+  }
+}

@@ -1,0 +1,100 @@
+:host {
+    font-family: "Circular Std", sans-serif;
+    background-color: white;
+}
+
+ion-avatar {
+    border: 2px solid #f1f2f6;
+    color: #f1f2f6;
+}
+
+.avatar {
+    position: relative;
+}
+
+ion-avatar,
+.avatar {
+    font-size: 4.5rem;
+    width: 80px;
+    height: 80px;
+    &.edit {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+.segment {
+    &-item {
+        padding-bottom: 5px;
+        color: var(--simpi-color-dark-blue-4);
+        font-size: 15px;
+        &.active {
+            color: var(--simpi-color-blue);
+            border-bottom: 2px solid var(--simpi-color-blue);
+        }
+    }
+    &-container {
+        margin-bottom: 25px;
+    }
+}
+
+.settings-icon,
+.back-button {
+    font-size: 18px;
+    font-size: 18dp;
+    font-size: 18pt;
+    &:focus {
+        outline: none;
+    }
+}
+
+.user-info {
+    margin-bottom: 45px;
+}
+
+.text {
+    font-family: "Circular Std", sans-serif;
+    &-edit {
+        font-size: 15px;
+        font-size: 15dp;
+        font-size: 15pt;
+    }
+    &-save {
+        padding: 5px;
+        color: var(--simpi-color-blue);
+        font-size: 14px;
+        font-size: 14dp;
+        font-size: 14pt;
+    }
+}
+
+.profile-image-btn {
+    color: var(--simpi-color-dark-blue-3);
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
+    bottom: 2px;
+    right: 0;
+}
+
+.user {
+    &-settings {
+        font-size: 30pt;
+        height: 30px;
+        width: 30px;
+        padding: 25px 20px 0 20px;
+    }
+    &-name {
+        font-size: 18px;
+        font-size: 18pt;
+        font-size: 18dp;
+    }
+    &-about {
+        font-size: 16px;
+        font-size: 16pt;
+        font-size: 16dp;
+        color: var(--simpi-color-dark-blue-4);
+        max-width: 60vw;
+    }
+}

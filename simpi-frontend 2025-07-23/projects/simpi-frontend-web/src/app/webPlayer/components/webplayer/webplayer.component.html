@@ -1,0 +1,128 @@
+<ng-container *ngIf="initialLoadingCompleted">
+  <div class="swiper-container h-100" [swiper]="swiperConfig"
+       (swiperTap)="onTap($event)" (slideChange)="onSlideChanged()">
+    <div class="simpi-info d-flex">
+      <ng-container *ngIf="showCloseButton">
+        <div class="ml-auto"></div>
+        <button class="circle-icon-button small dark transparent" type="button" (click)="close.emit()">
+          <img class="icon" src="assets/svg/Close.svg" alt="Close"/>
+        </button>
+      </ng-container>
+    </div>
+
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"
+        *ngFor="
+          let step of steps;
+          let i = index;
+        ">
+        <div class="d-flex h-100 w-100">
+          <sim-step-slide
+            #slide
+            [simpiId]="simpi?.simpiId"
+            [step]="step"
+            [voiceOverLanguage]="language"
+            [width]="width"
+            [height]="height"
+            [scaleStrategy]="scaleStrategy"
+            [title]="translatedTitle(step) | async"
+            [active]="i === swiperIndex && !showInfoOverlay"
+            (videoPlayError)="onVideoPlayError($event)">
+          </sim-step-slide>
+        </div>
+      </div>
+      <div class="swiper-slide last-slide">
+        <div class="d-flex h-100 w-100">
+          <sim-last-slide>
+            <div class="last-slide-slider w-100 h-100 text-left">
+              <ng-container *ngIf="relatedSimpis$ | async as simpis">
+                <div #lastSlider class="swiper-container h-100" [swiper]="lastPageSliderConfig"
+                     (swiperTap)="onLastSwiperTap()" (swiperTouchEnd)="onLastSwiperTouchEnd()"
+                     (swiperClick)="onLastSwiperTap()">
+                  <div class="swiper-wrapper">
+                    <div *ngFor="let simpi of simpis" class="swiper-slide">
+                      <div class="d-flex flex-column w-100" (click)="selectRelatedSimpi(simpi)">
+                        <div class="last-slide-item-img">
+                          <img [src]="simpi.thumbnailUrl"/>
+                        </div>
+                        <div class="last-slide-item-text">
+                          <div class="title">
+                            {{ simpi.title }}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+            <div class="action-buttons-slot d-flex flex-column">
+              <button class="btn btn-outline-primary" (click)="repeatSimpi()">
+                Repeat
+              </button>
+              <button class="btn btn-outline-primary" (click)="share.emit()">
+                Share with Friends
+              </button>
+            </div>
+          </sim-last-slide>
+        </div>
+      </div>
+    </div>
+    <div class="navigation-panel" *ngIf="steps?.length > swiperIndex">
+      <button class="swiper-button-prev circle-icon-button small dark transparent" type="button" (click)="swiper.prevSlide()">
+        <img class="prev-slide-icon" src="assets/svg/navigation-arrow.svg" alt="Prev"/>
+      </button>
+      <button
+        [style.visibility]="hasAudio ? 'visible' : 'hidden'"
+        class="circle-icon-button small dark transparent"
+        (click)="onAudioBtnClicked()"
+        type="button"
+      >
+        <img *ngIf="!isAudioMuted" src="assets/svg/sound-on.svg" alt="sound-on"/>
+        <img *ngIf="isAudioMuted" src="assets/svg/sound-off.svg" alt="sound-off"/>
+      </button>
+      <div class="pagination">
+        <sup style="font-size: 16px"><b>
+          <input [value]="swiperIndex + 1" [readonly]="true"/>
+        </b></sup>
+        &frasl;
+        <sub><small>{{ steps.length }}</small></sub>
+      </div>
+      <!-- 2022-09-22 button might be needed again in the future but is subjected to be removed --mbue -->
+      <button style="visibility: hidden;" type="button">
+        <img  src="assets/svg/play.svg" alt="play"/>
+      </button>
+      <button
+        class="swiper-button-next circle-icon-button small dark transparent"
+        type="button"
+        (click)="swiper.nextSlide()"
+      >
+        <img class="next-slide-icon" src="assets/svg/navigation-arrow.svg" alt="Next"/>
+      </button>
+    </div>
+  </div>
+  <sim-overlay #overlay [simpi]="simpi" [visible]="showInfoOverlay" [resources]="resources" [resourceButtonTemplate]="resourceButtonTemplate">
+    <button
+      class="start-btn btn btn-block"
+      (click)="playSimpi()"
+      [disabled]="!currentSlide?.loaded"
+    >
+      <img class="caret-icon" src="assets/svg/play.svg" alt="Play simpi button"/>START
+    </button>
+  </sim-overlay>
+  <audio id="stepAudio" #audio (ended)="onAudioEnded()" style="display: none"></audio>
+</ng-container>
+
+<ng-container *ngIf="!initialLoadingCompleted">
+  <sim-loading-spinner [show]="true"></sim-loading-spinner>
+</ng-container>
+
+<ng-template #resourceButtonTemplate let-resource>
+  <button
+    *ngIf="resource.shoppingLink"
+    class="btn detail-btn background-theme-primary-color border-theme-primary-color"
+    (click)="openShoppingLink(resource.shoppingLink)"
+  >
+    {{ resource.resourceType === resourceType.Product ? "Shop" : "Details" }}
+  </button>
+</ng-template>
