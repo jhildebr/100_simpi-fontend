@@ -48,7 +48,7 @@
       <sim-card class="col simpi-group-form" *ngFor="let simpi of simpiGroup.simpis"
                 [text]="simpi.title"
                 [imageUrl]="simpi.thumbnailUrl"
-                [placeholderBackgroundColor]="simpi.iconColor"
+                [placeholderBackgroundColor]="simpi.iconColor || '#cecece'"
                 [LabelColor]="product.brandPrimaryColor"
                 [brand]="product.brandName" [numberOfSteps]="simpi.stepCount" [id]="simpi.simpiId"
                 [stepsLabelClickHandler]="stepsLabelClickHandler"
