@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from "@angular/core";
-import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { faCamera } from '@fortawesome/free-solid-svg-icons';
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { BrandService } from 'projects/simpi-frontend-common/src/lib/services/brand/brand.service';
 import { ImageType } from "projects/simpi-frontend-common/src/lib/services/images/upload-img-modal.service";
@@ -13,7 +13,7 @@ import { FormGroup } from "@angular/forms";
 })
 export class CorporateLogoComponent implements OnInit, OnDestroy {
 
-    public uploadIcon = faArrowUp;
+    public uploadIcon = faCamera;
 
     @Input()
     public brandForm: FormGroup;

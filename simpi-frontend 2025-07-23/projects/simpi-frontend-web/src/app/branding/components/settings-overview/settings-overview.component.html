@@ -12,6 +12,7 @@
   <div class="row">
     <sim-corporate-logo
       *ngIf="corporateIdentitySelected"
+      class="w-100"
       [brandForm]="brandForm"
       (logoUploaded)="onBrandLogoChanged()"
     ></sim-corporate-logo>

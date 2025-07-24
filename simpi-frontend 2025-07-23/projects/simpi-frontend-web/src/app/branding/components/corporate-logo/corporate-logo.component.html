@@ -1,12 +1,12 @@
-<h2>Corporate Logo</h2>
+<h4>Corporate Logo</h4>
 <span>Upload your corporate logo. It will appear on every simpi that is released from the Cockpit.</span>
 
 <div class="logo-thumbnail-box">
     <form [formGroup]="brandForm">
-        <div class="m-1 upload-btn d-flex align-items-end">
+        <div class="upload-btn">
             <img class="logo-thumbnail" [src]="logoImageUrl" />
             <fa-layers
-                class="upload-icon ml-auto"
+                class="upload-icon"
                 [fixedWidth]="true" size='2x'
                 (click)="uploadThumbnailClicked()"
             >
