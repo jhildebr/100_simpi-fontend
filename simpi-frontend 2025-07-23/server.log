@@ -351,3 +351,703 @@ projects_simpi-frontend-web_src_app_products_products_module_ts.js | products-pr
 Build at: 2025-07-25T14:11:42.730Z - Hash: f6fcb79a187f19a2 - Time: 823ms
 
 ✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.51 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T16:59:34.684Z - Hash: 22f58841ed62d98c - Time: 3146ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                          | Names              |  Raw size
+runtime.js                                                   | runtime            |  12.94 kB | 
+
+Lazy chunk files                                             | Names              |  Raw size
+projects_simpi-frontend-web_src_app_steps_steps_module_ts.js | steps-steps-module | 303.25 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T17:01:49.846Z - Hash: 5b80991ed7d739c8 - Time: 1211ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                          | Names              |  Raw size
+runtime.js                                                   | runtime            |  12.94 kB | 
+
+Lazy chunk files                                             | Names              |  Raw size
+projects_simpi-frontend-web_src_app_steps_steps_module_ts.js | steps-steps-module | 304.30 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T17:01:56.320Z - Hash: 5c04c93012bbcf3b - Time: 425ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                          | Names              |  Raw size
+runtime.js                                                   | runtime            |  12.94 kB | 
+
+Lazy chunk files                                             | Names              |  Raw size
+projects_simpi-frontend-web_src_app_steps_steps_module_ts.js | steps-steps-module | 304.72 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T17:02:10.249Z - Hash: 29afea436644c9ed - Time: 756ms
+
+Error: [96mprojects/simpi-frontend-web/src/app/steps/container/steps-overview-page/steps-overview-page.component.html[0m:[93m40[0m:[93m27[0m - [91merror[0m[90m TS2339: [0mProperty 'onBatchUploadSteps' does not exist on type 'StepsOverviewPageComponent'.
+
+[7m40[0m       (batchUploadSteps)="onBatchUploadSteps()"
+[7m  [0m [91m                          ~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-web/src/app/steps/container/steps-overview-page/steps-overview-page.component.ts[0m:[93m52[0m:[93m16[0m
+    [7m52[0m   templateUrl: './steps-overview-page.component.html',
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepsOverviewPageComponent.
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                          | Names              |  Raw size
+runtime.js                                                   | runtime            |  12.94 kB | 
+
+Lazy chunk files                                             | Names              |  Raw size
+projects_simpi-frontend-web_src_app_steps_steps_module_ts.js | steps-steps-module | 304.88 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T17:02:41.130Z - Hash: 2cd427d6cac99115 - Time: 716ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                                  | Names                      | Raw size
+main.js                                                              | main                       |  1.51 MB | 
+runtime.js                                                           | runtime                    | 12.94 kB | 
+
+Lazy chunk files                                                     | Names                      | Raw size
+projects_simpi-frontend-web_src_app_analytics_analytics_module_ts.js | analytics-analytics-module | 59.31 kB | 
+projects_simpi-frontend-web_src_app_simpis_simpis_module_ts.js       | simpis-simpis-module       | 53.94 kB | 
+projects_simpi-frontend-web_src_app_cockpit_cockpit_module_ts.js     | cockpit-cockpit-module     | 37.75 kB | 
+projects_simpi-frontend-web_src_app_users_users_module_ts.js         | users-users-module         | 11.24 kB | 
+projects_simpi-frontend-web_src_app_webPlayer_webPlayer_module_ts.js | webPlayer-webPlayer-module |  3.52 kB | 
+
+8 unchanged chunks
+
+Build at: 2025-07-25T17:02:57.651Z - Hash: e86edba992a25efc - Time: 1042ms
+
+Error: [96mprojects/simpi-frontend-web/src/app/shared/components/batch-step-upload-modal/batch-step-upload-modal.component.html[0m:[93m14[0m:[93m5[0m - [91merror[0m[90m NG8001: [0m'sim-drag-drop-file-upload' is not a known element:
+1. If 'sim-drag-drop-file-upload' is an Angular component, then verify that it is part of this module.
+2. If 'sim-drag-drop-file-upload' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+
+[7m 14[0m     <sim-drag-drop-file-upload
+[7m   [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m 15[0m       [allowMultiple]="true"
+[7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m...[0m 
+[7m 18[0m       [description]="'Drag & Drop multiple videos or images here or browse using plus icon. Each file will create a new step.'"
+[7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m 19[0m       (filesToUpload)="onFilesToUploadReceived($event)">
+[7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-web/src/app/shared/components/batch-step-upload-modal/batch-step-upload-modal.component.ts[0m:[93m26[0m:[93m16[0m
+    [7m26[0m   templateUrl: './batch-step-upload-modal.component.html',
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component BatchStepUploadModalComponent.
+
+
+Error: [96mprojects/simpi-frontend-web/src/app/shared/components/batch-step-upload-modal/batch-step-upload-modal.component.html[0m:[93m15[0m:[93m7[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'allowMultiple' since it isn't a known property of 'sim-drag-drop-file-upload'.
+1. If 'sim-drag-drop-file-upload' is an Angular component and it has 'allowMultiple' input, then verify that it is part of this module.
+2. If 'sim-drag-drop-file-upload' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m15[0m       [allowMultiple]="true"
+[7m  [0m [91m      ~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-web/src/app/shared/components/batch-step-upload-modal/batch-step-upload-modal.component.ts[0m:[93m26[0m:[93m16[0m
+    [7m26[0m   templateUrl: './batch-step-upload-modal.component.html',
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component BatchStepUploadModalComponent.
+
+
+Error: [96mprojects/simpi-frontend-web/src/app/shared/components/batch-step-upload-modal/batch-step-upload-modal.component.html[0m:[93m16[0m:[93m7[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'allowedMimeTypes' since it isn't a known property of 'sim-drag-drop-file-upload'.
+1. If 'sim-drag-drop-file-upload' is an Angular component and it has 'allowedMimeTypes' input, then verify that it is part of this module.
+2. If 'sim-drag-drop-file-upload' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m16[0m       [allowedMimeTypes]="'image/*,video/*'"
+[7m  [0m [91m      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-web/src/app/shared/components/batch-step-upload-modal/batch-step-upload-modal.component.ts[0m:[93m26[0m:[93m16[0m
+    [7m26[0m   templateUrl: './batch-step-upload-modal.component.html',
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component BatchStepUploadModalComponent.
+
+
+Error: [96mprojects/simpi-frontend-web/src/app/shared/components/batch-step-upload-modal/batch-step-upload-modal.component.html[0m:[93m18[0m:[93m7[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'description' since it isn't a known property of 'sim-drag-drop-file-upload'.
+1. If 'sim-drag-drop-file-upload' is an Angular component and it has 'description' input, then verify that it is part of this module.
+2. If 'sim-drag-drop-file-upload' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m18[0m       [description]="'Drag & Drop multiple videos or images here or browse using plus icon. Each file will create a new step.'"
+[7m  [0m [91m      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-web/src/app/shared/components/batch-step-upload-modal/batch-step-upload-modal.component.ts[0m:[93m26[0m:[93m16[0m
+    [7m26[0m   templateUrl: './batch-step-upload-modal.component.html',
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component BatchStepUploadModalComponent.
+
+
+Error: [96mprojects/simpi-frontend-web/src/app/shared/components/batch-step-upload-modal/batch-step-upload-modal.component.html[0m:[93m46[0m:[93m29[0m - [91merror[0m[90m NG8004: [0mNo pipe found with name 'titlecase'.
+
+[7m46[0m             {{ status.key | titlecase }}: {{ getStatusCounts()[status.key] }}
+[7m  [0m [91m                            ~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-web/src/app/shared/components/batch-step-upload-modal/batch-step-upload-modal.component.ts[0m:[93m26[0m:[93m16[0m
+    [7m26[0m   templateUrl: './batch-step-upload-modal.component.html',
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component BatchStepUploadModalComponent.
+
+
+Error: [96mprojects/simpi-frontend-web/src/app/shared/components/batch-step-upload-modal/batch-step-upload-modal.component.ts[0m:[93m156[0m:[93m42[0m - [91merror[0m[90m TS2339: [0mProperty 'uploadStepVideo' does not exist on type 'StepMediaUploadService'.
+
+[7m156[0m       return this.stepMediaUploadService.uploadStepVideo(file).toPromise();
+[7m   [0m [91m                                         ~~~~~~~~~~~~~~~[0m
+
+
+Error: [96mprojects/simpi-frontend-web/src/app/shared/components/batch-step-upload-modal/batch-step-upload-modal.component.ts[0m:[93m158[0m:[93m42[0m - [91merror[0m[90m TS2551: [0mProperty 'uploadStepImage' does not exist on type 'StepMediaUploadService'. Did you mean 'uploadStepMedia'?
+
+[7m158[0m       return this.stepMediaUploadService.uploadStepImage(file).toPromise();
+[7m   [0m [91m                                         ~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/lib/services/steps/step-media-upload.service.ts[0m:[93m24[0m:[93m16[0m
+    [7m24[0m   public async uploadStepMedia(fileToUpload: File): Promise<UploadStepMediaResult> {
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~[0m
+    'uploadStepMedia' is declared here.
+
+
+Error: [96mprojects/simpi-frontend-web/src/app/shared/components/batch-step-upload-modal/batch-step-upload-modal.component.ts[0m:[93m169[0m:[93m5[0m - [91merror[0m[90m TS2322: [0mType 'HttpResponse<any>' is not assignable to type 'void'.
+
+[7m169[0m     return this.stepService.saveNewStepMedia(stepId, mediaChangeRequest).toPromise();
+[7m   [0m [91m    ~~~~~~[0m
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.60 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T17:03:03.130Z - Hash: db74f6fa495c474b - Time: 471ms
+
+Error: [96mprojects/simpi-frontend-web/src/app/shared/components/batch-step-upload-modal/batch-step-upload-modal.component.ts[0m:[93m156[0m:[93m42[0m - [91merror[0m[90m TS2339: [0mProperty 'uploadStepVideo' does not exist on type 'StepMediaUploadService'.
+
+[7m156[0m       return this.stepMediaUploadService.uploadStepVideo(file).toPromise();
+[7m   [0m [91m                                         ~~~~~~~~~~~~~~~[0m
+
+
+Error: [96mprojects/simpi-frontend-web/src/app/shared/components/batch-step-upload-modal/batch-step-upload-modal.component.ts[0m:[93m158[0m:[93m42[0m - [91merror[0m[90m TS2551: [0mProperty 'uploadStepImage' does not exist on type 'StepMediaUploadService'. Did you mean 'uploadStepMedia'?
+
+[7m158[0m       return this.stepMediaUploadService.uploadStepImage(file).toPromise();
+[7m   [0m [91m                                         ~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/lib/services/steps/step-media-upload.service.ts[0m:[93m24[0m:[93m16[0m
+    [7m24[0m   public async uploadStepMedia(fileToUpload: File): Promise<UploadStepMediaResult> {
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~[0m
+    'uploadStepMedia' is declared here.
+
+
+Error: [96mprojects/simpi-frontend-web/src/app/shared/components/batch-step-upload-modal/batch-step-upload-modal.component.ts[0m:[93m169[0m:[93m5[0m - [91merror[0m[90m TS2322: [0mType 'HttpResponse<any>' is not assignable to type 'void'.
+
+[7m169[0m     return this.stepService.saveNewStepMedia(stepId, mediaChangeRequest).toPromise();
+[7m   [0m [91m    ~~~~~~[0m
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.60 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T17:03:10.953Z - Hash: d064b1f8edab7507 - Time: 391ms
+
+Error: [96mprojects/simpi-frontend-web/src/app/shared/components/batch-step-upload-modal/batch-step-upload-modal.component.ts[0m:[93m163[0m:[93m5[0m - [91merror[0m[90m TS2322: [0mType 'HttpResponse<any>' is not assignable to type 'void'.
+
+[7m163[0m     return this.stepService.saveNewStepMedia(stepId, mediaChangeRequest).toPromise();
+[7m   [0m [91m    ~~~~~~[0m
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.60 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T17:03:18.654Z - Hash: c443b38058499e9f - Time: 441ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.60 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T17:03:24.126Z - Hash: f3d323c934d76dae - Time: 289ms
+
+Error: [96mprojects/simpi-frontend-web/src/app/shared/components/batch-step-upload-modal/batch-step-upload-modal.component.html[0m:[93m46[0m:[93m16[0m - [91merror[0m[90m TS2339: [0mProperty 'getStatusDisplayName' does not exist on type 'BatchStepUploadModalComponent'.
+
+[7m46[0m             {{ getStatusDisplayName(status.key) }}: {{ getStatusCounts()[status.key] }}
+[7m  [0m [91m               ~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-web/src/app/shared/components/batch-step-upload-modal/batch-step-upload-modal.component.ts[0m:[93m26[0m:[93m16[0m
+    [7m26[0m   templateUrl: './batch-step-upload-modal.component.html',
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component BatchStepUploadModalComponent.
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.60 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T17:03:32.586Z - Hash: 1a18677fa2f8047d - Time: 458ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                          | Names              |  Raw size
+runtime.js                                                   | runtime            |  12.94 kB | 
+
+Lazy chunk files                                             | Names              |  Raw size
+projects_simpi-frontend-web_src_app_steps_steps_module_ts.js | steps-steps-module | 304.88 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T17:03:54.182Z - Hash: 94af832ef567aa63 - Time: 715ms
+
+Error: [96mprojects/simpi-frontend-web/src/app/steps/container/steps-overview-page/steps-overview-page.component.ts[0m:[93m19[0m:[93m66[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../shared/components/batch-step-upload-modal/batch-step-upload-modal.component' or its corresponding type declarations.
+
+[7m19[0m import { BatchStepUploadModalComponent, BatchUploadResult } from '../../shared/components/batch-step-upload-modal/batch-step-upload-modal.component';
+[7m  [0m [91m                                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                          | Names              |  Raw size
+runtime.js                                                   | runtime            |  12.94 kB | 
+
+Lazy chunk files                                             | Names              |  Raw size
+projects_simpi-frontend-web_src_app_steps_steps_module_ts.js | steps-steps-module | 306.41 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T17:04:05.476Z - Hash: e9801ac92e8c30c5 - Time: 476ms
+
+./projects/simpi-frontend-web/src/app/steps/container/steps-overview-page/steps-overview-page.component.ts:5:0-130 - Error: Module not found: Error: Can't resolve '../../shared/components/batch-step-upload-modal/batch-step-upload-modal.component' in '/Users/jochenhildebrandt/code/100_simpi-frontend/simpi-frontend 2025-07-23/projects/simpi-frontend-web/src/app/steps/container/steps-overview-page'
+
+Error: [96mprojects/simpi-frontend-web/src/app/steps/container/steps-overview-page/steps-overview-page.component.ts[0m:[93m19[0m:[93m66[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../shared/components/batch-step-upload-modal/batch-step-upload-modal.component' or its corresponding type declarations.
+
+[7m19[0m import { BatchStepUploadModalComponent, BatchUploadResult } from '../../shared/components/batch-step-upload-modal/batch-step-upload-modal.component';
+[7m  [0m [91m                                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                          | Names              |  Raw size
+runtime.js                                                   | runtime            |  12.94 kB | 
+
+Lazy chunk files                                             | Names              |  Raw size
+projects_simpi-frontend-web_src_app_steps_steps_module_ts.js | steps-steps-module | 306.38 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T17:04:11.242Z - Hash: 7e207a83ef655fab - Time: 415ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                          | Names              |  Raw size
+runtime.js                                                   | runtime            |  12.94 kB | 
+
+Lazy chunk files                                             | Names              |  Raw size
+projects_simpi-frontend-web_src_app_steps_steps_module_ts.js | steps-steps-module | 306.37 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T17:14:31.436Z - Hash: 48abca44e5f23c2b - Time: 785ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                          | Names              |  Raw size
+runtime.js                                                   | runtime            |  12.94 kB | 
+
+Lazy chunk files                                             | Names              |  Raw size
+projects_simpi-frontend-web_src_app_steps_steps_module_ts.js | steps-steps-module | 306.50 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T17:14:50.145Z - Hash: 4729fb7be5cc500f - Time: 505ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                          | Names              |  Raw size
+runtime.js                                                   | runtime            |  12.94 kB | 
+
+Lazy chunk files                                             | Names              |  Raw size
+projects_simpi-frontend-web_src_app_steps_steps_module_ts.js | steps-steps-module | 306.61 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T17:14:55.569Z - Hash: 03964fed09a228e5 - Time: 451ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                          | Names              |  Raw size
+runtime.js                                                   | runtime            |  12.94 kB | 
+
+Lazy chunk files                                             | Names              |  Raw size
+projects_simpi-frontend-web_src_app_steps_steps_module_ts.js | steps-steps-module | 306.61 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T17:16:08.200Z - Hash: 65c53f65a933a04d - Time: 370ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.60 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T17:18:17.541Z - Hash: 9e69587fbd17fc1d - Time: 583ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                          | Names              |  Raw size
+runtime.js                                                   | runtime            |  12.94 kB | 
+
+Lazy chunk files                                             | Names              |  Raw size
+projects_simpi-frontend-web_src_app_steps_steps_module_ts.js | steps-steps-module | 305.44 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T21:36:54.071Z - Hash: 7740f86d53480116 - Time: 1860ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                          | Names              |  Raw size
+runtime.js                                                   | runtime            |  12.94 kB | 
+
+Lazy chunk files                                             | Names              |  Raw size
+projects_simpi-frontend-web_src_app_steps_steps_module_ts.js | steps-steps-module | 305.20 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T21:37:03.207Z - Hash: 45ad527ce0d90a48 - Time: 840ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                          | Names              |  Raw size
+runtime.js                                                   | runtime            |  12.94 kB | 
+
+Lazy chunk files                                             | Names              |  Raw size
+projects_simpi-frontend-web_src_app_steps_steps_module_ts.js | steps-steps-module | 305.33 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T21:38:31.783Z - Hash: 9c6ee5b8d517ecc2 - Time: 1255ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                          | Names              |  Raw size
+runtime.js                                                   | runtime            |  12.94 kB | 
+
+Lazy chunk files                                             | Names              |  Raw size
+projects_simpi-frontend-web_src_app_steps_steps_module_ts.js | steps-steps-module | 305.56 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T21:38:36.009Z - Hash: dc16d6334db770e9 - Time: 419ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                          | Names              |  Raw size
+runtime.js                                                   | runtime            |  12.94 kB | 
+
+Lazy chunk files                                             | Names              |  Raw size
+projects_simpi-frontend-web_src_app_steps_steps_module_ts.js | steps-steps-module | 306.00 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T21:38:47.639Z - Hash: aff4c76963347136 - Time: 442ms
+
+Error: [96mprojects/simpi-frontend-web/src/app/steps/container/steps-overview-page/steps-overview-page.component.html[0m:[93m31[0m:[93m27[0m - [91merror[0m[90m TS2551: [0mProperty 'onBatchUploadFiles' does not exist on type 'StepsOverviewPageComponent'. Did you mean 'onBatchUploadSteps'?
+
+[7m31[0m       (batchUploadFiles)="onBatchUploadFiles($event)"
+[7m  [0m [91m                          ~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-web/src/app/steps/container/steps-overview-page/steps-overview-page.component.ts[0m:[93m53[0m:[93m16[0m
+    [7m53[0m   templateUrl: './steps-overview-page.component.html',
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepsOverviewPageComponent.
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                          | Names              |  Raw size
+runtime.js                                                   | runtime            |  12.94 kB | 
+
+Lazy chunk files                                             | Names              |  Raw size
+projects_simpi-frontend-web_src_app_steps_steps_module_ts.js | steps-steps-module | 305.57 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T21:38:52.503Z - Hash: b8c905a968701f2f - Time: 275ms
+
+Error: [96mprojects/simpi-frontend-web/src/app/steps/container/steps-overview-page/steps-overview-page.component.html[0m:[93m31[0m:[93m27[0m - [91merror[0m[90m TS2551: [0mProperty 'onBatchUploadFiles' does not exist on type 'StepsOverviewPageComponent'. Did you mean 'onBatchUploadSteps'?
+
+[7m31[0m       (batchUploadFiles)="onBatchUploadFiles($event)"
+[7m  [0m [91m                          ~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-web/src/app/steps/container/steps-overview-page/steps-overview-page.component.ts[0m:[93m53[0m:[93m16[0m
+    [7m53[0m   templateUrl: './steps-overview-page.component.html',
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepsOverviewPageComponent.
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                          | Names              |  Raw size
+runtime.js                                                   | runtime            |  12.94 kB | 
+
+Lazy chunk files                                             | Names              |  Raw size
+projects_simpi-frontend-web_src_app_steps_steps_module_ts.js | steps-steps-module | 305.70 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T21:39:12.261Z - Hash: d7ea12561c3c7e77 - Time: 495ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                          | Names              |  Raw size
+main.js                                                      | main               |   1.60 MB | 
+runtime.js                                                   | runtime            |  12.94 kB | 
+
+Lazy chunk files                                             | Names              |  Raw size
+projects_simpi-frontend-web_src_app_steps_steps_module_ts.js | steps-steps-module | 305.70 kB | 
+
+12 unchanged chunks
+
+Build at: 2025-07-25T21:39:17.111Z - Hash: 2204504af7f448f0 - Time: 590ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.60 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T21:39:22.628Z - Hash: ae7e421287404fcd - Time: 679ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                          | Names              |  Raw size
+runtime.js                                                   | runtime            |  12.94 kB | 
+
+Lazy chunk files                                             | Names              |  Raw size
+projects_simpi-frontend-web_src_app_steps_steps_module_ts.js | steps-steps-module | 305.74 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T21:44:47.710Z - Hash: 5b03fd5fe900fd58 - Time: 572ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.60 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T21:51:48.443Z - Hash: c91f1580c222bd85 - Time: 633ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.60 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T21:51:57.329Z - Hash: c7cca2029e630102 - Time: 428ms
+
+Error: [96mprojects/simpi-frontend-web/src/app/shared/components/batch-step-upload-modal/batch-step-upload-modal.component.html[0m:[93m134[0m:[93m60[0m - [91merror[0m[90m TS2339: [0mProperty 'closeModal' does not exist on type 'BatchStepUploadModalComponent'.
+
+[7m134[0m     <button type="button" class="btn btn-success" (click)="closeModal()">
+[7m   [0m [91m                                                           ~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-web/src/app/shared/components/batch-step-upload-modal/batch-step-upload-modal.component.ts[0m:[93m26[0m:[93m16[0m
+    [7m26[0m   templateUrl: './batch-step-upload-modal.component.html',
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component BatchStepUploadModalComponent.
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.60 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T21:52:03.508Z - Hash: 8b3fac83196faab0 - Time: 390ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.60 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T21:52:28.295Z - Hash: 577bba4bfeb0fd3e - Time: 586ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.60 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T21:52:32.510Z - Hash: d11ec3d0520b48e9 - Time: 503ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                          | Names              |  Raw size
+runtime.js                                                   | runtime            |  12.94 kB | 
+
+Lazy chunk files                                             | Names              |  Raw size
+projects_simpi-frontend-web_src_app_steps_steps_module_ts.js | steps-steps-module | 305.77 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T21:52:43.648Z - Hash: 3ce1e183529c350c - Time: 510ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                          | Names              |  Raw size
+main.js                                                      | main               |   1.60 MB | 
+runtime.js                                                   | runtime            |  12.94 kB | 
+
+Lazy chunk files                                             | Names              |  Raw size
+projects_simpi-frontend-web_src_app_steps_steps_module_ts.js | steps-steps-module | 305.77 kB | 
+
+12 unchanged chunks
+
+Build at: 2025-07-25T21:52:58.939Z - Hash: 4784b53300d1beb8 - Time: 676ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.60 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T22:11:55.398Z - Hash: 874d950dd5e140b1 - Time: 882ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                          | Names              |  Raw size
+runtime.js                                                   | runtime            |  12.94 kB | 
+
+Lazy chunk files                                             | Names              |  Raw size
+projects_simpi-frontend-web_src_app_steps_steps_module_ts.js | steps-steps-module | 305.95 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T22:14:30.521Z - Hash: e720a3daaf4c33d0 - Time: 698ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                          | Names              |  Raw size
+runtime.js                                                   | runtime            |  12.94 kB | 
+
+Lazy chunk files                                             | Names              |  Raw size
+projects_simpi-frontend-web_src_app_steps_steps_module_ts.js | steps-steps-module | 306.25 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T22:16:17.629Z - Hash: b07dc3761a63a4fd - Time: 529ms
+
+✔ Compiled successfully.

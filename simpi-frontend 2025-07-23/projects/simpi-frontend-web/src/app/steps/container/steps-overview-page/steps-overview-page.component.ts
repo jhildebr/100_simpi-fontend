@@ -16,6 +16,7 @@ import {
 } from 'rxjs/operators';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ToastrService} from 'ngx-toastr';
+import { BatchStepUploadModalComponent, BatchUploadResult } from '../../../shared/components/batch-step-upload-modal/batch-step-upload-modal.component';
 import {
   ChangeOrderRequest,
   DeploymentStateRequest,
@@ -275,6 +276,64 @@ export class StepsOverviewPageComponent implements OnInit, OnDestroy, AfterViewI
       .catch(() => {
         this.toastr.error('Old selected step must be saved first, but an error occurred while saving.', 'Error adding step');
         this.isActionInProgress = false;
+      });
+  }
+
+  public onBatchUploadFiles(files: File[]): void {
+    if (!this._simpiId) {
+      this.toastr.error('Cannot start batch upload because SIMPI ID is not available.', 'Error');
+      return;
+    }
+
+    if (!files || files.length === 0) {
+      return;
+    }
+
+    // Save current step before opening batch upload
+    this.saveCurrentStep()
+      .then(() => {
+        const modalRef = this.modalService.open(BatchStepUploadModalComponent, {
+          size: 'lg',
+          backdrop: 'static',
+          keyboard: false
+        });
+
+        modalRef.componentInstance.simpiId = this._simpiId;
+        modalRef.componentInstance.insertAfterStepId = this._selectedStep?.stepId;
+        modalRef.componentInstance.preSelectedFiles = files;
+
+        modalRef.result.then((result: BatchUploadResult) => {
+          if (result && result.success) {
+            this.toastr.success(
+              `Successfully created ${result.successfulUploads} out of ${result.totalFiles} steps.`,
+              'Batch Upload Complete'
+            );
+            
+            // Reload data to show the new steps
+            this.loadData(false);
+            
+            // Select the last newly created step after data loads
+            if (result.createdStepIds.length > 0) {
+              const lastStepId = result.createdStepIds[result.createdStepIds.length - 1];
+              
+              // Wait for the steps to actually load, then select the last step
+              this.steps$.pipe(
+                filter(steps => steps !== null && steps.length > 0),
+                take(1)
+              ).subscribe(steps => {
+                const lastStep = steps.find(step => step.stepId === lastStepId);
+                if (lastStep) {
+                  this.stepService.setSelectedStep(lastStep);
+                }
+              });
+            }
+          }
+        }).catch(() => {
+          // Modal was dismissed/cancelled - no action needed
+        });
+      })
+      .catch(() => {
+        this.toastr.error('Please save the current step first before starting batch upload.', 'Error');
       });
   }
 

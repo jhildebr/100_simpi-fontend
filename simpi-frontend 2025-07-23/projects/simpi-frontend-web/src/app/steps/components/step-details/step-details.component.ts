@@ -83,6 +83,9 @@ export class StepDetailsComponent
   public stepMediaUploaded: EventEmitter<string> = new EventEmitter<string>();
 
   @Output()
+  public batchUploadFiles: EventEmitter<File[]> = new EventEmitter<File[]>();
+
+  @Output()
   public saveSelectedStep: EventEmitter<EditorState> = new EventEmitter<EditorState>();
 
   constructor(private cdr: ChangeDetectorRef, private zone: NgZone, private context: SimpiContextService) {}
@@ -170,11 +173,17 @@ export class StepDetailsComponent
   }
 
   public uploadStepMedia(files: File[]): void {
-    if (files?.length !== 1) {
+    if (!files || files.length === 0) {
       return;
     }
 
-    this.stepMediaChanged.emit(files[0]);
+    if (files.length === 1) {
+      // Single file - handle as before for individual step media
+      this.stepMediaChanged.emit(files[0]);
+    } else {
+      // Multiple files - trigger batch upload functionality
+      this.batchUploadFiles.emit(files);
+    }
   }
 
   public showMediaSidebar(): void {

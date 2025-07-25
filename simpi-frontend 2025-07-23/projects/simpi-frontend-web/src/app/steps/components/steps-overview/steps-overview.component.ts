@@ -49,6 +49,7 @@ export class StepsOverviewComponent implements OnInit, OnDestroy, AfterViewCheck
   @Output()
   public addStep: EventEmitter<void> = new EventEmitter<void>();
 
+
   @Output()
   public copyStep: EventEmitter<void> = new EventEmitter<void>();
 

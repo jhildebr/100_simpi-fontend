@@ -78,6 +78,7 @@
       >
         <sim-drag-drop-file-upload
           [showUploadBox]="true"
+          [allowMultiple]="true"
           (filesToUpload)="uploadStepMedia($event)"
           allowedMimeTypes="image/*,video/*"
         >

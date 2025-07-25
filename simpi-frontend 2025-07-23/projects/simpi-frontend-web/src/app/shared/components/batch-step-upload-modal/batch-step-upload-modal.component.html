@@ -1,0 +1,137 @@
+<div class="modal-header">
+  <h4 class="modal-title">Batch Upload Steps</h4>
+</div>
+
+<div class="modal-body">
+  <!-- File Selection Phase -->
+  <div *ngIf="showFileSelector" class="file-selector-container">
+    <div class="upload-description">
+      <h5>Upload Multiple Files to Create Steps</h5>
+      <p>Select or drag multiple images/videos to automatically create consecutive steps. Files will be ordered as selected.</p>
+    </div>
+    
+    <sim-drag-drop-file-upload
+      [showUploadBox]="true"
+      [allowMultiple]="true"
+      [allowedMimeTypes]="'image/*,video/*'"
+      [title]="'Upload multiple step media files'"
+      [description]="'Drag & Drop multiple videos or images here or browse using plus icon. Each file will create a new step.'"
+      (filesToUpload)="onFilesToUploadReceived($event)">
+    </sim-drag-drop-file-upload>
+  </div>
+
+  <!-- File Preview and Upload Phase -->
+  <div *ngIf="!showFileSelector" class="upload-container">
+    <!-- Overall Progress -->
+    <div class="overall-progress-section" *ngIf="isUploading || isCompleted">
+      <div class="progress-header">
+        <h5>Upload Progress</h5>
+        <span class="progress-text">{{ getOverallProgress() }}%</span>
+      </div>
+      <div class="progress">
+        <div class="progress-bar" 
+             role="progressbar" 
+             [style.width.%]="getOverallProgress()"
+             [attr.aria-valuenow]="getOverallProgress()"
+             aria-valuemin="0" 
+             aria-valuemax="100">
+        </div>
+      </div>
+      
+      <div class="status-summary">
+        <ng-container *ngFor="let status of ['completed', 'uploading', 'processing', 'error', 'pending'] | keyvalue">
+          <span *ngIf="getStatusCounts()[status.key] > 0" 
+                class="status-badge" 
+                [class]="'status-' + status.key">
+            {{ getStatusDisplayName(status.key) }}: {{ getStatusCounts()[status.key] }}
+          </span>
+        </ng-container>
+      </div>
+    </div>
+
+    <!-- File List -->
+    <div class="file-list">
+      <h6>Files to Process ({{ files.length }} files)</h6>
+      <div class="file-items">
+        <div *ngFor="let progress of uploadProgress; let i = index; trackBy: trackByFile" 
+             class="file-item"
+             [class.completed]="progress.status === 'completed'"
+             [class.error]="progress.status === 'error'"
+             [class.processing]="progress.status === 'uploading' || progress.status === 'processing'">
+          
+          <div class="file-info">
+            <div class="file-icon">
+              <i class="fas" 
+                 [class.fa-image]="progress.file.type.startsWith('image/')"
+                 [class.fa-video]="progress.file.type.startsWith('video/')"
+                 [class.fa-check]="progress.status === 'completed'"
+                 [class.fa-exclamation-triangle]="progress.status === 'error'"
+                 [class.fa-spinner]="progress.status === 'uploading' || progress.status === 'processing'"
+                 [class.fa-spin]="progress.status === 'uploading' || progress.status === 'processing'">
+              </i>
+            </div>
+            
+            <div class="file-details">
+              <div class="file-name">{{ progress.file.name }}</div>
+              <div class="file-meta">
+                <span class="file-size">{{ formatFileSize(progress.file.size) }}</span>
+                <span class="step-title" *ngIf="progress.stepId">
+                  → Step {{ i + 1 }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="file-status">
+            <div class="status-text">{{ getStatusText(progress.status) }}</div>
+            <div class="file-progress" *ngIf="progress.progress > 0">
+              <div class="progress-bar-small">
+                <div class="progress-fill" [style.width.%]="progress.progress"></div>
+              </div>
+              <span class="progress-percent">{{ progress.progress }}%</span>
+            </div>
+            <div class="error-message" *ngIf="progress.error">
+              {{ progress.error }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-footer">
+  <!-- File Selection Phase Buttons -->
+  <ng-container *ngIf="showFileSelector">
+    <button type="button" class="btn btn-secondary" (click)="cancelUpload()">
+      Cancel
+    </button>
+  </ng-container>
+
+  <!-- Upload Phase Buttons -->
+  <ng-container *ngIf="!showFileSelector && !isUploading && !isCompleted">
+    <button type="button" class="btn btn-secondary" (click)="cancelUpload()">
+      Cancel
+    </button>
+    <button type="button" 
+            class="btn btn-primary" 
+            [disabled]="files.length === 0"
+            (click)="startBatchUpload()">
+      Create {{ files.length }} Steps
+    </button>
+  </ng-container>
+
+  <!-- During Upload Buttons -->
+  <ng-container *ngIf="isUploading && !isCompleted">
+    <button type="button" class="btn btn-secondary" (click)="cancelUpload()">
+      Cancel Upload
+    </button>
+  </ng-container>
+
+  <!-- Completed Phase Buttons -->
+  <ng-container *ngIf="isCompleted">
+    <button type="button" class="btn btn-success" (click)="closeModal()">
+      Done
+    </button>
+  </ng-container>
+</div>

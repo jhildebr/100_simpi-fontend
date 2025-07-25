@@ -29,6 +29,7 @@ import { PortalModule } from "@angular/cdk/portal";
 import { OverlayModule } from "@angular/cdk/overlay";
 import { UploadImgModalComponent } from "./components/upload-img-modal/upload-img-modal.component";
 import { UploadTranslationModalComponent } from "./components/upload-translation-modal/upload-translation-modal.component";
+import { BatchStepUploadModalComponent } from "./components/batch-step-upload-modal/batch-step-upload-modal.component";
 import { ResourceTypeTextPipe } from "./pipes/resourceTypeText.pipe";
 import { LoginPageComponent } from "./components/login/login-page/login-page.component";
 import { AuthGuard } from "./auth.guard";
@@ -71,6 +72,7 @@ const SHARED_COMPONENTS = [
   UploadImgModalComponent,
   UploadTranslationModalComponent,
   UploadMetadataTranslationModalComponent,
+  BatchStepUploadModalComponent,
   ResourceTypeTextPipe,
   BrandLogoSrcPipe,
   TeleportDirective,
