@@ -5,7 +5,7 @@
     alt="Profile picture of {{ userName }}"
     (click)="dropdownExpanded = !dropdownExpanded"
     cdkOverlayOrigin
-    #trigger="cdkOverlayOrigin"
+    #trigger
   />
   <ng-template class="overlay"
     cdkConnectedOverlay
@@ -13,8 +13,8 @@
     [cdkConnectedOverlayOpen]="dropdownExpanded"
   >
     <ul class="settings-dropdown">
-      <li (click)="openSettingsModal()"><img src="assets/svg/Settings.svg"/>Settings</li>
-      <li (click)="logoutUser()"> <img src="assets/svg/Logout.svg"/>Logout</li>
+      <li (click)="openSettingsModal()"><img src="assets/svg/settings.svg"/>Settings</li>
+      <li (click)="logoutUser()"> <img src="assets/svg/logout.svg"/>Logout</li>
     </ul>
   </ng-template>
 </ng-container>

@@ -27,6 +27,7 @@ export const resourcesRoutes: Route[] = [
       {
         path: "",
         redirectTo: "settings",
+        pathMatch: "full",
       },
       {
         path: "settings",

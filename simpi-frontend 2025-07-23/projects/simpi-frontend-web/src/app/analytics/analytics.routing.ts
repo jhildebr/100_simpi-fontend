@@ -10,6 +10,7 @@ export const analyticsRoutes: Route[] = [
   {
     path: "**",
     redirectTo: "/",
+    pathMatch: "full",
   },
   {
     path: ':productAlias/settings',

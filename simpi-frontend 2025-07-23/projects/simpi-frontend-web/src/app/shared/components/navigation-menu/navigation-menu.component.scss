@@ -28,14 +28,14 @@ img {
     // width: 25px;
     // height: 25px;
     content: "";
-    background-image: url("^assets/svg/Home-Inactive.svg");
+    background-image: url("^assets/svg/home-inactive.svg");
   }
   &.active {
     &:before {
       // width: 25px;
       // height: 25px;
       content: "";
-      background-image: url("^assets/svg/Home-Active.svg");
+      background-image: url("^assets/svg/home-active.svg");
     }
   }
 }
@@ -43,12 +43,12 @@ img {
 .products {
   &:before {
     content: "";
-    background-image: url("^assets/svg/Products-Inactive.svg");
+    background-image: url("^assets/svg/products-inactive.svg");
   }
   &.active {
     &:before {
       content: "";
-      background-image: url("^assets/svg/Products-Active.svg");
+      background-image: url("^assets/svg/products-active.svg");
     }
   }
 }
@@ -56,24 +56,24 @@ img {
 .simpis {
   &:before {
     content: "";
-    background-image: url("^assets/svg/Simpis-Inactive.svg");
+    background-image: url("^assets/svg/simpis-inactive.svg");
   }
   &.active {
     &:before {
       content: "";
-      background-image: url("^assets/svg/Simpis-Active.svg");
+      background-image: url("^assets/svg/simpis-active.svg");
     }
   }
 }
 .assets {
   &:before {
     content: "";
-    background-image: url("^assets/svg/Assets-Inactive.svg");
+    background-image: url("^assets/svg/assets-inactive.svg");
   }
   &.active {
     &:before {
       content: "";
-      background-image: url("^assets/svg/Assets-Active.svg");
+      background-image: url("^assets/svg/assets-active.svg");
     }
   }
 }
@@ -81,12 +81,12 @@ img {
 .analytics {
   &:before {
     content: "";
-    background-image: url("^assets/svg/Analytics-Inactive.svg");
+    background-image: url("^assets/svg/analytics-inactive.svg");
   }
   &.active {
     &:before {
       content: "";
-      background-image: url("^assets/svg/Analytics-Active.svg");
+      background-image: url("^assets/svg/analytics-active.svg");
     }
   }
 }
@@ -94,12 +94,12 @@ img {
 .search {
   &:before {
     content: "";
-    background-image: url("^assets/svg/Search-Inactive.svg");
+    background-image: url("^assets/svg/search-inactive.svg");
   }
   &.active {
     &:before {
       content: "";
-      background-image: url("^assets/svg/Search-Active.svg");
+      background-image: url("^assets/svg/search-active.svg");
     }
   }
 }

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { StepResponse, BrandResponse } from '../../../../../../simpi-frontend-common/src/lib/models';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { BrandService } from '../../../../../../simpi-frontend-common/src/lib/services/brand/brand.service';
 
 @Component({
@@ -19,7 +19,7 @@ export class StepTextSidebarComponent implements OnInit, OnDestroy {
   public selectedStep: StepResponse;
 
   @Input()
-  public stepForm: FormGroup;
+  public stepForm: UntypedFormGroup;
 
   @Input()
   public brandAlias: string;

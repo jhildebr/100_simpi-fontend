@@ -11,28 +11,27 @@ import { ProductOverviewPublicPageComponent } from './container/product-overview
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProductPageComponent } from './container/product-page/product-page.component';
 import { ProductSettingsPageComponent } from './container/product-settings-page/product-settings-page.component';
-import { DragulaModule } from 'ng2-dragula';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ProductListComponent } from './components/product-list/product-list.component';
 @NgModule({
-  declarations: [
-    ProductOverviewComponent,
-    ProductOverviewComponent,
-    ProductOverviewPageComponent,
-    ProductRoutingComponent,
-    DeletedProductOverviewPageComponent,
-    DeletedProductOverviewComponent,
-    ProductOverviewPublicPageComponent,
-    ProductDetailsComponent,
-    ProductPageComponent,
-    ProductSettingsPageComponent,
-    ProductListComponent,
-  ],
-  imports: [
-    SharedModule,
-    DragulaModule,
-    RouterModule.forChild(productRoutes)
-  ],
-  entryComponents: []
+    declarations: [
+        ProductOverviewComponent,
+        ProductOverviewComponent,
+        ProductOverviewPageComponent,
+        ProductRoutingComponent,
+        DeletedProductOverviewPageComponent,
+        DeletedProductOverviewComponent,
+        ProductOverviewPublicPageComponent,
+        ProductDetailsComponent,
+        ProductPageComponent,
+        ProductSettingsPageComponent,
+        ProductListComponent,
+    ],
+    imports: [
+        SharedModule,
+        DragDropModule,
+        RouterModule.forChild(productRoutes)
+    ]
 })
 export class ProductsModule {
 }

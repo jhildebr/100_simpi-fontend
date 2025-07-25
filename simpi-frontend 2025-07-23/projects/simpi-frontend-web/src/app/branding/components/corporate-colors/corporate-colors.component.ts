@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from "@angular/core";
-import { FormGroup } from "@angular/forms";
+import { UntypedFormGroup } from "@angular/forms";
 
 @Component({
     selector: 'sim-corporate-colors',
@@ -9,7 +9,7 @@ import { FormGroup } from "@angular/forms";
 export class CorporateColorsComponent implements OnInit, OnDestroy {
 
     @Input()
-    public brandForm: FormGroup;
+    public brandForm: UntypedFormGroup;
 
     @Output()
     public colorChanged: EventEmitter<void> = new EventEmitter();

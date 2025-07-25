@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { Observable, EMPTY } from 'rxjs';
 import { map, takeWhile, shareReplay,catchError} from 'rxjs/operators';
 import { ProductService } from '../../../../../../simpi-frontend-common/src/lib/services';
@@ -23,7 +23,7 @@ export class DeletedProductOverviewPageComponent implements OnInit, OnDestroy {
 
     public deletedProducts$: Observable<ProductResponse[]>;
     public errorLoadingData: boolean = false;
-    public productForm: FormGroup;
+    public productForm: UntypedFormGroup;
 
     constructor(private productService: ProductService) { }
 

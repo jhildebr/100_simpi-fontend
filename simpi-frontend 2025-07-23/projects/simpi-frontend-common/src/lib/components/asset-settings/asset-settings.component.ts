@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { DeploymentStateResponse, ResourceResponse } from "../../models";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
 import {
   ImageType,
   UploadImgModalService,
@@ -46,7 +46,7 @@ export class AssetSettingsComponent implements OnInit {
     return this._asset;
   }
 
-  public assetFormGroup: FormGroup;
+  public assetFormGroup: UntypedFormGroup;
 
   public deploymentState: typeof DeploymentStateResponse =
     DeploymentStateResponse;
@@ -68,7 +68,7 @@ export class AssetSettingsComponent implements OnInit {
   public assetShowOnStartPanelChangeResult: string;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private assetService: ResourceService,
     private modalService: NgbModal,
     private uploadImgModalService: UploadImgModalService,

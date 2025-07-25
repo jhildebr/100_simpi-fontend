@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../../../../../simpi-frontend-common/src/lib/services/auth/auth.service';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
@@ -17,10 +17,10 @@ export class LoginRegisterComponent implements OnInit {
 
   public showLoginRegisterInputComponent: boolean = true;
   public showLoginRegisterVerifyComponent: boolean = false;
-  public loginRegisterForm: FormGroup;
-  public verifyForm: FormGroup;
+  public loginRegisterForm: UntypedFormGroup;
+  public verifyForm: UntypedFormGroup;
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router, private alertController: AlertController,
+  constructor(private fb: UntypedFormBuilder, private authService: AuthService, private router: Router, private alertController: AlertController,
               private productService: ProductService) {
   }
 

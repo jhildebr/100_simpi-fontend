@@ -14,7 +14,7 @@ import { ResourceStickersComponent } from './components/resource-stickers/resour
 import { CustomStickersComponent } from './components/custom-stickers/custom-stickers.component';
 import { StepPropertiesSidebarComponent } from './components/step-properties-sidebar/step-properties-sidebar.component';
 import { StepDetailsComponent } from './components/step-details/step-details.component';
-import { DragulaModule } from 'ng2-dragula';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { StepTextSidebarComponent } from './components/step-text-sidebar/step-text-sidebar.component';
 import { ColorHueModule } from 'ngx-color/hue';
 import { StepStickerSidebarComponent } from './components/step-sticker-sidebar/step-sticker-sidebar.component';
@@ -23,33 +23,31 @@ import { StepTranslationSidebarComponent } from './components/step-translation-s
 import { StepMediaSidebarComponent } from './components/step-media-sidebar/step-media-sidebar.component';
 
 @NgModule({
-  declarations: [
-    StepsRoutingComponent,
-    StepsOverviewComponent,
-    StepsOverviewPageComponent,
-    DeletedStepsOverviewComponent,
-    DeletedStepsOverviewPageComponent,
-    SelectColorModalComponent,
-    StickersComponent,
-    StickerPanelComponent,
-    ResourceStickersComponent,
-    CustomStickersComponent,
-    StepPropertiesSidebarComponent,
-    StepDetailsComponent,
-    StepMediaSidebarComponent,
-    StepTextSidebarComponent,
-    StepTranslationSidebarComponent,
-    StepStickerSidebarComponent,
-    StepVoiceOverSidebarComponent
-  ],
-  imports: [
-    SharedModule,
-    RouterModule.forChild(stepsRoutes),
-    DragulaModule,
-    ColorHueModule,
-  ],
-  entryComponents: [
-  ]
+    declarations: [
+        StepsRoutingComponent,
+        StepsOverviewComponent,
+        StepsOverviewPageComponent,
+        DeletedStepsOverviewComponent,
+        DeletedStepsOverviewPageComponent,
+        SelectColorModalComponent,
+        StickersComponent,
+        StickerPanelComponent,
+        ResourceStickersComponent,
+        CustomStickersComponent,
+        StepPropertiesSidebarComponent,
+        StepDetailsComponent,
+        StepMediaSidebarComponent,
+        StepTextSidebarComponent,
+        StepTranslationSidebarComponent,
+        StepStickerSidebarComponent,
+        StepVoiceOverSidebarComponent
+    ],
+    imports: [
+        SharedModule,
+        RouterModule.forChild(stepsRoutes),
+        DragDropModule,
+        ColorHueModule,
+    ]
 })
 export class StepsModule {
 }

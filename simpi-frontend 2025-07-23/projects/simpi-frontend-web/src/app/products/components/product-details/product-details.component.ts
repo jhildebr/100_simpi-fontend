@@ -22,8 +22,8 @@ import {
 import {WebplayerComponent} from '../../../webPlayer/components/webplayer/webplayer.component';
 import {EMPTY_GUID} from '../../../../../../simpi-frontend-common/src/lib/shared/constants';
 import {ContextMenuEntry} from '../../../shared/components/context-menu/model/context-menu-entry';
-import {FormControl, Validators} from '@angular/forms';
-import {DragulaService} from 'ng2-dragula';
+import {UntypedFormControl, Validators} from '@angular/forms';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {PrivacyModalComponent} from '../../../shared/components/modals/privacy-modal/privacy-modal.component';
 import {SimpiService} from 'projects/simpi-frontend-common/src/lib/services/simpis/simpi.service';
@@ -41,7 +41,6 @@ export class ProductDetailsComponent
   constructor(
     private overlay: Overlay,
     private platform: Platform,
-    private dragulaService: DragulaService,
     private modalService: NgbModal,
     private simpiService: SimpiService
   ) {}
@@ -101,7 +100,7 @@ export class ProductDetailsComponent
       iconUrl: 'assets/svg/restore.svg',
     },
   ];
-  public productNameFormControl: FormControl;
+  public productNameFormControl: UntypedFormControl;
   public dragStartDelay: number = 500;
   public draggableId: string = EMPTY_GUID;
   private _timer: any;
@@ -180,20 +179,17 @@ export class ProductDetailsComponent
 
   public ngOnInit(): void {
     this.editProductName = false;
-    this.dragulaService.createGroup(this.draggableGroupName, {
-      copy: false,
-      delay: this.dragStartDelay,
-    });
-    this.dragulaService
-      .dropModel(this.draggableGroupName)
-      .pipe(
-        delay(100),
-        takeWhile(() => this._componentActive)
-      )
-      .subscribe(() => {
+  }
+
+  public onSimpiDrop(event: CdkDragDrop<SimpiResponse[]>): void {
+    if (event.previousIndex !== event.currentIndex) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      
+      setTimeout(() => {
         const idsAndIndexes: ChangeOrderRequest[] = this.simpiGroupsToChangeOrderRequestArray(this.simpiGroups);
         this.changeOrder.emit(idsAndIndexes);
-      });
+      }, 100);
+    }
   }
 
   public trackBy(index, simpi): void {
@@ -305,7 +301,6 @@ export class ProductDetailsComponent
       this._componentRef.destroy();
     }
     this._componentActive = false;
-    this.dragulaService.destroy(this.draggableGroupName);
   }
 
   private closePlayer(): void {
@@ -328,7 +323,7 @@ export class ProductDetailsComponent
 
   public onProductNameClick(): void {
     if (!this.readonly) {
-      this.productNameFormControl = new FormControl(
+      this.productNameFormControl = new UntypedFormControl(
         this.product?.productName ?? '',
         Validators.required
       );

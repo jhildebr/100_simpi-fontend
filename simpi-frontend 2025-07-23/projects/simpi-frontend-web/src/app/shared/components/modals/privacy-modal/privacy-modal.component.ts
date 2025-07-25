@@ -1,7 +1,7 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { DeploymentStateResponse } from '../../../../../../../simpi-frontend-common/src/lib/models';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'sim-privacy-modal',
@@ -14,7 +14,7 @@ export class PrivacyModalComponent {
   public deploymentState: typeof DeploymentStateResponse = DeploymentStateResponse;
 
   @Input()
-  public form: FormGroup = this.fb.group({
+  public form: UntypedFormGroup = this.fb.group({
     deploymentState: []
   });
 
@@ -24,7 +24,7 @@ export class PrivacyModalComponent {
   @Input()
   public targetName: string;
 
-  constructor(public activeModal: NgbActiveModal, public fb: FormBuilder) {
+  constructor(public activeModal: NgbActiveModal, public fb: UntypedFormBuilder) {
   }
 
   public get selection(): DeploymentStateResponse {

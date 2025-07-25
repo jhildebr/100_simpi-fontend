@@ -10,7 +10,7 @@ import {
   AfterViewChecked,
   AfterViewInit,
 } from "@angular/core";
-import { FormGroup } from "@angular/forms";
+import { UntypedFormGroup } from "@angular/forms";
 import {
   moveItemInArray,
   CdkDragDrop,
@@ -77,7 +77,7 @@ export class SimpiTableComponent<T> implements AfterViewChecked {
   public imageUrl: string;
 
   @Input()
-  public formGroup: FormGroup;
+  public formGroup: UntypedFormGroup;
 
   @Input()
   public selectedItemId: string;

@@ -1,0 +1,158 @@
+
+> simpi@0.0.0 web
+> export NODE_OPTIONS=--openssl-legacy-provider && ng serve --project=simpi-frontend-web --host 0.0.0.0
+
+
+Warning: This is a simple server for use in testing or debugging Angular applications
+locally. It hasn't been reviewed for security issues.
+
+Binding this server to an open connection can result in compromising your application or
+computer. Using a different host than the one passed to the "--host" flag might result in
+websocket connection issues. You might need to use "--disable-host-check" if that's the
+case.
+    
+One or more browsers which are configured in the project's Browserslist configuration will be ignored as ES5 output is not supported by the Angular CLI.
+Ignored browsers: kaios 2.5, op_mini all
+- Generating browser application bundles (phase: setup)...
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                                                                     | Names                      |  Raw size
+vendor.js                                                                                               | vendor                     |   6.81 MB | 
+main.js                                                                                                 | main                       |   1.51 MB | 
+styles.css, styles.js                                                                                   | styles                     | 345.12 kB | 
+polyfills.js                                                                                            | polyfills                  | 275.74 kB | 
+runtime.js                                                                                              | runtime                    |  12.94 kB | 
+
+                                                                                                        | Initial total              |   8.96 MB
+
+Lazy chunk files                                                                                        | Names                      |  Raw size
+projects_simpi-frontend-web_src_app_steps_steps_module_ts.js                                            | steps-steps-module         | 303.12 kB | 
+projects_simpi-frontend-web_src_app_products_products_module_ts.js                                      | products-products-module   | 163.69 kB | 
+projects_simpi-frontend-web_src_app_resources_resources_module_ts.js                                    | resources-resources-module | 112.48 kB | 
+projects_simpi-frontend-web_src_app_analytics_analytics_module_ts.js                                    | analytics-analytics-module |  59.31 kB | 
+projects_simpi-frontend-web_src_app_simpis_simpis_module_ts.js                                          | simpis-simpis-module       |  53.94 kB | 
+default-projects_simpi-frontend-web_src_app_resources_components_asset-add-modal_asset-add-mo-ecbd4e.js | resources-resources-module |  45.85 kB | 
+default-projects_simpi-frontend-web_src_app_products_container_product-settings-page_product--60e4f4.js | products-products-module   |  44.65 kB | 
+projects_simpi-frontend-web_src_app_cockpit_cockpit_module_ts.js                                        | cockpit-cockpit-module     |  37.75 kB | 
+projects_simpi-frontend-web_src_app_users_users_module_ts.js                                            | users-users-module         |  11.24 kB | 
+projects_simpi-frontend-web_src_app_webPlayer_webPlayer_module_ts.js                                    | webPlayer-webPlayer-module |   3.52 kB | 
+
+Build at: 2025-07-25T12:59:51.517Z - Hash: af65ea2a16238947 - Time: 8765ms
+
+Warning: /Users/jochenhildebrandt/code/100_simpi-frontend/simpi-frontend 2025-07-23/projects/simpi-frontend-web/src/app/shared/components/modals/share-item-modal/share-item-modal.component.ts depends on 'qr-code-styling'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.dev/tools/cli/build#configuring-commonjs-dependencies
+
+
+
+** Angular Live Development Server is listening on 0.0.0.0:4200, open your browser on http://localhost:4200/app **
+
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.51 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T13:25:59.423Z - Hash: 0e4e0887c2ac686d - Time: 1409ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                                  | Names                      |  Raw size
+runtime.js                                                           | runtime                    |  12.94 kB | 
+
+Lazy chunk files                                                     | Names                      |  Raw size
+projects_simpi-frontend-web_src_app_resources_resources_module_ts.js | resources-resources-module | 112.55 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T13:30:17.999Z - Hash: 683cf1fb07da052c - Time: 887ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+runtime.js          | runtime | 12.94 kB | 
+
+14 unchanged chunks
+
+Build at: 2025-07-25T13:30:29.626Z - Hash: 42eb66251911067c - Time: 748ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                                                                     | Names                      |  Raw size
+runtime.js                                                                                              | runtime                    |  12.94 kB | 
+
+Lazy chunk files                                                                                        | Names                      |  Raw size
+projects_simpi-frontend-web_src_app_steps_steps_module_ts.js                                            | steps-steps-module         | 303.12 kB | 
+projects_simpi-frontend-web_src_app_resources_resources_module_ts.js                                    | resources-resources-module | 112.55 kB | 
+default-projects_simpi-frontend-web_src_app_resources_components_asset-add-modal_asset-add-mo-ecbd4e.js | resources-resources-module |  46.11 kB | 
+
+11 unchanged chunks
+
+Build at: 2025-07-25T13:30:50.469Z - Hash: beec1964a4d2d5f6 - Time: 567ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                                  | Names                      |  Raw size
+runtime.js                                                           | runtime                    |  12.94 kB | 
+
+Lazy chunk files                                                     | Names                      |  Raw size
+projects_simpi-frontend-web_src_app_resources_resources_module_ts.js | resources-resources-module | 112.61 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T13:30:58.505Z - Hash: cc1592cc9cbddc16 - Time: 443ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                          | Names              |  Raw size
+vendor.js                                                    | vendor             |   6.81 MB | 
+main.js                                                      | main               |   1.51 MB | 
+runtime.js                                                   | runtime            |  12.94 kB | 
+
+Lazy chunk files                                             | Names              |  Raw size
+projects_simpi-frontend-web_src_app_steps_steps_module_ts.js | steps-steps-module | 303.12 kB | 
+
+11 unchanged chunks
+
+Build at: 2025-07-25T13:33:26.141Z - Hash: 464f3807dcd7fdc3 - Time: 1710ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+
+
+15 unchanged chunks
+
+Build at: 2025-07-25T13:33:27.658Z - Hash: 464f3807dcd7fdc3 - Time: 1441ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                                                                     | Names                      |  Raw size
+main.js                                                                                                 | main                       |   1.51 MB | 
+runtime.js                                                                                              | runtime                    |  12.94 kB | 
+
+Lazy chunk files                                                                                        | Names                      |  Raw size
+projects_simpi-frontend-web_src_app_steps_steps_module_ts.js                                            | steps-steps-module         | 303.12 kB | 
+projects_simpi-frontend-web_src_app_products_products_module_ts.js                                      | products-products-module   | 163.69 kB | 
+projects_simpi-frontend-web_src_app_resources_resources_module_ts.js                                    | resources-resources-module | 112.61 kB | 
+projects_simpi-frontend-web_src_app_analytics_analytics_module_ts.js                                    | analytics-analytics-module |  59.31 kB | 
+projects_simpi-frontend-web_src_app_simpis_simpis_module_ts.js                                          | simpis-simpis-module       |  53.94 kB | 
+default-projects_simpi-frontend-web_src_app_resources_components_asset-add-modal_asset-add-mo-ecbd4e.js | resources-resources-module |  46.11 kB | 
+default-projects_simpi-frontend-web_src_app_products_container_product-settings-page_product--60e4f4.js | products-products-module   |  44.65 kB | 
+projects_simpi-frontend-web_src_app_cockpit_cockpit_module_ts.js                                        | cockpit-cockpit-module     |  37.75 kB | 
+projects_simpi-frontend-web_src_app_users_users_module_ts.js                                            | users-users-module         |  11.24 kB | 
+
+4 unchanged chunks
+
+Build at: 2025-07-25T13:33:29.671Z - Hash: 890120385ce54a19 - Time: 1802ms
+
+✔ Compiled successfully.

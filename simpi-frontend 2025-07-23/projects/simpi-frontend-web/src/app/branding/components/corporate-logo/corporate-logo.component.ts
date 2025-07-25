@@ -4,7 +4,7 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { BrandService } from 'projects/simpi-frontend-common/src/lib/services/brand/brand.service';
 import { ImageType } from "projects/simpi-frontend-common/src/lib/services/images/upload-img-modal.service";
 import { UploadImgModalComponent } from "../../../shared/components/upload-img-modal/upload-img-modal.component";
-import { FormGroup } from "@angular/forms";
+import { UntypedFormGroup } from "@angular/forms";
 
 @Component({
     selector: 'sim-corporate-logo',
@@ -16,7 +16,7 @@ export class CorporateLogoComponent implements OnInit, OnDestroy {
     public uploadIcon = faCamera;
 
     @Input()
-    public brandForm: FormGroup;
+    public brandForm: UntypedFormGroup;
 
     @Output()
     public closeClicked: EventEmitter<void> = new EventEmitter();

@@ -9,8 +9,9 @@ import { AppComponent } from "./app.component";
 import { BrandingModule } from "./branding/branding.module";
 import { BrandAliasResolverComponent } from "./BrandAliasResolverComponent";
 import { APP_BASE_HREF } from "@angular/common";
+import { provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
 import { AuthInterceptorProvider } from "projects/simpi-frontend-common/src/lib/interceptors/authInterceptor";
-import { DragulaModule } from "ng2-dragula";
+import { DragDropModule } from "@angular/cdk/drag-drop";
 
 @NgModule({
   declarations: [AppComponent, BrandAliasResolverComponent],
@@ -19,12 +20,13 @@ import { DragulaModule } from "ng2-dragula";
     BrowserModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    DragulaModule.forRoot(),
+    DragDropModule,
     AppRoutingModule,
     SharedModule,
     BrandingModule,
   ],
   providers: [
+    provideHttpClient(withInterceptorsFromDi()),
     AuthInterceptorProvider,
     Title,
     { provide: APP_BASE_HREF, useValue: "/app" },

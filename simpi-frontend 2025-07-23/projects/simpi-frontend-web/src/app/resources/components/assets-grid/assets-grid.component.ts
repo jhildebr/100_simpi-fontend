@@ -42,7 +42,7 @@ export class AssetsGridComponent implements OnInit {
       this.contextMenuEntries.push({
         text: "Restore",
         clickHandler: (asset) => this.restoreAsset.emit(asset.resourceId),
-        iconUrl: "assets/svg/Restore.svg",
+        iconUrl: "assets/svg/restore.svg",
       });
     }
   }

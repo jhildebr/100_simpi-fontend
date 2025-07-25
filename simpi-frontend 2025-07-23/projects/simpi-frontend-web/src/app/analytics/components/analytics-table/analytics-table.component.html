@@ -26,13 +26,13 @@
         <td *ngIf="product.productName">{{ product.productName }}</td>
         <td *ngIf="!product.productName">-</td>
         <td *ngIf="product.privacySettings == 1">
-          <img id="privacy" src="assets/svg/LockClosed.svg" alt="Lock" />
+          <img id="privacy" src="assets/svg/lockclosed.svg" alt="Lock" />
         </td>
         <td *ngIf="product.privacySettings == 2">
-          &nbsp;<img id="privacy" src="assets/svg/Team.svg" alt="Lock" />
+          &nbsp;<img id="privacy" src="assets/svg/team.svg" alt="Lock" />
         </td>
         <td *ngIf="product.privacySettings == 3">
-          <img id="privacy" src="assets/svg/LockOpen.svg" alt="Lock" />
+          <img id="privacy" src="assets/svg/lockopen.svg" alt="Lock" />
         </td>
         <td *ngIf="product.privacySettings == 4">&nbsp;&nbsp;-</td>
         <td>&nbsp;&nbsp;{{ product.views }}</td>
@@ -56,13 +56,13 @@
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-
         </td>
         <td *ngIf="simpi.privacySettings == 1">
-          <img id="privacy" src="assets/svg/LockClosed.svg" alt="Lock" />
+          <img id="privacy" src="assets/svg/lockclosed.svg" alt="Lock" />
         </td>
         <td *ngIf="simpi.privacySettings == 2">
-          &nbsp;<img id="privacy" src="assets/svg/Team.svg" alt="Lock" />
+          &nbsp;<img id="privacy" src="assets/svg/team.svg" alt="Lock" />
         </td>
         <td *ngIf="simpi.privacySettings == 3">
-          <img id="privacy" src="assets/svg/LockOpen.svg" alt="Lock" />
+          <img id="privacy" src="assets/svg/lockopen.svg" alt="Lock" />
         </td>
         <td>&nbsp;&nbsp;{{ simpi.views }}</td>
         <td *ngIf="simpi.views !== 0">

@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from "@angular/forms";
 import { Observable } from "rxjs";
 import {
   tap,
@@ -45,7 +45,7 @@ export class ResourcesOverviewPageComponent implements OnInit, OnDestroy {
   public assets$: Observable<ResourceResponse[]>;
 
   public addModeEnabled: boolean = false;
-  public resourceForm: FormGroup;
+  public resourceForm: UntypedFormGroup;
   public selectedResource$: Observable<ResourceResponse>;
   public errorLoadingData: boolean = false;
   public simpiTitle$: Observable<string>;
@@ -53,7 +53,7 @@ export class ResourcesOverviewPageComponent implements OnInit, OnDestroy {
   constructor(
     private resourcesService: ResourceService,
     private route: ActivatedRoute,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private router: Router
   ) {}
 

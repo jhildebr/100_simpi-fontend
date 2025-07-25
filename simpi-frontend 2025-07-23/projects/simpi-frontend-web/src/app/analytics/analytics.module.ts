@@ -7,16 +7,14 @@ import { analyticsRoutes } from "./analytics.routing";
 import { AnalyticsTableComponent } from "./components/analytics-table/analytics-table.component";
 
 @NgModule({
-  declarations: [
-    AnalyticsOverviewComponent,
-    AnalyticsOverviewPageComponent,
-    AnalyticsTableComponent,
-
-  ],
-  imports: [
-    SharedModule,
-    RouterModule.forChild(analyticsRoutes),
-  ],
-  entryComponents: [],
+    declarations: [
+        AnalyticsOverviewComponent,
+        AnalyticsOverviewPageComponent,
+        AnalyticsTableComponent,
+    ],
+    imports: [
+        SharedModule,
+        RouterModule.forChild(analyticsRoutes),
+    ]
 })
 export class AnalyticsModule {}

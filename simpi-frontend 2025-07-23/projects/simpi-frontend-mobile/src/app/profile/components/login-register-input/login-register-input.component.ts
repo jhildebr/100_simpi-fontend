@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 
 @Component({
   selector: 'sim-login-register-input',
@@ -16,7 +16,7 @@ export class LoginRegisterInputComponent {
   public errorText: string = 'The email or phone number is invalid.';
 
   @Input()
-  public formGroup: FormGroup;
+  public formGroup: UntypedFormGroup;
 
   @Output()
   public nextClicked: EventEmitter<void> = new EventEmitter<void>();

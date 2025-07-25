@@ -21,10 +21,10 @@ import { ResourceCount } from "../../../../../../simpi-frontend-common/src/lib/m
             [ngClass]="{ 'active-right': viewMode === 'table' }"
           >
             <button class="left" (click)="setView('card')">
-              <img src="assets/svg/CardView.svg" />
+              <img src="assets/svg/cardview.svg" />
             </button>
             <button class="right" (click)="setView('table')">
-              <img src="assets/svg/TableView.svg" />
+              <img src="assets/svg/tableview.svg" />
             </button>
           </div>
           <button (click)="addAsset()" class="simpi-button-dark ml-3">
@@ -82,7 +82,11 @@ export class ResourcesRoutingComponent implements OnInit {
   }
 
   public addAsset(): void {
-    const modalRef = this.modalService.open(AssetAddModalComponent);
+    const modalRef = this.modalService.open(AssetAddModalComponent, {
+      backdrop: 'static',
+      keyboard: false,
+      size: 'lg'
+    });
     modalRef.result.then(
       (result: { success: boolean; value: CreateResourceRequest }) => {
         if (result?.success) {
@@ -110,7 +114,9 @@ export class ResourcesRoutingComponent implements OnInit {
           this.assetService.createResource(resourceToAdd).subscribe();
         }
       },
-      (err) => {}
+      (err) => {
+        console.warn('Asset modal was dismissed:', err);
+      }
     );
   }
 }

@@ -6,9 +6,8 @@ import {
   Output,
   EventEmitter,
 } from "@angular/core";
-import { FormGroup } from "@angular/forms";
+import { UntypedFormGroup } from "@angular/forms";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
-import { PerfectScrollbarConfigInterface } from "ngx-perfect-scrollbar";
 import {
   ProductResponse,
   CreateProductRequest,
@@ -28,7 +27,7 @@ import { PrivacyModalComponent } from "../../../shared/components/modals/privacy
 export class ProductOverviewComponent implements OnInit, OnDestroy {
   public closeResult: string;
   public draggingRow: boolean = false;
-  public config: PerfectScrollbarConfigInterface = {};
+  public config: any = {};
   public addingAborted: boolean = false;
   private _componentActive: boolean = true;
   @Input()
@@ -41,7 +40,7 @@ export class ProductOverviewComponent implements OnInit, OnDestroy {
   public products: ProductResponse[];
 
   @Input()
-  public productForm: FormGroup;
+  public productForm: UntypedFormGroup;
 
   @Input()
   public errorLoadingData: boolean;

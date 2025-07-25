@@ -9,18 +9,17 @@ import { DeletedSimpiOverviewPageComponent } from './container/deleted-simpi-ove
 import { SimpiSettingsPageComponent } from './container/simpi-settings-page/simpi-settings-page.component';
 
 @NgModule({
-  declarations: [
-    SimpisRoutingComponent,
-    ThumbnailOrColorModalComponent,
-    DeletedSimpiOverviewComponent,
-    DeletedSimpiOverviewPageComponent,
-    SimpiSettingsPageComponent,
-  ],
-  imports: [
-    SharedModule,
-    RouterModule.forChild(simpisRoutes)
-  ],
-  entryComponents: []
+    declarations: [
+        SimpisRoutingComponent,
+        ThumbnailOrColorModalComponent,
+        DeletedSimpiOverviewComponent,
+        DeletedSimpiOverviewPageComponent,
+        SimpiSettingsPageComponent,
+    ],
+    imports: [
+        SharedModule,
+        RouterModule.forChild(simpisRoutes)
+    ]
 })
 export class SimpisModule {
 }

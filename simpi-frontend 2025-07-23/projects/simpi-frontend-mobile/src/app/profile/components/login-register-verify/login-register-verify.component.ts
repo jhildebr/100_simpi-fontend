@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 
 @Component({
     selector: 'sim-login-register-verify',
@@ -13,7 +13,7 @@ export class LoginRegisterVerifyComponent {
     public textIsHidden: boolean = true;
 
     @Input()
-    public formGroup: FormGroup;
+    public formGroup: UntypedFormGroup;
 
     @Output()
     public onSubmit: EventEmitter<void> = new EventEmitter<void>();

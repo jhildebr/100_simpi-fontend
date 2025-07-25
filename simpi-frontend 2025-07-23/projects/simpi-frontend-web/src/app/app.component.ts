@@ -63,7 +63,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     if (
       "ontouchstart" in window ||
       navigator.maxTouchPoints > 0 ||
-      navigator.msMaxTouchPoints > 0
+      (navigator as any).msMaxTouchPoints > 0
     ) {
       //this is a touch device you can any action here
       this.screenType = this.screenTypes.HAS_TOUCHSCREEN;

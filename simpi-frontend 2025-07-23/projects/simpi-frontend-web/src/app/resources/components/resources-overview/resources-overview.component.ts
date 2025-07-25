@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { TableData } from '../../../shared/components/sim-table/model/tableData.model';
 import { ResourceResponse } from '../../../../../../simpi-frontend-common/src/lib/models';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 
 @Component({
     selector: 'sim-resources-overview',
@@ -13,7 +13,7 @@ export class ResourcesOverviewComponent {
     public addingAborted: boolean = false;
 
     @Input()
-    public resourceForm: FormGroup;
+    public resourceForm: UntypedFormGroup;
 
     @Input()
     public addModeEnabled: boolean;

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../../../../../simpi-frontend-common/src/lib/services/auth/auth.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { LoginRequest } from '../../../../../../../simpi-frontend-common/src/lib/models';
 import { catchError, map, switchMap, takeWhile, tap } from 'rxjs/operators';
 import { EMPTY } from 'rxjs';
@@ -18,14 +18,14 @@ export class LoginPageComponent implements OnInit {
     private _componentActive: boolean = true;
 
     public message: string = null;
-    public loginForm: FormGroup;
+    public loginForm: UntypedFormGroup;
     public loggingIn: boolean = false;
 
     constructor(
         private authService: AuthService,
         private customerService: CustomerService,
         private brandService: BrandService,
-        private fb: FormBuilder,
+        private fb: UntypedFormBuilder,
         private router: Router,
         private route: ActivatedRoute,
         private modalService: NgbModal) {

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { LanguageResponse, SimpiResponse, StepResponse } from '../../../../../../simpi-frontend-common/src/lib/models';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { ColorEvent } from 'ngx-color';
 import { Observable } from 'rxjs';
 import { SimpiTranslationService } from 'projects/simpi-frontend-common/src/lib/services/translations/simpi-translations.service';
@@ -21,7 +21,7 @@ export class StepVoiceOverSidebarComponent implements OnInit, OnDestroy {
   public selectedStep: StepResponse;
 
   @Input()
-  public stepForm: FormGroup;
+  public stepForm: UntypedFormGroup;
 
   @Output()
   public textBackgroundColorChanged: EventEmitter<void> = new EventEmitter<void>();

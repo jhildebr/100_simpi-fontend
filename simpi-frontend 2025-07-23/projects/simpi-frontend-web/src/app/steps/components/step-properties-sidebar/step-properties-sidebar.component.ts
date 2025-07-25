@@ -1,6 +1,6 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { StepResponse } from '../../../../../../simpi-frontend-common/src/lib/models';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 
 @Component({
   selector: 'sim-step-properties-sidebar',
@@ -18,7 +18,7 @@ export class StepPropertiesSidebarComponent implements OnInit, OnDestroy {
   public editModeEnabled: boolean;
 
   @Input()
-  public stepForm: FormGroup;
+  public stepForm: UntypedFormGroup;
 
 
   public ngOnInit(): void {

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { StickerService } from "projects/simpi-frontend-common/src/lib/services/stickers/sticker.service";
 import { StickerPalette } from "projects/simpi-frontend-common/src/lib/models/sticker-palette";
-import { FormGroup } from "@angular/forms";
+import { UntypedFormGroup } from "@angular/forms";
 import { SimpiResponse } from "../../../../../../simpi-frontend-common/src/lib/models";
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AssetAddModalComponent } from '../../../resources/components/asset-add-modal/asset-add-modal.component';
@@ -20,7 +20,7 @@ export class StickerPanelComponent implements OnInit {
   public stickerPalettes: StickerPalette[];
 
   @Input()
-  public stepForm: FormGroup;
+  public stepForm: UntypedFormGroup;
 
   @Input()
   public simpiId: string;

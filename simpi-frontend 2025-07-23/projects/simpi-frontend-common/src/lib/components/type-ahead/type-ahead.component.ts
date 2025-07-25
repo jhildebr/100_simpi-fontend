@@ -5,7 +5,7 @@ import { Component,   Input, Output, EventEmitter } from '@angular/core';
   templateUrl: './type-ahead.component.html',
   styleUrls: ['./type-ahead.component.scss']
 })
-export class TypeAheadComponent<T> {
+export class TypeAheadComponent<T extends object> {
 
   constructor() { }
 
@@ -13,7 +13,7 @@ export class TypeAheadComponent<T> {
   public options: T[];
 
   @Input()
-  public nameOf: (option: T) => string = t => "name" in t ? t["name"] : JSON.stringify(t);
+  public nameOf: (option: T) => string = t => "name" in t ? (t as any)["name"] as string : JSON.stringify(t);
 
   @Input()
   public set selected(value: T) {

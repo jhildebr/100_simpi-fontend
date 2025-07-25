@@ -14,7 +14,7 @@ import {
   SimpleChanges,
   ViewChild,
 } from "@angular/core";
-import { FormGroup } from "@angular/forms";
+import { UntypedFormGroup } from "@angular/forms";
 import { fromEvent, merge, Observable, Subscription } from "rxjs";
 import { debounceTime, takeWhile, tap } from "rxjs/operators";
 import {
@@ -68,7 +68,7 @@ export class StepDetailsComponent
   public errorLoadingData: boolean;
 
   @Input()
-  public stepForm: FormGroup;
+  public stepForm: UntypedFormGroup;
 
   @Input()
   public brandAlias: string;

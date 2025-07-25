@@ -5,7 +5,7 @@ import { ProductService } from '../../../../../../simpi-frontend-common/src/lib/
 import { ProductResponse, SimpiResponse } from '../../../../../../simpi-frontend-common/src/lib/models';
 import { SimpiService } from '../../../../../../simpi-frontend-common/src/lib/services/simpis/simpi.service';
 import { NavController, ViewWillEnter } from '@ionic/angular';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { environment } from '../../../../environments/environment';
 
 
@@ -25,7 +25,7 @@ export class HomePageComponent implements OnInit, OnDestroy, ViewWillEnter {
     private _mobileCreatedSimpis: BehaviorSubject<Observable<SimpiResponse[]>> = new BehaviorSubject<Observable<SimpiResponse[]>>(of([]));
     private _componentActive: boolean = true;
 
-    public searchForm: FormGroup;
+    public searchForm: UntypedFormGroup;
 
     public campaignSliderOpts: any = {
         initialSlide: 0,
@@ -70,7 +70,7 @@ export class HomePageComponent implements OnInit, OnDestroy, ViewWillEnter {
         private simpiService: SimpiService,
         private cdr: ChangeDetectorRef,
         private navCtrl: NavController,
-        private fb: FormBuilder) {
+        private fb: UntypedFormBuilder) {
     }
 
     public ngOnInit(): void {

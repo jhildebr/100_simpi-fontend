@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { ControlContainer, ControlValueAccessor, FormControl, FormControlDirective, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlContainer, ControlValueAccessor, UntypedFormControl, FormControlDirective, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'sim-checkbox-input',
@@ -19,7 +19,7 @@ export class SimpiCheckboxInputComponent implements ControlValueAccessor {
   private formControlDirective: FormControlDirective;
 
   @Input()
-  public formControl: FormControl;
+  public formControl: UntypedFormControl;
 
   @Input()
   public formControlName: string;
@@ -30,8 +30,8 @@ export class SimpiCheckboxInputComponent implements ControlValueAccessor {
   @Output()
   public change: EventEmitter<void> = new EventEmitter<void>();
 
-  public get control(): FormControl {
-    return this.formControl || (this.controlContainer.control.get(this.formControlName) as FormControl);
+  public get control(): UntypedFormControl {
+    return this.formControl || (this.controlContainer.control.get(this.formControlName) as UntypedFormControl);
 }
 
   constructor(private controlContainer: ControlContainer) {

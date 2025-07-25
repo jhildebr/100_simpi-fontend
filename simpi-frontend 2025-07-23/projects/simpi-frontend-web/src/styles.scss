@@ -2,16 +2,38 @@ $border-radius: 0;
 $primary: #2ac2d6;
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400");
 $font-family-base: "Circular Std", "Roboto", sans-serif;
-@import "~bootstrap/scss/bootstrap.scss";
-@import "~ngx-toastr/toastr-bs4-alert";
+@import "bootstrap/scss/bootstrap.scss";
+@import "ngx-toastr/toastr-bs4-alert";
 @import "mixins";
-@import "~perfect-scrollbar/css/perfect-scrollbar.css";
-@import "assets/swiper.min.css";
-@import "~@angular/cdk/overlay-prebuilt.css";
+@import "perfect-scrollbar/css/perfect-scrollbar.css";
+@import "swiper/css";
+@import "@angular/cdk/overlay-prebuilt.css";
 @import "swiper_override";
 @import "fonts";
 @import "close-button";
 $custom-button-color: #1d193c;
+
+/* Fix for ng-bootstrap modal issues in Angular 18 */
+.modal-backdrop {
+  z-index: 1040 !important;
+}
+
+.modal {
+  z-index: 1050 !important;
+}
+
+.modal-dialog {
+  pointer-events: auto !important;
+}
+
+/* Ensure CDK overlay doesn't interfere with modals */
+.cdk-overlay-container {
+  z-index: 1000;
+}
+
+.cdk-overlay-pane {
+  pointer-events: auto;
+}
 
 html,
 body {

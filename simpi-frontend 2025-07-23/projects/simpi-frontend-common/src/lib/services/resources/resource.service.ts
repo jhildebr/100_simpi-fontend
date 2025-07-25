@@ -1,9 +1,5 @@
 import { Inject, Injectable } from "@angular/core";
-import {
-  HttpClient,
-  HttpErrorResponse,
-  HttpResponse,
-} from "@angular/common/http";
+import { HttpClient, HttpErrorResponse, HttpResponse } from "@angular/common/http";
 import { RestService } from "../base/rest.service";
 import { BehaviorSubject, from, Observable, of, throwError } from "rxjs";
 import { ResourceResponse, ResourceTypeResponse } from "../../models";

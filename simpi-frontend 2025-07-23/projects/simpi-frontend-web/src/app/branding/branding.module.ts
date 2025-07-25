@@ -9,16 +9,15 @@ import { SettingsOverviewComponent } from "./components/settings-overview/settin
 import { CorporateLanguagesComponent } from "./components/corporate-languages/corporate-languages.component";
 
 @NgModule({
-  imports: [RouterModule.forChild(brandingRoutes), SharedModule],
-  exports: [],
-  declarations: [
-    BrandingPageComponent,
-    CorporateLogoComponent,
-    CorporateLanguagesComponent,
-    CorporateColorsComponent,
-    SettingsOverviewComponent,
-  ],
-  entryComponents: [],
-  providers: [],
+    imports: [RouterModule.forChild(brandingRoutes), SharedModule],
+    exports: [],
+    declarations: [
+        BrandingPageComponent,
+        CorporateLogoComponent,
+        CorporateLanguagesComponent,
+        CorporateColorsComponent,
+        SettingsOverviewComponent,
+    ],
+    providers: []
 })
 export class BrandingModule {}

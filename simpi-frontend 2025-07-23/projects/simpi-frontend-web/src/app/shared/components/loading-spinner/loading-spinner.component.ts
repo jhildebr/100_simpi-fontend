@@ -4,7 +4,7 @@ import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 @Component({
     selector: 'sim-loading-spinner',
     template: `
-        <fa-icon *ngIf='show' [icon]='["fas", "circle-notch"]' [spin]='true'
+        <fa-icon *ngIf='show' [icon]='["fas", "circle-notch"]' spin
         [size]='size' [fixedWidth]='true'></fa-icon>
     `,
     styles: [`

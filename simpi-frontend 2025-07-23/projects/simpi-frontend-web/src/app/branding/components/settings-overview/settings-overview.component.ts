@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup } from "@angular/forms";
 import { BrandService } from "projects/simpi-frontend-common/src/lib/services/brand/brand.service";
 import { BrandChangeRequest } from "projects/simpi-frontend-common/src/lib/models/http/requests/brandChangeRequest";
 import { map, takeWhile, tap } from "rxjs/operators";
@@ -18,13 +18,13 @@ export class SettingsOverviewComponent implements OnInit, OnDestroy {
 
   private brandAlias: string;
   public brandId: string;
-  public brandForm: FormGroup;
+  public brandForm: UntypedFormGroup;
 
   private corporateIdentityUploadedLogoIds: string[] = [];
   public corporateIdentitySelected: boolean = false;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private brandService: BrandService,
     private activeModal: NgbActiveModal,
     private route: ActivatedRoute

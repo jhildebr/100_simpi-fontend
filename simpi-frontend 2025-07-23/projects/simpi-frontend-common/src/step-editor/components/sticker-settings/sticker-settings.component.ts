@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { StickerSettings } from '../../models/stickerSettings';
 import { StickerInfo } from '../../models/stickerInfo';
 import { ResourceService } from '../../../lib/services/resources/resource.service';
@@ -19,14 +19,14 @@ export class StickerSettingsComponent implements OnInit, OnDestroy {
 
   private resources: ResourceResponse[];
 
-  public stickerSettingsFormGroup: FormGroup;
+  public stickerSettingsFormGroup: UntypedFormGroup;
 
   public showValidationErrors: boolean = false;
 
   public showResourceProperties: boolean = false;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private resourcesService: ResourceService,
   ) {
   }

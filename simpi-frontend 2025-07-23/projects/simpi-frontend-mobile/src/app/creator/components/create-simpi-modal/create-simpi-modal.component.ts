@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder } from '@angular/forms';
 import { DeploymentStateRequest } from '../../../../../../simpi-frontend-common/src/lib/models';
 
 @Component({
@@ -13,12 +13,12 @@ export class CreateSimpiModalComponent implements OnInit {
     @Input()
     public thumbnail: string;
 
-    public createSimpiForm: FormGroup;
+    public createSimpiForm: UntypedFormGroup;
 
     @ViewChild('coverImg', { static: true })
     public coverImg: ElementRef<HTMLImageElement>;
 
-    constructor(private modalCtrl: ModalController, private fb: FormBuilder) { }
+    constructor(private modalCtrl: ModalController, private fb: UntypedFormBuilder) { }
 
     public closeModal(): void {
         this.modalCtrl.dismiss();

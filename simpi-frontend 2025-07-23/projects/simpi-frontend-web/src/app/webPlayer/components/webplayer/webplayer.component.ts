@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { fromEvent, merge, Observable, of, Subscription } from 'rxjs';
-import { SwiperConfigInterface, SwiperDirective } from 'ngx-swiper-wrapper';
+import Swiper, { Navigation, Pagination } from 'swiper';
 import {
   SimpiResponse,
   StepResponse,
@@ -74,8 +74,7 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
   @Output()
   public share: EventEmitter<void> = new EventEmitter<void>();
 
-  @ViewChild(SwiperDirective)
-  public swiper: SwiperDirective;
+  public swiper: Swiper;
 
   @ViewChildren('slide')
   public stepSlides: QueryList<StepSlideComponent>;
@@ -151,7 +150,7 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
   private _showInfoOverlay: boolean;
 
   public get swiperIndex(): number {
-    return this.swiper?.getIndex() ?? 0;
+    return this.swiper?.activeIndex ?? 0;
   }
 
   public get currentSlide(): StepSlideComponent {
@@ -200,20 +199,6 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
 
   public resourceType: typeof ResourceTypeResponse = ResourceTypeResponse;
 
-  public swiperConfig: SwiperConfigInterface = {
-    direction: 'horizontal',
-    slidesPerView: 1,
-    keyboard: true,
-    mousewheel: true,
-    scrollbar: false,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: false,
-      dynamicBullets: true
-    },
-    touchEventsTarget: 'container',
-    resistanceRatio: 0
-  };
 
   constructor(
     private ref: ElementRef,
@@ -255,9 +240,11 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
     this.initialLoadingCompleted = true;
 
     this.stepSlides.setDirty();
-    this.swiper?.update();
 
     setTimeout(async () => {
+      this.initializeSwiper();
+      this.initializeLastPageSwiper();
+      
       if (this.showInfoOverlay) {
         this.disableSwiper();
       }
@@ -306,15 +293,7 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
 
   /* Last-slide-specific (should probably be moved into sim-last-slide component */
 
-  public lastPageSliderConfig: SwiperConfigInterface = {
-    initialSlide: 0,
-    slidesPerView: 2.25,
-    touchRatio: 2,
-    spaceBetween: 25,
-    preloadImages: true,
-    lazy: false,
-    nested: true
-  };
+  public lastPageSwiper: Swiper;
 
   public onLastSwiperTap(): void {
     this.disableSwiper();
@@ -331,21 +310,21 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
   }
 
   private disableSwiper(): void {
-    if (this.swiper?.config) {
-      this.swiper.config.allowSlideNext = false;
-      this.swiper.config.allowSlidePrev = false;
+    if (this.swiper) {
+      this.swiper.allowSlideNext = false;
+      this.swiper.allowSlidePrev = false;
     }
   }
 
   private enableSwiper(): void {
-    if (this.swiper?.config) {
-      this.swiper.config.allowSlideNext = true;
-      this.swiper.config.allowSlidePrev = true;
+    if (this.swiper) {
+      this.swiper.allowSlideNext = true;
+      this.swiper.allowSlidePrev = true;
     }
   }
 
   public repeatSimpi(): void {
-    this.swiper.setIndex(0);
+    this.swiper?.slideTo(0);
     this.showInfoOverlay = true;
     this.disableSwiper();
   }
@@ -507,5 +486,57 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
     }
 
     this.audioEl.nativeElement.muted = muted;
+  }
+
+  private initializeSwiper(): void {
+    Swiper.use([Navigation, Pagination]);
+    
+    const swiperElement = document.querySelector('.swiper-container');
+    if (swiperElement && !this.swiper) {
+      this.swiper = new Swiper(swiperElement as HTMLElement, {
+        direction: 'horizontal',
+        slidesPerView: 1,
+        keyboard: true,
+        mousewheel: true,
+        resistanceRatio: 0,
+        on: {
+          slideChange: () => {
+            this.onSlideChanged();
+          },
+          tap: (swiper, event) => {
+            this.onTap(event as TouchEvent);
+          }
+        }
+      });
+    }
+  }
+
+  private initializeLastPageSwiper(): void {
+    const lastSwiperElement = document.querySelector('.last-slide-slider .swiper-container');
+    if (lastSwiperElement && !this.lastPageSwiper) {
+      this.lastPageSwiper = new Swiper(lastSwiperElement as HTMLElement, {
+        initialSlide: 0,
+        slidesPerView: 2.25,
+        touchRatio: 2,
+        spaceBetween: 25,
+        nested: true,
+        on: {
+          tap: () => {
+            this.onLastSwiperTap();
+          },
+          touchEnd: () => {
+            this.onLastSwiperTouchEnd();
+          }
+        }
+      });
+    }
+  }
+
+  public nextSlide(): void {
+    this.swiper?.slideNext();
+  }
+
+  public prevSlide(): void {
+    this.swiper?.slidePrev();
   }
 }

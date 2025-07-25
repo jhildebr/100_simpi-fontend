@@ -1,12 +1,10 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { DragDropModule } from "@angular/cdk/drag-drop";
-import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { CdkTableModule } from "@angular/cdk/table";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import { PerfectScrollbarModule } from "ngx-perfect-scrollbar";
 import { CustomFaModule } from "./customFa.module";
 import { TabNavComponent } from "./components/tab-nav/tab-nav.component";
 import { StatusBadgesComponent } from "./components/status-badges/status-badges.component";
@@ -27,11 +25,6 @@ import { CardComponent } from "./components/card/card.component";
 // import { ResourcesOverviewComponent } from '../resources/components/resources-overview/resources-overview.component';
 import { WebPlayerPageComponent } from "../webPlayer/container/webPlayer-page/webPlayer-page.component";
 import { WebplayerComponent } from "../webPlayer/components/webplayer/webplayer.component";
-import {
-  SWIPER_CONFIG,
-  SwiperConfigInterface,
-  SwiperModule,
-} from "ngx-swiper-wrapper";
 import { PortalModule } from "@angular/cdk/portal";
 import { OverlayModule } from "@angular/cdk/overlay";
 import { UploadImgModalComponent } from "./components/upload-img-modal/upload-img-modal.component";
@@ -52,10 +45,6 @@ import { PrivacyModalComponent } from './components/modals/privacy-modal/privacy
 import { StepSlideComponent } from "../webPlayer/components/step-slide/stepSlide.component";
 import { UploadMetadataTranslationModalComponent } from "./components/upload-metadata-translation-modal/upload-metadata-translation-modal.component";
 
-const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
-  direction: "horizontal",
-  slidesPerView: 1,
-};
 
 const SHARED_COMPONENTS = [
   TabNavComponent,
@@ -92,51 +81,42 @@ const SHARED_COMPONENTS = [
 ];
 
 @NgModule({
-  declarations: [SHARED_COMPONENTS, CancelCdkDrag, SimTableAutoscroll],
-  imports: [
-    CommonModule,
-    NgbModule,
-    FormsModule,
-    ReactiveFormsModule,
-    RouterModule,
-    CustomFaModule,
-    CdkTableModule,
-    DragDropModule,
-    SwiperModule,
-    PortalModule,
-    OverlayModule,
-    SimpiCommonsModule.forRoot({
-      baseUrl: environment.baseUrl,
-      restUrl: environment.restUrl,
-      userServiceUrl: environment.userServiceUrl,
-      authStorageKey: environment.authStorageKey,
-    }),
-  ],
-  exports: [
-    CommonModule,
-    NgbModule,
-    CustomFaModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    RouterModule,
-    DragDropModule,
-    CdkTableModule,
-    PerfectScrollbarModule,
-    CancelCdkDrag,
-    SwiperModule,
-    PortalModule,
-    OverlayModule,
-    SimpiCommonsModule,
-    SHARED_COMPONENTS,
-  ],
-  providers: [
-    AuthGuard,
-    {
-      provide: SWIPER_CONFIG,
-      useValue: DEFAULT_SWIPER_CONFIG,
-    },
-  ],
-  entryComponents: [],
+    declarations: [SHARED_COMPONENTS, CancelCdkDrag, SimTableAutoscroll],
+    imports: [
+        CommonModule,
+        NgbModule,
+        FormsModule,
+        ReactiveFormsModule,
+        RouterModule,
+        CustomFaModule,
+        CdkTableModule,
+        DragDropModule,
+        PortalModule,
+        OverlayModule,
+        SimpiCommonsModule.forRoot({
+            baseUrl: environment.baseUrl,
+            restUrl: environment.restUrl,
+            userServiceUrl: environment.userServiceUrl,
+            authStorageKey: environment.authStorageKey,
+        }),
+    ],
+    exports: [
+        CommonModule,
+        NgbModule,
+        CustomFaModule,
+        FormsModule,
+        ReactiveFormsModule,
+        RouterModule,
+        DragDropModule,
+        CdkTableModule,
+        CancelCdkDrag,
+        PortalModule,
+        OverlayModule,
+        SimpiCommonsModule,
+        SHARED_COMPONENTS,
+    ],
+    providers: [
+        AuthGuard,
+    ]
 })
 export class SharedModule {}

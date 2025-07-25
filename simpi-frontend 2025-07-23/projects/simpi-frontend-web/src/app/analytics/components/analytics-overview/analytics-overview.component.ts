@@ -1,5 +1,4 @@
 import { Component, Input } from "@angular/core";
-import { PerfectScrollbarConfigInterface } from "ngx-perfect-scrollbar";
 import { ProductResponse } from "../../../../../../simpi-frontend-common/src/lib/models";
 import { UserInteractionStatsResponse } from "projects/simpi-frontend-common/src/lib/models/http/responses/userInteractionStatsResponse";
 
@@ -12,7 +11,7 @@ export class AnalyticsOverviewComponent {
   public product: ProductResponse;
   public closeResult: string;
   public draggingRow: boolean = false;
-  public config: PerfectScrollbarConfigInterface = {};
+  public config: any = {};
   public addingAborted: boolean = false;
   @Input()
   public userInteractionStats: UserInteractionStatsResponse;

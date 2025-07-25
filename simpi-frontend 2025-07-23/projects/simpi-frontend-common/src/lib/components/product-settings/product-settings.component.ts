@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DeploymentStateRequest, DeploymentStateResponse, ProductResponse } from '../../models';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ProductService } from '../../services';
 import { ImageType, UploadImgModalService } from '../../services/images/upload-img-modal.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -38,7 +38,7 @@ export class ProductSettingsComponent implements OnInit {
     return this._product;
   }
 
-  public productFormGroup: FormGroup;
+  public productFormGroup: UntypedFormGroup;
 
   public deploymentState: typeof DeploymentStateResponse = DeploymentStateResponse;
 
@@ -54,7 +54,7 @@ export class ProductSettingsComponent implements OnInit {
 
   public productDeletedResult: string;
 
-  constructor(private fb: FormBuilder, private productService: ProductService, private modalService: NgbModal,
+  constructor(private fb: UntypedFormBuilder, private productService: ProductService, private modalService: NgbModal,
               private uploadImgModalService: UploadImgModalService, private imageService: ImageService) {
   }
 

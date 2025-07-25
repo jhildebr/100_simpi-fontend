@@ -43,6 +43,7 @@ export const productRoutes: Route[] = [
   },
   {
     path: '**',
-    redirectTo: '/'
+    redirectTo: '/',
+    pathMatch: 'full'
   }
 ];

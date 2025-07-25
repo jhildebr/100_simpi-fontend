@@ -13,7 +13,7 @@ import { BrandService } from "projects/simpi-frontend-common/src/lib/services/br
 import { ProductService } from "projects/simpi-frontend-common/src/lib/services";
 import { ProductListComponent } from "../../products/components/product-list/product-list.component";
 import { takeWhile } from "rxjs/operators";
-import { FormGroup } from "@angular/forms";
+import { UntypedFormGroup } from "@angular/forms";
 import { ProductChangeRequest } from "../../../../../simpi-frontend-common/src/lib/models";
 
 @Injectable({
@@ -24,7 +24,7 @@ export class DropdownMenuHelperService {
   private _componentActive: boolean = true;
   private _savedProduct: boolean = false;
 
-  public productForm: FormGroup;
+  public productForm: UntypedFormGroup;
   public product: ProductResponse;
 
   constructor(

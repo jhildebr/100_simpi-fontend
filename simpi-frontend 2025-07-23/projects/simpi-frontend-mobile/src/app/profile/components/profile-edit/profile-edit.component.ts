@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, ElementRef } from '@angular/core';
 import { AuthService } from '../../../../../../simpi-frontend-common/src/lib/services/auth/auth.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder } from '@angular/forms';
 import { distinctUntilChanged, finalize, skip, switchMap, take, takeWhile } from 'rxjs/operators';
 import { UserService } from '../../../../../../simpi-frontend-common/src/lib/services/users/user.service';
 import { UpdateUserRequest } from '../../../../../../simpi-frontend-common/src/lib/models/http/requests/updateUserRequest';
@@ -14,9 +14,9 @@ import { UpdateUserRequest } from '../../../../../../simpi-frontend-common/src/l
 export class ProfileEditComponent implements OnInit, OnDestroy {
     private _componentActive: boolean = true;
 
-    public userForm: FormGroup;
+    public userForm: UntypedFormGroup;
 
-    constructor(private authService: AuthService, private fb: FormBuilder, private host: ElementRef<HTMLElement>,
+    constructor(private authService: AuthService, private fb: UntypedFormBuilder, private host: ElementRef<HTMLElement>,
         private userService: UserService) {
     }
 

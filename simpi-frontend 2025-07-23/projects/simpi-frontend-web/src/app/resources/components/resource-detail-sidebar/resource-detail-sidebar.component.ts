@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit, ChangeDetectorRef, OnDestroy } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { ResourceResponse, ResourceTypeResponse } from '../../../../../../simpi-frontend-common/src/lib/models';
 import { ResourceService } from '../../../../../../simpi-frontend-common/src/lib/services/resources/resource.service';
 import { tap, takeWhile } from 'rxjs/operators';
@@ -33,7 +33,7 @@ export class ResourceDetailSidebarComponent implements OnInit, OnDestroy {
     public selectedResource: ResourceResponse;
 
     @Input()
-    public resourceForm: FormGroup;
+    public resourceForm: UntypedFormGroup;
 
     @Input()
     public set addingAborted(val: boolean) {

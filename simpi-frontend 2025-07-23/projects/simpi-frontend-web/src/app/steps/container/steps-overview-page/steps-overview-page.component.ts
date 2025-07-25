@@ -1,5 +1,5 @@
 import {AfterViewInit, ChangeDetectorRef, Component, ComponentRef, OnDestroy, OnInit, ViewChild,} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {combineLatest, Observable, of} from 'rxjs';
 import {
@@ -33,7 +33,7 @@ import {SimpiService} from '../../../../../../simpi-frontend-common/src/lib/serv
 import {ProductService} from '../../../../../../simpi-frontend-common/src/lib/services';
 import {SelectColorModalComponent} from '../../components/select-color-modal/select-color-modal.component';
 import {StickerRequest} from '../../../../../../simpi-frontend-common/src/lib/models/http/requests/stickerRequest';
-import {HttpResponse} from '@angular/common/http';
+import { HttpResponse } from '@angular/common/http';
 import {StepDetailsComponent} from '../../components/step-details/step-details.component';
 import {Overlay, OverlayConfig, OverlayRef} from '@angular/cdk/overlay';
 import {ComponentPortal} from '@angular/cdk/portal';
@@ -66,7 +66,7 @@ export class StepsOverviewPageComponent implements OnInit, OnDestroy, AfterViewI
   public simpiTitle: string;
   public simpi: SimpiResponse;
   public steps$: Observable<StepResponse[]>;
-  public stepForm: FormGroup;
+  public stepForm: UntypedFormGroup;
   public selectedStep$: Observable<StepResponse>;
   public errorLoadingData$: Observable<boolean>;
   public isActionInProgress: boolean = false;
@@ -85,7 +85,7 @@ export class StepsOverviewPageComponent implements OnInit, OnDestroy, AfterViewI
     private route: ActivatedRoute,
     private modalService: NgbModal,
     private stepService: StepService,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private simpiService: SimpiService,
     private productService: ProductService,
     private cdr: ChangeDetectorRef,

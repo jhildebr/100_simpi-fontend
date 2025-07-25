@@ -1,11 +1,10 @@
 <ng-container *ngIf="initialLoadingCompleted">
-  <div class="swiper-container h-100" [swiper]="swiperConfig"
-       (swiperTap)="onTap($event)" (slideChange)="onSlideChanged()">
+  <div class="swiper-container h-100">
     <div class="simpi-info d-flex">
       <ng-container *ngIf="showCloseButton">
         <div class="ml-auto"></div>
         <button class="circle-icon-button small dark transparent" type="button" (click)="close.emit()">
-          <img class="icon" src="assets/svg/Close.svg" alt="Close"/>
+          <img class="icon" src="assets/svg/close.svg" alt="Close"/>
         </button>
       </ng-container>
     </div>
@@ -36,9 +35,7 @@
           <sim-last-slide>
             <div class="last-slide-slider w-100 h-100 text-left">
               <ng-container *ngIf="relatedSimpis$ | async as simpis">
-                <div #lastSlider class="swiper-container h-100" [swiper]="lastPageSliderConfig"
-                     (swiperTap)="onLastSwiperTap()" (swiperTouchEnd)="onLastSwiperTouchEnd()"
-                     (swiperClick)="onLastSwiperTap()">
+                <div #lastSlider class="swiper-container h-100">
                   <div class="swiper-wrapper">
                     <div *ngFor="let simpi of simpis" class="swiper-slide">
                       <div class="d-flex flex-column w-100" (click)="selectRelatedSimpi(simpi)">
@@ -69,7 +66,7 @@
       </div>
     </div>
     <div class="navigation-panel" *ngIf="steps?.length > swiperIndex">
-      <button class="swiper-button-prev circle-icon-button small dark transparent" type="button" (click)="swiper.prevSlide()">
+      <button class="swiper-button-prev circle-icon-button small dark transparent" type="button" (click)="prevSlide()">
         <img class="prev-slide-icon" src="assets/svg/navigation-arrow.svg" alt="Prev"/>
       </button>
       <button
@@ -95,7 +92,7 @@
       <button
         class="swiper-button-next circle-icon-button small dark transparent"
         type="button"
-        (click)="swiper.nextSlide()"
+        (click)="nextSlide()"
       >
         <img class="next-slide-icon" src="assets/svg/navigation-arrow.svg" alt="Next"/>
       </button>

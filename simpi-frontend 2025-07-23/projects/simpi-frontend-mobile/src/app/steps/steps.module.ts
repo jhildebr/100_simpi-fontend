@@ -16,7 +16,6 @@ import { SimpiCommonsModule } from '../../../../simpi-frontend-common/src/public
     ],
     exports: [],
     declarations: [StepsPageComponent],
-    providers: [],
-    entryComponents: []
+    providers: []
 })
 export class StepsModule { }

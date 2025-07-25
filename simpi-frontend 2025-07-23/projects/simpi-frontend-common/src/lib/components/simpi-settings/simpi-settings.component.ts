@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {DeploymentStateRequest, DeploymentStateResponse, SimpiResponse} from '../../models';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
 import {SimpiService} from '../../services/simpis/simpi.service';
 import {ImageType, UploadImgModalService} from '../../services/images/upload-img-modal.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
@@ -76,7 +76,7 @@ export class SimpiSettingsComponent implements OnInit, OnDestroy {
     return this._simpiGroupNames;
   }
 
-  public simpiFormGroup: FormGroup;
+  public simpiFormGroup: UntypedFormGroup;
 
   public deploymentState: typeof DeploymentStateResponse = DeploymentStateResponse;
 
@@ -94,7 +94,7 @@ export class SimpiSettingsComponent implements OnInit, OnDestroy {
 
   public simpiDeletedResult: string;
 
-  constructor(private fb: FormBuilder, private simpiService: SimpiService, private stepService: StepService,
+  constructor(private fb: UntypedFormBuilder, private simpiService: SimpiService, private stepService: StepService,
               private modalService: NgbModal, private uploadImgModalService: UploadImgModalService, private imageService: ImageService) {
   }
 

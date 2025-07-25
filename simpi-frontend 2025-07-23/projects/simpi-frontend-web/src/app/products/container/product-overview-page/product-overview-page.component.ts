@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Location } from "@angular/common";
 import { EMPTY, Observable } from "rxjs";
@@ -59,7 +59,7 @@ export class ProductOverviewPageComponent implements OnInit, OnDestroy {
 
   public products$: Observable<ProductResponse[]>;
   public selectedProduct$: Observable<ProductResponse>;
-  public productForm: FormGroup;
+  public productForm: UntypedFormGroup;
   public addModeEnabled: boolean = false;
   public productImageUrl$: Observable<string>;
   public productPageImageUrl$: Observable<string>;
@@ -68,7 +68,7 @@ export class ProductOverviewPageComponent implements OnInit, OnDestroy {
   public labelRight: string = "PUBLISHED";
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private productService: ProductService,
     private location: Location,
     private router: Router,
