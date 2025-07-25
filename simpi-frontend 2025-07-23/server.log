@@ -156,3 +156,198 @@ projects_simpi-frontend-web_src_app_users_users_module_ts.js                    
 Build at: 2025-07-25T13:33:29.671Z - Hash: 890120385ce54a19 - Time: 1802ms
 
 ✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                                | Names                    |  Raw size
+runtime.js                                                         | runtime                  |  12.94 kB | 
+
+Lazy chunk files                                                   | Names                    |  Raw size
+projects_simpi-frontend-web_src_app_products_products_module_ts.js | products-products-module | 163.69 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T13:46:21.439Z - Hash: 1f5a57a11d7c538f - Time: 1005ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                                | Names                    |  Raw size
+runtime.js                                                         | runtime                  |  12.94 kB | 
+
+Lazy chunk files                                                   | Names                    |  Raw size
+projects_simpi-frontend-web_src_app_products_products_module_ts.js | products-products-module | 163.69 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T13:46:26.426Z - Hash: a62772f0b411ef7e - Time: 380ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                                | Names                    |  Raw size
+runtime.js                                                         | runtime                  |  12.94 kB | 
+
+Lazy chunk files                                                   | Names                    |  Raw size
+projects_simpi-frontend-web_src_app_products_products_module_ts.js | products-products-module | 164.08 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T13:46:33.794Z - Hash: 604624bcc40c9b30 - Time: 468ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                                | Names                    |  Raw size
+runtime.js                                                         | runtime                  |  12.94 kB | 
+
+Lazy chunk files                                                   | Names                    |  Raw size
+projects_simpi-frontend-web_src_app_products_products_module_ts.js | products-products-module | 166.43 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T13:47:44.059Z - Hash: 2c1fa68fcec8064f - Time: 384ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                                | Names                    |  Raw size
+runtime.js                                                         | runtime                  |  12.94 kB | 
+
+Lazy chunk files                                                   | Names                    |  Raw size
+projects_simpi-frontend-web_src_app_products_products_module_ts.js | products-products-module | 167.19 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T13:47:53.138Z - Hash: 4214668e56d51bd5 - Time: 320ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                                | Names                    |  Raw size
+runtime.js                                                         | runtime                  |  12.94 kB | 
+
+Lazy chunk files                                                   | Names                    |  Raw size
+projects_simpi-frontend-web_src_app_products_products_module_ts.js | products-products-module | 167.36 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T13:47:58.131Z - Hash: 70873c4e781ec136 - Time: 323ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                                | Names                    |  Raw size
+runtime.js                                                         | runtime                  |  12.94 kB | 
+
+Lazy chunk files                                                   | Names                    |  Raw size
+projects_simpi-frontend-web_src_app_products_products_module_ts.js | products-products-module | 167.36 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T13:48:03.986Z - Hash: 544be2257250a012 - Time: 353ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                                | Names                    |  Raw size
+runtime.js                                                         | runtime                  |  12.94 kB | 
+
+Lazy chunk files                                                   | Names                    |  Raw size
+projects_simpi-frontend-web_src_app_products_products_module_ts.js | products-products-module | 167.36 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T13:48:07.862Z - Hash: 7003b8476c509157 - Time: 337ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                                | Names                    |  Raw size
+runtime.js                                                         | runtime                  |  12.94 kB | 
+
+Lazy chunk files                                                   | Names                    |  Raw size
+projects_simpi-frontend-web_src_app_products_products_module_ts.js | products-products-module | 168.51 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T13:48:19.884Z - Hash: 041c98866b9915d7 - Time: 393ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                                | Names                    |  Raw size
+runtime.js                                                         | runtime                  |  12.94 kB | 
+
+Lazy chunk files                                                   | Names                    |  Raw size
+projects_simpi-frontend-web_src_app_products_products_module_ts.js | products-products-module | 169.19 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T13:48:39.423Z - Hash: 65e3bd68f5557fba - Time: 490ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                                | Names                    |  Raw size
+runtime.js                                                         | runtime                  |  12.94 kB | 
+
+Lazy chunk files                                                   | Names                    |  Raw size
+projects_simpi-frontend-web_src_app_products_products_module_ts.js | products-products-module | 175.85 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T13:48:56.011Z - Hash: 2f30a554b64b0518 - Time: 1069ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                                | Names                    |  Raw size
+runtime.js                                                         | runtime                  |  12.94 kB | 
+
+Lazy chunk files                                                   | Names                    |  Raw size
+projects_simpi-frontend-web_src_app_products_products_module_ts.js | products-products-module | 176.36 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T14:00:56.987Z - Hash: 4d8a2f25e14a95e9 - Time: 601ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                                | Names                    |  Raw size
+runtime.js                                                         | runtime                  |  12.94 kB | 
+
+Lazy chunk files                                                   | Names                    |  Raw size
+projects_simpi-frontend-web_src_app_products_products_module_ts.js | products-products-module | 177.33 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T14:01:26.932Z - Hash: e209f8a80284bf9c - Time: 556ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                                | Names                    |  Raw size
+runtime.js                                                         | runtime                  |  12.94 kB | 
+
+Lazy chunk files                                                   | Names                    |  Raw size
+projects_simpi-frontend-web_src_app_products_products_module_ts.js | products-products-module | 178.75 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T14:01:41.993Z - Hash: 9dc7652e65f53595 - Time: 482ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                                | Names                    |  Raw size
+runtime.js                                                         | runtime                  |  12.94 kB | 
+
+Lazy chunk files                                                   | Names                    |  Raw size
+projects_simpi-frontend-web_src_app_products_products_module_ts.js | products-products-module | 177.23 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-25T14:11:42.730Z - Hash: f6fcb79a187f19a2 - Time: 823ms
+
+✔ Compiled successfully.

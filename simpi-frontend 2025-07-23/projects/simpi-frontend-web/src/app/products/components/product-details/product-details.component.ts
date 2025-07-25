@@ -5,10 +5,13 @@ import {
   ElementRef,
   EventEmitter,
   Input,
+  OnChanges,
   OnDestroy,
   OnInit,
   Output,
   ViewChild,
+  ViewChildren,
+  QueryList,
 } from '@angular/core';
 import {Overlay, OverlayConfig, OverlayRef} from '@angular/cdk/overlay';
 import {ComponentPortal} from '@angular/cdk/portal';
@@ -23,7 +26,7 @@ import {WebplayerComponent} from '../../../webPlayer/components/webplayer/webpla
 import {EMPTY_GUID} from '../../../../../../simpi-frontend-common/src/lib/shared/constants';
 import {ContextMenuEntry} from '../../../shared/components/context-menu/model/context-menu-entry';
 import {UntypedFormControl, Validators} from '@angular/forms';
-import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+import {CdkDragDrop, moveItemInArray, CdkDrag} from '@angular/cdk/drag-drop';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {PrivacyModalComponent} from '../../../shared/components/modals/privacy-modal/privacy-modal.component';
 import {SimpiService} from 'projects/simpi-frontend-common/src/lib/services/simpis/simpi.service';
@@ -36,7 +39,7 @@ import {SimpiGroup} from '../../../../../../simpi-frontend-common/src/lib/models
   styleUrls: ['product-details.component.scss'],
 })
 export class ProductDetailsComponent
-  implements OnInit, AfterViewInit, OnDestroy {
+  implements OnInit, OnChanges, AfterViewInit, OnDestroy {
 
   constructor(
     private overlay: Overlay,
@@ -106,6 +109,12 @@ export class ProductDetailsComponent
   private _timer: any;
   private _selectedSimpiId: string;
   public draggableGroupName = 'SIMPIS';
+  
+  // Enhanced drag & drop functionality
+  @ViewChildren(CdkDrag) draggableItems?: QueryList<CdkDrag>;
+  public viewMode: 'grid' | 'list' = 'grid';
+  public allSimpis: SimpiResponse[] = [];
+  public visibleGroups: SimpiGroup[] = [];
 
   @Input()
   public product: ProductResponse;
@@ -179,30 +188,164 @@ export class ProductDetailsComponent
 
   public ngOnInit(): void {
     this.editProductName = false;
+    this.updateSimpiGroups();
+  }
+
+  public ngOnChanges(): void {
+    this.updateSimpiGroups();
   }
 
   public onSimpiDrop(event: CdkDragDrop<SimpiResponse[]>): void {
-    if (event.previousIndex !== event.currentIndex) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    const draggedSimpi = event.item.data as SimpiResponse;
+    
+    if (event.previousContainer === event.container) {
+      // Same group - use precise positioning logic from reference implementation
+      console.log(`CDK Drag event: previousIndex=${event.previousIndex}, currentIndex=${event.currentIndex}`);
+
+      // Find the actual previous index in the data array
+      const actualPreviousIndex = event.container.data.findIndex(simpi => simpi.simpiId === draggedSimpi.simpiId);
+      if (actualPreviousIndex === -1) {
+        console.error("Could not find dragged item in the data array!");
+        return;
+      }
+      console.log(`Actual Previous Index: ${actualPreviousIndex}`);
+
+      // Calculate target index using the reference implementation's approach
+      const pointerX = event.dropPoint.x;
+      const pointerY = event.dropPoint.y;
+      const siblings = this.draggableItems?.toArray() || [];
+      let targetIndex = siblings.length; // Default to end if not dropped before anything
+
+      for (let i = 0; i < siblings.length; i++) {
+        const sibling = siblings[i];
+        // Don't compare with the item being dragged itself
+        if (sibling.data === draggedSimpi) {
+          continue;
+        }
+
+        const rect = (sibling.element.nativeElement as HTMLElement).getBoundingClientRect();
+        const midX = rect.left + rect.width / 2;
+        
+        // Check if pointer is within the vertical bounds of the item and before its horizontal midpoint
+        if (pointerY >= rect.top && pointerY <= rect.bottom && pointerX < midX) {
+          const siblingIndexInData = event.container.data.indexOf(sibling.data as SimpiResponse);
+          if (siblingIndexInData !== -1) { // Make sure sibling exists in data
+            targetIndex = siblingIndexInData;
+            break; // Found the item we are dropping before
+          }
+        }
+      }
+
+      console.log(`Target Index: ${targetIndex}`);
+
+      // Only move if the target index is different from the actual previous index
+      if (actualPreviousIndex !== targetIndex) {
+        moveItemInArray(event.container.data, actualPreviousIndex, targetIndex);
+        console.log(`Item moved from index ${actualPreviousIndex} to ${targetIndex}`);
+      }
+    } else {
+      // Cross-group transfer
+      const sourceGroupName = event.previousContainer.id;
+      const targetGroupName = event.container.id;
       
-      setTimeout(() => {
-        const idsAndIndexes: ChangeOrderRequest[] = this.simpiGroupsToChangeOrderRequestArray(this.simpiGroups);
-        this.changeOrder.emit(idsAndIndexes);
-      }, 100);
+      console.log(`Cross-group transfer: ${sourceGroupName} -> ${targetGroupName}`);
+      
+      // Remove from source group
+      const sourceGroup = this.simpiGroups.find(g => g.groupName === sourceGroupName);
+      if (sourceGroup) {
+        const sourceIndex = sourceGroup.simpis.findIndex(s => s.simpiId === draggedSimpi.simpiId);
+        if (sourceIndex >= 0) {
+          sourceGroup.simpis.splice(sourceIndex, 1);
+        }
+      }
+      
+      // Add to target group at the end
+      const targetGroup = this.simpiGroups.find(g => g.groupName === targetGroupName);
+      if (targetGroup) {
+        targetGroup.simpis.push(draggedSimpi);
+        
+        // Update the SIMPI's group name
+        draggedSimpi.groupName = targetGroupName;
+        this.simpiService.changeSimpiGroupName(draggedSimpi.simpiId, targetGroupName).subscribe();
+      }
     }
+    
+    // Update position indices and emit order changes
+    this.updatePositionIndices();
+    setTimeout(() => {
+      const idsAndIndexes: ChangeOrderRequest[] = this.simpiGroupsToChangeOrderRequestArray(this.simpiGroups);
+      this.changeOrder.emit(idsAndIndexes);
+    }, 100);
+  }
+
+  private updatePositionIndices(): void {
+    // Update position indices for all groups
+    this.simpiGroups.forEach(group => {
+      group.simpis.forEach((simpi, index) => {
+        simpi.positionIndex = index;
+      });
+    });
   }
 
   public trackBy(index, simpi): void {
     return simpi.simpiId;
   }
 
+  public toggleViewMode(): void {
+    this.viewMode = this.viewMode === 'grid' ? 'list' : 'grid';
+  }
+
+  public updateSimpiGroups(): void {
+    if (!this.simpis) return;
+    
+    // Store all SIMPIs for easy access
+    this.allSimpis = [...this.simpis];
+    
+    // Group SIMPIs by groupName
+    const grouped = this.allSimpis.reduce((groups, simpi) => {
+      const groupName = simpi.groupName || 'Default';
+      if (!groups[groupName]) {
+        groups[groupName] = [];
+      }
+      groups[groupName].push(simpi);
+      return groups;
+    }, {} as { [key: string]: SimpiResponse[] });
+    
+    // Convert to SimpiGroup array and sort SIMPIs within each group
+    this.visibleGroups = Object.keys(grouped).map(groupName => ({
+      groupName,
+      simpis: grouped[groupName].sort((a, b) => a.positionIndex - b.positionIndex)
+    }));
+  }
+
   public ngAfterViewInit(): void {
     this.componentPortal = new ComponentPortal(WebplayerComponent);
+  }
+
+  private _isDragging: boolean = false;
+
+  public onDragStarted(): void {
+    this._isDragging = true;
+    clearTimeout(this._timer);
+  }
+
+  public onDragEnded(): void {
+    this._isDragging = false;
+  }
+
+  public onSimpiClick(simpiId: string, event: Event): void {
+    // Only open player if we're not in a drag operation
+    if (!this._isDragging) {
+      event.preventDefault();
+      event.stopPropagation();
+      this.selectSimpi(simpiId);
+    }
   }
 
   public mousedown(simpiId: string): void {
     this.draggableId = EMPTY_GUID;
     this._selectedSimpiId = simpiId;
+    this._isDragging = false;
     const isMobile = this.platform.ANDROID || this.platform.IOS;
     if (isMobile) {
       event.preventDefault();
@@ -218,7 +361,8 @@ export class ProductDetailsComponent
       return;
     }
     clearTimeout(this._timer);
-    if (this.draggableId === EMPTY_GUID) {
+    // Only open player if not dragging and no drag operation occurred
+    if (this.draggableId === EMPTY_GUID && !this._isDragging) {
       this.selectSimpi(this._selectedSimpiId);
     }
   }

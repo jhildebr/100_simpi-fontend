@@ -18,6 +18,9 @@
       <div class="icon-button" role="button" (click)="onChangeProductSettingsClick()" title="Product Settings">
         <img src="assets/svg/edit.svg" alt="Edit icon">
       </div>
+      <div class="icon-button" role="button" (click)="toggleViewMode()" title="Toggle View Mode">
+        <img [src]="viewMode === 'grid' ? 'assets/svg/list.svg' : 'assets/svg/grid.svg'" alt="View mode icon">
+      </div>
       <button class="simpi-button-dark" (click)="addSimpi()">+ &nbsp; Add SIMPI</button>
     </div>
   </div>
@@ -41,37 +44,45 @@
   </div>
 </ng-container>
 <ng-template #simpiList>
-  <div class="simpi-group-container" *ngFor="let simpiGroup of simpiGroups; trackBy: trackBy">
-    <h4>{{ simpiGroup.groupName }}</h4>
-    <div class="row row-cols-lg-5 row-cols-md-4 row-cols-sm-3 row-cols-2"
-         cdkDropList
-         [cdkDropListData]="simpiGroup.simpis"
-         (cdkDropListDropped)="onSimpiDrop($event)">
-      <sim-card class="col simpi-group-form" 
-                cdkDrag
-                *ngFor="let simpi of simpiGroup.simpis"
-                [text]="simpi.title"
-                [imageUrl]="simpi.thumbnailUrl"
-                [placeholderBackgroundColor]="simpi.iconColor || '#cecece'"
-                [LabelColor]="product.brandPrimaryColor"
-                [brand]="product.brandName" [numberOfSteps]="simpi.stepCount" [id]="simpi.simpiId"
-                [stepsLabelClickHandler]="stepsLabelClickHandler"
-                [clickHandlerParameter]="simpi"
-                (mousedown)="mousedown(simpi.simpiId)"
-                (mouseup)="mouseup($event)"
-      >
-        <div *ngIf="!readonly" class="simpi-controls">
-          <sim-deployment-state-icon [deploymentState]="simpi.deploymentInfo?.deploymentState"
-                                     [clickHandler]="deploymentIconClickHandler"
-                                     [clickHandlerParameter]="simpi"
-                                     class="deploymentState-icon small">
-          </sim-deployment-state-icon>
-          <sim-context-menu *ngIf="!simpi.deleted" [menuEntries]="contextMenuEntries"
-                            [menuEntryClickHandlerParameter]="simpi"></sim-context-menu>
-          <sim-context-menu *ngIf="simpi.deleted" [menuEntries]="deletedSimpiContextMenuEntries"
-                            [menuEntryClickHandlerParameter]="simpi"></sim-context-menu>
-        </div>
-      </sim-card>
+  <div cdkDropListGroup>
+    <div class="simpi-group-container" *ngFor="let simpiGroup of simpiGroups; trackBy: trackBy">
+      <h4>{{ simpiGroup.groupName }}</h4>
+      <div [class]="viewMode === 'grid' ? 'row row-cols-lg-5 row-cols-md-4 row-cols-sm-3 row-cols-2' : 'simpi-list-container'"
+           cdkDropList
+           [id]="simpiGroup.groupName"
+           [cdkDropListData]="simpiGroup.simpis"
+           [cdkDropListOrientation]="viewMode === 'grid' ? 'horizontal' : 'vertical'"
+           (cdkDropListDropped)="onSimpiDrop($event)">
+        <sim-card [class]="viewMode === 'grid' ? 'col simpi-group-form' : 'simpi-list-item'" 
+                  cdkDrag
+                  [cdkDragData]="simpi"
+                  (cdkDragStarted)="onDragStarted()"
+                  (cdkDragEnded)="onDragEnded()"
+                  *ngFor="let simpi of simpiGroup.simpis"
+                  [text]="simpi.title"
+                  [imageUrl]="simpi.thumbnailUrl"
+                  [placeholderBackgroundColor]="simpi.iconColor || '#cecece'"
+                  [LabelColor]="product.brandPrimaryColor"
+                  [brand]="product.brandName" [numberOfSteps]="simpi.stepCount" [id]="simpi.simpiId"
+                  [stepsLabelClickHandler]="stepsLabelClickHandler"
+                  [clickHandlerParameter]="simpi"
+                  (click)="onSimpiClick(simpi.simpiId, $event)"
+                  (mousedown)="mousedown(simpi.simpiId)"
+                  (mouseup)="mouseup($event)"
+        >
+          <div *ngIf="!readonly" class="simpi-controls">
+            <sim-deployment-state-icon [deploymentState]="simpi.deploymentInfo?.deploymentState"
+                                       [clickHandler]="deploymentIconClickHandler"
+                                       [clickHandlerParameter]="simpi"
+                                       class="deploymentState-icon small">
+            </sim-deployment-state-icon>
+            <sim-context-menu *ngIf="!simpi.deleted" [menuEntries]="contextMenuEntries"
+                              [menuEntryClickHandlerParameter]="simpi"></sim-context-menu>
+            <sim-context-menu *ngIf="simpi.deleted" [menuEntries]="deletedSimpiContextMenuEntries"
+                              [menuEntryClickHandlerParameter]="simpi"></sim-context-menu>
+          </div>
+        </sim-card>
+      </div>
     </div>
   </div>
 </ng-template>
