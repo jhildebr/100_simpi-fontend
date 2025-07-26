@@ -1,11 +1,5 @@
 <div class="step-details">
-  <div
-    class="main"
-    [ngClass]="{
-      'main-full-width': !isSidebarVisible,
-      'main-reduced-width': isSidebarVisible
-    }"
-  >
+  <div class="main main-reduced-width">
     <div class="toolbar">
       <div class="tool" title="Change Media">
         <div
@@ -108,13 +102,7 @@
       </sim-step-editor>
     </div>
   </div>
-  <div *ngIf="isSidebarVisible" class="sidebar position-relative">
-    <button
-      type="button"
-      class="btn-close"
-      aria-label="Close"
-      (click)="closeAllSidebars()"
-    ></button>
+  <div class="sidebar position-relative">
     <ng-container *ngIf="visiblePanel === visiblePanelTypes.MEDIA">
       <sim-step-media-sidebar
         [selectedStep]="selectedStep"
@@ -141,9 +129,9 @@
         [simpi]="simpi"
       ></sim-step-voice-over-sidebar>
     </ng-container>
-    <div *ngIf="visiblePanel === visiblePanelTypes.PORTRAIT_INDICATOR">
-      Portrait View
-    </div>
+    <ng-container *ngIf="visiblePanel === visiblePanelTypes.PORTRAIT_INDICATOR">
+      <sim-step-portrait-sidebar></sim-step-portrait-sidebar>
+    </ng-container>
     <div *ngIf="visiblePanel === visiblePanelTypes.TRANSLATION">
       <sim-step-translation-sidebar [simpi]="simpi"></sim-step-translation-sidebar>
     </div>

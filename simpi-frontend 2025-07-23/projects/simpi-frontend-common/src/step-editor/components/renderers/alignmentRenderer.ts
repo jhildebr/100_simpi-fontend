@@ -24,23 +24,17 @@ export class AlignmentRenderer implements Renderer {
       return;
     }
 
-    console.log('Rendering alignment guidelines:', this.currentGuidelines.length);
-
     // Save context state
     context.save();
 
     // Set guideline style
     context.strokeStyle = '#ff0000'; // Red color for better visibility
     context.lineWidth = 3;
-    context.setLineDash([]); // Solid line for testing
+    context.setLineDash([]); // Solid line
     context.globalAlpha = 1.0;
 
     // Draw each guideline
-    this.currentGuidelines.forEach((guideline, index) => {
-      console.log(`Drawing guideline ${index}:`, 
-        `from (${guideline.start.x}, ${guideline.start.y})`, 
-        `to (${guideline.end.x}, ${guideline.end.y})`);
-      
+    this.currentGuidelines.forEach((guideline) => {
       context.beginPath();
       context.moveTo(guideline.start.x, guideline.start.y);
       context.lineTo(guideline.end.x, guideline.end.y);

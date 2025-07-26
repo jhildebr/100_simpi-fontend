@@ -21,6 +21,7 @@ import { StepStickerSidebarComponent } from './components/step-sticker-sidebar/s
 import { StepVoiceOverSidebarComponent } from './components/step-voice-over-sidebar/step-voice-over-sidebar.component';
 import { StepTranslationSidebarComponent } from './components/step-translation-sidebar/step-translation-sidebar.component';
 import { StepMediaSidebarComponent } from './components/step-media-sidebar/step-media-sidebar.component';
+import { StepPortraitSidebarComponent } from './components/step-portrait-sidebar/step-portrait-sidebar.component';
 
 @NgModule({
     declarations: [
@@ -40,7 +41,8 @@ import { StepMediaSidebarComponent } from './components/step-media-sidebar/step-
         StepTextSidebarComponent,
         StepTranslationSidebarComponent,
         StepStickerSidebarComponent,
-        StepVoiceOverSidebarComponent
+        StepVoiceOverSidebarComponent,
+        StepPortraitSidebarComponent
     ],
     imports: [
         SharedModule,

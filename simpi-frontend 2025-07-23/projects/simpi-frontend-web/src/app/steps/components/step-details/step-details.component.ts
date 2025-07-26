@@ -48,8 +48,8 @@ export class StepDetailsComponent
   public simpiImgWidth: number = 0;
   public simpiImgHeight: number = 0;
 
-  public isSidebarVisible: boolean = false;
-  public visiblePanel: EditorPanelType = EditorPanelType.NONE;
+  public isSidebarVisible: boolean = true;
+  public visiblePanel: EditorPanelType = EditorPanelType.TEXT;
   public visiblePanelTypes: typeof EditorPanelType = EditorPanelType;
 
   @ViewChild("editor")
@@ -211,23 +211,21 @@ export class StepDetailsComponent
   }
 
   private showSidebar(type: EditorPanelType): void {
-    if (this.visiblePanel == type) {
-      this.closeAllSidebars();
-    } else {
-      this.visiblePanel = type;
-      this.isSidebarVisible = true;
-      window.setTimeout(() => this.recalculateEditorDimensions(), 100);
-    }
-  }
-
-  public closeAllSidebars(): void {
-    this.visiblePanel = EditorPanelType.NONE;
-    this.isSidebarVisible = false;
+    // Always switch to the requested panel (no closing behavior)
+    this.visiblePanel = type;
+    this.isSidebarVisible = true;
     window.setTimeout(() => this.recalculateEditorDimensions(), 100);
   }
 
+  public closeAllSidebars(): void {
+    // Disabled: Side panel is now static and cannot be closed
+    // this.visiblePanel = EditorPanelType.NONE;
+    // this.isSidebarVisible = false;
+    // window.setTimeout(() => this.recalculateEditorDimensions(), 100);
+  }
+
   public toggleSound(): void {
-    this.closeAllSidebars();
+    // Side panel remains open when toggling sound
   }
 
   public textBackgroundColorChanged(): void {
@@ -242,7 +240,7 @@ export class StepDetailsComponent
 
   public onSaveStep(): void {
     this.saveSelectedStep.emit(this.stepEditor.exportState());
-    this.closeAllSidebars();
+    // Side panel remains open after saving
   }
 
   public getEditorState(): EditorState {

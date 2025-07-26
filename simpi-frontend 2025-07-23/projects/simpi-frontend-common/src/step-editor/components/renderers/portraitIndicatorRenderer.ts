@@ -36,6 +36,24 @@ export class PortraitIndicatorRenderer implements Renderer {
       context.setLineDash([4, 4]);
       context.fillRect(rect.x, rect.y, rect.width, rect.height);
 
+      // Draw red lines on left and right edges for better visibility
+      context.globalAlpha = 1;
+      context.strokeStyle = '#ff0000'; // Red color
+      context.lineWidth = 2;
+      context.setLineDash([]); // Solid line
+      
+      // Left edge line
+      context.beginPath();
+      context.moveTo(rectInner.x, rectInner.y);
+      context.lineTo(rectInner.x, rectInner.y + rectInner.height);
+      context.stroke();
+      
+      // Right edge line
+      context.beginPath();
+      context.moveTo(rectInner.x + rectInner.width, rectInner.y);
+      context.lineTo(rectInner.x + rectInner.width, rectInner.y + rectInner.height);
+      context.stroke();
+
       if (host.isDebugMode) {
         context.fillStyle = '#ff00ff';
         context.globalAlpha = 1;

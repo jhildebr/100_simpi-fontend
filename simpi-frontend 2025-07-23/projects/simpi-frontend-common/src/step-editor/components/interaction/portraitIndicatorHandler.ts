@@ -102,7 +102,9 @@ export class PortraitIndicatorHandler implements InteractionHandler {
 
     const bounds = new Rect(Vector2.zero(), host.getImageDimensions());
     const newPos = pos.add(this.dragPosRelativeToIndicatorCenter.inv()).constraintIn(bounds);
-    host.setProperty(PORTRAIT_INDICATOR_CENTER, new Vector2(newPos.x, newPos.y));
+    // Only allow horizontal movement - keep the original Y position
+    const currentCenter = host.getProperty(PORTRAIT_INDICATOR_CENTER) as Vector2;
+    host.setProperty(PORTRAIT_INDICATOR_CENTER, new Vector2(newPos.x, currentCenter.y));
 
     return true;
   }

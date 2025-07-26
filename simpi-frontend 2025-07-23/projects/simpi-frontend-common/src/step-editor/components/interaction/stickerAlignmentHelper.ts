@@ -67,9 +67,6 @@ export class StickerAlignmentHelper {
       const guidelines: AlignmentGuideline[] = [];
       
       if (canvasBounds) {
-        console.log('Canvas bounds:', canvasBounds);
-        console.log('Grid position:', gridX, gridY);
-        
         // Extend guidelines to full canvas edges with generous margins
         const margin = 2000; // Large margin to ensure lines extend beyond visible area
         const verticalGuideline = {
@@ -84,9 +81,6 @@ export class StickerAlignmentHelper {
           start: new Vector2(-margin, gridY),
           end: new Vector2(canvasBounds.width + margin, gridY)
         };
-        
-        console.log('Vertical guideline:', verticalGuideline);
-        console.log('Horizontal guideline:', horizontalGuideline);
         
         guidelines.push(verticalGuideline);
         guidelines.push(horizontalGuideline);
@@ -123,9 +117,6 @@ export class StickerAlignmentHelper {
    * Tries to snap to canvas edges with margin
    */
   private static tryEdgeSnap(position: Vector2, canvasBounds: Rect): AlignmentResult {
-    console.log('Edge snap - Canvas bounds:', canvasBounds);
-    console.log('Edge snap - Position:', position);
-    
     const guidelines: AlignmentGuideline[] = [];
     let snapped = false;
     let newX = position.x;

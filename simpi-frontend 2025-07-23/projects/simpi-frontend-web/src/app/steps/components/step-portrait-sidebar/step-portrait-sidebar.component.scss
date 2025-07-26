@@ -1,0 +1,27 @@
+.step-sidebar {
+  color: var(--simpi-color-dark-blue-8);
+
+  h3 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    &.header {
+        margin: 0 0 0 24px;
+        padding-bottom: 8px;
+        padding-top: 24px;
+        border-bottom: 1px solid var(--simpi-color-dark-blue-2);
+    }
+  }
+
+  p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    margin-top: 10px;
+  }
+
+  .explanation-container {
+    margin: 16px 24px 0 24px;
+  }
+}

@@ -203,11 +203,6 @@ export class StickerInteractionHandler implements InteractionHandler {
       // Store guidelines for rendering
       this.currentAlignmentGuidelines = alignmentResult.guidelines || [];
       
-      // Debug: Log when guidelines are active
-      if (this.currentAlignmentGuidelines.length > 0) {
-        console.log('Alignment guidelines active:', alignmentResult.snapType, this.currentAlignmentGuidelines);
-      }
-      
       stickers[this.draggingIndex].pos = alignmentResult.position;
 
       // Update sticker info popup during drag
