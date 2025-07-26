@@ -287,7 +287,7 @@ export class ProductService extends RestService {
             productImageId: product.productImageId,
             productImageUrl: product.productImageId ? this.getProductImageUrl(product.productImageId) : undefined,
             productPageImageId: product.productPageImageId,
-            productPageImageUrl: this.getProductPageImageUrl(product.productPageImageId),
+            productPageImageUrl: product.productPageImageId ? this.getProductPageImageUrl(product.productPageImageId) : undefined,
             productName: product.productName,
             productAlias: response.alias,
             simpiCount: 0,

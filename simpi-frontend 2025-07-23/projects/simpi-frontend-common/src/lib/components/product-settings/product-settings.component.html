@@ -15,7 +15,7 @@
         <h2>Cover</h2>
         <div class="image-container">
           <img
-            *ngIf="product.productPageImageUrl"
+            *ngIf="product.productPageImageUrl && product.productPageImageUrl !== 'null' && !product.productPageImageUrl.includes('/null')"
             [src]="product.productPageImageUrl"
             alt="product cover image"
             class="product-page-image"
@@ -161,7 +161,7 @@
       <h2>Thumbnail</h2>
       <div class="image-container">
         <img
-          *ngIf="product.productImageUrl"
+          *ngIf="product.productImageUrl && product.productImageUrl !== 'null' && !product.productImageUrl.includes('/null')"
           [src]="product.productImageUrl"
           alt="product thumbnail"
           class="product-image"

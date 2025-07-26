@@ -3180,3 +3180,36 @@ projects_simpi-frontend-web_src_app_products_products_module_ts.js | products-pr
 Build at: 2025-07-26T23:31:04.796Z - Hash: 36b21a521ab85d69 - Time: 632ms
 
 ✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.63 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T23:39:44.147Z - Hash: 2edca130c8e479d9 - Time: 969ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.63 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T23:39:50.118Z - Hash: ecdb4272b7cace95 - Time: 488ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.63 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T23:40:36.427Z - Hash: 361709136bda04f4 - Time: 743ms
+
+✔ Compiled successfully.
