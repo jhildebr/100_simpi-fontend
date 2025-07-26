@@ -42,7 +42,9 @@ import { takeWhile } from 'rxjs/operators';
 import { StickerService } from '../../lib/services/stickers/sticker.service';
 import { StickerControlsRenderer } from './renderers/stickerControlsRenderer';
 import { StickerControlsInteractionHandler } from './interaction/stickerControlsInteractionHandler';
+import { AlignmentRenderer } from './renderers/alignmentRenderer';
 import { StickerInfo } from '../models/stickerInfo';
+import { StickerInfoData } from './sticker-info-popup/sticker-info-popup.component';
 import { PROP_CREATE_STICKER, PROP_CREATE_STICKER_TYPE, STICKER_TYPE_TOUCH, STICKERS, } from './common/stickerConfig';
 import { Sticker } from '../../lib/models/sticker';
 import { StickerActionPopup } from '../models/stickerActionPopup';
@@ -119,11 +121,25 @@ export class StepEditorComponent
 
   private editorState: EditorState;
 
+  private alignmentRenderer = new AlignmentRenderer();
+  private stickerInteractionHandler: StickerInteractionHandler;
+  
+  // Alignment settings
+  public alignmentEnabled: boolean = true;
+
+  // Sticker info popup
+  public stickerInfoPopup = {
+    visible: false,
+    position: { x: 0, y: 0 },
+    data: { x: 0, y: 0, scale: 1.0 } as StickerInfoData
+  };
+
   private renderers: Renderer[] = [
     new PortraitIndicatorRenderer(),
     new StickerRenderer(this, this.stickerService),
     new StickerControlsRenderer(this, this.stickerService),
     new StickerTrashRenderer(this, this.stickerService),
+    this.alignmentRenderer,
     new TextRenderer(),
   ];
 
@@ -310,9 +326,8 @@ export class StepEditorComponent
     private cdr: ChangeDetectorRef
   ) {
     this.interactionHandlers.push(new PortraitIndicatorHandler(this));
-    this.interactionHandlers.push(
-      new StickerInteractionHandler(this, this.stickerService)
-    );
+    this.stickerInteractionHandler = new StickerInteractionHandler(this, this.stickerService);
+    this.interactionHandlers.push(this.stickerInteractionHandler);
     this.interactionHandlers.push(
       new StickerControlsInteractionHandler(this, this.stickerService)
     );
@@ -875,6 +890,9 @@ export class StepEditorComponent
     }
 
     if (this._active) {
+      // Update alignment renderer with current guidelines
+      this.alignmentRenderer.setGuidelines(this.stickerInteractionHandler.currentAlignmentGuidelines);
+      
       this.renderers.forEach((renderer) => {
         renderer.renderInImageSpace(this, context);
       });
@@ -1337,6 +1355,7 @@ export class StepEditorComponent
     stickerToChange.appearanceDelayInMilliseconds = newStickerSettings.appearanceDelayInMilliseconds;
     stickerToChange.showPopUpEffect = newStickerSettings.showPopUpEffect;
     stickerToChange.actionTargetUrl = newStickerSettings.actionTargetUrl;
+    stickerToChange.scaleFactor = newStickerSettings.scaleFactor;
     this.setProperty(STICKERS, stickers);
     this.stickerSettingsPopupProperties = undefined;
   }
@@ -1394,5 +1413,54 @@ export class StepEditorComponent
       appearanceDelayInMilliseconds: stickerInfo.appearanceDelayInMilliseconds,
       showPopUpEffect: stickerInfo.showPopUpEffect,
     } as StickerState;
+  }
+
+  /**
+   * Shows the sticker info popup with current position and scale
+   */
+  public showStickerInfoPopup(mousePos: Vector2, stickerPos: Vector2, scale: number, rotation: number = 0): void {
+    // Position popup offset from mouse cursor
+    this.stickerInfoPopup.position = {
+      x: mousePos.x + 20, // Offset to the right
+      y: mousePos.y - 60  // Offset above cursor
+    };
+
+    // Update sticker data
+    this.stickerInfoPopup.data = {
+      x: stickerPos.x,
+      y: stickerPos.y,
+      scale: scale,
+      rotation: rotation
+    };
+
+    this.stickerInfoPopup.visible = true;
+  }
+
+  /**
+   * Updates the sticker info popup data
+   */
+  public updateStickerInfoPopup(mousePos: Vector2, stickerPos: Vector2, scale: number, rotation: number = 0): void {
+    if (this.stickerInfoPopup.visible) {
+      // Update popup position to follow mouse
+      this.stickerInfoPopup.position = {
+        x: mousePos.x + 20,
+        y: mousePos.y - 60
+      };
+
+      // Update sticker data
+      this.stickerInfoPopup.data = {
+        x: stickerPos.x,
+        y: stickerPos.y,
+        scale: scale,
+        rotation: rotation
+      };
+    }
+  }
+
+  /**
+   * Hides the sticker info popup
+   */
+  public hideStickerInfoPopup(): void {
+    this.stickerInfoPopup.visible = false;
   }
 }

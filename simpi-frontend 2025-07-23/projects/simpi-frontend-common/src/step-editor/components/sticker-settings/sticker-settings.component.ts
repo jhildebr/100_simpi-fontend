@@ -73,10 +73,12 @@ export class StickerSettingsComponent implements OnInit, OnDestroy {
 
   public saveSettings(): void {
     if (this.stickerSettingsFormGroup.valid) {
+      const scaleFactor = this.stickerSettingsFormGroup.get('sizePercent').value / 100;
       const stickerSettings = new StickerSettings(
         this.stickerSettingsFormGroup.get('appearanceDelayInSeconds').value * 1_000,
         this.stickerSettingsFormGroup.get('showPopUpEffect').value,
-        this.stickerSettingsFormGroup.get('actionTargetUrl').value);
+        this.stickerSettingsFormGroup.get('actionTargetUrl').value,
+        scaleFactor);
       this.onSaveSettings.emit(stickerSettings);
     } else {
       this.showValidationErrors = true;
@@ -92,9 +94,11 @@ export class StickerSettingsComponent implements OnInit, OnDestroy {
     const appearanceDelayInSeconds: number = appearanceDelayInMilliseconds / 1_000;
     const showPopUpEffect: boolean = this.stickerInfo?.showPopUpEffect ?? true;
     const actionTargetUrl: string = this.getActionTargetUrl();
+    const sizePercent: number = (this.stickerInfo?.scaleFactor ?? 1.0) * 100;
 
     this.stickerSettingsFormGroup = this.fb.group({
       appearanceDelayInSeconds: [appearanceDelayInSeconds, [Validators.required, Validators.min(0)]],
+      sizePercent: [sizePercent, [Validators.required, Validators.min(5), Validators.max(300)]],
       showPopUpEffect: showPopUpEffect,
       actionTargetUrl: actionTargetUrl,
     });

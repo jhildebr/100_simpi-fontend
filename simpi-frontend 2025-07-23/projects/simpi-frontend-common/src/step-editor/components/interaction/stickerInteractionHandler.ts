@@ -4,6 +4,7 @@ import { Vector2 } from '../../models/vector2';
 import { StickerService } from 'projects/simpi-frontend-common/src/lib/services/stickers/sticker.service';
 import { StickerUtils } from '../common/stickerUtils';
 import { StickerInfo } from '../../models/stickerInfo';
+import { StickerAlignmentHelper } from './stickerAlignmentHelper';
 import {
   MIN_STICKER_SCALE_FACTOR,
   PINCH_START_SCALE_FACTOR,
@@ -24,6 +25,9 @@ export class StickerInteractionHandler implements InteractionHandler {
   private isDragging: boolean = false;
   private draggingIndex: number = -1;
   private stickerUtils: StickerUtils;
+  
+  // Store current alignment guidelines for rendering
+  public currentAlignmentGuidelines: import('./stickerAlignmentHelper').AlignmentGuideline[] = [];
 
   constructor(host: InteractionHost, private stickerService: StickerService) {
     host.setProperty(STICKERS, [] as StickerInfo[]);
@@ -66,13 +70,28 @@ export class StickerInteractionHandler implements InteractionHandler {
       for (let index = 0; index < stickers.length; index++) {
         let sticker = stickers[index];
         if (this.isPosWithinStickerBounds(sticker, pos)) {
+          // Deselect all stickers first to ensure only one is selected
+          stickers.forEach(s => s.selected = false);
+          
+          // Move the sticker to the end of the array (top of rendering order)
+          const stickerToMove = stickers.splice(index, 1)[0];
+          stickers.push(stickerToMove);
+          
           this.isDragging = true;
           host.toggleStickerEditMode(true);
-          this.draggingIndex = index;
-          this.dragPosRelativeToSticker = pos.add(sticker.pos.inv());
+          this.draggingIndex = stickers.length - 1; // Update index to new position
+          this.dragPosRelativeToSticker = pos.add(stickerToMove.pos.inv());
           if (host.mobileApp) {
-            sticker.hovered = this.stickerHovered(host, stickers, index);
+            stickerToMove.hovered = this.stickerHovered(host, stickers, this.draggingIndex);
           }
+          
+          // Show sticker info popup
+          const canvasPos = (host as any).absoluteOnPage?.(pos) || pos;
+          (host as any).showStickerInfoPopup?.(canvasPos, stickerToMove.pos, stickerToMove.scaleFactor || 1.0, stickerToMove.rotationAngle || 0);
+          
+          // Update the stickers array in the host
+          host.setProperty(STICKERS, stickers);
+          
           return true;
         }
       }
@@ -89,10 +108,19 @@ export class StickerInteractionHandler implements InteractionHandler {
     }
 
     if (this.isDragging) {
-      this.isDragging = false;
-      host.toggleStickerEditMode(false);
-      this.draggingIndex = -1;
       const stickers = host.getProperty(STICKERS) as StickerInfo[];
+      const draggedIndex = this.draggingIndex;
+      
+      this.isDragging = false;
+      this.draggingIndex = -1;
+      
+      // Clear alignment guidelines when drag ends
+      this.currentAlignmentGuidelines = [];
+      
+      // Hide sticker info popup
+      (host as any).hideStickerInfoPopup?.();
+      
+      // Handle mobile trash area and cleanup
       stickers.forEach((sticker, index) => {
         if (sticker.hovered && sticker.isInTrashArea && host.mobileApp) {
           stickers.splice(index, 1);
@@ -102,6 +130,21 @@ export class StickerInteractionHandler implements InteractionHandler {
           sticker.hovered = false;
         }
       });
+      
+      // After drag: select the dragged sticker and show helper buttons
+      if (draggedIndex >= 0 && draggedIndex < stickers.length) {
+        // Deselect all stickers first
+        stickers.forEach(sticker => sticker.selected = false);
+        // Select the dragged sticker
+        stickers[draggedIndex].selected = true;
+        // Keep edit mode enabled to show helper buttons
+        host.toggleStickerEditMode(true);
+        host.setProperty(STICKERS, stickers);
+      } else {
+        // If dragged sticker was deleted, turn off edit mode
+        host.toggleStickerEditMode(false);
+      }
+      
       return true;
     }
 
@@ -146,7 +189,30 @@ export class StickerInteractionHandler implements InteractionHandler {
     const stickers = host.getProperty(STICKERS) as StickerInfo[];
 
     if (this.draggingIndex > -1) {
-      stickers[this.draggingIndex].pos = pos.add(this.dragPosRelativeToSticker.inv());
+      const originalPosition = pos.add(this.dragPosRelativeToSticker.inv());
+      
+      // Apply alignment (grid snap + edge alignment)
+      const canvasBounds = host.getBounds();
+      const alignmentEnabled = (host as any).alignmentEnabled !== undefined ? (host as any).alignmentEnabled : true;
+      const alignmentResult = StickerAlignmentHelper.calculateAlignedPosition(
+        originalPosition,
+        canvasBounds,
+        alignmentEnabled
+      );
+      
+      // Store guidelines for rendering
+      this.currentAlignmentGuidelines = alignmentResult.guidelines || [];
+      
+      // Debug: Log when guidelines are active
+      if (this.currentAlignmentGuidelines.length > 0) {
+        console.log('Alignment guidelines active:', alignmentResult.snapType, this.currentAlignmentGuidelines);
+      }
+      
+      stickers[this.draggingIndex].pos = alignmentResult.position;
+
+      // Update sticker info popup during drag
+      const canvasPos = (host as any).absoluteOnPage?.(pos) || pos;
+      (host as any).updateStickerInfoPopup?.(canvasPos, alignmentResult.position, stickers[this.draggingIndex].scaleFactor || 1.0, stickers[this.draggingIndex].rotationAngle || 0);
 
       host.setProperty(STICKERS, stickers);
       return true;
@@ -164,16 +230,25 @@ export class StickerInteractionHandler implements InteractionHandler {
         return false;
       }
       let anyStickerSelected: boolean = false;
+      let selectedIndex: number = -1;
+      
+      // First pass: find the clicked sticker and deselect all
       for (let index = 0; index < stickers.length; index++) {
         const sticker = stickers[index];
-        // only one sticker can be selected at a time
         if (this.isPosWithinStickerBounds(sticker, pos) && !anyStickerSelected) {
-          stickers[index].selected = true;
-          host.toggleStickerEditMode(true);
+          selectedIndex = index;
           anyStickerSelected = true;
-        } else {
-          stickers[index].selected = false;
         }
+        stickers[index].selected = false;
+      }
+      
+      // If a sticker was clicked, move it to top and select it
+      if (selectedIndex >= 0) {
+        const stickerToMove = stickers.splice(selectedIndex, 1)[0];
+        stickers.push(stickerToMove);
+        stickerToMove.selected = true;
+        host.toggleStickerEditMode(true);
+        host.setProperty(STICKERS, stickers);
       }
       if (!anyStickerSelected) {
         host.toggleStickerEditMode(false);

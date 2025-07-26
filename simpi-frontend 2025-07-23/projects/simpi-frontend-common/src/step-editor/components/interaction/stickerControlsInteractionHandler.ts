@@ -53,10 +53,20 @@ export class StickerControlsInteractionHandler implements InteractionHandler {
     if (rotateControlCenter.distance(pos) < radius) {
       this.rotating = true;
       this.rotateOrScaleStickerIndex = selectedStickerIndex;
+      
+      // Show sticker info popup for rotation
+      const canvasPos = (host as any).absoluteOnPage?.(pos) || pos;
+      (host as any).showStickerInfoPopup?.(canvasPos, sticker.pos, sticker.scaleFactor || 1.0, sticker.rotationAngle || 0);
+      
       return true;
     } else if (scaleControlCenter.distance(pos) < radius) {
       this.scaling = true;
       this.rotateOrScaleStickerIndex = selectedStickerIndex;
+      
+      // Show sticker info popup for scaling
+      const canvasPos = (host as any).absoluteOnPage?.(pos) || pos;
+      (host as any).showStickerInfoPopup?.(canvasPos, sticker.pos, sticker.scaleFactor || 1.0, sticker.rotationAngle || 0);
+      
       return true;
     }
 
@@ -74,12 +84,20 @@ export class StickerControlsInteractionHandler implements InteractionHandler {
     if (this.rotating) {
       this.rotateOrScaleStickerIndex = -1;
       this.rotating = false;
+      
+      // Hide sticker info popup when rotation ends
+      (host as any).hideStickerInfoPopup?.();
+      
       return true;
     }
 
     if (this.scaling) {
       this.rotateOrScaleStickerIndex = -1;
       this.scaling = false;
+      
+      // Hide sticker info popup when scaling ends
+      (host as any).hideStickerInfoPopup?.();
+      
       return true;
     }
 
@@ -97,9 +115,16 @@ export class StickerControlsInteractionHandler implements InteractionHandler {
 
     if (this.rotateOrScaleStickerIndex > -1) {
       if (this.rotating) {
-        const stickerPos: Vector2 = stickers[this.rotateOrScaleStickerIndex].pos;
+        const sticker: StickerInfo = stickers[this.rotateOrScaleStickerIndex];
+        const stickerPos: Vector2 = sticker.pos;
         const distance = pos.add(stickerPos.inv());
-        stickers[this.rotateOrScaleStickerIndex].rotationAngle = Math.atan2(distance.y, distance.x) + 0.5 * Math.PI;
+        const newRotation = Math.atan2(distance.y, distance.x) + 0.5 * Math.PI;
+        stickers[this.rotateOrScaleStickerIndex].rotationAngle = newRotation;
+        
+        // Update sticker info popup during rotation
+        const canvasPos = (host as any).absoluteOnPage?.(pos) || pos;
+        (host as any).updateStickerInfoPopup?.(canvasPos, sticker.pos, sticker.scaleFactor || 1.0, newRotation);
+        
         host.setProperty(STICKERS, stickers);
         return true;
       }
@@ -111,6 +136,11 @@ export class StickerControlsInteractionHandler implements InteractionHandler {
         const draggedDistance: number = sticker.pos.distance(pos);
         const newScaleFactor: number = Math.max(draggedDistance / initialDistance, MIN_STICKER_SCALE_FACTOR);
         stickers[this.rotateOrScaleStickerIndex].scaleFactor = newScaleFactor;
+        
+        // Update sticker info popup during scaling
+        const canvasPos = (host as any).absoluteOnPage?.(pos) || pos;
+        (host as any).updateStickerInfoPopup?.(canvasPos, sticker.pos, newScaleFactor, sticker.rotationAngle || 0);
+        
         host.setProperty(STICKERS, stickers);
         return true;
       }

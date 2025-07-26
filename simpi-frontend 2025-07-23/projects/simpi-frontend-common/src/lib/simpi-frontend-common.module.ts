@@ -20,6 +20,7 @@ import { TranslationPanelComponent } from './components/simpi-settings/translati
 import { SimSwitchComponent } from "../../../simpi-frontend-web/src/app/shared/components/sim-switch/sim-switch.component"
 import { StickerSettingsComponent } from '../step-editor/components/sticker-settings/sticker-settings.component';
 import { SimpiCheckboxInputComponent } from './components/simpi-checkbox-input/simpi-checkbox-input.component';
+import { StickerInfoPopupComponent } from '../step-editor/components/sticker-info-popup/sticker-info-popup.component';
 
 const sharedComponents = [
   StepEditorComponent,
@@ -38,6 +39,7 @@ const sharedComponents = [
   TranslationPanelComponent,
   SimSwitchComponent,
   StickerSettingsComponent,
+  StickerInfoPopupComponent,
 ];
 
 @NgModule({

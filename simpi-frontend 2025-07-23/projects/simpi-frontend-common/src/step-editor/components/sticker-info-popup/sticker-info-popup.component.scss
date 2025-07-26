@@ -1,0 +1,35 @@
+.sticker-info-popup {
+  position: fixed;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  line-height: 1.4;
+  z-index: 9999;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  min-width: 80px;
+  white-space: nowrap;
+}
+
+.info-line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}
+
+.info-line:last-child {
+  margin-bottom: 0;
+}
+
+.label {
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.value {
+  text-align: right;
+  font-weight: normal;
+}

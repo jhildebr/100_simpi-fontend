@@ -1051,3 +1051,1694 @@ projects_simpi-frontend-web_src_app_steps_steps_module_ts.js | steps-steps-modul
 Build at: 2025-07-25T22:16:17.629Z - Hash: b07dc3761a63a4fd - Time: 529ms
 
 ✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.60 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:06:32.844Z - Hash: 6800034656dce198 - Time: 3444ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.60 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:06:42.767Z - Hash: 79e7ab220264638b - Time: 470ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.60 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:06:54.089Z - Hash: 0f8a57b890820811 - Time: 631ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.60 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:07:02.004Z - Hash: 44690e811aa86d71 - Time: 458ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                          | Names              |  Raw size
+main.js                                                      | main               |   1.60 MB | 
+runtime.js                                                   | runtime            |  12.94 kB | 
+
+Lazy chunk files                                             | Names              |  Raw size
+projects_simpi-frontend-web_src_app_steps_steps_module_ts.js | steps-steps-module | 306.25 kB | 
+
+12 unchanged chunks
+
+Build at: 2025-07-26T22:09:26.284Z - Hash: af1a81c32540b08d - Time: 1035ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.60 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:12:24.945Z - Hash: a3fd8a0b8d753845 - Time: 949ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.61 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:14:11.842Z - Hash: 4ca9ac33dd17db3c - Time: 586ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.61 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:15:34.691Z - Hash: 4bdf2538950def7c - Time: 477ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.61 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:23:19.554Z - Hash: 4c86fd32b1117f42 - Time: 852ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.61 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:23:29.014Z - Hash: 2029b7e7a3a19ab1 - Time: 553ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.61 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:24:54.833Z - Hash: faee55e43fdb1ea9 - Time: 1187ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.61 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:25:29.488Z - Hash: f5e1c5c03f876f0a - Time: 866ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.61 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:26:04.624Z - Hash: 6aa29ef9d7de5111 - Time: 663ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.61 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:26:15.426Z - Hash: a28b57fe051560c8 - Time: 487ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.61 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:26:27.031Z - Hash: 27ea551254667696 - Time: 482ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.61 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:26:41.141Z - Hash: 8d0e55d94ee0e69b - Time: 833ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.61 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:26:48.005Z - Hash: 38d19937e2ee7dbe - Time: 568ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.61 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:27:20.525Z - Hash: 74a97eb448c1fbed - Time: 624ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.61 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:27:34.921Z - Hash: c90c3766bbb3e80c - Time: 652ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.62 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:27:44.022Z - Hash: 389959c141c6560a - Time: 689ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.62 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:30:25.033Z - Hash: c5dede5ccf18fa66 - Time: 587ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.62 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:30:33.711Z - Hash: dc043e8f423a58a1 - Time: 546ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.62 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:34:59.018Z - Hash: 8f8976a097a4747f - Time: 613ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.62 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:35:07.962Z - Hash: 55ddd04297e42f9a - Time: 750ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.62 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:35:15.926Z - Hash: 4507fde673b0210c - Time: 473ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.62 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:40:39.621Z - Hash: 7bde3ab489c5f743 - Time: 809ms
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m28[0m:[93m3[0m - [91merror[0m[90m NG8001: [0m'sim-sticker-info-popup' is not a known element:
+1. If 'sim-sticker-info-popup' is an Angular component, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+
+[7m28[0m   <sim-sticker-info-popup
+[7m  [0m [91m  ~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m29[0m     [visible]="stickerInfoPopup.visible"
+[7m  [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m30[0m     [position]="stickerInfoPopup.position"
+[7m  [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m31[0m     [data]="stickerInfoPopup.data">
+[7m  [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m65[0m:[93m16[0m
+    [7m65[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m29[0m:[93m5[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'visible' since it isn't a known property of 'sim-sticker-info-popup'.
+1. If 'sim-sticker-info-popup' is an Angular component and it has 'visible' input, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m29[0m     [visible]="stickerInfoPopup.visible"
+[7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m65[0m:[93m16[0m
+    [7m65[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m29[0m:[93m16[0m - [91merror[0m[90m TS2551: [0mProperty 'stickerInfoPopup' does not exist on type 'StepEditorComponent'. Did you mean 'stickerActionPopup'?
+
+[7m29[0m     [visible]="stickerInfoPopup.visible"
+[7m  [0m [91m               ~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m65[0m:[93m16[0m
+    [7m65[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m30[0m:[93m5[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'position' since it isn't a known property of 'sim-sticker-info-popup'.
+1. If 'sim-sticker-info-popup' is an Angular component and it has 'position' input, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m30[0m     [position]="stickerInfoPopup.position"
+[7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m65[0m:[93m16[0m
+    [7m65[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m30[0m:[93m17[0m - [91merror[0m[90m TS2551: [0mProperty 'stickerInfoPopup' does not exist on type 'StepEditorComponent'. Did you mean 'stickerActionPopup'?
+
+[7m30[0m     [position]="stickerInfoPopup.position"
+[7m  [0m [91m                ~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m65[0m:[93m16[0m
+    [7m65[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m31[0m:[93m5[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'data' since it isn't a known property of 'sim-sticker-info-popup'.
+1. If 'sim-sticker-info-popup' is an Angular component and it has 'data' input, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m31[0m     [data]="stickerInfoPopup.data">
+[7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m65[0m:[93m16[0m
+    [7m65[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m31[0m:[93m13[0m - [91merror[0m[90m TS2551: [0mProperty 'stickerInfoPopup' does not exist on type 'StepEditorComponent'. Did you mean 'stickerActionPopup'?
+
+[7m31[0m     [data]="stickerInfoPopup.data">
+[7m  [0m [91m            ~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m65[0m:[93m16[0m
+    [7m65[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.62 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:40:48.386Z - Hash: dd83d4725f747f17 - Time: 653ms
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m28[0m:[93m3[0m - [91merror[0m[90m NG8001: [0m'sim-sticker-info-popup' is not a known element:
+1. If 'sim-sticker-info-popup' is an Angular component, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+
+[7m28[0m   <sim-sticker-info-popup
+[7m  [0m [91m  ~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m29[0m     [visible]="stickerInfoPopup.visible"
+[7m  [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m30[0m     [position]="stickerInfoPopup.position"
+[7m  [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m31[0m     [data]="stickerInfoPopup.data">
+[7m  [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m29[0m:[93m5[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'visible' since it isn't a known property of 'sim-sticker-info-popup'.
+1. If 'sim-sticker-info-popup' is an Angular component and it has 'visible' input, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m29[0m     [visible]="stickerInfoPopup.visible"
+[7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m29[0m:[93m16[0m - [91merror[0m[90m TS2551: [0mProperty 'stickerInfoPopup' does not exist on type 'StepEditorComponent'. Did you mean 'stickerActionPopup'?
+
+[7m29[0m     [visible]="stickerInfoPopup.visible"
+[7m  [0m [91m               ~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m30[0m:[93m5[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'position' since it isn't a known property of 'sim-sticker-info-popup'.
+1. If 'sim-sticker-info-popup' is an Angular component and it has 'position' input, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m30[0m     [position]="stickerInfoPopup.position"
+[7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m30[0m:[93m17[0m - [91merror[0m[90m TS2551: [0mProperty 'stickerInfoPopup' does not exist on type 'StepEditorComponent'. Did you mean 'stickerActionPopup'?
+
+[7m30[0m     [position]="stickerInfoPopup.position"
+[7m  [0m [91m                ~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m31[0m:[93m5[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'data' since it isn't a known property of 'sim-sticker-info-popup'.
+1. If 'sim-sticker-info-popup' is an Angular component and it has 'data' input, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m31[0m     [data]="stickerInfoPopup.data">
+[7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m31[0m:[93m13[0m - [91merror[0m[90m TS2551: [0mProperty 'stickerInfoPopup' does not exist on type 'StepEditorComponent'. Did you mean 'stickerActionPopup'?
+
+[7m31[0m     [data]="stickerInfoPopup.data">
+[7m  [0m [91m            ~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.62 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:40:55.654Z - Hash: 64531d53f0e03dbb - Time: 793ms
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m28[0m:[93m3[0m - [91merror[0m[90m NG8001: [0m'sim-sticker-info-popup' is not a known element:
+1. If 'sim-sticker-info-popup' is an Angular component, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+
+[7m28[0m   <sim-sticker-info-popup
+[7m  [0m [91m  ~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m29[0m     [visible]="stickerInfoPopup.visible"
+[7m  [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m30[0m     [position]="stickerInfoPopup.position"
+[7m  [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m31[0m     [data]="stickerInfoPopup.data">
+[7m  [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m29[0m:[93m5[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'visible' since it isn't a known property of 'sim-sticker-info-popup'.
+1. If 'sim-sticker-info-popup' is an Angular component and it has 'visible' input, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m29[0m     [visible]="stickerInfoPopup.visible"
+[7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m30[0m:[93m5[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'position' since it isn't a known property of 'sim-sticker-info-popup'.
+1. If 'sim-sticker-info-popup' is an Angular component and it has 'position' input, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m30[0m     [position]="stickerInfoPopup.position"
+[7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m31[0m:[93m5[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'data' since it isn't a known property of 'sim-sticker-info-popup'.
+1. If 'sim-sticker-info-popup' is an Angular component and it has 'data' input, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m31[0m     [data]="stickerInfoPopup.data">
+[7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.62 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:41:41.609Z - Hash: 48a4b6d357a38ead - Time: 819ms
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m28[0m:[93m3[0m - [91merror[0m[90m NG8001: [0m'sim-sticker-info-popup' is not a known element:
+1. If 'sim-sticker-info-popup' is an Angular component, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+
+[7m28[0m   <sim-sticker-info-popup
+[7m  [0m [91m  ~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m29[0m     [visible]="stickerInfoPopup.visible"
+[7m  [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m30[0m     [position]="stickerInfoPopup.position"
+[7m  [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m31[0m     [data]="stickerInfoPopup.data">
+[7m  [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m29[0m:[93m5[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'visible' since it isn't a known property of 'sim-sticker-info-popup'.
+1. If 'sim-sticker-info-popup' is an Angular component and it has 'visible' input, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m29[0m     [visible]="stickerInfoPopup.visible"
+[7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m30[0m:[93m5[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'position' since it isn't a known property of 'sim-sticker-info-popup'.
+1. If 'sim-sticker-info-popup' is an Angular component and it has 'position' input, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m30[0m     [position]="stickerInfoPopup.position"
+[7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m31[0m:[93m5[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'data' since it isn't a known property of 'sim-sticker-info-popup'.
+1. If 'sim-sticker-info-popup' is an Angular component and it has 'data' input, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m31[0m     [data]="stickerInfoPopup.data">
+[7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.62 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:42:27.929Z - Hash: fec7d4e0dee70ec4 - Time: 757ms
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/interaction/stickerInteractionHandler.ts[0m:[93m82[0m:[93m34[0m - [91merror[0m[90m TS2339: [0mProperty 'absoluteOnPage' does not exist on type 'InteractionHost'.
+
+[7m82[0m           const canvasPos = host.absoluteOnPage(pos);
+[7m  [0m [91m                                 ~~~~~~~~~~~~~~[0m
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m28[0m:[93m3[0m - [91merror[0m[90m NG8001: [0m'sim-sticker-info-popup' is not a known element:
+1. If 'sim-sticker-info-popup' is an Angular component, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+
+[7m28[0m   <sim-sticker-info-popup
+[7m  [0m [91m  ~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m29[0m     [visible]="stickerInfoPopup.visible"
+[7m  [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m30[0m     [position]="stickerInfoPopup.position"
+[7m  [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m31[0m     [data]="stickerInfoPopup.data">
+[7m  [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m29[0m:[93m5[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'visible' since it isn't a known property of 'sim-sticker-info-popup'.
+1. If 'sim-sticker-info-popup' is an Angular component and it has 'visible' input, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m29[0m     [visible]="stickerInfoPopup.visible"
+[7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m30[0m:[93m5[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'position' since it isn't a known property of 'sim-sticker-info-popup'.
+1. If 'sim-sticker-info-popup' is an Angular component and it has 'position' input, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m30[0m     [position]="stickerInfoPopup.position"
+[7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m31[0m:[93m5[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'data' since it isn't a known property of 'sim-sticker-info-popup'.
+1. If 'sim-sticker-info-popup' is an Angular component and it has 'data' input, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m31[0m     [data]="stickerInfoPopup.data">
+[7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.62 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:42:36.285Z - Hash: 044b72299080018a - Time: 530ms
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/interaction/stickerInteractionHandler.ts[0m:[93m82[0m:[93m34[0m - [91merror[0m[90m TS2339: [0mProperty 'absoluteOnPage' does not exist on type 'InteractionHost'.
+
+[7m82[0m           const canvasPos = host.absoluteOnPage(pos);
+[7m  [0m [91m                                 ~~~~~~~~~~~~~~[0m
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/interaction/stickerInteractionHandler.ts[0m:[93m183[0m:[93m30[0m - [91merror[0m[90m TS2339: [0mProperty 'absoluteOnPage' does not exist on type 'InteractionHost'.
+
+[7m183[0m       const canvasPos = host.absoluteOnPage(pos);
+[7m   [0m [91m                             ~~~~~~~~~~~~~~[0m
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m28[0m:[93m3[0m - [91merror[0m[90m NG8001: [0m'sim-sticker-info-popup' is not a known element:
+1. If 'sim-sticker-info-popup' is an Angular component, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+
+[7m28[0m   <sim-sticker-info-popup
+[7m  [0m [91m  ~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m29[0m     [visible]="stickerInfoPopup.visible"
+[7m  [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m30[0m     [position]="stickerInfoPopup.position"
+[7m  [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m31[0m     [data]="stickerInfoPopup.data">
+[7m  [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m29[0m:[93m5[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'visible' since it isn't a known property of 'sim-sticker-info-popup'.
+1. If 'sim-sticker-info-popup' is an Angular component and it has 'visible' input, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m29[0m     [visible]="stickerInfoPopup.visible"
+[7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m30[0m:[93m5[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'position' since it isn't a known property of 'sim-sticker-info-popup'.
+1. If 'sim-sticker-info-popup' is an Angular component and it has 'position' input, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m30[0m     [position]="stickerInfoPopup.position"
+[7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m31[0m:[93m5[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'data' since it isn't a known property of 'sim-sticker-info-popup'.
+1. If 'sim-sticker-info-popup' is an Angular component and it has 'data' input, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m31[0m     [data]="stickerInfoPopup.data">
+[7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.62 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:42:42.147Z - Hash: 7f93df66224ecad2 - Time: 398ms
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/interaction/stickerInteractionHandler.ts[0m:[93m82[0m:[93m34[0m - [91merror[0m[90m TS2339: [0mProperty 'absoluteOnPage' does not exist on type 'InteractionHost'.
+
+[7m82[0m           const canvasPos = host.absoluteOnPage(pos);
+[7m  [0m [91m                                 ~~~~~~~~~~~~~~[0m
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/interaction/stickerInteractionHandler.ts[0m:[93m186[0m:[93m30[0m - [91merror[0m[90m TS2339: [0mProperty 'absoluteOnPage' does not exist on type 'InteractionHost'.
+
+[7m186[0m       const canvasPos = host.absoluteOnPage(pos);
+[7m   [0m [91m                             ~~~~~~~~~~~~~~[0m
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m28[0m:[93m3[0m - [91merror[0m[90m NG8001: [0m'sim-sticker-info-popup' is not a known element:
+1. If 'sim-sticker-info-popup' is an Angular component, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+
+[7m28[0m   <sim-sticker-info-popup
+[7m  [0m [91m  ~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m29[0m     [visible]="stickerInfoPopup.visible"
+[7m  [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m30[0m     [position]="stickerInfoPopup.position"
+[7m  [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m31[0m     [data]="stickerInfoPopup.data">
+[7m  [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m29[0m:[93m5[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'visible' since it isn't a known property of 'sim-sticker-info-popup'.
+1. If 'sim-sticker-info-popup' is an Angular component and it has 'visible' input, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m29[0m     [visible]="stickerInfoPopup.visible"
+[7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m30[0m:[93m5[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'position' since it isn't a known property of 'sim-sticker-info-popup'.
+1. If 'sim-sticker-info-popup' is an Angular component and it has 'position' input, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m30[0m     [position]="stickerInfoPopup.position"
+[7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m31[0m:[93m5[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'data' since it isn't a known property of 'sim-sticker-info-popup'.
+1. If 'sim-sticker-info-popup' is an Angular component and it has 'data' input, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m31[0m     [data]="stickerInfoPopup.data">
+[7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.62 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:43:36.741Z - Hash: 3173dae7b07ebb67 - Time: 870ms
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/interaction/stickerControlsInteractionHandler.ts[0m:[93m62[0m:[93m30[0m - [91merror[0m[90m TS2339: [0mProperty 'absoluteOnPage' does not exist on type 'InteractionHost'.
+
+[7m62[0m       const canvasPos = host.absoluteOnPage(pos);
+[7m  [0m [91m                             ~~~~~~~~~~~~~~[0m
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/interaction/stickerInteractionHandler.ts[0m:[93m82[0m:[93m34[0m - [91merror[0m[90m TS2339: [0mProperty 'absoluteOnPage' does not exist on type 'InteractionHost'.
+
+[7m82[0m           const canvasPos = host.absoluteOnPage(pos);
+[7m  [0m [91m                                 ~~~~~~~~~~~~~~[0m
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/interaction/stickerInteractionHandler.ts[0m:[93m186[0m:[93m30[0m - [91merror[0m[90m TS2339: [0mProperty 'absoluteOnPage' does not exist on type 'InteractionHost'.
+
+[7m186[0m       const canvasPos = host.absoluteOnPage(pos);
+[7m   [0m [91m                             ~~~~~~~~~~~~~~[0m
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m28[0m:[93m3[0m - [91merror[0m[90m NG8001: [0m'sim-sticker-info-popup' is not a known element:
+1. If 'sim-sticker-info-popup' is an Angular component, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+
+[7m28[0m   <sim-sticker-info-popup
+[7m  [0m [91m  ~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m29[0m     [visible]="stickerInfoPopup.visible"
+[7m  [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m30[0m     [position]="stickerInfoPopup.position"
+[7m  [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m31[0m     [data]="stickerInfoPopup.data">
+[7m  [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m29[0m:[93m5[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'visible' since it isn't a known property of 'sim-sticker-info-popup'.
+1. If 'sim-sticker-info-popup' is an Angular component and it has 'visible' input, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m29[0m     [visible]="stickerInfoPopup.visible"
+[7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m30[0m:[93m5[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'position' since it isn't a known property of 'sim-sticker-info-popup'.
+1. If 'sim-sticker-info-popup' is an Angular component and it has 'position' input, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m30[0m     [position]="stickerInfoPopup.position"
+[7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m31[0m:[93m5[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'data' since it isn't a known property of 'sim-sticker-info-popup'.
+1. If 'sim-sticker-info-popup' is an Angular component and it has 'data' input, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m31[0m     [data]="stickerInfoPopup.data">
+[7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.62 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:43:44.487Z - Hash: 324b1e152d1a4d39 - Time: 550ms
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/interaction/stickerControlsInteractionHandler.ts[0m:[93m62[0m:[93m30[0m - [91merror[0m[90m TS2339: [0mProperty 'absoluteOnPage' does not exist on type 'InteractionHost'.
+
+[7m62[0m       const canvasPos = host.absoluteOnPage(pos);
+[7m  [0m [91m                             ~~~~~~~~~~~~~~[0m
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/interaction/stickerControlsInteractionHandler.ts[0m:[93m121[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'absoluteOnPage' does not exist on type 'InteractionHost'.
+
+[7m121[0m         const canvasPos = host.absoluteOnPage(pos);
+[7m   [0m [91m                               ~~~~~~~~~~~~~~[0m
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/interaction/stickerInteractionHandler.ts[0m:[93m82[0m:[93m34[0m - [91merror[0m[90m TS2339: [0mProperty 'absoluteOnPage' does not exist on type 'InteractionHost'.
+
+[7m82[0m           const canvasPos = host.absoluteOnPage(pos);
+[7m  [0m [91m                                 ~~~~~~~~~~~~~~[0m
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/interaction/stickerInteractionHandler.ts[0m:[93m186[0m:[93m30[0m - [91merror[0m[90m TS2339: [0mProperty 'absoluteOnPage' does not exist on type 'InteractionHost'.
+
+[7m186[0m       const canvasPos = host.absoluteOnPage(pos);
+[7m   [0m [91m                             ~~~~~~~~~~~~~~[0m
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m28[0m:[93m3[0m - [91merror[0m[90m NG8001: [0m'sim-sticker-info-popup' is not a known element:
+1. If 'sim-sticker-info-popup' is an Angular component, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+
+[7m28[0m   <sim-sticker-info-popup
+[7m  [0m [91m  ~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m29[0m     [visible]="stickerInfoPopup.visible"
+[7m  [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m30[0m     [position]="stickerInfoPopup.position"
+[7m  [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m31[0m     [data]="stickerInfoPopup.data">
+[7m  [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m29[0m:[93m5[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'visible' since it isn't a known property of 'sim-sticker-info-popup'.
+1. If 'sim-sticker-info-popup' is an Angular component and it has 'visible' input, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m29[0m     [visible]="stickerInfoPopup.visible"
+[7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m30[0m:[93m5[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'position' since it isn't a known property of 'sim-sticker-info-popup'.
+1. If 'sim-sticker-info-popup' is an Angular component and it has 'position' input, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m30[0m     [position]="stickerInfoPopup.position"
+[7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m31[0m:[93m5[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'data' since it isn't a known property of 'sim-sticker-info-popup'.
+1. If 'sim-sticker-info-popup' is an Angular component and it has 'data' input, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m31[0m     [data]="stickerInfoPopup.data">
+[7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.62 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:43:51.809Z - Hash: 7e3566097189700d - Time: 621ms
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/interaction/stickerControlsInteractionHandler.ts[0m:[93m62[0m:[93m30[0m - [91merror[0m[90m TS2339: [0mProperty 'absoluteOnPage' does not exist on type 'InteractionHost'.
+
+[7m62[0m       const canvasPos = host.absoluteOnPage(pos);
+[7m  [0m [91m                             ~~~~~~~~~~~~~~[0m
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/interaction/stickerControlsInteractionHandler.ts[0m:[93m125[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'absoluteOnPage' does not exist on type 'InteractionHost'.
+
+[7m125[0m         const canvasPos = host.absoluteOnPage(pos);
+[7m   [0m [91m                               ~~~~~~~~~~~~~~[0m
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/interaction/stickerInteractionHandler.ts[0m:[93m82[0m:[93m34[0m - [91merror[0m[90m TS2339: [0mProperty 'absoluteOnPage' does not exist on type 'InteractionHost'.
+
+[7m82[0m           const canvasPos = host.absoluteOnPage(pos);
+[7m  [0m [91m                                 ~~~~~~~~~~~~~~[0m
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/interaction/stickerInteractionHandler.ts[0m:[93m186[0m:[93m30[0m - [91merror[0m[90m TS2339: [0mProperty 'absoluteOnPage' does not exist on type 'InteractionHost'.
+
+[7m186[0m       const canvasPos = host.absoluteOnPage(pos);
+[7m   [0m [91m                             ~~~~~~~~~~~~~~[0m
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m28[0m:[93m3[0m - [91merror[0m[90m NG8001: [0m'sim-sticker-info-popup' is not a known element:
+1. If 'sim-sticker-info-popup' is an Angular component, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+
+[7m28[0m   <sim-sticker-info-popup
+[7m  [0m [91m  ~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m29[0m     [visible]="stickerInfoPopup.visible"
+[7m  [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m30[0m     [position]="stickerInfoPopup.position"
+[7m  [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m31[0m     [data]="stickerInfoPopup.data">
+[7m  [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m29[0m:[93m5[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'visible' since it isn't a known property of 'sim-sticker-info-popup'.
+1. If 'sim-sticker-info-popup' is an Angular component and it has 'visible' input, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m29[0m     [visible]="stickerInfoPopup.visible"
+[7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m30[0m:[93m5[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'position' since it isn't a known property of 'sim-sticker-info-popup'.
+1. If 'sim-sticker-info-popup' is an Angular component and it has 'position' input, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m30[0m     [position]="stickerInfoPopup.position"
+[7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m31[0m:[93m5[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'data' since it isn't a known property of 'sim-sticker-info-popup'.
+1. If 'sim-sticker-info-popup' is an Angular component and it has 'data' input, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m31[0m     [data]="stickerInfoPopup.data">
+[7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.62 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:46:34.793Z - Hash: 54816aec50928eb0 - Time: 1207ms
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/interaction/stickerControlsInteractionHandler.ts[0m:[93m62[0m:[93m30[0m - [91merror[0m[90m TS2339: [0mProperty 'absoluteOnPage' does not exist on type 'InteractionHost'.
+
+[7m62[0m       const canvasPos = host.absoluteOnPage(pos);
+[7m  [0m [91m                             ~~~~~~~~~~~~~~[0m
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/interaction/stickerControlsInteractionHandler.ts[0m:[93m125[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'absoluteOnPage' does not exist on type 'InteractionHost'.
+
+[7m125[0m         const canvasPos = host.absoluteOnPage(pos);
+[7m   [0m [91m                               ~~~~~~~~~~~~~~[0m
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/interaction/stickerInteractionHandler.ts[0m:[93m82[0m:[93m34[0m - [91merror[0m[90m TS2339: [0mProperty 'absoluteOnPage' does not exist on type 'InteractionHost'.
+
+[7m82[0m           const canvasPos = host.absoluteOnPage(pos);
+[7m  [0m [91m                                 ~~~~~~~~~~~~~~[0m
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/interaction/stickerInteractionHandler.ts[0m:[93m186[0m:[93m30[0m - [91merror[0m[90m TS2339: [0mProperty 'absoluteOnPage' does not exist on type 'InteractionHost'.
+
+[7m186[0m       const canvasPos = host.absoluteOnPage(pos);
+[7m   [0m [91m                             ~~~~~~~~~~~~~~[0m
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m28[0m:[93m3[0m - [91merror[0m[90m NG8001: [0m'sim-sticker-info-popup' is not a known element:
+1. If 'sim-sticker-info-popup' is an Angular component, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+
+[7m28[0m   <sim-sticker-info-popup
+[7m  [0m [91m  ~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m29[0m     [visible]="stickerInfoPopup.visible"
+[7m  [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m30[0m     [position]="stickerInfoPopup.position"
+[7m  [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m31[0m     [data]="stickerInfoPopup.data">
+[7m  [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m29[0m:[93m5[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'visible' since it isn't a known property of 'sim-sticker-info-popup'.
+1. If 'sim-sticker-info-popup' is an Angular component and it has 'visible' input, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m29[0m     [visible]="stickerInfoPopup.visible"
+[7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m30[0m:[93m5[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'position' since it isn't a known property of 'sim-sticker-info-popup'.
+1. If 'sim-sticker-info-popup' is an Angular component and it has 'position' input, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m30[0m     [position]="stickerInfoPopup.position"
+[7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.html[0m:[93m31[0m:[93m5[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'data' since it isn't a known property of 'sim-sticker-info-popup'.
+1. If 'sim-sticker-info-popup' is an Angular component and it has 'data' input, then verify that it is part of this module.
+2. If 'sim-sticker-info-popup' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
+
+[7m31[0m     [data]="stickerInfoPopup.data">
+[7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m66[0m:[93m16[0m
+    [7m66[0m   templateUrl: "step-editor.component.html",
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component StepEditorComponent.
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.63 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:46:39.603Z - Hash: 0d24cd1840a4648f - Time: 1186ms
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/interaction/stickerControlsInteractionHandler.ts[0m:[93m62[0m:[93m30[0m - [91merror[0m[90m TS2339: [0mProperty 'absoluteOnPage' does not exist on type 'InteractionHost'.
+
+[7m62[0m       const canvasPos = host.absoluteOnPage(pos);
+[7m  [0m [91m                             ~~~~~~~~~~~~~~[0m
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/interaction/stickerControlsInteractionHandler.ts[0m:[93m125[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'absoluteOnPage' does not exist on type 'InteractionHost'.
+
+[7m125[0m         const canvasPos = host.absoluteOnPage(pos);
+[7m   [0m [91m                               ~~~~~~~~~~~~~~[0m
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/interaction/stickerInteractionHandler.ts[0m:[93m82[0m:[93m34[0m - [91merror[0m[90m TS2339: [0mProperty 'absoluteOnPage' does not exist on type 'InteractionHost'.
+
+[7m82[0m           const canvasPos = host.absoluteOnPage(pos);
+[7m  [0m [91m                                 ~~~~~~~~~~~~~~[0m
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/interaction/stickerInteractionHandler.ts[0m:[93m186[0m:[93m30[0m - [91merror[0m[90m TS2339: [0mProperty 'absoluteOnPage' does not exist on type 'InteractionHost'.
+
+[7m186[0m       const canvasPos = host.absoluteOnPage(pos);
+[7m   [0m [91m                             ~~~~~~~~~~~~~~[0m
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.63 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:47:37.901Z - Hash: d1fe294d48cc82ae - Time: 478ms
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/interaction/stickerControlsInteractionHandler.ts[0m:[93m62[0m:[93m30[0m - [91merror[0m[90m TS2339: [0mProperty 'absoluteOnPage' does not exist on type 'InteractionHost'.
+
+[7m62[0m       const canvasPos = host.absoluteOnPage(pos);
+[7m  [0m [91m                             ~~~~~~~~~~~~~~[0m
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/interaction/stickerControlsInteractionHandler.ts[0m:[93m125[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'absoluteOnPage' does not exist on type 'InteractionHost'.
+
+[7m125[0m         const canvasPos = host.absoluteOnPage(pos);
+[7m   [0m [91m                               ~~~~~~~~~~~~~~[0m
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/interaction/stickerInteractionHandler.ts[0m:[93m186[0m:[93m30[0m - [91merror[0m[90m TS2339: [0mProperty 'absoluteOnPage' does not exist on type 'InteractionHost'.
+
+[7m186[0m       const canvasPos = host.absoluteOnPage(pos);
+[7m   [0m [91m                             ~~~~~~~~~~~~~~[0m
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.63 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:47:43.809Z - Hash: 85ec1bc51eeabccd - Time: 294ms
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/interaction/stickerControlsInteractionHandler.ts[0m:[93m62[0m:[93m30[0m - [91merror[0m[90m TS2339: [0mProperty 'absoluteOnPage' does not exist on type 'InteractionHost'.
+
+[7m62[0m       const canvasPos = host.absoluteOnPage(pos);
+[7m  [0m [91m                             ~~~~~~~~~~~~~~[0m
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/interaction/stickerControlsInteractionHandler.ts[0m:[93m125[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'absoluteOnPage' does not exist on type 'InteractionHost'.
+
+[7m125[0m         const canvasPos = host.absoluteOnPage(pos);
+[7m   [0m [91m                               ~~~~~~~~~~~~~~[0m
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.63 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:47:48.661Z - Hash: 39eb1f1b73b24d80 - Time: 284ms
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/interaction/stickerControlsInteractionHandler.ts[0m:[93m125[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'absoluteOnPage' does not exist on type 'InteractionHost'.
+
+[7m125[0m         const canvasPos = host.absoluteOnPage(pos);
+[7m   [0m [91m                               ~~~~~~~~~~~~~~[0m
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.63 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:47:54.661Z - Hash: 692d2714ae24454a - Time: 554ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.63 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:50:14.876Z - Hash: c6bf51f92757f337 - Time: 910ms
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m1429[0m:[93m5[0m - [91merror[0m[90m TS2741: [0mProperty 'rotation' is missing in type '{ x: number; y: number; scale: number; }' but required in type 'StickerInfoData'.
+
+[7m1429[0m     this.stickerInfoPopup.data = {
+[7m    [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/sticker-info-popup/sticker-info-popup.component.ts[0m:[93m7[0m:[93m3[0m
+    [7m7[0m   rotation: number; // Rotation angle in radians
+    [7m [0m [96m  ~~~~~~~~[0m
+    'rotation' is declared here.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m1450[0m:[93m7[0m - [91merror[0m[90m TS2741: [0mProperty 'rotation' is missing in type '{ x: number; y: number; scale: number; }' but required in type 'StickerInfoData'.
+
+[7m1450[0m       this.stickerInfoPopup.data = {
+[7m    [0m [91m      ~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/sticker-info-popup/sticker-info-popup.component.ts[0m:[93m7[0m:[93m3[0m
+    [7m7[0m   rotation: number; // Rotation angle in radians
+    [7m [0m [96m  ~~~~~~~~[0m
+    'rotation' is declared here.
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.63 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:50:19.520Z - Hash: 8c635dfde3471507 - Time: 472ms
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m1429[0m:[93m5[0m - [91merror[0m[90m TS2741: [0mProperty 'rotation' is missing in type '{ x: number; y: number; scale: number; }' but required in type 'StickerInfoData'.
+
+[7m1429[0m     this.stickerInfoPopup.data = {
+[7m    [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/sticker-info-popup/sticker-info-popup.component.ts[0m:[93m7[0m:[93m3[0m
+    [7m7[0m   rotation: number; // Rotation angle in radians
+    [7m [0m [96m  ~~~~~~~~[0m
+    'rotation' is declared here.
+
+
+Error: [96mprojects/simpi-frontend-common/src/step-editor/components/step-editor.component.ts[0m:[93m1450[0m:[93m7[0m - [91merror[0m[90m TS2741: [0mProperty 'rotation' is missing in type '{ x: number; y: number; scale: number; }' but required in type 'StickerInfoData'.
+
+[7m1450[0m       this.stickerInfoPopup.data = {
+[7m    [0m [91m      ~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-common/src/step-editor/components/sticker-info-popup/sticker-info-popup.component.ts[0m:[93m7[0m:[93m3[0m
+    [7m7[0m   rotation: number; // Rotation angle in radians
+    [7m [0m [96m  ~~~~~~~~[0m
+    'rotation' is declared here.
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.63 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:51:10.794Z - Hash: bc42a45706cbb17b - Time: 1160ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.63 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:51:16.410Z - Hash: ffc10ae0737369f0 - Time: 577ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.63 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:51:23.159Z - Hash: bd2676239586a30e - Time: 580ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.63 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:51:29.542Z - Hash: e01b90e739fbee83 - Time: 564ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.63 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:51:34.421Z - Hash: b591c63fd50d8d7a - Time: 396ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.63 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:51:47.243Z - Hash: 039e57560031154d - Time: 519ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.63 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:51:53.798Z - Hash: e6fc5a23c1649f5d - Time: 566ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.63 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:51:58.725Z - Hash: e31ce8b188ce275e - Time: 538ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.63 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:54:00.845Z - Hash: c05893adb3a78c81 - Time: 911ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.63 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:54:06.037Z - Hash: 1273ebe8c51bec37 - Time: 460ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.63 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:54:15.703Z - Hash: adbf30715cfc69dc - Time: 349ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.63 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:56:20.329Z - Hash: bb8771977761ea40 - Time: 669ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.63 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:56:35.669Z - Hash: 33679201e58d483e - Time: 467ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.63 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:57:02.296Z - Hash: c2348069fee84ac1 - Time: 496ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.63 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:57:10.847Z - Hash: 7eff7b7e484ed944 - Time: 444ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.63 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T22:57:23.279Z - Hash: 5a6b46fb2c7973e0 - Time: 538ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.63 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T23:01:30.737Z - Hash: f2fb723b2ab8668d - Time: 1342ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.63 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T23:01:53.677Z - Hash: 4a2b4a0e519f975e - Time: 582ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.63 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T23:04:37.579Z - Hash: 4e232508bb5e62eb - Time: 894ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.63 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T23:04:46.834Z - Hash: 0a685f7b60ae4fd6 - Time: 633ms
+
+✔ Compiled successfully.

@@ -25,4 +25,9 @@
                         (onSaveSettings)="onStickerSettingsChanged($event)"
                         (onDismiss)="closeStickerSettingsPopup()">
   </sim-sticker-settings>
+  <sim-sticker-info-popup 
+    [visible]="stickerInfoPopup.visible"
+    [position]="stickerInfoPopup.position"
+    [data]="stickerInfoPopup.data">
+  </sim-sticker-info-popup>
 </div>

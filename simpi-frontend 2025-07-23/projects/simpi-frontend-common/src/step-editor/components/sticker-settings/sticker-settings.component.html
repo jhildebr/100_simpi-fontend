@@ -17,6 +17,14 @@
                     type="number"
                     (change)="validateForm()">
     </sim-text-input>
+    <sim-text-input label="Size (%)"
+                    formControlName="sizePercent"
+                    inputmode="decimal"
+                    type="number"
+                    min="5"
+                    max="300"
+                    (change)="validateForm()">
+    </sim-text-input>
     <div *ngIf="showResourceProperties" class="resource-properties">
       <sim-text-input label="Link"
                       formControlName="actionTargetUrl"

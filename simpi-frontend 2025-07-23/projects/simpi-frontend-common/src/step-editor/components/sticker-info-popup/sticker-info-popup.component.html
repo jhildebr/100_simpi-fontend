@@ -1,0 +1,22 @@
+<div 
+  class="sticker-info-popup" 
+  *ngIf="visible"
+  [style.left.px]="position.x"
+  [style.top.px]="position.y">
+  <div class="info-line">
+    <span class="label">X:</span>
+    <span class="value">{{ getFormattedX() }}</span>
+  </div>
+  <div class="info-line">
+    <span class="label">Y:</span>
+    <span class="value">{{ getFormattedY() }}</span>
+  </div>
+  <div class="info-line">
+    <span class="label">Scale:</span>
+    <span class="value">{{ getFormattedScale() }}</span>
+  </div>
+  <div class="info-line">
+    <span class="label">Rotation:</span>
+    <span class="value">{{ getFormattedRotation() }}</span>
+  </div>
+</div>

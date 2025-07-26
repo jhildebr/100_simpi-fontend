@@ -1,27 +1,61 @@
+:host {
+  display: block;
+  min-height: 320px;
+  width: 100%;
+}
+
 h2 {
   font-size: 18px;
   color: var(--simpi-color-dark-blue-8);
+  margin: 0;
 }
 
 .modal-header {
   border-bottom: none;
+  padding: 15px 20px;
+}
+
+.modal-body {
+  padding: 20px 20px 15px 20px;
+  max-width: 100%;
+  overflow: hidden;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-body form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
 }
 
 .checkbox {
   display: block;
-  margin-top: 10px
+  margin-top: 5px;
 }
 
 .resource-properties {
-  margin-top: 10px
+  margin-top: 5px;
 }
 
 .submit-validation-row {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.submit-validation-row button {
+  white-space: nowrap;
+  min-width: 80px;
 }
 
 .validation-error {
-  color: var(--simpi-color-red)
+  color: var(--simpi-color-red);
+  margin: 0;
+  flex: 1;
 }
