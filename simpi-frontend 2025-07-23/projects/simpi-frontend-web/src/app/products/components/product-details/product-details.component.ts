@@ -112,7 +112,6 @@ export class ProductDetailsComponent
   
   // Enhanced drag & drop functionality
   @ViewChildren(CdkDrag) draggableItems?: QueryList<CdkDrag>;
-  public viewMode: 'grid' | 'list' = 'grid';
   public allSimpis: SimpiResponse[] = [];
   public visibleGroups: SimpiGroup[] = [];
 
@@ -291,9 +290,6 @@ export class ProductDetailsComponent
     return simpi.simpiId;
   }
 
-  public toggleViewMode(): void {
-    this.viewMode = this.viewMode === 'grid' ? 'list' : 'grid';
-  }
 
   public updateSimpiGroups(): void {
     if (!this.simpis) return;

@@ -2978,3 +2978,205 @@ runtime.js          | runtime | 12.94 kB |
 Build at: 2025-07-26T23:25:00.040Z - Hash: 7220f3971007cae6 - Time: 769ms
 
 ✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                                | Names                    |  Raw size
+runtime.js                                                         | runtime                  |  12.94 kB | 
+
+Lazy chunk files                                                   | Names                    |  Raw size
+projects_simpi-frontend-web_src_app_products_products_module_ts.js | products-products-module | 177.20 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T23:30:20.517Z - Hash: 0ff11a231a2807d5 - Time: 894ms
+
+Error: [96mprojects/simpi-frontend-web/src/app/products/components/product-details/product-details.component.html[0m:[93m22[0m:[93m21[0m - [91merror[0m[90m TS2339: [0mProperty 'viewMode' does not exist on type 'ProductDetailsComponent'.
+
+[7m22[0m         <img [src]="viewMode === 'grid' ? 'assets/svg/list.svg' : 'assets/svg/grid.svg'" alt="View mode icon">
+[7m  [0m [91m                    ~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-web/src/app/products/components/product-details/product-details.component.ts[0m:[93m38[0m:[93m16[0m
+    [7m38[0m   templateUrl: 'product-details.component.html',
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component ProductDetailsComponent.
+
+
+Error: [96mprojects/simpi-frontend-web/src/app/products/components/product-details/product-details.component.html[0m:[93m50[0m:[93m21[0m - [91merror[0m[90m TS2339: [0mProperty 'viewMode' does not exist on type 'ProductDetailsComponent'.
+
+[7m50[0m       <div [class]="viewMode === 'grid' ? 'row row-cols-lg-5 row-cols-md-4 row-cols-sm-3 row-cols-2' : 'simpi-list-container'"
+[7m  [0m [91m                    ~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-web/src/app/products/components/product-details/product-details.component.ts[0m:[93m38[0m:[93m16[0m
+    [7m38[0m   templateUrl: 'product-details.component.html',
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component ProductDetailsComponent.
+
+
+Error: [96mprojects/simpi-frontend-web/src/app/products/components/product-details/product-details.component.html[0m:[93m54[0m:[93m38[0m - [91merror[0m[90m TS2339: [0mProperty 'viewMode' does not exist on type 'ProductDetailsComponent'.
+
+[7m54[0m            [cdkDropListOrientation]="viewMode === 'grid' ? 'horizontal' : 'vertical'"
+[7m  [0m [91m                                     ~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-web/src/app/products/components/product-details/product-details.component.ts[0m:[93m38[0m:[93m16[0m
+    [7m38[0m   templateUrl: 'product-details.component.html',
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component ProductDetailsComponent.
+
+
+Error: [96mprojects/simpi-frontend-web/src/app/products/components/product-details/product-details.component.html[0m:[93m56[0m:[93m28[0m - [91merror[0m[90m TS2339: [0mProperty 'viewMode' does not exist on type 'ProductDetailsComponent'.
+
+[7m56[0m         <sim-card [class]="viewMode === 'grid' ? 'col simpi-group-form' : 'simpi-list-item'"
+[7m  [0m [91m                           ~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-web/src/app/products/components/product-details/product-details.component.ts[0m:[93m38[0m:[93m16[0m
+    [7m38[0m   templateUrl: 'product-details.component.html',
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component ProductDetailsComponent.
+
+
+Error: [96mprojects/simpi-frontend-web/src/app/products/components/product-details/product-details.component.ts[0m:[93m294[0m:[93m10[0m - [91merror[0m[90m TS2339: [0mProperty 'viewMode' does not exist on type 'ProductDetailsComponent'.
+
+[7m294[0m     this.viewMode = this.viewMode === 'grid' ? 'list' : 'grid';
+[7m   [0m [91m         ~~~~~~~~[0m
+
+
+Error: [96mprojects/simpi-frontend-web/src/app/products/components/product-details/product-details.component.ts[0m:[93m294[0m:[93m26[0m - [91merror[0m[90m TS2339: [0mProperty 'viewMode' does not exist on type 'ProductDetailsComponent'.
+
+[7m294[0m     this.viewMode = this.viewMode === 'grid' ? 'list' : 'grid';
+[7m   [0m [91m                         ~~~~~~~~[0m
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                                | Names                    |  Raw size
+runtime.js                                                         | runtime                  |  12.94 kB | 
+
+Lazy chunk files                                                   | Names                    |  Raw size
+projects_simpi-frontend-web_src_app_products_products_module_ts.js | products-products-module | 177.11 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T23:30:25.212Z - Hash: 0de692e4263127e5 - Time: 517ms
+
+Error: [96mprojects/simpi-frontend-web/src/app/products/components/product-details/product-details.component.html[0m:[93m21[0m:[93m55[0m - [91merror[0m[90m TS2339: [0mProperty 'toggleViewMode' does not exist on type 'ProductDetailsComponent'.
+
+[7m21[0m       <div class="icon-button" role="button" (click)="toggleViewMode()" title="Toggle View Mode">
+[7m  [0m [91m                                                      ~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-web/src/app/products/components/product-details/product-details.component.ts[0m:[93m38[0m:[93m16[0m
+    [7m38[0m   templateUrl: 'product-details.component.html',
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component ProductDetailsComponent.
+
+
+Error: [96mprojects/simpi-frontend-web/src/app/products/components/product-details/product-details.component.html[0m:[93m22[0m:[93m21[0m - [91merror[0m[90m TS2339: [0mProperty 'viewMode' does not exist on type 'ProductDetailsComponent'.
+
+[7m22[0m         <img [src]="viewMode === 'grid' ? 'assets/svg/list.svg' : 'assets/svg/grid.svg'" alt="View mode icon">
+[7m  [0m [91m                    ~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-web/src/app/products/components/product-details/product-details.component.ts[0m:[93m38[0m:[93m16[0m
+    [7m38[0m   templateUrl: 'product-details.component.html',
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component ProductDetailsComponent.
+
+
+Error: [96mprojects/simpi-frontend-web/src/app/products/components/product-details/product-details.component.html[0m:[93m50[0m:[93m21[0m - [91merror[0m[90m TS2339: [0mProperty 'viewMode' does not exist on type 'ProductDetailsComponent'.
+
+[7m50[0m       <div [class]="viewMode === 'grid' ? 'row row-cols-lg-5 row-cols-md-4 row-cols-sm-3 row-cols-2' : 'simpi-list-container'"
+[7m  [0m [91m                    ~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-web/src/app/products/components/product-details/product-details.component.ts[0m:[93m38[0m:[93m16[0m
+    [7m38[0m   templateUrl: 'product-details.component.html',
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component ProductDetailsComponent.
+
+
+Error: [96mprojects/simpi-frontend-web/src/app/products/components/product-details/product-details.component.html[0m:[93m54[0m:[93m38[0m - [91merror[0m[90m TS2339: [0mProperty 'viewMode' does not exist on type 'ProductDetailsComponent'.
+
+[7m54[0m            [cdkDropListOrientation]="viewMode === 'grid' ? 'horizontal' : 'vertical'"
+[7m  [0m [91m                                     ~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-web/src/app/products/components/product-details/product-details.component.ts[0m:[93m38[0m:[93m16[0m
+    [7m38[0m   templateUrl: 'product-details.component.html',
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component ProductDetailsComponent.
+
+
+Error: [96mprojects/simpi-frontend-web/src/app/products/components/product-details/product-details.component.html[0m:[93m56[0m:[93m28[0m - [91merror[0m[90m TS2339: [0mProperty 'viewMode' does not exist on type 'ProductDetailsComponent'.
+
+[7m56[0m         <sim-card [class]="viewMode === 'grid' ? 'col simpi-group-form' : 'simpi-list-item'"
+[7m  [0m [91m                           ~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-web/src/app/products/components/product-details/product-details.component.ts[0m:[93m38[0m:[93m16[0m
+    [7m38[0m   templateUrl: 'product-details.component.html',
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component ProductDetailsComponent.
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                                | Names                    |  Raw size
+runtime.js                                                         | runtime                  |  12.94 kB | 
+
+Lazy chunk files                                                   | Names                    |  Raw size
+projects_simpi-frontend-web_src_app_products_products_module_ts.js | products-products-module | 175.96 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T23:30:43.638Z - Hash: b9ccfe8c6d3a6359 - Time: 583ms
+
+Error: [96mprojects/simpi-frontend-web/src/app/products/components/product-details/product-details.component.html[0m:[93m47[0m:[93m21[0m - [91merror[0m[90m TS2339: [0mProperty 'viewMode' does not exist on type 'ProductDetailsComponent'.
+
+[7m47[0m       <div [class]="viewMode === 'grid' ? 'row row-cols-lg-5 row-cols-md-4 row-cols-sm-3 row-cols-2' : 'simpi-list-container'"
+[7m  [0m [91m                    ~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-web/src/app/products/components/product-details/product-details.component.ts[0m:[93m38[0m:[93m16[0m
+    [7m38[0m   templateUrl: 'product-details.component.html',
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component ProductDetailsComponent.
+
+
+Error: [96mprojects/simpi-frontend-web/src/app/products/components/product-details/product-details.component.html[0m:[93m51[0m:[93m38[0m - [91merror[0m[90m TS2339: [0mProperty 'viewMode' does not exist on type 'ProductDetailsComponent'.
+
+[7m51[0m            [cdkDropListOrientation]="viewMode === 'grid' ? 'horizontal' : 'vertical'"
+[7m  [0m [91m                                     ~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-web/src/app/products/components/product-details/product-details.component.ts[0m:[93m38[0m:[93m16[0m
+    [7m38[0m   templateUrl: 'product-details.component.html',
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component ProductDetailsComponent.
+
+
+Error: [96mprojects/simpi-frontend-web/src/app/products/components/product-details/product-details.component.html[0m:[93m53[0m:[93m28[0m - [91merror[0m[90m TS2339: [0mProperty 'viewMode' does not exist on type 'ProductDetailsComponent'.
+
+[7m53[0m         <sim-card [class]="viewMode === 'grid' ? 'col simpi-group-form' : 'simpi-list-item'"
+[7m  [0m [91m                           ~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-web/src/app/products/components/product-details/product-details.component.ts[0m:[93m38[0m:[93m16[0m
+    [7m38[0m   templateUrl: 'product-details.component.html',
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component ProductDetailsComponent.
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                                | Names                    |  Raw size
+runtime.js                                                         | runtime                  |  12.94 kB | 
+
+Lazy chunk files                                                   | Names                    |  Raw size
+projects_simpi-frontend-web_src_app_products_products_module_ts.js | products-products-module | 175.62 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-26T23:31:04.796Z - Hash: 36b21a521ab85d69 - Time: 632ms
+
+✔ Compiled successfully.
