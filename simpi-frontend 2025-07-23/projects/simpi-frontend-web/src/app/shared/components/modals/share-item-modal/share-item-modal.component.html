@@ -5,15 +5,20 @@
     </button>
 </div>
 <div class="modal-body">
-    <div class="share-content">
+    <div class="qr-code-container">
+        <div #outerQrCode class="qr-code-element" style="position: relative; transform: rotate(-3.5deg) scale(0.9) translate(0, 40px); cursor: pointer;" (click)="openLink()">
+            <div #innerQrCode class="qr-code-inner"></div>
+        </div>
+    </div>
+    <div class="share-content" style="margin-top: 30px;">
         <div class="url-display">
             <strong>Share this URL:</strong>
             <div class="url-text">{{ sharedUrl }}</div>
         </div>
     </div>
-    <a [href]="sharedUrl" target="_blank" class="btn btn-primary">Open Link</a>
 </div>
 <div class="modal-footer">
     <button type="button" class="simpi-button-dark" (click)="copyLink()">Copy Link<span *ngIf="copySucceededRecently"> &#10004;</span></button>
+    <button type="button" class="simpi-button-dark" (click)="downloadCode()">Download SVG<span *ngIf="downloadSucceededRecently"> &#10004;</span></button>
     <button type="button" class="simpi-button-dark" (click)="activeModal.close()">Close</button>
 </div>
