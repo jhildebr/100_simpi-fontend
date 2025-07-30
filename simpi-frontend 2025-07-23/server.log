@@ -3213,3 +3213,472 @@ runtime.js          | runtime | 12.94 kB |
 Build at: 2025-07-26T23:40:36.427Z - Hash: 361709136bda04f4 - Time: 743ms
 
 ✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.64 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-27T11:49:40.116Z - Hash: 152ae05fe411470b - Time: 3152ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.64 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-27T11:49:53.386Z - Hash: ba22e6e8c1845e7a - Time: 567ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.66 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-27T11:50:41.006Z - Hash: 83f5aaec12f4ed87 - Time: 883ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.65 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-27T11:50:53.990Z - Hash: d6102aa647437cc0 - Time: 539ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.65 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-27T12:18:16.063Z - Hash: f264f9e95428807a - Time: 1359ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.65 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-27T12:18:24.964Z - Hash: 732738a605655aff - Time: 516ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.65 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-27T12:18:33.959Z - Hash: ceb831d50b69f91f - Time: 508ms
+
+Error: [96mprojects/simpi-frontend-web/src/app/webPlayer/components/webplayer/webplayer.component.html[0m:[93m15[0m:[93m64[0m - [91merror[0m[90m TS2339: [0mProperty 'trackByIndex' does not exist on type 'WebplayerComponent'.
+
+[7m15[0m             *ngFor="let step of steps; let i = index; trackBy: trackByIndex"
+[7m  [0m [91m                                                               ~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-web/src/app/webPlayer/components/webplayer/webplayer.component.ts[0m:[93m34[0m:[93m16[0m
+    [7m34[0m   templateUrl: 'webplayer.component.html',
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component WebplayerComponent.
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files                                                | Names                    |  Raw size
+main.js                                                            | main                     |   1.65 MB | 
+runtime.js                                                         | runtime                  |  12.94 kB | 
+
+Lazy chunk files                                                   | Names                    |  Raw size
+projects_simpi-frontend-web_src_app_products_products_module_ts.js | products-products-module | 175.62 kB | 
+
+12 unchanged chunks
+
+Build at: 2025-07-27T12:19:49.450Z - Hash: 3f46d68dc1ae64ad - Time: 1045ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.65 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-27T12:19:57.180Z - Hash: a0e838f88ad141c9 - Time: 489ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.66 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-27T20:25:48.884Z - Hash: 9c239a6ccf743564 - Time: 2856ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.66 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-27T20:25:58.999Z - Hash: 02e0ba6e425d7ca1 - Time: 535ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.66 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-27T20:30:52.629Z - Hash: 58fbb49f5bdb5315 - Time: 1974ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.66 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-27T20:30:58.142Z - Hash: 8ea8de3f84b541a1 - Time: 743ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.66 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-27T20:32:58.299Z - Hash: dcf528771e224d88 - Time: 472ms
+
+Error: [96mprojects/simpi-frontend-web/src/app/webPlayer/components/webplayer/webplayer.component.html[0m:[93m10[0m:[93m31[0m - [91merror[0m[90m TS2339: [0mProperty 'totalProgress' does not exist on type 'WebplayerComponent'.
+
+[7m10[0m         [attr.aria-valuenow]="totalProgress"
+[7m  [0m [91m                              ~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-web/src/app/webPlayer/components/webplayer/webplayer.component.ts[0m:[93m34[0m:[93m16[0m
+    [7m34[0m   templateUrl: 'webplayer.component.html',
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component WebplayerComponent.
+
+
+Error: [96mprojects/simpi-frontend-web/src/app/webPlayer/components/webplayer/webplayer.component.html[0m:[93m23[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'currentStepProgress' does not exist on type 'WebplayerComponent'.
+
+[7m23[0m               [style.width.%]="currentStepProgress"
+[7m  [0m [91m                               ~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-web/src/app/webPlayer/components/webplayer/webplayer.component.ts[0m:[93m34[0m:[93m16[0m
+    [7m34[0m   templateUrl: 'webplayer.component.html',
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component WebplayerComponent.
+
+
+Error: [96mprojects/simpi-frontend-web/src/app/webPlayer/components/webplayer/webplayer.component.html[0m:[93m36[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'currentStepProgress' does not exist on type 'WebplayerComponent'.
+
+[7m36[0m               [style.width.%]="currentStepProgress"
+[7m  [0m [91m                               ~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-web/src/app/webPlayer/components/webplayer/webplayer.component.ts[0m:[93m34[0m:[93m16[0m
+    [7m34[0m   templateUrl: 'webplayer.component.html',
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component WebplayerComponent.
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.66 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-27T20:33:05.707Z - Hash: 9b5f41a2e1d1dd7d - Time: 858ms
+
+Error: [96mprojects/simpi-frontend-web/src/app/webPlayer/components/webplayer/webplayer.component.html[0m:[93m10[0m:[93m31[0m - [91merror[0m[90m TS2339: [0mProperty 'totalProgress' does not exist on type 'WebplayerComponent'.
+
+[7m10[0m         [attr.aria-valuenow]="totalProgress"
+[7m  [0m [91m                              ~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-web/src/app/webPlayer/components/webplayer/webplayer.component.ts[0m:[93m34[0m:[93m16[0m
+    [7m34[0m   templateUrl: 'webplayer.component.html',
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component WebplayerComponent.
+
+
+Error: [96mprojects/simpi-frontend-web/src/app/webPlayer/components/webplayer/webplayer.component.html[0m:[93m23[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'currentStepProgress' does not exist on type 'WebplayerComponent'.
+
+[7m23[0m               [style.width.%]="currentStepProgress"
+[7m  [0m [91m                               ~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-web/src/app/webPlayer/components/webplayer/webplayer.component.ts[0m:[93m34[0m:[93m16[0m
+    [7m34[0m   templateUrl: 'webplayer.component.html',
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component WebplayerComponent.
+
+
+Error: [96mprojects/simpi-frontend-web/src/app/webPlayer/components/webplayer/webplayer.component.html[0m:[93m36[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'currentStepProgress' does not exist on type 'WebplayerComponent'.
+
+[7m36[0m               [style.width.%]="currentStepProgress"
+[7m  [0m [91m                               ~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-web/src/app/webPlayer/components/webplayer/webplayer.component.ts[0m:[93m34[0m:[93m16[0m
+    [7m34[0m   templateUrl: 'webplayer.component.html',
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component WebplayerComponent.
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.66 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-27T20:33:13.221Z - Hash: f2d785618363ff10 - Time: 1008ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.66 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-27T20:33:21.394Z - Hash: 6aac263f60c6a552 - Time: 504ms
+
+Error: [96mprojects/simpi-frontend-web/src/app/webPlayer/components/webplayer/webplayer.component.ts[0m:[93m177[0m:[93m10[0m - [91merror[0m[90m TS2339: [0mProperty 'clearProgressTracking' does not exist on type 'WebplayerComponent'.
+
+[7m177[0m     this.clearProgressTracking();
+[7m   [0m [91m         ~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.66 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-27T20:33:36.324Z - Hash: 7a25e4af65227af2 - Time: 694ms
+
+Error: [96mprojects/simpi-frontend-web/src/app/webPlayer/components/webplayer/webplayer.component.ts[0m:[93m582[0m:[93m45[0m - [91merror[0m[90m TS2339: [0mProperty 'getVideoElement' does not exist on type 'StepSlideComponent'.
+
+[7m582[0m     const videoElement = this.currentSlide?.getVideoElement?.();
+[7m   [0m [91m                                            ~~~~~~~~~~~~~~~[0m
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.66 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-27T20:33:44.725Z - Hash: e8eded6cecc475e4 - Time: 894ms
+
+Error: [96mprojects/simpi-frontend-web/src/app/webPlayer/components/webplayer/webplayer.component.ts[0m:[93m583[0m:[93m45[0m - [91merror[0m[90m TS2339: [0mProperty 'getVideoElement' does not exist on type 'StepSlideComponent'.
+
+[7m583[0m     const videoElement = this.currentSlide?.getVideoElement?.();
+[7m   [0m [91m                                            ~~~~~~~~~~~~~~~[0m
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.66 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-27T20:33:54.789Z - Hash: 28b50b6899760688 - Time: 508ms
+
+Error: [96mprojects/simpi-frontend-web/src/app/webPlayer/components/webplayer/webplayer.component.ts[0m:[93m586[0m:[93m45[0m - [91merror[0m[90m TS2339: [0mProperty 'getVideoElement' does not exist on type 'StepSlideComponent'.
+
+[7m586[0m     const videoElement = this.currentSlide?.getVideoElement?.();
+[7m   [0m [91m                                            ~~~~~~~~~~~~~~~[0m
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.66 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-27T20:34:00.895Z - Hash: ad5c6e34c6de72a2 - Time: 1253ms
+
+Error: [96mprojects/simpi-frontend-web/src/app/webPlayer/components/webplayer/webplayer.component.ts[0m:[93m587[0m:[93m45[0m - [91merror[0m[90m TS2339: [0mProperty 'getVideoElement' does not exist on type 'StepSlideComponent'.
+
+[7m587[0m     const videoElement = this.currentSlide?.getVideoElement?.();
+[7m   [0m [91m                                            ~~~~~~~~~~~~~~~[0m
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.66 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-27T21:55:24.735Z - Hash: a9c8c5c0bd44ed04 - Time: 2090ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.66 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-27T21:59:46.149Z - Hash: 267c5dc27d9e091c - Time: 839ms
+
+Error: [96mprojects/simpi-frontend-web/src/app/webPlayer/components/webplayer/webplayer.component.html[0m:[93m9[0m:[93m77[0m - [91merror[0m[90m TS2339: [0mProperty 'totalStepCount' does not exist on type 'WebplayerComponent'.
+
+[7m9[0m         [attr.aria-label]="'Step progress: ' + (swiperIndex + 1) + ' of ' + totalStepCount + ' steps'"
+[7m [0m [91m                                                                            ~~~~~~~~~~~~~~[0m
+
+  [96mprojects/simpi-frontend-web/src/app/webPlayer/components/webplayer/webplayer.component.ts[0m:[93m34[0m:[93m16[0m
+    [7m34[0m   templateUrl: 'webplayer.component.html',
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component WebplayerComponent.
+
+
+
+
+✖ Failed to compile.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.66 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-27T21:59:57.959Z - Hash: 7ff1b80c66f6736b - Time: 1103ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.66 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-27T22:00:06.916Z - Hash: 01b04b55be5298ee - Time: 780ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.66 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-27T22:00:16.176Z - Hash: 7c92e40967c95542 - Time: 692ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.66 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-27T22:00:33.695Z - Hash: c02e31d91fdcc661 - Time: 684ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.66 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-27T22:00:41.340Z - Hash: 52b4dfc3de09f33a - Time: 658ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.66 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-27T22:00:55.002Z - Hash: b7744a005aa42abd - Time: 684ms
+
+✔ Compiled successfully.
+✔ Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    |  1.66 MB | 
+runtime.js          | runtime | 12.94 kB | 
+
+13 unchanged chunks
+
+Build at: 2025-07-27T22:01:03.988Z - Hash: 6aa79738ff4e7653 - Time: 706ms
+
+✔ Compiled successfully.

@@ -1,0 +1,46 @@
+name: Test Build
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'package.json'
+      - 'projects/**'
+      - '.github/workflows/test-build.yml'
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test-build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18.19.1'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm install --legacy-peer-deps
+      env:
+        NODE_OPTIONS: '--openssl-legacy-provider'
+    
+    - name: Test web build (dev)
+      run: npm run buildwebdev
+      env:
+        NODE_OPTIONS: '--openssl-legacy-provider'
+    
+    - name: Test web build (prod)
+      run: npm run buildweb
+      env:
+        NODE_OPTIONS: '--openssl-legacy-provider'
+    
+    - name: Show build artifacts
+      run: |
+        echo "Build successful! Artifacts:"
+        ls -la dist/simpi-frontend-web/
+        echo "Bundle sizes:"
+        du -sh dist/simpi-frontend-web/* 

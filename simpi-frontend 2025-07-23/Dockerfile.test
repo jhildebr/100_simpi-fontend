@@ -1,0 +1,24 @@
+# Test Dockerfile for Simpi Frontend Build
+FROM node:18.19.1
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies (mimics Azure DevOps)
+RUN npm install --legacy-peer-deps
+
+# Copy source code
+COPY . .
+
+# Test the build
+RUN npm run buildweb
+
+# Show build results
+RUN echo "=== BUILD SUCCESSFUL ===" && \
+    echo "Artifacts created:" && \
+    ls -la dist/simpi-frontend-web/ && \
+    echo "Bundle sizes:" && \
+    du -sh dist/simpi-frontend-web/* 

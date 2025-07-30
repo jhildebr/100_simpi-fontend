@@ -1,0 +1,62 @@
+trigger:
+  branches:
+    include:
+    - main
+    - develop
+  paths:
+    include:
+    - package.json
+    - azure-pipelines-quick-test.yml
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  NODE_VERSION: '18.19.1'
+
+stages:
+- stage: QuickTest
+  displayName: 'Quick Build Test'
+  jobs:
+  - job: QuickBuild
+    displayName: 'Quick Build Validation'
+    steps:
+    - task: NodeTool@0
+      displayName: 'Install Node.js'
+      inputs:
+        versionSpec: $(NODE_VERSION)
+
+    - script: |
+        echo "Testing dependency installation..."
+        npm install --legacy-peer-deps
+      displayName: 'Install dependencies'
+      env:
+        NODE_OPTIONS: '--openssl-legacy-provider'
+
+    - script: |
+        echo "Testing web build..."
+        npm run buildwebdev
+      displayName: 'Test web build (dev)'
+      env:
+        NODE_OPTIONS: '--openssl-legacy-provider'
+
+    - script: |
+        echo "Testing production build..."
+        npm run buildweb
+      displayName: 'Test web build (prod)'
+      env:
+        NODE_OPTIONS: '--openssl-legacy-provider'
+
+    - script: |
+        echo "Build successful! Artifacts created:"
+        ls -la dist/simpi-frontend-web/
+        echo "Bundle sizes:"
+        du -sh dist/simpi-frontend-web/*
+      displayName: 'Verify build artifacts'
+
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish test artifacts'
+      inputs:
+        pathToPublish: 'dist/simpi-frontend-web'
+        artifactName: 'quick-test-build'
+        publishLocation: 'Container' 

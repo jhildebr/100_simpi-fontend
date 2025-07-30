@@ -1,12 +1,78 @@
 <ng-container *ngIf="initialLoadingCompleted">
   <div class="swiper-container h-100">
-    <div class="simpi-info d-flex">
-      <ng-container *ngIf="showCloseButton">
-        <div class="ml-auto"></div>
-        <button class="circle-icon-button small dark transparent" type="button" (click)="close.emit()">
-          <img class="icon" src="assets/svg/close.svg" alt="Close"/>
+    <!-- Top gradient overlay and controls -->
+    <div class="top-overlay">
+      <!-- Progress bar -->
+      <div 
+        class="progress-bar-container"
+        role="progressbar"
+        [attr.aria-label]="'Step progress: ' + (swiperIndex + 1) + ' of ' + totalStepCount + ' steps'"
+        [attr.aria-valuenow]="totalProgress"
+        [attr.aria-valuemin]="0"
+        [attr.aria-valuemax]="100">
+        <div class="progress-segments">
+          <div 
+            *ngFor="let step of steps; let i = index; trackBy: trackByIndex" 
+            class="progress-segment"
+            [class.completed]="i < swiperIndex"
+            [class.active]="i === swiperIndex"
+            [class.upcoming]="i > swiperIndex">
+            <!-- Completed segments show full fill -->
+            <div 
+              class="segment-fill" 
+              *ngIf="isStepCompleted(i)" 
+              [style.width.%]="100">
+            </div>
+            <!-- Active segment shows current progress -->
+            <div 
+              class="segment-fill" 
+              *ngIf="i === swiperIndex && !isStepCompleted(i)" 
+              [style.width.%]="currentStepProgress"
+              [attr.data-step]="swiperIndex">
+            </div>
+          </div>
+          <!-- Extra segment for last page -->
+          <div 
+            class="progress-segment last-page-segment"
+            [class.completed]="swiperIndex > steps.length"
+            [class.active]="swiperIndex === steps.length"
+            [class.upcoming]="swiperIndex < steps.length">
+            <!-- Completed last page shows full fill -->
+            <div 
+              class="segment-fill" 
+              *ngIf="isStepCompleted(steps.length)" 
+              [style.width.%]="100">
+            </div>
+            <!-- Active last page shows current progress -->
+            <div 
+              class="segment-fill" 
+              *ngIf="swiperIndex === steps.length && !isStepCompleted(steps.length)" 
+              [style.width.%]="currentStepProgress"
+              [attr.data-step]="swiperIndex">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Top controls -->
+      <div class="top-controls">
+        <button
+          *ngIf="hasAudio"
+          class="audio-control circle-icon-button large dark transparent"
+          (click)="onAudioBtnClicked()"
+          type="button"
+          [attr.aria-label]="'Toggle audio: currently ' + (isAudioMuted ? 'off' : 'on')"
+          [attr.aria-pressed]="!isAudioMuted">
+          <img *ngIf="!isAudioMuted" src="assets/svg/sound-on.svg" alt="sound-on"/>
+          <img *ngIf="isAudioMuted" src="assets/svg/sound-off.svg" alt="sound-off"/>
         </button>
-      </ng-container>
+        <div class="controls-spacer"></div>
+        <ng-container *ngIf="showCloseButton">
+          <button class="circle-icon-button small dark transparent" type="button" (click)="close.emit()" aria-label="Close player">
+            <img class="icon" src="assets/svg/close.svg" alt="Close"/>
+          </button>
+        </ng-container>
+      </div>
     </div>
 
     <div class="swiper-wrapper">
@@ -65,37 +131,32 @@
         </div>
       </div>
     </div>
-    <div class="navigation-panel" *ngIf="steps?.length > swiperIndex">
-      <button class="swiper-button-prev circle-icon-button small dark transparent" type="button" (click)="prevSlide()">
-        <img class="prev-slide-icon" src="assets/svg/navigation-arrow.svg" alt="Prev"/>
-      </button>
-      <button
-        [style.visibility]="hasAudio ? 'visible' : 'hidden'"
-        class="circle-icon-button small dark transparent"
-        (click)="onAudioBtnClicked()"
-        type="button"
-      >
-        <img *ngIf="!isAudioMuted" src="assets/svg/sound-on.svg" alt="sound-on"/>
-        <img *ngIf="isAudioMuted" src="assets/svg/sound-off.svg" alt="sound-off"/>
-      </button>
-      <div class="pagination">
-        <sup style="font-size: 16px"><b>
-          <input [value]="swiperIndex + 1" [readonly]="true"/>
-        </b></sup>
-        &frasl;
-        <sub><small>{{ steps.length }}</small></sub>
+    <!-- Desktop navigation buttons only -->
+    <div class="desktop-navigation" *ngIf="!showInfoOverlay">
+      <div class="nav-left">
+        <!-- Previous button: show on last step or if not on first step -->
+        <button 
+          class="swiper-button-prev circle-icon-button small dark transparent" 
+          type="button" 
+          (click)="prevSlide()"
+          [attr.aria-label]="'Previous step'"
+          [attr.aria-disabled]="swiperIndex === 0"
+          *ngIf="swiperIndex > 0 || swiperIndex === steps.length">
+          <img class="prev-slide-icon" src="assets/svg/navigation-arrow.svg" alt="Previous"/>
+        </button>
       </div>
-      <!-- 2022-09-22 button might be needed again in the future but is subjected to be removed --mbue -->
-      <button style="visibility: hidden;" type="button">
-        <img  src="assets/svg/play.svg" alt="play"/>
-      </button>
-      <button
-        class="swiper-button-next circle-icon-button small dark transparent"
-        type="button"
-        (click)="nextSlide()"
-      >
-        <img class="next-slide-icon" src="assets/svg/navigation-arrow.svg" alt="Next"/>
-      </button>
+      <div class="nav-right">
+        <!-- Next button: show after start pressed and not on last page -->
+        <button
+          class="swiper-button-next circle-icon-button small dark transparent"
+          type="button"
+          (click)="nextSlide()"
+          [attr.aria-label]="'Next step'"
+          [attr.aria-disabled]="swiperIndex >= steps.length"
+          *ngIf="swiperIndex < steps.length">
+          <img class="next-slide-icon" src="assets/svg/navigation-arrow.svg" alt="Next"/>
+        </button>
+      </div>
     </div>
   </div>
   <sim-overlay #overlay [simpi]="simpi" [visible]="showInfoOverlay" [resources]="resources" [resourceButtonTemplate]="resourceButtonTemplate">

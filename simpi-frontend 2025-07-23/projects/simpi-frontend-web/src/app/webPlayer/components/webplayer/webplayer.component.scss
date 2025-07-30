@@ -205,8 +205,20 @@ video {
   }
 }
 
+.swiper-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
 .swiper-wrapper {
   transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.swiper-slide {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
 }
 
 div.properties-overlay {
@@ -229,76 +241,7 @@ button.menu {
   }
 }
 
-.navigation-panel {
-  position: absolute;
-  display: flex;
-  z-index: 11;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  left: 0;
-  bottom: 0;
-  height: 50px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-
-  .pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    padding-top: 8px;
-    padding-left: 0;
-    padding-right: 8px;
-
-    font-size: 14px;
-    color: white;
-    height: 30px;
-    width: 60px;
-    border-radius: 50px;
-    cursor: default;
-    background-color: var(--simpi-theme-primary-color);
-
-    input {
-      padding-top: 0;
-      padding-left: 8px;
-      padding-right: 0;
-
-      color: white;
-      height: 30px;
-      width: auto;
-      max-width: 25px;
-      background: transparent;
-      border-style: none;
-      text-align: end;
-    }
-  }
-
-  button {
-    border-color: transparent;
-    background-color: var(--simpi-theme-primary-color);
-  }
-
-  .swiper-button-prev {
-    right: 90%;
-    transform: translateY(10px);
-
-    .prev-slide-icon {
-      transform: scaleX(-1);
-    }
-  }
-
-  .swiper-button-next {
-    left: 90%;
-    transform: translateY(10px);
-  }
-
-  .placeholder {
-    color: transparent;
-    background-color: transparent;
-  }
-
-}
+/* Old navigation panel removed - replaced with top overlay and desktop navigation */
 
 .close {
   all: initial;
@@ -357,4 +300,211 @@ button.menu {
 
 .border-theme-primary-color {
   border-color: var(--simpi-theme-primary-color);
+}
+
+/* New top overlay design */
+.top-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 12;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+  padding: 16px;
+  padding-top: max(16px, env(safe-area-inset-top, 0px) + 16px);
+  animation: slideDown 0.4s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Progress bar container */
+.progress-bar-container {
+  margin-bottom: 12px;
+}
+
+.progress-segments {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  height: 3px;
+}
+
+.progress-segment {
+  position: relative;
+  flex: 1;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 4px;
+  min-width: 8px; /* Ensure visibility even with many segments */
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+
+  .segment-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: #FFFFFF;
+    border-radius: 4px;
+    transition: width 0.1s ease;
+  }
+
+  &.completed {
+    background: rgba(255, 255, 255, 0.4); /* Keep base background, fill div shows completion */
+  }
+
+  &.active {
+    background: rgba(255, 255, 255, 0.4);
+    
+    .segment-fill {
+      width: 0%;
+    }
+  }
+
+  &.upcoming {
+    background: rgba(255, 255, 255, 0.4);
+  }
+}
+
+@keyframes fillProgress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Top controls layout */
+.top-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  height: 44px; /* Ensure sufficient touch target height */
+}
+
+.controls-spacer {
+  flex: 1;
+}
+
+/* Enhanced audio control */
+.audio-control {
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 6px;
+  transition: transform 0.15s ease, background-color 0.2s ease;
+  touch-action: manipulation;
+  
+  &:active {
+    transform: scale(0.95);
+  }
+
+  img {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Desktop navigation - hidden on mobile */
+.desktop-navigation {
+  position: absolute;
+  bottom: 50%;
+  left: 0;
+  right: 0;
+  z-index: 11;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  pointer-events: none;
+  animation: fadeIn 0.3s ease;
+
+  .nav-left {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .nav-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  button {
+    pointer-events: auto;
+    transition: transform 0.15s ease, opacity 0.2s ease;
+    
+    &:active {
+      transform: scale(0.95);
+    }
+
+    &[aria-disabled="true"] {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  .swiper-button-prev {
+    .prev-slide-icon {
+      transform: scaleX(-1); /* Flip arrow to point left */
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Mobile breakpoint - hide desktop navigation */
+@media (max-width: 768px) {
+  .desktop-navigation {
+    display: none;
+  }
+  
+  .top-overlay {
+    padding: 12px;
+    padding-top: max(12px, env(safe-area-inset-top, 0px) + 12px);
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .top-overlay,
+  .desktop-navigation,
+  .audio-control,
+  .progress-segment,
+  .segment-fill {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .progress-segment {
+    border: 1px solid white;
+    
+    &.completed,
+    &.active .segment-fill {
+      background: white;
+    }
+  }
 }

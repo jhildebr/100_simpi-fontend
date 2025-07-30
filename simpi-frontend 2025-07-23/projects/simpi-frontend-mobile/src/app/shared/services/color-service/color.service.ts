@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Photo } from '../../models/photo.model';
-import ColorThief from 'colorthief/dist/color-thief'
+import ColorThief from 'color-thief-browser'
 import { Observable, Subject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })

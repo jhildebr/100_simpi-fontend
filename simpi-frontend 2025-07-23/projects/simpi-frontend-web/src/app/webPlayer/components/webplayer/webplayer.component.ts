@@ -161,13 +161,52 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
 
   public canPlay: boolean = false;
 
+  public currentStepProgress: number = 0;
+  public totalProgress: number = 0;
+  public totalStepCount: number = 0;
+  public completedSteps: Set<number> = new Set();
+
+  private progressUpdateInterval: any;
+
   public onSlideChanged(): void {
     const audioUrl = Boolean(this.currentSlide?.step.voiceOverEnabled);
     const videoUrl = Boolean(this.currentSlide?.step.media.find(m => m.type.toLowerCase() == STEP_MEDIA_TYPE_VIDEO || m.type.toLowerCase() == STEP_MEDIA_TYPE_LEGACYVIDEO));
     this.hasAudio = audioUrl;
     this.canPlay = audioUrl || videoUrl;
 
-    this.audioEl.nativeElement.oncanplaythrough = undefined;
+    // Clear completion status for current step and all future steps when navigating backwards
+    // This allows segments to be progressively filled again when reached
+    this.clearFutureStepsCompletion();
+
+    // Mark all previous steps as completed when moving forward
+    // This ensures that left segments are always filled regardless of execution
+    this.ensurePreviousStepsCompleted();
+
+    // Reset progress for new step only if not already completed
+    if (!this.completedSteps.has(this.swiperIndex)) {
+      this.currentStepProgress = 0;
+    }
+    
+    // If we're navigating away from a step without audio that hasn't been completed yet,
+    // mark it as completed to ensure the segment gets filled
+    const previousStepIndex = this.swiperIndex - 1;
+    if (previousStepIndex >= 0 && previousStepIndex < this.steps.length) {
+      const previousStep = this.steps[previousStepIndex];
+      if (!previousStep.voiceOverEnabled && !this.completedSteps.has(previousStepIndex)) {
+        this.completedSteps.add(previousStepIndex);
+      }
+    }
+    
+    this.clearProgressTracking();
+
+    // Start progress tracking immediately if not on info overlay
+    if (!this.showInfoOverlay) {
+      this.startProgressTracking();
+    }
+
+    if (this.audioEl?.nativeElement) {
+      this.audioEl.nativeElement.oncanplaythrough = undefined;
+    }
     this.loadMediaSubscription?.unsubscribe();
     this.stopAudio();
 
@@ -220,6 +259,7 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
   public ngOnDestroy(): void {
     this._active = false;
     this.loadMediaSubscription?.unsubscribe();
+    this.clearProgressTracking();
   }
 
   private async loadSimpi(simpiId: string): Promise<void> {
@@ -227,6 +267,7 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
     //  * information about all steps and their respective mediaIds ("what to load")
     this.simpi = await this.simpiService.getSimpiForPlayback(simpiId).toPromise();
     this.steps = this.simpi.steps;
+    this.totalStepCount = this.steps.length + 1; // +1 for last page
     this.resources = this.simpi.resources.map(r => {
       if (r)
       {
@@ -278,6 +319,7 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
     this.showInfoOverlay = false;
     this.context.playVideo();
     this.context.playAudio();
+    this.startProgressTracking();
   }
 
   public toggleSound(): void {
@@ -324,6 +366,11 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
   }
 
   public repeatSimpi(): void {
+    // Reset completed steps when repeating
+    this.completedSteps.clear();
+    this.currentStepProgress = 0;
+    this.totalProgress = 0;
+    
     this.swiper?.slideTo(0);
     this.showInfoOverlay = true;
     this.disableSwiper();
@@ -353,6 +400,13 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
   public onAudioEnded(): void {
     this.context.audioHasEnded();
     this.stopAudio();
+    
+    // Mark current step as completed when audio ends
+    if (this.swiperIndex < this.totalStepCount) {
+      this.completedSteps.add(this.swiperIndex);
+      this.currentStepProgress = 100;
+      this.updateTotalProgress();
+    }
   }
 
   private loadAudio(audioSrc: string): void {
@@ -410,14 +464,17 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
   private subscribeToContext(): void {
     this.context.restartAudio$.pipe(takeWhile(() => this._active)).subscribe(() => {
         this.playAudio(true);
+        this.startProgressTracking();
     });
 
     this.context.resumeAudio$.pipe(takeWhile(() => this._active)).subscribe(() => {
         this.playAudio(false);
+        this.startProgressTracking();
     });
 
     this.context.pauseAudio$.pipe(takeWhile(() => this._active)).subscribe(() => {
         this.pauseAudio();
+        this.clearProgressTracking();
     });
 
     this.context.muteAudio$.pipe(takeWhile(() => this._active)).subscribe(() => {
@@ -496,9 +553,12 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
       this.swiper = new Swiper(swiperElement as HTMLElement, {
         direction: 'horizontal',
         slidesPerView: 1,
+        spaceBetween: 0,
+        centeredSlides: true,
         keyboard: true,
         mousewheel: true,
         resistanceRatio: 0,
+        allowTouchMove: true,
         on: {
           slideChange: () => {
             this.onSlideChanged();
@@ -538,5 +598,142 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
 
   public prevSlide(): void {
     this.swiper?.slidePrev();
+  }
+
+  public trackByIndex(index: number, item: any): number {
+    return index;
+  }
+
+  public isStepCompleted(stepIndex: number): boolean {
+    return this.completedSteps.has(stepIndex);
+  }
+
+  /**
+   * Ensures that all steps before the current step are marked as completed
+   * This guarantees that left segments are always filled, regardless of whether
+   * the user has actually executed those steps or just navigated past them
+   */
+  private ensurePreviousStepsCompleted(): void {
+    for (let i = 0; i < this.swiperIndex; i++) {
+      this.completedSteps.add(i);
+    }
+  }
+
+  /**
+   * Clears completion status for current step and all future steps
+   * This allows segments to be progressively filled again when reached
+   */
+  private clearFutureStepsCompletion(): void {
+    // Clear current step and all future steps
+    for (let i = this.swiperIndex; i < this.totalStepCount; i++) {
+      this.completedSteps.delete(i);
+    }
+  }
+
+  private startProgressTracking(): void {
+    this.clearProgressTracking();
+    
+    // Ensure all previous steps are marked as completed
+    this.ensurePreviousStepsCompleted();
+    
+    // Only start tracking if we're not on the last page
+    if (this.swiperIndex >= this.steps.length) {
+      // For last page, fill immediately
+      this.currentStepProgress = 100;
+      this.completedSteps.add(this.swiperIndex);
+      this.updateTotalProgress();
+      return;
+    }
+
+    // Skip if step is already completed
+    if (this.completedSteps.has(this.swiperIndex)) {
+      this.currentStepProgress = 100;
+      this.updateTotalProgress();
+      return;
+    }
+
+    // Check if current step has video or audio
+    const hasVideo = this.currentSlide?.step.media.find(m => 
+      m.type.toLowerCase() === STEP_MEDIA_TYPE_VIDEO || 
+      m.type.toLowerCase() === STEP_MEDIA_TYPE_LEGACYVIDEO
+    );
+    const hasAudio = this.currentSlide?.step.voiceOverEnabled;
+
+    if (hasAudio) {
+      // For steps with audio, track actual audio progress
+      this.progressUpdateInterval = setInterval(() => {
+        this.updateMediaProgress();
+      }, 100); // Update every 100ms for smooth progress
+    } else {
+      // For steps without audio (image/video only or no media), fill quickly
+      this.fillImageStepProgress();
+    }
+  }
+
+  private updateMediaProgress(): void {
+    if (!this._active) {
+      return;
+    }
+
+    const audioElement = this.audioEl?.nativeElement;
+    let progress = 0;
+
+    // Use audio progress as primary indicator
+    if (audioElement && audioElement.duration > 0 && !isNaN(audioElement.duration)) {
+      progress = (audioElement.currentTime / audioElement.duration) * 100;
+    }
+
+    this.currentStepProgress = Math.min(Math.max(progress, 0), 100);
+    
+    // Mark step as completed when it reaches 100%
+    if (this.currentStepProgress >= 100) {
+      this.completedSteps.add(this.swiperIndex);
+    }
+    
+    this.updateTotalProgress();
+  }
+
+  private fillImageStepProgress(): void {
+    // Quickly fill progress for image steps
+    let progress = 0;
+    this.progressUpdateInterval = setInterval(() => {
+      if (!this._active) {
+        return;
+      }
+      
+      progress += 5; // Fill 5% every 50ms = 1 second total
+      this.currentStepProgress = Math.min(progress, 100);
+      
+      // Mark step as completed when it reaches 100%
+      if (this.currentStepProgress >= 100) {
+        this.completedSteps.add(this.swiperIndex);
+      }
+      
+      this.updateTotalProgress();
+
+      if (progress >= 100) {
+        this.clearProgressTracking();
+      }
+    }, 50);
+  }
+
+  private updateTotalProgress(): void {
+    if (!this.steps || this.steps.length === 0) {
+      this.totalProgress = 0;
+      return;
+    }
+    
+    const totalSteps = this.totalStepCount;
+    const completedSteps = this.swiperIndex;
+    const currentStepFraction = this.currentStepProgress / 100;
+    
+    this.totalProgress = Math.min(((completedSteps + currentStepFraction) / totalSteps) * 100, 100);
+  }
+
+  private clearProgressTracking(): void {
+    if (this.progressUpdateInterval) {
+      clearInterval(this.progressUpdateInterval);
+      this.progressUpdateInterval = null;
+    }
   }
 }

@@ -5,21 +5,15 @@
     </button>
 </div>
 <div class="modal-body">
-    <svg #outerQrCode xmlns="http://www.w3.org/2000/svg" [attr.height]="size" [attr.width]="size">
-        <g [attr.transform]="transform">
-            <g #innerQrCode></g>
-            <svg [attr.x]="size * 2 / 3" [attr.y]="size * 2 / 3" [attr.height]="size / 3" [attr.width]="size / 3">
-                <g font-family="sans-serif" font-weight="bold" [attr.font-size]="size / 3 * 1 / 3" >
-                    <rect [attr.width]="size / 3" [attr.height]="size / 3" [attr.fill]="backgroundColor"></rect>
-                    <text [attr.x]="size / 3 * 8 / 100" [attr.y]="size / 3 * 1.5 / 3" [attr.fill]="foregroundColor">HOW</text>
-                    <text [attr.x]="size / 3 * 8 / 100" [attr.y]="size / 3 * 2.5 / 3" [attr.fill]="foregroundColor">TO /</text>
-                </g>
-            </svg>
-        </g>
-    </svg>
-    <a [href]="sharedUrl" target="_blank">{{ sharedUrl }}</a>
+    <div class="share-content">
+        <div class="url-display">
+            <strong>Share this URL:</strong>
+            <div class="url-text">{{ sharedUrl }}</div>
+        </div>
+    </div>
+    <a [href]="sharedUrl" target="_blank" class="btn btn-primary">Open Link</a>
 </div>
 <div class="modal-footer">
     <button type="button" class="simpi-button-dark" (click)="copyLink()">Copy Link<span *ngIf="copySucceededRecently"> &#10004;</span></button>
-    <button type="button" class="simpi-button-dark" (click)="downloadCode()">Download SVG<span *ngIf="downloadSucceededRecently"> &#10004;</span></button>
+    <button type="button" class="simpi-button-dark" (click)="activeModal.close()">Close</button>
 </div>

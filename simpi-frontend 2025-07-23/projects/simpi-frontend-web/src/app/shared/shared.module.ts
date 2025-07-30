@@ -6,6 +6,7 @@ import { RouterModule } from "@angular/router";
 import { CdkTableModule } from "@angular/cdk/table";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { CustomFaModule } from "./customFa.module";
+
 import { TabNavComponent } from "./components/tab-nav/tab-nav.component";
 import { StatusBadgesComponent } from "./components/status-badges/status-badges.component";
 import { DragDropFileUploadDirective } from "./directives/drag-drop.directive";
@@ -95,6 +96,7 @@ const SHARED_COMPONENTS = [
         DragDropModule,
         PortalModule,
         OverlayModule,
+
         SimpiCommonsModule.forRoot({
             baseUrl: environment.baseUrl,
             restUrl: environment.restUrl,
