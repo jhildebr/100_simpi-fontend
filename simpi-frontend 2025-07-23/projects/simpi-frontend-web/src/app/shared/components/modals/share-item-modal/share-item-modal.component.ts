@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Clipboard } from '@angular/cdk/clipboard';
-import QRCodeStyling from 'qr-code-styling';
+import QRCodeStyling from "qr-code-styling";
 
 @Component({
   selector: 'sim-share-item-modal',
@@ -35,10 +35,6 @@ export class ShareItemModalComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.generateQRCode();
-  }
-
-  private generateQRCode(): void {
     const qrCode = new QRCodeStyling({
       data: this.sharedUrl,
       width: this.size * 2 / 3,
@@ -81,10 +77,6 @@ export class ShareItemModalComponent implements OnInit {
       this.copySucceededRecently = true;
       window.setTimeout(() => this.copySucceededRecently = false, 3000);
     }
-  }
-
-  public openLink(): void {
-    window.open(this.sharedUrl, '_blank');
   }
 
   public downloadCode(): void {
