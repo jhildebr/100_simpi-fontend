@@ -45,7 +45,7 @@
                             "jwt-decode",
                             "dragula"
                         ],
-                        "baseHref": "/app/",
+                        "baseHref": "/",
                         "vendorChunk": true,
                         "extractLicenses": false,
                         "buildOptimizer": false,
@@ -80,7 +80,7 @@
                                     "maximumError": "10kb"
                                 }
                             ],
-                            "baseHref": "/app/"
+                            "baseHref": "/"
                         }
                     },
                     "defaultConfiguration": ""
