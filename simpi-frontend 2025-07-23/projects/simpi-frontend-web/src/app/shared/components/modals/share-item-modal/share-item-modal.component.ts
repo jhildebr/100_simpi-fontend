@@ -80,8 +80,14 @@ export class ShareItemModalComponent implements OnInit {
   }
 
   public downloadCode(): void {
-    const data = this.outerQrCode.nativeElement.outerHTML;
-    const blob = new Blob([data], { type: 'image/svg+xml;charset=utf-8'});
+    const svgElement = this.outerQrCode.nativeElement;
+    const svgContent = svgElement.outerHTML;
+    
+    // Create a proper SVG document with XML declaration
+    const svgDocument = `<?xml version="1.0" encoding="UTF-8"?>
+${svgContent}`;
+    
+    const blob = new Blob([svgDocument], { type: 'image/svg+xml;charset=utf-8'});
     const url = URL.createObjectURL(blob);
     this.startDownload(url, this.modalTitle + ".svg");
     URL.revokeObjectURL(url);
