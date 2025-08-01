@@ -169,12 +169,6 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
   private progressUpdateInterval: any;
 
   public onSlideChanged(): void {
-    console.log('=== onSlideChanged DEBUG ===');
-    console.log('swiperIndex:', this.swiperIndex);
-    console.log('showInfoOverlay:', this.showInfoOverlay);
-    console.log('currentSlide exists:', !!this.currentSlide);
-    console.log('=== END onSlideChanged DEBUG ===');
-    
     const currentStep = this.currentSlide?.step as ValidatedStep;
     const audioUrl = currentStep?.hasAudio || false;
     const videoUrl = Boolean(this.currentSlide?.step.media.find(m => m.type.toLowerCase() == STEP_MEDIA_TYPE_VIDEO || m.type.toLowerCase() == STEP_MEDIA_TYPE_LEGACYVIDEO));
@@ -196,8 +190,6 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
     // Start progress tracking immediately if not on info overlay
     if (!this.showInfoOverlay) {
       this.startProgressTracking();
-    } else {
-      console.log('Skipping progress tracking due to showInfoOverlay');
     }
 
     if (this.audioEl?.nativeElement) {
@@ -270,30 +262,16 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
     
     // 2. Load correct title from the v1 API endpoint
     // The v2 playback endpoint may have stale title data, so we fetch the current title from v1
-    try {
-      const simpisFromProduct = await this.simpiService.getSimpisByProductId(this.simpi.productId).toPromise();
-      const currentSimpi = simpisFromProduct?.find(s => s.simpiId === simpiId);
-      if (currentSimpi && currentSimpi.title) {
-        console.log('Updating simpi title from:', this.simpi.title, 'to:', currentSimpi.title);
-        this.simpi.title = currentSimpi.title;
-      }
-    } catch (error) {
-      console.warn('Could not load current simpi title, using playback title:', error);
+    const simpisFromProduct = await this.simpiService.getSimpisByProductId(this.simpi.productId, false, true).toPromise();
+    const currentSimpi = simpisFromProduct?.find(s => s.simpiId === simpiId);
+    if (currentSimpi && currentSimpi.title) {
+      this.simpi.title = currentSimpi.title;
     }
     
     // 3. Validate steps (keep original order, don't sort by positionIndex)
     const validatedSteps = await this.stepValidationService.validateSteps(this.simpi.steps, this.simpi.bestTranslationTarget).toPromise();
     this.steps = validatedSteps; // Keep original order from API
     this.totalStepCount = this.steps.length + 1; // +1 for last page
-    
-    // Debug: Log all validated steps
-    console.log('=== VALIDATED STEPS DEBUG ===');
-    console.log('Total steps loaded:', this.steps.length);
-    console.log('Total step count (including n+1):', this.totalStepCount);
-    this.steps.forEach((step, index) => {
-      console.log(`Step ${index}: ID=${step.stepId}, Title="${step.title}", VoiceOver=${step.voiceOverEnabled}, HasAudio=${step.hasAudio}, PositionIndex=${step.positionIndex}`);
-    });
-    console.log('=== END VALIDATED STEPS DEBUG ===');
     this.resources = this.simpi.resources.map(r => {
       if (r)
       {
@@ -434,7 +412,6 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
     if (this.swiperIndex < this.totalStepCount) {
       this.markStepCompleted(this.swiperIndex);
       this.clearProgressTracking();
-      console.log('Audio ended - marked step as completed:', this.swiperIndex);
     }
   }
 
@@ -450,14 +427,12 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
       this.audioEl.nativeElement.onloadedmetadata = () => {
         const validatedStep = this.currentSlide?.step as ValidatedStep;
         this.hasAudio = validatedStep?.hasAudio || false;
-        console.log('Audio metadata loaded - hasAudio updated to:', this.hasAudio);
         this.audioEl.nativeElement.onloadedmetadata = undefined;
       };
       
       // Handle case where audio fails to load
       this.audioEl.nativeElement.onerror = () => {
         this.hasAudio = false;
-        console.log('Audio failed to load - hasAudio set to false');
         this.audioEl.nativeElement.onerror = undefined;
       };
     } else {
@@ -665,7 +640,6 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
     this.completedSteps.add(stepIndex);
     this.currentStepProgress = 100;
     this.updateTotalProgress();
-    console.log('Marked step as completed:', stepIndex);
   }
 
   public isStepCompleted(stepIndex: number): boolean {
@@ -695,11 +669,6 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
   }
 
   private startProgressTracking(): void {
-    console.log('=== STARTING PROGRESS TRACKING ===');
-    console.log('Step index:', this.swiperIndex);
-    console.log('Total steps:', this.steps?.length);
-    console.log('=== END DEBUG ===');
-    
     this.clearProgressTracking();
     
     // Ensure all previous steps are marked as completed
@@ -724,20 +693,12 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
     // Use pre-validated audio status
     const validatedStep = this.currentSlide?.step as ValidatedStep;
     const hasValidAudio = validatedStep?.hasAudio || false;
-    
-    console.log('Progress tracking decision:', { 
-      hasValidAudio,
-      stepIndex: this.swiperIndex,
-      stepId: validatedStep?.stepId
-    });
 
     if (hasValidAudio) {
       // For steps with valid audio, track actual audio progress
-      console.log('Starting audio progress tracking');
       this.startAudioProgressTracking();
     } else {
       // For steps without audio, mark as completed and animate
-      console.log('Starting animation progress tracking');
       this.startAnimationProgressTracking();
     }
   }
@@ -768,7 +729,6 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
       if (progress >= 100) {
         this.markStepCompleted(this.swiperIndex);
         this.clearProgressTracking();
-        console.log('Animation progress completed for step:', this.swiperIndex);
       }
     }, 50);
   }
@@ -787,21 +747,6 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
       if (audioElement.duration > 0 && !isNaN(audioElement.duration)) {
         progress = (audioElement.currentTime / audioElement.duration) * 100;
         
-        // Only log every 500ms to reduce console spam
-        if (Math.floor(audioElement.currentTime * 2) !== Math.floor((audioElement.currentTime - 0.1) * 2)) {
-          console.log('Audio progress:', { 
-            currentTime: audioElement.currentTime, 
-            duration: audioElement.duration, 
-            progress: progress 
-          });
-        }
-      } else {
-        console.log('Audio element not ready:', { 
-          hasAudioElement: !!audioElement,
-          duration: audioElement?.duration,
-          currentTime: audioElement?.currentTime,
-          src: audioElement?.src
-        });
       }
     }
 

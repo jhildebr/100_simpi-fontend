@@ -34,8 +34,6 @@ export class StepValidationService {
    * @returns Observable of validated steps sorted by positionIndex
    */
   validateSteps(steps: StepPlaybackResponse[], language: string): Observable<ValidatedStep[]> {
-    console.log('StepValidationService.validateSteps called with:', steps.length, 'steps');
-    
     if (!steps || steps.length === 0) {
       return of([]);
     }
@@ -48,7 +46,6 @@ export class StepValidationService {
     // Wait for all validations to complete
     return of(validationObservables).pipe(
       map(observables => {
-        console.log('StepValidationService: Starting synchronous validation');
         // For now, we'll validate synchronously by checking description
         // In a full implementation, we'd use combineLatest for async validation
         return steps.map(step => this.validateStepSynchronously(step));
@@ -88,14 +85,6 @@ export class StepValidationService {
     const hasAudio = Boolean(step.voiceOverEnabled && 
                            step.description && 
                            step.description.trim() !== '');
-    
-    // Debug validation for all steps
-    console.log('Validating step:', {
-      stepId: step.stepId,
-      voiceOverEnabled: step.voiceOverEnabled,
-      description: step.description,
-      hasAudio: hasAudio
-    });
     
     return {
       stepId: step.stepId,
