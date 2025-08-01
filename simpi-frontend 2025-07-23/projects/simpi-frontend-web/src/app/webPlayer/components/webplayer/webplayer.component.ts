@@ -268,7 +268,20 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
     //  * information about all steps and their respective mediaIds ("what to load")
     this.simpi = await this.simpiService.getSimpiForPlayback(simpiId).toPromise();
     
-    // Validate steps (keep original order, don't sort by positionIndex)
+    // 2. Load correct title from the v1 API endpoint
+    // The v2 playback endpoint may have stale title data, so we fetch the current title from v1
+    try {
+      const simpisFromProduct = await this.simpiService.getSimpisByProductId(this.simpi.productId).toPromise();
+      const currentSimpi = simpisFromProduct?.find(s => s.simpiId === simpiId);
+      if (currentSimpi && currentSimpi.title) {
+        console.log('Updating simpi title from:', this.simpi.title, 'to:', currentSimpi.title);
+        this.simpi.title = currentSimpi.title;
+      }
+    } catch (error) {
+      console.warn('Could not load current simpi title, using playback title:', error);
+    }
+    
+    // 3. Validate steps (keep original order, don't sort by positionIndex)
     const validatedSteps = await this.stepValidationService.validateSteps(this.simpi.steps, this.simpi.bestTranslationTarget).toPromise();
     this.steps = validatedSteps; // Keep original order from API
     this.totalStepCount = this.steps.length + 1; // +1 for last page
