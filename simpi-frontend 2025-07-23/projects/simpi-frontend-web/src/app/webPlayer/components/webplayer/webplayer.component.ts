@@ -26,8 +26,9 @@ import { ScaleStrategy } from 'projects/simpi-frontend-common/src/step-editor/co
 import { StepMedia } from '../../../../../../simpi-frontend-common/src/step-editor/components/stepMedia';
 import { ResourceService } from 'projects/simpi-frontend-common/src/lib/services/resources/resource.service';
 import { SimpiContextService } from 'projects/simpi-frontend-common/src/lib/services/simpi-context/simpi-context.service';
-import { STEP_MEDIA_TYPE_LEGACYVIDEO, STEP_MEDIA_TYPE_VIDEO } from 'projects/simpi-frontend-common/src/lib/shared/constants';
+import { STEP_MEDIA_TYPE_LEGACYVIDEO, STEP_MEDIA_TYPE_VIDEO, STEP_MEDIA_TYPE_IMAGE } from 'projects/simpi-frontend-common/src/lib/shared/constants';
 import { debounceTime, takeWhile, tap } from 'rxjs/operators';
+import { StepValidationService, ValidatedStep } from '../../services/step-validation.service';
 
 @Component({
   selector: 'sim-webplayer',
@@ -82,7 +83,7 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
   @ViewChild('audio')
   public audioEl: ElementRef<HTMLAudioElement>;
 
-  public steps: StepPlaybackResponse[];
+  public steps: ValidatedStep[];
 
   public simpi: SimpiPlaybackResponse;
 
@@ -165,12 +166,19 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
   public totalProgress: number = 0;
   public totalStepCount: number = 0;
   public completedSteps: Set<number> = new Set();
-
   private progressUpdateInterval: any;
 
   public onSlideChanged(): void {
-    const audioUrl = Boolean(this.currentSlide?.step.voiceOverEnabled);
+    console.log('=== onSlideChanged DEBUG ===');
+    console.log('swiperIndex:', this.swiperIndex);
+    console.log('showInfoOverlay:', this.showInfoOverlay);
+    console.log('currentSlide exists:', !!this.currentSlide);
+    console.log('=== END onSlideChanged DEBUG ===');
+    
+    const currentStep = this.currentSlide?.step as ValidatedStep;
+    const audioUrl = currentStep?.hasAudio || false;
     const videoUrl = Boolean(this.currentSlide?.step.media.find(m => m.type.toLowerCase() == STEP_MEDIA_TYPE_VIDEO || m.type.toLowerCase() == STEP_MEDIA_TYPE_LEGACYVIDEO));
+    // Use pre-validated audio status
     this.hasAudio = audioUrl;
     this.canPlay = audioUrl || videoUrl;
 
@@ -181,27 +189,15 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
     // Mark all previous steps as completed when moving forward
     // This ensures that left segments are always filled regardless of execution
     this.ensurePreviousStepsCompleted();
-
-    // Reset progress for new step only if not already completed
-    if (!this.completedSteps.has(this.swiperIndex)) {
-      this.currentStepProgress = 0;
-    }
     
-    // If we're navigating away from a step without audio that hasn't been completed yet,
-    // mark it as completed to ensure the segment gets filled
-    const previousStepIndex = this.swiperIndex - 1;
-    if (previousStepIndex >= 0 && previousStepIndex < this.steps.length) {
-      const previousStep = this.steps[previousStepIndex];
-      if (!previousStep.voiceOverEnabled && !this.completedSteps.has(previousStepIndex)) {
-        this.completedSteps.add(previousStepIndex);
-      }
-    }
-    
+    // Always clear and restart progress tracking to ensure consistency
     this.clearProgressTracking();
 
     // Start progress tracking immediately if not on info overlay
     if (!this.showInfoOverlay) {
       this.startProgressTracking();
+    } else {
+      console.log('Skipping progress tracking due to showInfoOverlay');
     }
 
     if (this.audioEl?.nativeElement) {
@@ -209,6 +205,10 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
     }
     this.loadMediaSubscription?.unsubscribe();
     this.stopAudio();
+    
+    // Reset hasAudio when audio element is cleared - use pre-validated status
+    const validatedStep = this.currentSlide?.step as ValidatedStep;
+    this.hasAudio = validatedStep?.hasAudio || false;
 
     if (this.currentSlide && this.audioEl?.nativeElement) {
       this.loadMediaSubscription = this.currentSlide.stepMedia$.subscribe((stepMedia: StepMedia) => {
@@ -244,7 +244,8 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
     private translationService: SimpiTranslationService,
     private simpiService: SimpiService,
     private resourceService: ResourceService,
-    private context: SimpiContextService) {
+    private context: SimpiContextService,
+    private stepValidationService: StepValidationService) {
   }
 
   public ngOnInit(): void {
@@ -266,8 +267,20 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
     // 1. Initial loading of metadata
     //  * information about all steps and their respective mediaIds ("what to load")
     this.simpi = await this.simpiService.getSimpiForPlayback(simpiId).toPromise();
-    this.steps = this.simpi.steps;
+    
+    // Validate steps (keep original order, don't sort by positionIndex)
+    const validatedSteps = await this.stepValidationService.validateSteps(this.simpi.steps, this.simpi.bestTranslationTarget).toPromise();
+    this.steps = validatedSteps; // Keep original order from API
     this.totalStepCount = this.steps.length + 1; // +1 for last page
+    
+    // Debug: Log all validated steps
+    console.log('=== VALIDATED STEPS DEBUG ===');
+    console.log('Total steps loaded:', this.steps.length);
+    console.log('Total step count (including n+1):', this.totalStepCount);
+    this.steps.forEach((step, index) => {
+      console.log(`Step ${index}: ID=${step.stepId}, Title="${step.title}", VoiceOver=${step.voiceOverEnabled}, HasAudio=${step.hasAudio}, PositionIndex=${step.positionIndex}`);
+    });
+    console.log('=== END VALIDATED STEPS DEBUG ===');
     this.resources = this.simpi.resources.map(r => {
       if (r)
       {
@@ -318,8 +331,11 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
   public playSimpi(): void {
     this.showInfoOverlay = false;
     this.context.playVideo();
-    this.context.playAudio();
-    this.startProgressTracking();
+    
+    // Start progress tracking for the first step with a small delay to ensure slide is ready
+    setTimeout(() => {
+      this.startProgressTracking();
+    }, 50);
   }
 
   public toggleSound(): void {
@@ -403,9 +419,9 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
     
     // Mark current step as completed when audio ends
     if (this.swiperIndex < this.totalStepCount) {
-      this.completedSteps.add(this.swiperIndex);
-      this.currentStepProgress = 100;
-      this.updateTotalProgress();
+      this.markStepCompleted(this.swiperIndex);
+      this.clearProgressTracking();
+      console.log('Audio ended - marked step as completed:', this.swiperIndex);
     }
   }
 
@@ -416,6 +432,24 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
       this.audioEl.nativeElement.src = audioSrc;
       this.audioEl.nativeElement.load();
       this.audioEl.nativeElement.preload = 'metadata';
+      
+      // Update hasAudio property when audio metadata is loaded
+      this.audioEl.nativeElement.onloadedmetadata = () => {
+        const validatedStep = this.currentSlide?.step as ValidatedStep;
+        this.hasAudio = validatedStep?.hasAudio || false;
+        console.log('Audio metadata loaded - hasAudio updated to:', this.hasAudio);
+        this.audioEl.nativeElement.onloadedmetadata = undefined;
+      };
+      
+      // Handle case where audio fails to load
+      this.audioEl.nativeElement.onerror = () => {
+        this.hasAudio = false;
+        console.log('Audio failed to load - hasAudio set to false');
+        this.audioEl.nativeElement.onerror = undefined;
+      };
+    } else {
+      // No audio source or element, ensure hasAudio is false
+      this.hasAudio = false;
     }
   }
 
@@ -535,6 +569,9 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
 
     this.pauseAudio();
     this.audioEl.nativeElement.currentTime = 0;
+    
+    // Don't reset hasAudio here as the audio element still exists and might be valid
+    // hasAudio should only be reset when the audio element is cleared or changed
   }
 
   private muteAudio(muted: boolean): void {
@@ -604,6 +641,20 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
     return index;
   }
 
+  public getSegmentIndices(): number[] {
+    if (!this.totalStepCount) {
+      return [];
+    }
+    return Array.from({ length: this.totalStepCount }, (_, i) => i);
+  }
+
+  private markStepCompleted(stepIndex: number): void {
+    this.completedSteps.add(stepIndex);
+    this.currentStepProgress = 100;
+    this.updateTotalProgress();
+    console.log('Marked step as completed:', stepIndex);
+  }
+
   public isStepCompleted(stepIndex: number): boolean {
     return this.completedSteps.has(stepIndex);
   }
@@ -631,17 +682,19 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
   }
 
   private startProgressTracking(): void {
+    console.log('=== STARTING PROGRESS TRACKING ===');
+    console.log('Step index:', this.swiperIndex);
+    console.log('Total steps:', this.steps?.length);
+    console.log('=== END DEBUG ===');
+    
     this.clearProgressTracking();
     
     // Ensure all previous steps are marked as completed
     this.ensurePreviousStepsCompleted();
     
-    // Only start tracking if we're not on the last page
+    // Handle last page (n+1 step)
     if (this.swiperIndex >= this.steps.length) {
-      // For last page, fill immediately
-      this.currentStepProgress = 100;
-      this.completedSteps.add(this.swiperIndex);
-      this.updateTotalProgress();
+      this.markStepCompleted(this.swiperIndex);
       return;
     }
 
@@ -652,25 +705,62 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
       return;
     }
 
-    // Check if current step has video or audio
-    const hasVideo = this.currentSlide?.step.media.find(m => 
-      m.type.toLowerCase() === STEP_MEDIA_TYPE_VIDEO || 
-      m.type.toLowerCase() === STEP_MEDIA_TYPE_LEGACYVIDEO
-    );
-    const hasAudio = this.currentSlide?.step.voiceOverEnabled;
+    // Reset progress for new step
+    this.currentStepProgress = 0;
 
-    if (hasAudio) {
-      // For steps with audio, track actual audio progress
-      this.progressUpdateInterval = setInterval(() => {
-        this.updateMediaProgress();
-      }, 100); // Update every 100ms for smooth progress
+    // Use pre-validated audio status
+    const validatedStep = this.currentSlide?.step as ValidatedStep;
+    const hasValidAudio = validatedStep?.hasAudio || false;
+    
+    console.log('Progress tracking decision:', { 
+      hasValidAudio,
+      stepIndex: this.swiperIndex,
+      stepId: validatedStep?.stepId
+    });
+
+    if (hasValidAudio) {
+      // For steps with valid audio, track actual audio progress
+      console.log('Starting audio progress tracking');
+      this.startAudioProgressTracking();
     } else {
-      // For steps without audio (image/video only or no media), fill quickly
-      this.fillImageStepProgress();
+      // For steps without audio, mark as completed and animate
+      console.log('Starting animation progress tracking');
+      this.startAnimationProgressTracking();
     }
   }
 
-  private updateMediaProgress(): void {
+  // Removed hasValidAudioForCurrentStep() - now using pre-validated audio status
+
+  private startAudioProgressTracking(): void {
+    this.progressUpdateInterval = setInterval(() => {
+      if (!this._active) {
+        return;
+      }
+      this.updateAudioProgress();
+    }, 100); // Update every 100ms for smooth progress
+  }
+
+  private startAnimationProgressTracking(): void {
+    let progress = 0;
+    this.progressUpdateInterval = setInterval(() => {
+      if (!this._active) {
+        return;
+      }
+      
+      progress += 10; // Fill 10% every 50ms = 0.5 seconds total
+      this.currentStepProgress = Math.min(progress, 100);
+      
+      this.updateTotalProgress();
+
+      if (progress >= 100) {
+        this.markStepCompleted(this.swiperIndex);
+        this.clearProgressTracking();
+        console.log('Animation progress completed for step:', this.swiperIndex);
+      }
+    }, 50);
+  }
+
+  private updateAudioProgress(): void {
     if (!this._active) {
       return;
     }
@@ -678,43 +768,39 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
     const audioElement = this.audioEl?.nativeElement;
     let progress = 0;
 
-    // Use audio progress as primary indicator
-    if (audioElement && audioElement.duration > 0 && !isNaN(audioElement.duration)) {
-      progress = (audioElement.currentTime / audioElement.duration) * 100;
+    // Only track progress if audio is actually playing
+    if (audioElement && !audioElement.paused && !audioElement.ended) {
+      // Use audio progress as primary indicator
+      if (audioElement.duration > 0 && !isNaN(audioElement.duration)) {
+        progress = (audioElement.currentTime / audioElement.duration) * 100;
+        
+        // Only log every 500ms to reduce console spam
+        if (Math.floor(audioElement.currentTime * 2) !== Math.floor((audioElement.currentTime - 0.1) * 2)) {
+          console.log('Audio progress:', { 
+            currentTime: audioElement.currentTime, 
+            duration: audioElement.duration, 
+            progress: progress 
+          });
+        }
+      } else {
+        console.log('Audio element not ready:', { 
+          hasAudioElement: !!audioElement,
+          duration: audioElement?.duration,
+          currentTime: audioElement?.currentTime,
+          src: audioElement?.src
+        });
+      }
     }
 
     this.currentStepProgress = Math.min(Math.max(progress, 0), 100);
     
     // Mark step as completed when it reaches 100%
     if (this.currentStepProgress >= 100) {
-      this.completedSteps.add(this.swiperIndex);
+      this.markStepCompleted(this.swiperIndex);
+      this.clearProgressTracking();
     }
     
     this.updateTotalProgress();
-  }
-
-  private fillImageStepProgress(): void {
-    // Quickly fill progress for image steps
-    let progress = 0;
-    this.progressUpdateInterval = setInterval(() => {
-      if (!this._active) {
-        return;
-      }
-      
-      progress += 5; // Fill 5% every 50ms = 1 second total
-      this.currentStepProgress = Math.min(progress, 100);
-      
-      // Mark step as completed when it reaches 100%
-      if (this.currentStepProgress >= 100) {
-        this.completedSteps.add(this.swiperIndex);
-      }
-      
-      this.updateTotalProgress();
-
-      if (progress >= 100) {
-        this.clearProgressTracking();
-      }
-    }, 50);
   }
 
   private updateTotalProgress(): void {
@@ -737,3 +823,4 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
     }
   }
 }
+

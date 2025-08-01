@@ -12,11 +12,12 @@
         [attr.aria-valuemax]="100">
         <div class="progress-segments">
           <div 
-            *ngFor="let step of steps; let i = index; trackBy: trackByIndex" 
+            *ngFor="let i of getSegmentIndices(); trackBy: trackByIndex" 
             class="progress-segment"
-            [class.completed]="i < swiperIndex"
+            [class.completed]="isStepCompleted(i)"
             [class.active]="i === swiperIndex"
-            [class.upcoming]="i > swiperIndex">
+            [class.upcoming]="i > swiperIndex"
+            [class.last-page-segment]="i >= steps.length">
             <!-- Completed segments show full fill -->
             <div 
               class="segment-fill" 
@@ -27,26 +28,6 @@
             <div 
               class="segment-fill" 
               *ngIf="i === swiperIndex && !isStepCompleted(i)" 
-              [style.width.%]="currentStepProgress"
-              [attr.data-step]="swiperIndex">
-            </div>
-          </div>
-          <!-- Extra segment for last page -->
-          <div 
-            class="progress-segment last-page-segment"
-            [class.completed]="swiperIndex > steps.length"
-            [class.active]="swiperIndex === steps.length"
-            [class.upcoming]="swiperIndex < steps.length">
-            <!-- Completed last page shows full fill -->
-            <div 
-              class="segment-fill" 
-              *ngIf="isStepCompleted(steps.length)" 
-              [style.width.%]="100">
-            </div>
-            <!-- Active last page shows current progress -->
-            <div 
-              class="segment-fill" 
-              *ngIf="swiperIndex === steps.length && !isStepCompleted(steps.length)" 
               [style.width.%]="currentStepProgress"
               [attr.data-step]="swiperIndex">
             </div>
