@@ -301,7 +301,7 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
         await slide.loadMedia();
       }
 
-      this.relatedSimpis$ = this.simpiService.getSimpisByProductId(this.simpi.productId);
+      this.relatedSimpis$ = this.simpiService.getSimpisByProductId(this.simpi.productId, false, true);
     }, 0);
   }
 

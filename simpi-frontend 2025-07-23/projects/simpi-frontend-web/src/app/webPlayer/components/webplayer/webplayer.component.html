@@ -87,7 +87,11 @@
                     <div *ngFor="let simpi of simpis" class="swiper-slide">
                       <div class="d-flex flex-column w-100" (click)="selectRelatedSimpi(simpi)">
                         <div class="last-slide-item-img">
-                          <img [src]="simpi.thumbnailUrl"/>
+                          <img *ngIf="simpi.thumbnailUrl" [src]="simpi.thumbnailUrl" alt="Simpi thumbnail"/>
+                          <div *ngIf="!simpi.thumbnailUrl" 
+                               class="default-thumbnail" 
+                               [style.background-color]="simpi.iconColor || '#cecece'">
+                          </div>
                         </div>
                         <div class="last-slide-item-text">
                           <div class="title">
