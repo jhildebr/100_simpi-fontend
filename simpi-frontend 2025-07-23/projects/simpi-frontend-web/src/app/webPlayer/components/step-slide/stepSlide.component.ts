@@ -171,7 +171,10 @@ export class StepSlideComponent implements OnDestroy {
       audioDownloadUrl = this.stepService.getStepDescriptionAudioVoiceOverUrl(this.step.stepId, this.voiceOverLanguage);
     }
 
-    const [image, video, audio] = await this.download([imageDownloadUrl, videoDownloadUrl, audioDownloadUrl], this.downloadProgress);
+    const downloadResult = await this.download([imageDownloadUrl, videoDownloadUrl, audioDownloadUrl], this.downloadProgress);
+    
+    // Ensure we have an array with 3 elements for destructuring
+    const [image, video, audio] = Array.isArray(downloadResult) ? downloadResult : [null, null, null];
 
     if (!this.aborted) {
       this.imageUrl = this.createObjectUrl(image);
@@ -234,10 +237,19 @@ export class StepSlideComponent implements OnDestroy {
       })
     ).subscribe(progress);
 
-    return await downloadEvents.pipe(
-      filter(events => this.all(events, ev => ev === null || ev.type === HttpEventType.Response)),
-      map(events => events.map(ev => ev?.type === HttpEventType.Response ? ev.body : null)),
-    ).toPromise();
+    try {
+      const result = await downloadEvents.pipe(
+        filter(events => this.all(events, ev => ev === null || ev.type === HttpEventType.Response)),
+        map(events => events.map(ev => ev?.type === HttpEventType.Response ? ev.body : null)),
+      ).toPromise();
+      
+      // Ensure we always return an array, even if the promise resolves to undefined
+      return result || [null, null, null];
+    } catch (error) {
+      console.error('Download failed:', error);
+      // Return array of nulls on error
+      return [null, null, null];
+    }
   }
 
   public onVideoStarted(): void {

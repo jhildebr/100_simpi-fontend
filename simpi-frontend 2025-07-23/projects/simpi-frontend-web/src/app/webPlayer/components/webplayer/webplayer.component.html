@@ -109,7 +109,7 @@
                 Repeat
               </button>
               <button class="btn btn-outline-primary" (click)="share.emit()">
-                Share with Friends
+                Share
               </button>
             </div>
           </sim-last-slide>
@@ -148,7 +148,7 @@
     <button
       class="start-btn btn btn-block"
       (click)="playSimpi()"
-      [disabled]="!currentSlide?.loaded"
+      [disabled]="!isCurrentSlideLoaded"
     >
       <img class="caret-icon" src="assets/svg/play.svg" alt="Play simpi button"/>START
     </button>

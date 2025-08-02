@@ -1,0 +1,204 @@
+*** before start - step 0, without audio, segment correctly filled ***
+[webpack-dev-server] App updated. Recompiling...
+index.js:594 [webpack-dev-server] Nothing changed.
+translations.service.ts:34 constru8ctor config {baseUrl: 'https://app.simpi.ai', restUrl: 'https://simpi-simpis-dev1.azurewebsites.net', userServiceUrl: 'https://simpi-users-dev1.azurewebsites.net', authStorageKey: 'auth-dev'}
+webplayer.component.ts:289 === STEPS DEBUG ===
+webplayer.component.ts:290 Total steps loaded: 6
+webplayer.component.ts:292 Step 0: ID=627ecf5b-b7b5-46f8-a3a7-5ce8f684f856, Title="", VoiceOver=true
+webplayer.component.ts:292 Step 1: ID=5d685469-19c4-465f-bde1-6e18b80982ab, Title="", VoiceOver=true
+webplayer.component.ts:292 Step 2: ID=e05ae23d-78d6-4a03-911b-03ce3a62ace8, Title="", VoiceOver=true
+webplayer.component.ts:292 Step 3: ID=0fc26c2d-0500-4e9e-9a41-61daf5808c47, Title="", VoiceOver=true
+webplayer.component.ts:292 Step 4: ID=327c3b4c-c4fb-42b7-8fef-4db75aab4ca5, Title="", VoiceOver=true
+webplayer.component.ts:292 Step 5: ID=ceed1a5e-5b2c-483d-afaf-6497ddf90701, Title="", VoiceOver=true
+webplayer.component.ts:294 === END STEPS DEBUG ===
+webplayer.component.ts:172 === onSlideChanged DEBUG ===
+webplayer.component.ts:173 swiperIndex: 0
+webplayer.component.ts:174 progressUpdateInterval: false
+webplayer.component.ts:175 justStarted: false
+webplayer.component.ts:176 showInfoOverlay: true
+webplayer.component.ts:177 currentSlide exists: true
+webplayer.component.ts:178 === END onSlideChanged DEBUG ===
+webplayer.component.ts:207 Starting progress tracking from onSlideChanged
+webplayer.component.ts:214 Skipping progress tracking due to showInfoOverlay
+webplayer.component.ts:568 
+
+*** CORRECT: step 1, without audio, segment correctly filled ***
+restartVideo$ with videoUrl: https://simpi-simpis-dev1.azurewebsites.net/api/v1/steps/video/a0a28858-66af-4a6f-ad3f-161857adbd50
+step-editor.component.ts:1381 restartVideo$ with videoUrl: blob:http://localhost:4200/a30792af-9fb1-4e05-8547-2109d6c70cea
+webplayer.component.ts:702 === STEP DEBUG INFO ===
+webplayer.component.ts:703 Step index: 0
+webplayer.component.ts:704 Step ID: 627ecf5b-b7b5-46f8-a3a7-5ce8f684f856
+webplayer.component.ts:705 Voice over enabled: true
+webplayer.component.ts:706 Media types found: ['Video']
+webplayer.component.ts:707 Has video: true
+webplayer.component.ts:708 Has image: false
+webplayer.component.ts:709 Audio element exists: true
+webplayer.component.ts:710 Audio src: 
+webplayer.component.ts:711 Audio duration: NaN
+webplayer.component.ts:712 Audio paused: true
+webplayer.component.ts:713 Audio ended: false
+webplayer.component.ts:714 Audio readyState: 0
+webplayer.component.ts:715 Step media observable exists: true
+webplayer.component.ts:728 Detected step type: video with audio (2 blobs)
+webplayer.component.ts:730 === END STEP DEBUG INFO ===
+webplayer.component.ts:758 Progress tracking decision: {hasValidAudio: false, voiceOverEnabled: true, audioSrc: '', audioDuration: NaN}
+webplayer.component.ts:771 Starting animation progress tracking
+webplayer.component.ts:813 Animation tracking: Marked step as completed immediately: 0
+webplayer.component.ts:814 Completed steps set: [0]
+webplayer.component.ts:825 Animation progress update: {progress: 10, currentStepProgress: 10}
+webplayer.component.ts:825 Animation progress update: {progress: 20, currentStepProgress: 20}
+webplayer.component.ts:825 Animation progress update: {progress: 30, currentStepProgress: 30}
+webplayer.component.ts:825 Animation progress update: {progress: 40, currentStepProgress: 40}
+webplayer.component.ts:825 Animation progress update: {progress: 50, currentStepProgress: 50}
+webplayer.component.ts:825 Animation progress update: {progress: 60, currentStepProgress: 60}
+webplayer.component.ts:825 Animation progress update: {progress: 70, currentStepProgress: 70}
+webplayer.component.ts:825 Animation progress update: {progress: 80, currentStepProgress: 80}
+webplayer.component.ts:825 Animation progress update: {progress: 90, currentStepProgress: 90}
+webplayer.component.ts:825 Animation progress update: {progress: 100, currentStepProgress: 100}currentStepProgress: 100progress: 100[[Prototype]]: Object
+webplayer.component.ts:831 
+
+***INCORRECT: step 2, with audio, segment not filled based on progress ***
+webplayer.component.ts:707 Has video: true
+webplayer.component.ts:708 Has image: false
+webplayer.component.ts:709 Audio element exists: true
+webplayer.component.ts:710 Audio src: 
+webplayer.component.ts:711 Audio duration: NaN
+webplayer.component.ts:712 Audio paused: true
+webplayer.component.ts:713 Audio ended: false
+webplayer.component.ts:714 Audio readyState: 0
+webplayer.component.ts:715 Step media observable exists: true
+webplayer.component.ts:728 Detected step type: video with audio (2 blobs)
+webplayer.component.ts:730 === END STEP DEBUG INFO ===
+webplayer.component.ts:758 Progress tracking decision: {hasValidAudio: false, voiceOverEnabled: true, audioSrc: '', audioDuration: NaN}
+webplayer.component.ts:771 Starting animation progress tracking
+webplayer.component.ts:813 Animation tracking: Marked step as completed immediately: 1
+webplayer.component.ts:814 Completed steps set: (2) [0, 1]
+webplayer.component.ts:568 Device orientation is detected as landscape
+step-editor.component.ts:1381 restartVideo$ with videoUrl: blob:http://localhost:4200/d7941250-af73-48f9-9d6b-454ba64ea1bc
+webplayer.component.ts:702 === STEP DEBUG INFO ===
+webplayer.component.ts:703 Step index: 1
+webplayer.component.ts:704 Step ID: 5d685469-19c4-465f-bde1-6e18b80982ab
+webplayer.component.ts:705 Voice over enabled: true
+webplayer.component.ts:706 Media types found: ['Video']
+webplayer.component.ts:707 Has video: true
+webplayer.component.ts:708 Has image: false
+webplayer.component.ts:709 Audio element exists: true
+webplayer.component.ts:710 Audio src: blob:http://localhost:4200/00534aaa-093d-45cd-a5c3-a9fcc632ce77
+webplayer.component.ts:711 Audio duration: NaN
+webplayer.component.ts:712 Audio paused: false
+webplayer.component.ts:713 Audio ended: false
+webplayer.component.ts:714 Audio readyState: 0
+webplayer.component.ts:715 Step media observable exists: true
+webplayer.component.ts:728 Detected step type: video with audio (2 blobs)
+webplayer.component.ts:730 === END STEP DEBUG INFO ===
+webplayer.component.ts:459 Audio metadata loaded - hasAudio updated to: true
+webplayer.component.ts:444 
+
+*** INCORRECT: step 3, without audio, segment filled after navigating to step 4 ***
+Audio metadata loaded - hasAudio updated to: true
+webplayer.component.ts:444 Audio ended - marked step as completed: 1
+webplayer.component.ts:172 === onSlideChanged DEBUG ===
+webplayer.component.ts:173 swiperIndex: 2
+webplayer.component.ts:174 progressUpdateInterval: false
+webplayer.component.ts:175 justStarted: false
+webplayer.component.ts:176 showInfoOverlay: false
+webplayer.component.ts:177 currentSlide exists: true
+webplayer.component.ts:178 === END onSlideChanged DEBUG ===
+webplayer.component.ts:207 Starting progress tracking from onSlideChanged
+webplayer.component.ts:702 === STEP DEBUG INFO ===
+webplayer.component.ts:703 Step index: 2
+webplayer.component.ts:704 Step ID: e05ae23d-78d6-4a03-911b-03ce3a62ace8
+webplayer.component.ts:705 Voice over enabled: true
+webplayer.component.ts:706 Media types found: ['Video']
+webplayer.component.ts:707 Has video: true
+webplayer.component.ts:708 Has image: false
+webplayer.component.ts:709 Audio element exists: true
+webplayer.component.ts:710 Audio src: blob:http://localhost:4200/00534aaa-093d-45cd-a5c3-a9fcc632ce77
+webplayer.component.ts:711 Audio duration: 3.06
+webplayer.component.ts:712 Audio paused: true
+webplayer.component.ts:713 Audio ended: false
+webplayer.component.ts:714 Audio readyState: 4
+webplayer.component.ts:715 Step media observable exists: true
+webplayer.component.ts:728 Detected step type: video with audio (2 blobs)
+webplayer.component.ts:730 === END STEP DEBUG INFO ===
+webplayer.component.ts:758 Progress tracking decision: {hasValidAudio: true, voiceOverEnabled: true, audioSrc: 'blob:http://localhost:4200/00534aaa-093d-45cd-a5c3-a9fcc632ce77', audioDuration: 3.06}
+webplayer.component.ts:767 Starting audio progress tracking
+webplayer.component.ts:568 Device orientation is detected as landscape
+step-editor.component.ts:1381 
+
+*** INCORRECT: step 4, with audio, segment filled but not based on progress (worked before) ***
+=== onSlideChanged DEBUG ===
+webplayer.component.ts:173 swiperIndex: 3
+webplayer.component.ts:174 progressUpdateInterval: true
+webplayer.component.ts:175 justStarted: false
+webplayer.component.ts:176 showInfoOverlay: false
+webplayer.component.ts:177 currentSlide exists: true
+webplayer.component.ts:178 === END onSlideChanged DEBUG ===
+webplayer.component.ts:217 Skipping progress tracking due to existing progressUpdateInterval
+webplayer.component.ts:568 Device orientation is detected as landscape
+step-editor.component.ts:1381 restartVideo$ with videoUrl: blob:http://localhost:4200/450b2670-1ee0-4990-8373-c447ff827364
+webplayer.component.ts:702 === STEP DEBUG INFO ===
+webplayer.component.ts:703 Step index: 3
+webplayer.component.ts:704 Step ID: 0fc26c2d-0500-4e9e-9a41-61daf5808c47
+webplayer.component.ts:705 Voice over enabled: true
+webplayer.component.ts:706 Media types found: ['Video']
+webplayer.component.ts:707 Has video: true
+webplayer.component.ts:708 Has image: false
+webplayer.component.ts:709 Audio element exists: true
+webplayer.component.ts:710 Audio src: blob:http://localhost:4200/93bd1fda-a679-4cb0-aca8-1b658449efd9
+webplayer.component.ts:711 Audio duration: NaN
+webplayer.component.ts:712 Audio paused: false
+webplayer.component.ts:713 Audio ended: false
+webplayer.component.ts:714 Audio readyState: 0
+webplayer.component.ts:715 Step media observable exists: true
+webplayer.component.ts:728 Detected step type: video with audio (2 blobs)
+webplayer.component.ts:730 === END STEP DEBUG INFO ===
+webplayer.component.ts:758 Progress tracking decision: {hasValidAudio: false, voiceOverEnabled: true, audioSrc: 'blob:http://localhost:4200/93bd1fda-a679-4cb0-aca8-1b658449efd9', audioDuration: NaN}
+webplayer.component.ts:771 Starting animation progress tracking
+webplayer.component.ts:813 Animation tracking: Marked step as completed immediately: 3
+webplayer.component.ts:814 Completed steps set: (4) [0, 1, 2, 3]
+webplayer.component.ts:459 Audio metadata loaded - hasAudio updated to: true
+webplayer.component.ts:825 Animation progress update: {progress: 10, currentStepProgress: 10}
+webplayer.component.ts:825 Animation progress update: {progress: 20, currentStepProgress: 20}
+webplayer.component.ts:825 Animation progress update: {progress: 30, currentStepProgress: 30}
+webplayer.component.ts:825 Animation progress update: {progress: 40, currentStepProgress: 40}
+webplayer.component.ts:825 Animation progress update: {progress: 50, currentStepProgress: 50}
+webplayer.component.ts:825 Animation progress update: {progress: 60, currentStepProgress: 60}
+webplayer.component.ts:825 Animation progress update: {progress: 70, currentStepProgress: 70}
+webplayer.component.ts:825 Animation progress update: {progress: 80, currentStepProgress: 80}
+webplayer.component.ts:825 Animation progress update: {progress: 90, currentStepProgress: 90}
+webplayer.component.ts:825 Animation progress update: {progress: 100, currentStepProgress: 100}
+webplayer.component.ts:831 Animation progress completed
+webplayer.component.ts:444 
+
+*** INCORRECT step 5, progress bar not filled, skipped entirely ***
+=== onSlideChanged DEBUG ===
+webplayer.component.ts:173 swiperIndex: 4
+webplayer.component.ts:174 progressUpdateInterval: false
+webplayer.component.ts:175 justStarted: false
+webplayer.component.ts:176 showInfoOverlay: false
+webplayer.component.ts:177 currentSlide exists: true
+webplayer.component.ts:178 === END onSlideChanged DEBUG ===
+webplayer.component.ts:207 Starting progress tracking from onSlideChanged
+webplayer.component.ts:702 === STEP DEBUG INFO ===
+webplayer.component.ts:703 Step index: 4
+webplayer.component.ts:704 Step ID: 327c3b4c-c4fb-42b7-8fef-4db75aab4ca5
+webplayer.component.ts:705 Voice over enabled: true
+webplayer.component.ts:706 Media types found: ['Video']
+webplayer.component.ts:707 Has video: true
+webplayer.component.ts:708 Has image: false
+webplayer.component.ts:709 Audio element exists: true
+webplayer.component.ts:710 Audio src: blob:http://localhost:4200/93bd1fda-a679-4cb0-aca8-1b658449efd9
+webplayer.component.ts:711 Audio duration: 3.024
+webplayer.component.ts:712 Audio paused: true
+webplayer.component.ts:713 Audio ended: false
+webplayer.component.ts:714 Audio readyState: 4
+webplayer.component.ts:715 Step media observable exists: true
+webplayer.component.ts:728 Detected step type: video with audio (2 blobs)
+webplayer.component.ts:730 === END STEP DEBUG INFO ===
+webplayer.component.ts:758 Progress tracking decision: {hasValidAudio: true, voiceOverEnabled: true, audioSrc: 'blob:http://localhost:4200/93bd1fda-a679-4cb0-aca8-1b658449efd9', audioDuration: 3.024}
+webplayer.component.ts:767 Starting audio progress tracking
+webplayer.component.ts:568 Device orientation is detected as landscape
+step-editor.component.ts:1381 restartVideo$ with videoUrl: blob:
+
+

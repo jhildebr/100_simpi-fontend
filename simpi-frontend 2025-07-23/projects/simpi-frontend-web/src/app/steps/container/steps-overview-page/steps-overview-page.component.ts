@@ -1,7 +1,7 @@
 import {AfterViewInit, ChangeDetectorRef, Component, ComponentRef, OnDestroy, OnInit, ViewChild,} from '@angular/core';
 import {UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
-import {combineLatest, Observable, of} from 'rxjs';
+import {combineLatest, Observable, of, Subscription} from 'rxjs';
 import {
   catchError,
   filter,
@@ -63,6 +63,8 @@ export class StepsOverviewPageComponent implements OnInit, OnDestroy, AfterViewI
   private _componentRef: ComponentRef<WebplayerComponent>;
   private _overlayShown: boolean;
   private _defaultTextBackgroundColor: string = '#d96635';
+  private _closeSubscription: Subscription;
+  private _backdropSubscription: Subscription;
 
   public simpiTitle: string;
   public simpi: SimpiResponse;
@@ -563,6 +565,9 @@ export class StepsOverviewPageComponent implements OnInit, OnDestroy, AfterViewI
   public ngOnDestroy(): void {
     this.stepService.setSelectedStep(null);
     this._componentActive = false;
+    
+    // Clean up any remaining overlay and subscriptions
+    this.closePlayer();
   }
 
   public onNavigateBackClick(): void {
@@ -624,7 +629,7 @@ export class StepsOverviewPageComponent implements OnInit, OnDestroy, AfterViewI
   }
 
   private subscribeToClose(): void {
-    this._componentRef.instance.close.pipe(
+    this._closeSubscription = this._componentRef.instance.close.pipe(
       takeWhile(() => this._overlayShown)
     ).subscribe(() => {
       this.closePlayer();
@@ -632,7 +637,7 @@ export class StepsOverviewPageComponent implements OnInit, OnDestroy, AfterViewI
   }
 
   private subscribeToBackdrop(): void {
-    this._overlayRef.backdropClick().pipe(
+    this._backdropSubscription = this._overlayRef.backdropClick().pipe(
       takeWhile(() => this._overlayShown)
     ).subscribe(() => {
       this.closePlayer();
@@ -641,12 +646,43 @@ export class StepsOverviewPageComponent implements OnInit, OnDestroy, AfterViewI
 
   private closePlayer(): void {
     this._overlayShown = false;
-    if (this.componentPortal.isAttached) {
-      this.componentPortal.detach();
+    
+    try {
+      // Clean up subscriptions
+      if (this._closeSubscription) {
+        this._closeSubscription.unsubscribe();
+        this._closeSubscription = null;
+      }
+      
+      if (this._backdropSubscription) {
+        this._backdropSubscription.unsubscribe();
+        this._backdropSubscription = null;
+      }
+      
+      if (this.componentPortal && this.componentPortal.isAttached) {
+        this.componentPortal.detach();
+      }
+      
+      if (this._componentRef) {
+        // Check if the component is still valid before destroying
+        if (this._componentRef.instance) {
+          this._componentRef.destroy();
+        }
+        this._componentRef = null;
+      }
+      
+      if (this._overlayRef) {
+        this._overlayRef.dispose();
+        this._overlayRef = null;
+      }
+    } catch (error) {
+      console.warn('Error closing player:', error);
+      // Clean up references even if there's an error
+      this._closeSubscription = null;
+      this._backdropSubscription = null;
+      this._componentRef = null;
+      this._overlayRef = null;
     }
-    this._componentRef.onDestroy(null);
-    this._componentRef.destroy();
-    this._overlayRef = undefined;
   }
 
   public onNextClicked(): void {

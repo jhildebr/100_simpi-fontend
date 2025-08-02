@@ -392,6 +392,7 @@ export class ProductDetailsComponent
       this.subscribeToClose();
       this.subscribeToBackdrop();
       this.subscribeToShare();
+      this.subscribeToSelectSimpi();
     }
 
     this._componentRef.instance.simpiId = simpiId;
@@ -436,6 +437,21 @@ export class ProductDetailsComponent
       });
   }
 
+  private subscribeToSelectSimpi(): void {
+    this._componentRef.instance.selectSimpi
+      .pipe(takeWhile(() => this._overlayShown))
+      .subscribe((simpiId: string) => {
+        // Use setTimeout to allow current execution to complete before destroying the component
+        setTimeout(() => {
+          // Check if overlay is still shown and component still exists before proceeding
+          if (this._overlayShown && this._componentRef && this.componentPortal.isAttached) {
+            this.closePlayer();
+            this.selectSimpi(simpiId);
+          }
+        }, 0);
+      });
+  }
+
   public ngOnDestroy(): void {
     if (this._componentRef) {
       this._componentRef.destroy();
@@ -446,10 +462,14 @@ export class ProductDetailsComponent
   private closePlayer(): void {
     this._overlayShown = false;
     if (this.componentPortal.isAttached) {
+      // detach() handles component destruction automatically
       this.componentPortal.detach();
+    } else if (this._componentRef) {
+      // Only manually destroy if portal didn't handle it
+      this._componentRef.onDestroy(null);
+      this._componentRef.destroy();
     }
-    this._componentRef.onDestroy(null);
-    this._componentRef.destroy();
+    this._componentRef = null;
     this._overlayRef = undefined;
   }
 

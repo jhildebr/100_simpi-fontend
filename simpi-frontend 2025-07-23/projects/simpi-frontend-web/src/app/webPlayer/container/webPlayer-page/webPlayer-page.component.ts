@@ -1,5 +1,5 @@
 import {  ChangeDetectorRef, Component, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EMPTY } from 'rxjs';
 import { catchError, switchMap, takeWhile, tap } from 'rxjs/operators';
 import { DeploymentStateResponse, SimpiResponse } from '../../../../../../simpi-frontend-common/src/lib/models';
@@ -16,7 +16,7 @@ import { WebplayerComponent } from '../../components/webplayer/webplayer.compone
       <sim-not-available *ngIf="simpiNotAvailable" [reason]="notAvailableReason"></sim-not-available>
       <sim-loading-spinner *ngIf="showLoadingSpinner" size="3x" [show]="true"></sim-loading-spinner>
       <ng-container *ngIf="!simpiNotAvailable">
-        <sim-webplayer #player class="h-100" [simpiId]='simpi?.simpiId' [showCloseButton]="false" (share)="onShare()">
+        <sim-webplayer #player class="h-100" [simpiId]='simpi?.simpiId' [showCloseButton]="false" (share)="onShare()" (selectSimpi)="onSelectSimpi($event)">
         </sim-webplayer>
       </ng-container>
     `,
@@ -44,7 +44,7 @@ export class WebPlayerPageComponent implements OnInit, OnDestroy {
 
     constructor(private route: ActivatedRoute, private simpiService: SimpiService, private cdr: ChangeDetectorRef,
         private renderer2: Renderer2, private shareService: ShareService,
-        private metaService: Meta, private titleService: Title) {
+        private metaService: Meta, private titleService: Title, private router: Router) {
     }
 
     public ngOnInit(): void {
@@ -92,6 +92,12 @@ export class WebPlayerPageComponent implements OnInit, OnDestroy {
         const url = `${environment.baseUrl}/player/${this._simpiAlias}`;
         this.shareService.share(this.simpi?.title, text, url);
     }
+
+    public onSelectSimpi(simpiId: string): void {
+        // This handles fullscreen mode - for now, do nothing
+        // The main functionality is in product-details component for overlay mode
+    }
+
 
     public ngOnDestroy(): void {
         this._componentActive = false;

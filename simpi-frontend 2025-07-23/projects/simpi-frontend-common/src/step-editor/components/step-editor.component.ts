@@ -846,6 +846,11 @@ export class StepEditorComponent
       return;
     }
 
+    // Don't render if image is not loaded yet
+    if (!this.imageLoaded) {
+      return;
+    }
+
     if (this._animationFrameId) {
       this.cancelAnimation();
     }
@@ -884,9 +889,13 @@ export class StepEditorComponent
     }
 
     if (this._mediaType === MEDIATYPE_IMAGE || this._mediaType === null) {
-      context.drawImage(this._image, 0, 0);
+      if (this._image) {
+        context.drawImage(this._image, 0, 0);
+      }
     } else if (this._mediaType === MEDIATYPE_VIDEO) {
-      context.drawImage(this.videoEl.nativeElement, 0, 0);
+      if (this.videoEl?.nativeElement) {
+        context.drawImage(this.videoEl.nativeElement, 0, 0);
+      }
     }
 
     if (this._active) {

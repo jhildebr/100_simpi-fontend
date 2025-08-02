@@ -75,6 +75,9 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
   @Output()
   public share: EventEmitter<void> = new EventEmitter<void>();
 
+  @Output()
+  public selectSimpi: EventEmitter<string> = new EventEmitter<string>();
+
   public swiper: Swiper;
 
   @ViewChildren('slide')
@@ -156,6 +159,11 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
 
   public get currentSlide(): StepSlideComponent {
     return this.stepSlides.length ? this.stepSlides.toArray()[this.swiperIndex] : null;
+  }
+
+  public get isCurrentSlideLoaded(): boolean {
+    const slide = this.currentSlide;
+    return slide ? slide.loaded : false;
   }
 
   public hasAudio: boolean = false;
@@ -352,11 +360,10 @@ export class WebplayerComponent implements OnDestroy, OnInit, AfterViewInit {
     this.enableSwiper();
   }
 
-  public async selectRelatedSimpi(simpi: SimpiResponse): Promise<void> {
-    this.enableSwiper();
-    await this.loadSimpi(simpi.simpiId);
-    this.repeatSimpi();
+  public selectRelatedSimpi(simpi: SimpiResponse): void {
+    this.selectSimpi.emit(simpi.simpiId);
   }
+
 
   private disableSwiper(): void {
     if (this.swiper) {
